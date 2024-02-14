@@ -25,6 +25,7 @@
 - Gadot - version 4.2.1
 
 ## General Info
+- Cover Art
 -![Cover Art](ProjectHillBilly.png)
 
 ## Features
