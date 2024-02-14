@@ -25,7 +25,7 @@
 - Gadot - version 4.2.1
 
 ## General Info
--![Cover Art](./Users/luisherrera/Documents/horror-game/ProjectHillBilly.png)
+-![Cover Art](ProjectHillBilly.png)
 
 ## Features
 - List the ready features here:
