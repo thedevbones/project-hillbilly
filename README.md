@@ -9,7 +9,6 @@
 * [Features](#features)
 <!-- * [License](#license) -->
 
-
 ## Description
 - From creators:
     - Jordan Flores
@@ -30,10 +29,12 @@
 
 ## Features
 List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
-
+- Main Menu:
+    - The game will have a working main menu with various selections.
+-  Scary Enviroment:
+    - Set in a dark wooded area.
+- Movable character:
+    - the main player will be able to move around the area. He will have the abiity to walk and run.
 
 <!-- Optional -->
 <!-- ## License -->
