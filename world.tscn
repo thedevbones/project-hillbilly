@@ -1,11 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=5 format=3 uid="uid://dpu8u0h73r1dy"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ge5q0"]
 
 [sub_resource type="Environment" id="Environment_wbc6u"]
 
 [node name="World" type="Node3D"]
 
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_1ouke")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_hnuiv")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_ge5q0")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wbc6u")
 
 [node name="TestFloor" type="CSGBox3D" parent="."]
+use_collision = true
 size = Vector3(10, 0, 10)
