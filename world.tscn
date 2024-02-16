@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=2 format=3 uid="uid://dpu8u0h73r1dy"]
+
+[sub_resource type="Environment" id="Environment_wbc6u"]
 
 [node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wbc6u")
+
+[node name="TestFloor" type="CSGBox3D" parent="."]
+size = Vector3(10, 0, 10)
