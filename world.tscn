@@ -58,4 +58,5 @@ mesh = SubResource("CapsuleMesh_ge5q0")
 environment = SubResource("Environment_wbc6u")
 
 [node name="TestFloor" type="CSGBox3D" parent="."]
+use_collision = true
 size = Vector3(10, 0, 10)
