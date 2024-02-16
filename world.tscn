@@ -21,7 +21,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# As good practice, you should replace UI actions wth custom gameplay actions.
 	var input_dir = Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -45,6 +45,8 @@ func _physics_process(delta):
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = SubResource("GDScript_21mun")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_hnuiv")
