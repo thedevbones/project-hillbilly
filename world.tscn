@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=8 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assests/testImport.glb" id="2_x5k7m"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assests/tree01.glb" id="3_2k5bm"]
+[ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assests/tree02.glb" id="4_6bpil"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -41,3 +42,12 @@ transform = Transform3D(0.561289, 0, -0.82762, 0, 1, 0, 0.82762, 0, 0.561289, -4
 
 [node name="tree01" parent="." instance=ExtResource("3_2k5bm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51045, 4.76837e-07, 0.51906)
+
+[node name="tree02" parent="." instance=ExtResource("4_6bpil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9342, -4.76837e-07, 3.1615)
+
+[node name="tree03" parent="." instance=ExtResource("4_6bpil")]
+transform = Transform3D(0.29334, 0, 0.956008, 0, 1, 0, -0.956008, 0, 0.29334, -13.142, 4.76837e-07, -6.21214)
+
+[node name="tree04" parent="." instance=ExtResource("3_2k5bm")]
+transform = Transform3D(0.357025, 0.0295165, -0.933628, 0.304382, 0.94127, 0.146156, 0.883111, -0.336361, 0.327073, 7.75259, -0.0862837, -17.2058)
