@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
-[ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assests/testImport.glb" id="2_x5k7m"]
-[ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assests/tree01.glb" id="3_2k5bm"]
-[ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assests/tree02.glb" id="4_6bpil"]
+[ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assets/testImport.glb" id="2_x5k7m"]
+[ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
+[ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="4_6bpil"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
