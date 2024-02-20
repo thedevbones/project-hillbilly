@@ -41,16 +41,20 @@ theme_override_constants/margin_bottom = 80
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("SystemFont_jq8ve")
 theme_override_font_sizes/font_size = 65
 text = "Project HillBilly"
 
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+
 [node name="StartBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 theme_override_colors/font_pressed_color = Color(0.968627, 0.968627, 0.968627, 1)
 theme_override_colors/font_hover_color = Color(0.498039, 0, 0.0745098, 1)
 theme_override_font_sizes/font_size = 35
@@ -64,7 +68,8 @@ text = "Start Game
 
 [node name="SettingsBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_colors/font_pressed_color = Color(0.968627, 0.968627, 0.968627, 1)
 theme_override_colors/font_hover_color = Color(0.498039, 0, 0.0745098, 1)
 theme_override_font_sizes/font_size = 35
@@ -78,7 +83,7 @@ text = "Settings
 
 [node name="QuitBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 theme_override_colors/font_pressed_color = Color(0.968627, 0.968627, 0.968627, 1)
 theme_override_colors/font_hover_color = Color(0.498039, 0, 0.0745098, 1)
 theme_override_font_sizes/font_size = 35
