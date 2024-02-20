@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=7 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
+[ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assests/testImport.glb" id="2_x5k7m"]
+[ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assests/tree01.glb" id="3_2k5bm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -33,3 +35,9 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 use_collision = true
 size = Vector3(100, 0.5, 100)
+
+[node name="testImport" parent="." instance=ExtResource("2_x5k7m")]
+transform = Transform3D(0.561289, 0, -0.82762, 0, 1, 0, 0.82762, 0, 0.561289, -4.6174, 4.76837e-07, -7.40462)
+
+[node name="tree01" parent="." instance=ExtResource("3_2k5bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51045, 4.76837e-07, 0.51906)
