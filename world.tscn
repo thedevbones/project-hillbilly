@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=14 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assets/testImport.glb" id="2_x5k7m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="4_6bpil"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
+[ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -100,3 +101,6 @@ shape = SubResource("BoxShape3D_vysbs")
 [node name="fence02" parent="." instance=ExtResource("6_i5dq2")]
 transform = Transform3D(-0.499871, 0.0110043, -0.00286754, -0.0110439, -0.499828, 0.00705947, -0.00271119, 0.00712098, 0.499942, -40.6815, 1.56431, -4.66487)
 rotation_order = 1
+
+[node name="fence03" parent="." instance=ExtResource("7_3wrog")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -40.648, 0.302106, -0.595431)
