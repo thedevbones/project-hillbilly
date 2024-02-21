@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://uqmsd8gbm3fk"]
+[gd_scene load_steps=9 format=3 uid="uid://uqmsd8gbm3fk"]
+
+[ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_32ltq"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -16,6 +18,22 @@ subpixel_positioning = 0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0aih"]
 
 [node name="Main Menu" type="CanvasLayer"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -142.0
+offset_right = 1164.0
+offset_bottom = 882.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_32ltq")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
