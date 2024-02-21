@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=13 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assets/testImport.glb" id="2_x5k7m"]
@@ -14,6 +14,13 @@
 [sub_resource type="Environment" id="Environment_wbc6u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmfsx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dh2bv"]
+height = 3.88853
+radius = 1.52373
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vysbs"]
+size = Vector3(1.38953, 4.86829, 17.5196)
 
 [node name="World" type="Node3D"]
 
@@ -48,6 +55,12 @@ transform = Transform3D(0.561289, 0, -0.82762, 0, 1, 0, 0.82762, 0, 0.561289, -4
 [node name="tree01" parent="." instance=ExtResource("3_2k5bm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51045, 4.76837e-07, 0.51906)
 
+[node name="RigidBody3D" type="RigidBody3D" parent="tree01"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree01/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0796394, 1.42227, -0.0248957)
+shape = SubResource("CylinderShape3D_dh2bv")
+
 [node name="tree02" parent="." instance=ExtResource("4_6bpil")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9342, -4.76837e-07, 3.1615)
 
@@ -77,6 +90,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5004, 0, -5.99507)
 
 [node name="fence01" parent="." instance=ExtResource("6_i5dq2")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -40.7941, 0.413182, -11.2574)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="fence01"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence01/RigidBody3D"]
+transform = Transform3D(0.999995, 0, 0.00326376, 0, 1, 0, -0.00326376, 0, 0.999995, -0.181992, 1.93414, 1.85505)
+shape = SubResource("BoxShape3D_vysbs")
 
 [node name="fence02" parent="." instance=ExtResource("6_i5dq2")]
 transform = Transform3D(-0.499871, 0.0110043, -0.00286754, -0.0110439, -0.499828, 0.00705947, -0.00271119, 0.00712098, 0.499942, -40.6815, 1.56431, -4.66487)
