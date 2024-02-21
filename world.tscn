@@ -105,3 +105,9 @@ rotation_order = 1
 
 [node name="fence03" parent="." instance=ExtResource("7_3wrog")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -40.648, 0.302106, -0.595431)
+
+[node name="fence04" parent="." instance=ExtResource("7_3wrog")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -40.7225, 0.427092, -21.2915)
+
+[node name="fence05" parent="." instance=ExtResource("7_3wrog")]
+transform = Transform3D(-0.499825, 0, 0.0132106, 0, 0.5, 0, -0.0132106, 0, -0.499825, -40.5285, 0.424229, -29.0861)
