@@ -26,6 +26,7 @@ script = ExtResource("1_1ouke")
 shape = SubResource("CapsuleShape3D_hnuiv")
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="Player"]
+visible = false
 mesh = SubResource("CapsuleMesh_ge5q0")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
