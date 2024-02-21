@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
+const NORMAL_FOV = 70.0
+const SPRINT_FOV = 90.0
 const NORMAL_SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const MAX_STAMINA = 5
+const MAX_STAMINA = 10
 const SPRINT_MULTIPLIER = 1.5
 
 
@@ -13,8 +15,6 @@ var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
 var is_sprinting = false
 var can_sprint = true
-
-
 
 
 func _ready():
@@ -48,6 +48,7 @@ func _physics_process(delta):
 	if is_sprinting:
 		speed = NORMAL_SPEED * SPRINT_MULTIPLIER
 		stamina -= delta  # Stamina depletes continuously while sprinting
+		$Camera3D.fov = lerp($Camera3D.fov, SPRINT_FOV, 0.1)
 		if stamina <= 0.0:
 			stamina = 0.0  # Clamp stamina to zero
 			is_sprinting = false
@@ -58,6 +59,7 @@ func _physics_process(delta):
 		speed = NORMAL_SPEED
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA)  # Clamp stamina to its maximum value
+		$Camera3D.fov = lerp($Camera3D.fov, NORMAL_FOV, 0.1)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
