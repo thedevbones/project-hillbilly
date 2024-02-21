@@ -3,6 +3,7 @@
 [sub_resource type="Theme" id="Theme_754t5"]
 
 [sub_resource type="SystemFont" id="SystemFont_jq8ve"]
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvevm"]
 
@@ -64,6 +65,20 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Start Game
+"
+
+[node name="TutorialBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0.968627, 0.968627, 0.968627, 1)
+theme_override_colors/font_hover_color = Color(0.498039, 0, 0.0745098, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
+text = "Tutorial
 "
 
 [node name="SettingsBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
