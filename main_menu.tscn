@@ -57,20 +57,22 @@ layout_mode = 2
 [node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
 theme_override_fonts/font = SubResource("SystemFont_jq8ve")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 90
 text = "Project HillBilly"
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 100)
+custom_minimum_size = Vector2(2.08165e-12, 150)
 layout_mode = 2
 
 [node name="StartBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_pressed_color = Color(0.968627, 0.968627, 0.968627, 1)
+theme_override_colors/font_pressed_color = Color(0.368627, 0, 0.00392157, 1)
 theme_override_colors/font_hover_color = Color(0.498039, 0, 0.0745098, 1)
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -84,7 +86,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_pressed_color = Color(0.968627, 0.968627, 0.968627, 1)
 theme_override_colors/font_hover_color = Color(0.498039, 0, 0.0745098, 1)
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -99,7 +101,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_pressed_color = Color(0.968627, 0.968627, 0.968627, 1)
 theme_override_colors/font_hover_color = Color(0.498039, 0, 0.0745098, 1)
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -113,7 +115,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_pressed_color = Color(0.968627, 0.968627, 0.968627, 1)
 theme_override_colors/font_hover_color = Color(0.498039, 0, 0.0745098, 1)
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
