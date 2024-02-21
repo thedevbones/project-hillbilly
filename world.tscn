@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=10 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assets/testImport.glb" id="2_x5k7m"]
@@ -11,6 +11,8 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ge5q0"]
 
 [sub_resource type="Environment" id="Environment_wbc6u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmfsx"]
 
 [node name="World" type="Node3D"]
 
@@ -37,6 +39,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 use_collision = true
 size = Vector3(100, 0.5, 100)
+material = SubResource("StandardMaterial3D_nmfsx")
 
 [node name="testImport" parent="." instance=ExtResource("2_x5k7m")]
 transform = Transform3D(0.561289, 0, -0.82762, 0, 1, 0, 0.82762, 0, 0.561289, -4.6174, 4.76837e-07, -7.40462)
