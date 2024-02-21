@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://uqmsd8gbm3fk"]
+[gd_scene load_steps=10 format=3 uid="uid://uqmsd8gbm3fk"]
 
 [ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_32ltq"]
+[ext_resource type="Script" path="res://ControlSize.gd" id="1_1454a"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -19,21 +20,13 @@ subpixel_positioning = 0
 
 [node name="Main Menu" type="CanvasLayer"]
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="Node2D"]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = -142.0
-offset_right = 1164.0
-offset_bottom = 882.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_32ltq")
-expand_mode = 3
-stretch_mode = 4
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -43,6 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_754t5")
+script = ExtResource("1_1454a")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 z_as_relative = false
@@ -52,9 +46,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
+theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
-theme_override_constants/margin_right = 64
+theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 80
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
