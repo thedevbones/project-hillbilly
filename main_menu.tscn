@@ -2,11 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_32ltq"]
 [ext_resource type="Script" path="res://ControlSize.gd" id="1_1454a"]
+[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://Assets/Another Danger - Demo.otf" id="3_wugvk"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
-
-[sub_resource type="SystemFont" id="SystemFont_jq8ve"]
-subpixel_positioning = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvevm"]
 
@@ -59,7 +57,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
-theme_override_fonts/font = SubResource("SystemFont_jq8ve")
+theme_override_fonts/font = ExtResource("3_wugvk")
 theme_override_font_sizes/font_size = 90
 text = "Project HillBilly"
 
