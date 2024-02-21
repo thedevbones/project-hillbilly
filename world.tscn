@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=11 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assets/testImport.glb" id="2_x5k7m"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
 [ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="4_6bpil"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
+[ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -73,3 +74,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2972, 0.322592, -6.1165)
 
 [node name="bush06" parent="." instance=ExtResource("5_pfnyj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5004, 0, -5.99507)
+
+[node name="fence01" parent="." instance=ExtResource("6_i5dq2")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -40.7941, 0.413182, -11.2574)
+
+[node name="fence02" parent="." instance=ExtResource("6_i5dq2")]
+transform = Transform3D(-0.499871, 0.0110043, -0.00286754, -0.0110439, -0.499828, 0.00705947, -0.00271119, 0.00712098, 0.499942, -40.6815, 1.56431, -4.66487)
+rotation_order = 1
