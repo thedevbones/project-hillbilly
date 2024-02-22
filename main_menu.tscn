@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://uqmsd8gbm3fk"]
+[gd_scene load_steps=11 format=3 uid="uid://uqmsd8gbm3fk"]
 
 [ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_32ltq"]
 [ext_resource type="Script" path="res://ControlSize.gd" id="1_1454a"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="3_wugvk"]
+[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="4_24813"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -126,3 +127,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Quit
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_24813")
+autoplay = true
