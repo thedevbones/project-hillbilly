@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=19 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
@@ -6,16 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
 [ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="4_6bpil"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
-[ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
-[ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
-[ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/ambience.mp3" id="6_2maxx"]
-[ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
+[ext_resource type="AudioStream" path="res://audio/ambience.mp3" id="6_2maxx"]
+[ext_resource type="PackedScene" path="res://assets/fence01.glb" id="6_i5dq2"]
+[ext_resource type="PackedScene" path="res://assets/fence02.glb" id="7_3wrog"]
+[ext_resource type="AudioStream" path="res://audio/storm.mp3" id="7_b0214"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ge5q0"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7gasw"]
+
+[sub_resource type="Sky" id="Sky_gkv0d"]
+sky_material = SubResource("ProceduralSkyMaterial_7gasw")
+
 [sub_resource type="Environment" id="Environment_wbc6u"]
+background_mode = 2
+sky = SubResource("Sky_gkv0d")
+fog_enabled = true
+fog_density = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmfsx"]
 albedo_texture = ExtResource("2_leqiw")
