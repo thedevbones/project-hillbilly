@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0scyeg7rux1e"]
+[gd_scene load_steps=13 format=3 uid="uid://0scyeg7rux1e"]
 
 [ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_4f7lt"]
 [ext_resource type="Script" path="res://SettingsMenu.gd" id="2_bjasd"]
@@ -8,6 +8,8 @@
 [sub_resource type="Theme" id="Theme_754t5"]
 
 [sub_resource type="SystemFont" id="SystemFont_uxq3o"]
+
+[sub_resource type="SystemFont" id="SystemFont_5q2hv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvevm"]
 
@@ -76,6 +78,15 @@ theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_uxq3o")
 theme_override_font_sizes/font_size = 75
 text = "Settings "
+
+[node name="AudioSettingBtn" type="Button" parent="SettingsControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_5q2hv")
+theme_override_font_sizes/font_size = 50
+text = "Audio
+"
 
 [node name="MainMenuBtn" type="Button" parent="SettingsControl/MarginContainer/VBoxContainer"]
 layout_mode = 2
