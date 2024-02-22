@@ -133,4 +133,5 @@ stream = ExtResource("4_24813")
 autoplay = true
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartBtn" to="Control" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/SettingsBtn" to="Control" method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitBtn" to="Control" method="_on_quit_btn_pressed"]
