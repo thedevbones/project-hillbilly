@@ -37,8 +37,9 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_crouching:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_crouching and stamina > 0:
 		velocity.y = JUMP_VELOCITY
+		stamina -= 1
 
 	# Input manager
 	if not can_sprint and not Input.is_action_pressed("sprint") and stamina >= 1:
@@ -64,20 +65,19 @@ func _physics_process(delta):
 			is_sprinting = false
 			can_sprint = false
 	elif is_crouching:
-		$Camera3D.global_transform.origin.y = lerp($Camera3D.global_transform.origin.y, 0.5, delta * 10)
+		$Camera3D.global_transform.origin.y = lerp($Camera3D.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
 		speed = NORMAL_SPEED * CROUCH_MULTIPLIER
 		can_sprint = false
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA) 
 	else:
-		$Camera3D.global_transform.origin.y = lerp($Camera3D.global_transform.origin.y, 1.0, delta * 10)
+		$Camera3D.global_transform.origin.y = lerp($Camera3D.global_transform.origin.y, global_transform.origin.y, delta * 10)
 		$Camera3D.fov = lerp($Camera3D.fov, NORMAL_FOV, 0.1)
 		speed = NORMAL_SPEED
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA)  # Clamp stamina to its maximum value
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("walk_left", "walk_right", "walk_foward", "walk_back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -86,5 +86,6 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
-
+	
+	# print("sprinting: " + str(is_sprinting) + " crouching: " + str(is_crouching) + " can sprint: " + str(can_sprint) + " stamina: " + str(stamina) + " speed: " + str(speed))
 	move_and_slide()
