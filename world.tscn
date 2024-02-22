@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=12 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assets/testImport.glb" id="2_x5k7m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="4_6bpil"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/ambience.mp3" id="6_2maxx"]
+[ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -79,4 +80,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5004, 0, -5.99507)
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2maxx")
 volume_db = -30.0
+autoplay = true
+
+[node name="storm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_b0214")
+volume_db = -15.0
 autoplay = true
