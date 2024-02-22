@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_32ltq"]
 [ext_resource type="Script" path="res://ControlSize.gd" id="1_1454a"]
-[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://Assets/Another Danger - Demo.otf" id="3_wugvk"]
+[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="3_wugvk"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
