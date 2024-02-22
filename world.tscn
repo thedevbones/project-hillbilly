@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=22 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
+[ext_resource type="PackedScene" path="res://assets/road.glb" id="12_mgubx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -39,6 +40,9 @@ radius = 1.52373
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vysbs"]
 size = Vector3(1.38953, 4.86829, 17.5196)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dlb2c"]
+size = Vector3(121.239, 2.22177, 12.5642)
 
 [node name="World" type="Node3D"]
 
@@ -196,5 +200,17 @@ autoplay = true
 stream = ExtResource("7_b0214")
 volume_db = -15.0
 autoplay = true
+
+[node name="road" parent="." instance=ExtResource("12_mgubx")]
+transform = Transform3D(-0.015812, 0, -0.999875, 0, 1, 0, 0.999875, 0, -0.015812, -21.6377, 0.0496855, -21.2794)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="road"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="road/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4943, -0.294854, 0.123352)
+shape = SubResource("BoxShape3D_dlb2c")
+
+[node name="road2" parent="." instance=ExtResource("12_mgubx")]
+transform = Transform3D(-0.0012043, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.0012043, -22.1755, -0.0650949, 38.6331)
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
