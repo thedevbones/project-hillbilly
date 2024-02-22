@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=15 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assets/testImport.glb" id="2_x5k7m"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
+[ext_resource type="PackedScene" uid="uid://bdxm35vq7qxdp" path="res://assets/car.blend" id="8_kyhrt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -164,3 +165,6 @@ transform = Transform3D(0.704052, 0, -0.710149, 0, 1, 0, 0.710149, 0, 0.704052, 
 
 [node name="tree19" parent="." instance=ExtResource("3_2k5bm")]
 transform = Transform3D(-0.762578, 0, 0.646896, 0, 1, 0, -0.646896, 0, -0.762578, -61.8853, 0, 31.1726)
+
+[node name="car" parent="." instance=ExtResource("8_kyhrt")]
+transform = Transform3D(0.355436, 0, 0, 0, 0.394698, 0, 0, 0, 0.505937, 46, 0.730597, 9)
