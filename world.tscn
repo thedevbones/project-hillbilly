@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=22 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
+[ext_resource type="PackedScene" uid="uid://b0b6sysj5cdfp" path="res://assets/tree03.glb" id="12_2rxda"]
 [ext_resource type="PackedScene" uid="uid://cc3oxpn86wugc" path="res://assets/road.glb" id="12_mgubx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
@@ -256,5 +257,11 @@ transform = Transform3D(-0.399867, 9.03185e-10, 0.0103312, 3.38813e-22, -0.4, 3.
 
 [node name="fence16" parent="." instance=ExtResource("7_3wrog")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -41.0334, 0.230874, -39.2509)
+
+[node name="tree20" parent="." instance=ExtResource("12_2rxda")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -56.4615, -1.10188, 15.5142)
+
+[node name="tree21" parent="." instance=ExtResource("12_2rxda")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.3555, -1.08517, 1.69805)
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
