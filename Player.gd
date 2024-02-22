@@ -16,11 +16,14 @@ var stamina = MAX_STAMINA
 var is_sprinting = false
 var is_crouching = false
 var can_sprint = true
+var falling = false
 
 
 func _ready():
 	# Capture the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$StepTimer.wait_time = 0.6 
+	$StepTimer.start() 
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -35,6 +38,11 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		falling = true
+	
+	if falling and is_on_floor():
+		$StepAudio.play()
+		falling = false
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_crouching and stamina > 0:
@@ -57,6 +65,8 @@ func _physics_process(delta):
 
 	# Sprinting logic
 	if is_sprinting:
+		$StepTimer.wait_time = 0.3
+		$StepAudio.set_max_db(-4)
 		speed = NORMAL_SPEED * SPRINT_MULTIPLIER
 		stamina -= delta  # Stamina depletes continuously while sprinting
 		$Camera3D.fov = lerp($Camera3D.fov, SPRINT_FOV, 0.1)
@@ -65,12 +75,16 @@ func _physics_process(delta):
 			is_sprinting = false
 			can_sprint = false
 	elif is_crouching:
+		$StepTimer.wait_time = 1.2 
+		$StepAudio.set_max_db(-10)
 		$Camera3D.global_transform.origin.y = lerp($Camera3D.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
 		speed = NORMAL_SPEED * CROUCH_MULTIPLIER
 		can_sprint = false
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA) 
 	else:
+		$StepTimer.wait_time = 0.6 
+		$StepAudio.set_max_db(-7)
 		$Camera3D.global_transform.origin.y = lerp($Camera3D.global_transform.origin.y, global_transform.origin.y, delta * 10)
 		$Camera3D.fov = lerp($Camera3D.fov, NORMAL_FOV, 0.1)
 		speed = NORMAL_SPEED
@@ -89,3 +103,9 @@ func _physics_process(delta):
 	
 	# print("sprinting: " + str(is_sprinting) + " crouching: " + str(is_crouching) + " can sprint: " + str(can_sprint) + " stamina: " + str(stamina) + " speed: " + str(speed))
 	move_and_slide()
+
+
+func _on_step_timer_timeout():
+	if get_velocity().length() > 0 and is_on_floor():
+		$StepAudio.pitch_scale = randf_range(0.8, 1.2)
+		$StepAudio.play()
