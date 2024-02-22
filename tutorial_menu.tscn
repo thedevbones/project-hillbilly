@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bofkv6wo8rr1w"]
+
+[node name="Tutorial_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_top = 545.0
+offset_right = 117.0
+offset_bottom = 646.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="BackToMenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back To Menu"
