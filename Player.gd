@@ -20,7 +20,7 @@ var can_sprint = true
 var falling = false
 
 # Collision variables
-var push_force = 5.0
+var push_force = 8.0
 
 func _ready():
 	# Capture the mouse
@@ -119,7 +119,6 @@ func _physics_process(delta):
 		
 				
 func _on_step_timer_timeout():
-	if (get_velocity().length() > 0 and is_on_floor()) or is_moving:
-		print("from timeout")
+	if is_moving and is_on_floor():
 		$StepAudio.pitch_scale = randf_range(0.8, 1.2)
 		$StepAudio.play()
