@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=23 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
 [ext_resource type="PackedScene" uid="uid://b0b6sysj5cdfp" path="res://assets/tree03.glb" id="12_2rxda"]
 [ext_resource type="PackedScene" uid="uid://cc3oxpn86wugc" path="res://assets/road.glb" id="12_mgubx"]
+[ext_resource type="PackedScene" uid="uid://nuhi0p5jxjeg" path="res://test_box.tscn" id="13_prqsq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -34,9 +35,6 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dlb2c"]
-size = Vector3(60, 2.222, 13)
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dh2bv"]
 height = 3.88853
 radius = 1.52373
@@ -44,10 +42,14 @@ radius = 1.52373
 [sub_resource type="BoxShape3D" id="BoxShape3D_vysbs"]
 size = Vector3(1.38953, 4.86829, 256.345)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_elm88"]
+
 [node name="World" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9948, 1, 0)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_1ouke")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -80,40 +82,15 @@ material = SubResource("StandardMaterial3D_nmfsx")
 transform = Transform3D(-0.00474361, 0, -0.299963, 0, 0.3, 0, 0.299963, 0, -0.00474361, -21.6377, 0.0496855, -21.2794)
 
 [node name="road" parent="Roads" instance=ExtResource("12_mgubx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Roads/road"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Roads/road/RigidBody3D"]
-transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, -0.292122, -0.294854, -0.161781)
-shape = SubResource("BoxShape3D_dlb2c")
 
 [node name="road2" parent="Roads" instance=ExtResource("12_mgubx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.6401, 0, -0.110107)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Roads/road2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Roads/road2/RigidBody3D"]
-transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, -0.292122, -0.294854, -0.161781)
-shape = SubResource("BoxShape3D_dlb2c")
-
 [node name="road3" parent="Roads" instance=ExtResource("12_mgubx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.303, 0, -0.0453568)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Roads/road3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Roads/road3/RigidBody3D"]
-transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, -0.292122, -0.294854, -0.161781)
-shape = SubResource("BoxShape3D_dlb2c")
-
 [node name="road4" parent="Roads" instance=ExtResource("12_mgubx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.012, 0, 0.153519)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Roads/road4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Roads/road4/RigidBody3D"]
-transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, -0.292122, -0.294854, -0.161781)
-shape = SubResource("BoxShape3D_dlb2c")
 
 [node name="Trees" type="Node3D" parent="."]
 
@@ -144,10 +121,11 @@ transform = Transform3D(0.135024, -0.328809, 0.934694, 0, 0.943333, 0.331848, -0
 [node name="tree07" parent="Trees" instance=ExtResource("3_2k5bm")]
 transform = Transform3D(0.695577, 0.410725, -0.589473, -0.475988, 0.878023, 0.0501106, 0.538152, 0.245726, 0.806233, -41.8537, -0.28143, -48.7619)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Trees/tree07"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Trees/tree07"]
+transform = Transform3D(1, -1.49012e-08, 0, 1.49012e-08, 1, -1.49012e-08, 0, -2.98023e-08, 1, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/tree07/RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0796394, 1.42227, -0.0248957)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/tree07/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 1.49012e-08, 1, 1.49012e-08, 2.98023e-08, 4.47035e-08, 1, -0.0796356, 1.42227, -0.0248909)
 shape = SubResource("CylinderShape3D_dh2bv")
 
 [node name="tree08" parent="Trees" instance=ExtResource("4_6bpil")]
@@ -235,9 +213,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5292, -0.592759, 46.9749)
 [node name="fence01" parent="Fences" instance=ExtResource("6_i5dq2")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -40.6609, 0.34155, -8.59102)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Fences/fence01"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Fences/fence01"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fences/fence01/RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fences/fence01/StaticBody3D"]
 transform = Transform3D(0.999995, 0, 0.00326376, 0, 1, 0, -0.00326376, 0, 0.999995, -0.120354, 1.93414, 20.7432)
 shape = SubResource("BoxShape3D_vysbs")
 
@@ -296,5 +274,11 @@ autoplay = true
 stream = ExtResource("7_b0214")
 volume_db = -15.0
 autoplay = true
+
+[node name="TestBox" parent="." instance=ExtResource("13_prqsq")]
+transform = Transform3D(0.999991, -0.00417132, 0, 0.00417132, 0.999991, 0, 0, 0, 1, -32.9867, 0.5, -12.2052)
+collision_mask = 3
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_elm88")
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
