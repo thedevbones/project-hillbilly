@@ -18,6 +18,8 @@ var is_crouching = false
 var can_sprint = true
 var falling = false
 
+# Collision variables
+var push_force = 10.0
 
 func _ready():
 	# Capture the mouse
@@ -103,6 +105,13 @@ func _physics_process(delta):
 	
 	# print("sprinting: " + str(is_sprinting) + " crouching: " + str(is_crouching) + " can sprint: " + str(can_sprint) + " stamina: " + str(stamina) + " speed: " + str(speed))
 	move_and_slide()
+	
+	# getting slide collision
+	for i in get_slide_collision_count():
+		var c_object = get_slide_collision(i)
+		if c_object.get_collider() is RigidBody3D:
+			c_object.get_collider().apply_central_impulse(-c_object.get_normal() * push_force)
+
 
 
 func _on_step_timer_timeout():
