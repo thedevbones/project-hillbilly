@@ -116,8 +116,10 @@ func _physics_process(delta):
 		if c_object.get_collider() is RigidBody3D and is_moving:
 			c_object.get_collider().apply_central_impulse(-c_object.get_normal() * push_force)
 			break
+		
 				
 func _on_step_timer_timeout():
-	if get_velocity().length() > 0 and is_on_floor():
+	if (get_velocity().length() > 0 and is_on_floor()) or is_moving:
+		print("from timeout")
 		$StepAudio.pitch_scale = randf_range(0.8, 1.2)
 		$StepAudio.play()
