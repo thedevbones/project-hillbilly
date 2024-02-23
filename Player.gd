@@ -15,11 +15,12 @@ var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
 var is_sprinting = false
 var is_crouching = false
+var is_moving = false
 var can_sprint = true
 var falling = false
 
 # Collision variables
-var push_force = 10.0
+var push_force = 5.0
 
 func _ready():
 	# Capture the mouse
@@ -76,6 +77,7 @@ func _physics_process(delta):
 			stamina = 0.0  # Clamp stamina to zero
 			is_sprinting = false
 			can_sprint = false
+			
 	elif is_crouching:
 		$StepTimer.wait_time = 1.2 
 		$StepAudio.set_max_db(-10)
@@ -99,9 +101,11 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
+		is_moving = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+		is_moving = false
 	
 	# print("sprinting: " + str(is_sprinting) + " crouching: " + str(is_crouching) + " can sprint: " + str(can_sprint) + " stamina: " + str(stamina) + " speed: " + str(speed))
 	move_and_slide()
@@ -109,11 +113,10 @@ func _physics_process(delta):
 	# getting slide collision
 	for i in get_slide_collision_count():
 		var c_object = get_slide_collision(i)
-		if c_object.get_collider() is RigidBody3D:
+		if c_object.get_collider() is RigidBody3D and is_moving:
 			c_object.get_collider().apply_central_impulse(-c_object.get_normal() * push_force)
-
-
-
+			break
+				
 func _on_step_timer_timeout():
 	if get_velocity().length() > 0 and is_on_floor():
 		$StepAudio.pitch_scale = randf_range(0.8, 1.2)
