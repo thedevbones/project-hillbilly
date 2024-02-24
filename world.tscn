@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=25 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
@@ -10,10 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
+[ext_resource type="PackedScene" uid="uid://dxsv1cdpv17x8" path="res://scene_object/tree_3.tscn" id="10_wbd7w"]
 [ext_resource type="PackedScene" uid="uid://b0b6sysj5cdfp" path="res://assets/tree03.glb" id="12_2rxda"]
-[ext_resource type="PackedScene" uid="uid://cc3oxpn86wugc" path="res://assets/road.glb" id="12_mgubx"]
-[ext_resource type="PackedScene" uid="uid://nuhi0p5jxjeg" path="res://test_box.tscn" id="13_prqsq"]
-[ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://car.tscn" id="14_gytsm"]
+[ext_resource type="PackedScene" uid="uid://nuhi0p5jxjeg" path="res://scene_object/test_box.tscn" id="13_prqsq"]
+[ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
+[ext_resource type="PackedScene" uid="uid://bvco6di8jclbe" path="res://scene_object/road.tscn" id="15_8w4p2"]
+[ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -46,7 +48,7 @@ size = Vector3(1.38953, 4.86829, 256.345)
 [node name="World" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9948, 1, 0)
+transform = Transform3D(-0.356771, 0, -0.934192, 0, 1, 0, 0.934192, 0, -0.356771, -32.9948, 1, 0)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_1ouke")
@@ -80,16 +82,17 @@ material = SubResource("StandardMaterial3D_nmfsx")
 [node name="Roads" type="Node3D" parent="."]
 transform = Transform3D(-0.00474361, 0, -0.299963, 0, 0.3, 0, 0.299963, 0, -0.00474361, -21.6377, 0.0496855, -21.2794)
 
-[node name="road" parent="Roads" instance=ExtResource("12_mgubx")]
+[node name="road8" parent="Roads" instance=ExtResource("15_8w4p2")]
+transform = Transform3D(0.999496, 0, 0.03162, 0, 1, 0, -0.03162, 0, 0.999496, 0.139198, -0.331237, 2.56372)
 
-[node name="road2" parent="Roads" instance=ExtResource("12_mgubx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.6401, 0, -0.110107)
+[node name="road5" parent="Roads" instance=ExtResource("15_8w4p2")]
+transform = Transform3D(-0.999873, 0, -0.015812, 0, 1, 0, 0.015812, 0, -0.999873, 120.332, -0.165618, -1.77605)
 
-[node name="road3" parent="Roads" instance=ExtResource("12_mgubx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.303, 0, -0.0453568)
+[node name="road6" parent="Roads" instance=ExtResource("15_8w4p2")]
+transform = Transform3D(-0.999873, 0, -0.015812, 0, 1, 0, 0.015812, 0, -0.999873, 179.366, -0.165618, -2.70961)
 
-[node name="road4" parent="Roads" instance=ExtResource("12_mgubx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.012, 0, 0.153519)
+[node name="road7" parent="Roads" instance=ExtResource("15_8w4p2")]
+transform = Transform3D(-0.999873, 0, -0.015812, 0, 1, 0, 0.015812, 0, -0.999873, 60.2023, -0.165618, -0.825165)
 
 [node name="Trees" type="Node3D" parent="."]
 
@@ -116,6 +119,16 @@ transform = Transform3D(1, 0, 0, 0, 0.993923, -0.110081, 0, 0.110081, 0.993923, 
 
 [node name="tree06" parent="Trees" instance=ExtResource("3_2k5bm")]
 transform = Transform3D(0.135024, -0.328809, 0.934694, 0, 0.943333, 0.331848, -0.990842, -0.0448074, 0.127372, -47.0774, -0.488976, 42.9247)
+
+[node name="tree22" parent="Trees" instance=ExtResource("3_2k5bm")]
+transform = Transform3D(-0.0593703, 0.190667, -0.979859, 0.0828216, 0.979147, 0.185509, 0.994794, -0.0701396, -0.0739225, -11.1132, -0.521569, -1.77118)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Trees/tree22"]
+transform = Transform3D(1, -1.49012e-08, 0, 1.49012e-08, 1, -1.49012e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/tree22/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 1.49012e-08, 1, 1.49012e-08, 2.98023e-08, 4.47035e-08, 1, -0.0796356, 1.42227, -0.0248909)
+shape = SubResource("CylinderShape3D_dh2bv")
 
 [node name="tree07" parent="Trees" instance=ExtResource("3_2k5bm")]
 transform = Transform3D(0.695577, 0.410725, -0.589473, -0.475988, 0.878023, 0.0501106, 0.538152, 0.245726, 0.806233, -41.8537, -0.28143, -48.7619)
@@ -171,6 +184,24 @@ transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -56.4615, -1.10188, 15.
 
 [node name="tree21" parent="Trees" instance=ExtResource("12_2rxda")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.3555, -1.08517, 1.69805)
+
+[node name="tree2" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 6)
+
+[node name="tree3" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -29, 0, -3)
+
+[node name="tree4" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -9, -0.216299, 19)
+
+[node name="tree5" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -0.871639, -25)
+
+[node name="tree6" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.461112, -17)
+
+[node name="tree7" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7, -0.512247, -12)
 
 [node name="Bushes" type="Node3D" parent="."]
 
@@ -274,19 +305,17 @@ stream = ExtResource("7_b0214")
 volume_db = -15.0
 autoplay = true
 
-[node name="TestBox" parent="." instance=ExtResource("13_prqsq")]
-transform = Transform3D(0.999991, -0.00417132, 0, 0.00417132, 0.999991, 0, 0, 0, 1, -29.7808, 2.20049, -12.2052)
-collision_mask = 3
-mass = 25.0
-lock_rotation = true
-
 [node name="TestBox2" parent="." instance=ExtResource("13_prqsq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2116, 0.5, -11.8252)
 mass = 25.0
 lock_rotation = true
 
 [node name="car" parent="." instance=ExtResource("14_gytsm")]
-transform = Transform3D(0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, 0.0555601, -26.1515, -1.88541, 0)
-mass = 1000.0
+transform = Transform3D(0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, 0.0555601, -23.6963, -1.88541, 1.94259)
+axis_lock_linear_x = true
+mass = 20.0
+
+[node name="tree2" parent="." instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1106, 0, 44.3128)
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
