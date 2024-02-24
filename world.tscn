@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=28 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bvco6di8jclbe" path="res://scene_object/road.tscn" id="15_8w4p2"]
 [ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
 [ext_resource type="PackedScene" uid="uid://chpxwsdrnf5wk" path="res://scene_object/moon.tscn" id="16_1rbbi"]
+[ext_resource type="PackedScene" uid="uid://nuhi0p5jxjeg" path="res://scene_object/test_box.tscn" id="17_u0qlf"]
+[ext_resource type="PackedScene" uid="uid://bcf1bsfwrmc3e" path="res://scene_object/lightpost.tscn" id="18_ygqwd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -52,6 +54,9 @@ radius = 1.52373
 size = Vector3(1.38953, 4.86829, 256.345)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
+rough = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w78iq"]
 rough = true
 
 [node name="World" type="Node3D"]
@@ -320,7 +325,24 @@ axis_lock_linear_x = true
 mass = 100.0
 physics_material_override = SubResource("PhysicsMaterial_xlcod")
 
-[node name="Moon" parent="." instance=ExtResource("16_1rbbi")]
+[node name="Lighting" type="Node" parent="."]
+
+[node name="lightpost" parent="Lighting" instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9396, 0, 4.90454)
+
+[node name="lightpost2" parent="Lighting" instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9912, 4.76837e-07, 23.6796)
+
+[node name="Moon" parent="Lighting" instance=ExtResource("16_1rbbi")]
 transform = Transform3D(6.4879, 0, -13.5243, 0, 15, 0, 13.5243, 0, 6.4879, -24.0802, 119.584, 12.318)
+
+[node name="TestBox" parent="." instance=ExtResource("17_u0qlf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.597, 1.11531, 22.2121)
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_w78iq")
+lock_rotation = true
+
+[node name="lightpost" parent="." instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9093, 0, -16.3508)
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
