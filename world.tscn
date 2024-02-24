@@ -15,26 +15,24 @@
 [ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
 [ext_resource type="PackedScene" uid="uid://bvco6di8jclbe" path="res://scene_object/road.tscn" id="15_8w4p2"]
 [ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
+[ext_resource type="PackedScene" uid="uid://chpxwsdrnf5wk" path="res://scene_object/moon.tscn" id="16_1rbbi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ge5q0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7gasw"]
-
 [sub_resource type="Sky" id="Sky_gkv0d"]
-sky_material = SubResource("ProceduralSkyMaterial_7gasw")
 
 [sub_resource type="Environment" id="Environment_wbc6u"]
 background_mode = 2
+background_color = Color(0.47451, 0.47451, 0.47451, 1)
 sky = SubResource("Sky_gkv0d")
 ambient_light_source = 2
 ambient_light_color = Color(0.305882, 0.282353, 0.278431, 1)
 fog_enabled = true
-fog_light_color = Color(0.12549, 0.12549, 0.207843, 1)
-fog_light_energy = 2.01
-fog_sun_scatter = 0.06
-fog_density = 0.0616
+fog_light_color = Color(0.411669, 0.374664, 0.342492, 1)
+fog_aerial_perspective = 0.842
+fog_sky_affect = 0.8
 volumetric_fog_density = 0.0395
 volumetric_fog_albedo = Color(0.756863, 0.823529, 1, 1)
 volumetric_fog_detail_spread = 6.0
@@ -79,14 +77,6 @@ stream = ExtResource("2_f4xii")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wbc6u")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 147.144, 0)
-light_color = Color(0.760784, 0.678431, 0.152941, 1)
-light_energy = 0.695
-light_indirect_energy = 0.543
-light_volumetric_fog_energy = 1.914
-sky_mode = 2
 
 [node name="TestFloor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -328,5 +318,8 @@ transform = Transform3D(0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, 0.0555601
 axis_lock_linear_x = true
 mass = 100.0
 physics_material_override = SubResource("PhysicsMaterial_xlcod")
+
+[node name="Moon" parent="." instance=ExtResource("16_1rbbi")]
+transform = Transform3D(6.4879, 0, -13.5243, 0, 15, 0, 13.5243, 0, 6.4879, -24.0802, 119.584, 12.318)
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
