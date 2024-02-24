@@ -110,14 +110,15 @@ func _physics_process(delta):
 	# print("sprinting: " + str(is_sprinting) + " crouching: " + str(is_crouching) + " can sprint: " + str(can_sprint) + " stamina: " + str(stamina) + " speed: " + str(speed))
 	move_and_slide()
 	
-	# getting slide collision
+	# Getting slide collision
 	for i in get_slide_collision_count():
 		var c_object = get_slide_collision(i)
 		if c_object.get_collider() is RigidBody3D and is_moving:
 			c_object.get_collider().apply_central_impulse(-c_object.get_normal() * push_force)
+			is_sprinting = false
+			can_sprint = false
 			break
-		
-				
+
 func _on_step_timer_timeout():
 	if is_moving and is_on_floor():
 		$StepAudio.pitch_scale = randf_range(0.8, 1.2)
