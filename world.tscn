@@ -12,7 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
 [ext_resource type="PackedScene" uid="uid://dxsv1cdpv17x8" path="res://scene_object/tree_3.tscn" id="10_wbd7w"]
 [ext_resource type="PackedScene" uid="uid://b0b6sysj5cdfp" path="res://assets/tree03.glb" id="12_2rxda"]
-[ext_resource type="PackedScene" uid="uid://nuhi0p5jxjeg" path="res://scene_object/test_box.tscn" id="13_prqsq"]
 [ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
 [ext_resource type="PackedScene" uid="uid://bvco6di8jclbe" path="res://scene_object/road.tscn" id="15_8w4p2"]
 [ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
@@ -45,10 +44,13 @@ radius = 1.52373
 [sub_resource type="BoxShape3D" id="BoxShape3D_vysbs"]
 size = Vector3(1.38953, 4.86829, 256.345)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
+rough = true
+
 [node name="World" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-0.356771, 0, -0.934192, 0, 1, 0, 0.934192, 0, -0.356771, -32.9948, 1, 0)
+transform = Transform3D(-0.998887, 0, 0.0471766, 0, 1, 0, -0.0471766, 0, -0.998887, -21.0847, 1, 10.2738)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_1ouke")
@@ -59,6 +61,7 @@ script = ExtResource("1_1ouke")
 shape = SubResource("CapsuleShape3D_hnuiv")
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_ge5q0")
 
 [node name="StepTimer" type="Timer" parent="Player"]
@@ -203,6 +206,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.461112, -17)
 [node name="tree7" parent="Trees" instance=ExtResource("10_wbd7w")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7, -0.512247, -12)
 
+[node name="tree8" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1106, 0, 44.3128)
+
 [node name="Bushes" type="Node3D" parent="."]
 
 [node name="bush01" parent="Bushes" instance=ExtResource("5_pfnyj")]
@@ -305,17 +311,10 @@ stream = ExtResource("7_b0214")
 volume_db = -15.0
 autoplay = true
 
-[node name="TestBox2" parent="." instance=ExtResource("13_prqsq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2116, 0.5, -11.8252)
-mass = 25.0
-lock_rotation = true
-
 [node name="car" parent="." instance=ExtResource("14_gytsm")]
-transform = Transform3D(0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, 0.0555601, -23.6963, -1.88541, 1.94259)
+transform = Transform3D(0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, 0.0555601, -23.5275, 0.605905, 11.3887)
 axis_lock_linear_x = true
-mass = 20.0
-
-[node name="tree2" parent="." instance=ExtResource("15_ntg5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1106, 0, 44.3128)
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_xlcod")
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
