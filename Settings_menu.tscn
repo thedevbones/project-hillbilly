@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://0scyeg7rux1e"]
+[gd_scene load_steps=18 format=3 uid="uid://0scyeg7rux1e"]
 
 [ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_4f7lt"]
 [ext_resource type="Script" path="res://SettingsMenu.gd" id="2_bjasd"]
@@ -10,6 +10,16 @@
 [sub_resource type="SystemFont" id="SystemFont_uxq3o"]
 
 [sub_resource type="SystemFont" id="SystemFont_5q2hv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fepr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_055bx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g64q6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_328te"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ukwt0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvevm"]
 
@@ -71,7 +81,7 @@ text = "Project HillBilly"
 custom_minimum_size = Vector2(2.08165e-12, 150)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SettingsControl/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="SettingsBanner" type="Label" parent="SettingsControl/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -83,9 +93,32 @@ text = "Settings "
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = SubResource("SystemFont_5q2hv")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8fepr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_055bx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g64q6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_328te")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ukwt0")
 text = "Audio
+"
+
+[node name="VideoSettingBtn" type="Button" parent="SettingsControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_fonts/font = SubResource("SystemFont_5q2hv")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8fepr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_055bx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g64q6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_328te")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ukwt0")
+text = "Video
 "
 
 [node name="MainMenuBtn" type="Button" parent="SettingsControl/MarginContainer/VBoxContainer"]
