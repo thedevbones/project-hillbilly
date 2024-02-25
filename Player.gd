@@ -18,16 +18,13 @@ var is_crouching = false
 var can_sprint = true
 var falling = false
 
-
 func _ready():
 	# Capture the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$StepTimer.wait_time = 0.6 
 	$StepTimer.start() 
 
-func _input(event):
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
+func _input(event):	
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 		$Camera3D.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
@@ -109,3 +106,8 @@ func _on_step_timer_timeout():
 	if get_velocity().length() > 0 and is_on_floor():
 		$StepAudio.pitch_scale = randf_range(0.8, 1.2)
 		$StepAudio.play()
+		
+		
+
+	
+

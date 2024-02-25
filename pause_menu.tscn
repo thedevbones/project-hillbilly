@@ -1,34 +1,54 @@
-[gd_scene load_steps=10 format=3 uid="uid://5htpixqj0i6w"]
+[gd_scene load_steps=9 format=3 uid="uid://qpukgkbptjio"]
 
-[ext_resource type="Script" path="res://PauseMenu.gd" id="1_4ss37"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="2_pd0hk"]
-[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="3_kpdm4"]
 
-[sub_resource type="Theme" id="Theme_754t5"]
+[sub_resource type="Theme" id="Theme_uj8tq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvevm"]
+[sub_resource type="GDScript" id="GDScript_i4tpt"]
+script/source = "extends Control
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17rg0"]
+@export var game_manager : Player
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25dqu"]
+func _ready():
+	hide()
+	game_manager.connect(\"toggle_game_paused\",on_game_manager_toggle_game_paused)
+	
+func on_game_manager_toggle_game_paused(is_paused : bool):
+	if (is_paused):
+		show()
+	else:
+		hide()
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap838"]
+func _on_menu_btn_pressed():
+	get_tree().change_scene_to_file(\"res://main_menu.tscn\")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0aih"]
 
-[node name="Pause Menu" type="CanvasLayer"]
+func _on_quit_btn_pressed():
+	get_tree().quit()
+"
 
-[node name="Control" type="Control" parent="."]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gc10"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0xrk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8fv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lp0ff"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xftaa"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_754t5")
-script = ExtResource("1_4ss37")
+theme = SubResource("Theme_uj8tq")
+script = SubResource("GDScript_i4tpt")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
@@ -41,10 +61,10 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
@@ -54,41 +74,41 @@ theme_override_fonts/font = ExtResource("2_pd0hk")
 theme_override_font_sizes/font_size = 90
 text = "Project HillBilly"
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 75)
 layout_mode = 2
 
-[node name="ResumeBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="ResumeBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f8fv2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lp0ff")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xftaa")
 text = "Resume
 "
 
-[node name="TutorialBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="TutorialBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f8fv2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lp0ff")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xftaa")
 text = "Tutorial
 "
 
-[node name="SettingsBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="SettingsBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -96,15 +116,15 @@ theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f8fv2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lp0ff")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xftaa")
 text = "Settings
 "
 
-[node name="MenuBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="MenuBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -112,34 +132,30 @@ theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f8fv2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lp0ff")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xftaa")
 text = "Main Menu"
 
-[node name="QuitBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="QuitBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f8fv2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lp0ff")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xftaa")
 text = "Quit
 "
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_kpdm4")
-autoplay = true
-
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/ResumeBtn" to="Control" method="_on_start_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/SettingsBtn" to="Control" method="_on_settings_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/MenuBtn" to="Control" method="_on_settings_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/MenuBtn" to="Control" method="_on_menu_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitBtn" to="Control" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuBtn" to="." method="_on_menu_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

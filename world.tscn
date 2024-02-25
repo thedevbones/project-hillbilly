@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=22 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
+[ext_resource type="Script" path="res://World.gd" id="1_b23ts"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
 [ext_resource type="PackedScene" uid="uid://do1ldmsk8lsn8" path="res://assets/testImport.glb" id="2_x5k7m"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
+[ext_resource type="PackedScene" uid="uid://qpukgkbptjio" path="res://pause_menu.tscn" id="12_glaa2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -41,6 +43,8 @@ radius = 1.52373
 size = Vector3(1.38953, 4.86829, 17.5196)
 
 [node name="World" type="Node3D"]
+process_mode = 3
+script = ExtResource("1_b23ts")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -196,5 +200,10 @@ autoplay = true
 stream = ExtResource("7_b0214")
 volume_db = -15.0
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("12_glaa2")]
+game_manager = NodePath("../..")
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
