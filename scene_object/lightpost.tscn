@@ -16,15 +16,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0519681, 2.39457, 0)
 shape = SubResource("CylinderShape3D_lf2cg")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.999221, 0.00498848, -0.0391526, 0.0394691, -0.126291, 0.991208, 1.73465e-10, -0.991981, -0.126389, 1.49417, 4.58532, 0.50205)
+transform = Transform3D(0.999994, 0.00349072, 1.29258e-08, -1.30715e-08, 4.17112e-08, 1, 0.00349072, -0.999994, 4.17565e-08, 1.60266, 5.14508, 0.505924)
 light_color = Color(0.941176, 0.87451, 0.337255, 1)
 light_energy = 5.0
 light_indirect_energy = 5.0
-light_volumetric_fog_energy = 0.0
+light_volumetric_fog_energy = 0.4
 light_size = 1.0
 light_specular = 4.864
 shadow_enabled = true
 shadow_transmittance_bias = 2.959
 distance_fade_enabled = true
-spot_range = 4.90041
-spot_angle = 36.1656
+spot_range = 6.6
+spot_angle = 23.44
