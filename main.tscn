@@ -1,9 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://uqmsd8gbm3fk"]
+[gd_scene load_steps=15 format=3 uid="uid://dc455xrkeqlys"]
 
-[ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_32ltq"]
-[ext_resource type="Script" path="res://ControlSize.gd" id="1_1454a"]
-[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="3_wugvk"]
-[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="4_24813"]
+[ext_resource type="Script" path="res://ControlSize.gd" id="1_o88kq"]
+[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="2_owhik"]
+[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="3_si2hp"]
+[ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="4_xi02c"]
+[ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="5_gout0"]
+
+[sub_resource type="Sky" id="Sky_gkv0d"]
+
+[sub_resource type="Environment" id="Environment_ofkw5"]
+background_mode = 2
+background_color = Color(0.47451, 0.47451, 0.47451, 1)
+sky = SubResource("Sky_gkv0d")
+ambient_light_source = 2
+ambient_light_color = Color(0.305882, 0.282353, 0.278431, 1)
+fog_enabled = true
+fog_light_color = Color(0.929412, 0.917647, 0.909804, 1)
+fog_density = 0.02
+fog_aerial_perspective = 0.937
+fog_sky_affect = 0.789
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0816
+volumetric_fog_emission = Color(0.172549, 0.172549, 0.172549, 1)
+volumetric_fog_detail_spread = 6.0
+volumetric_fog_sky_affect = 0.535
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -17,21 +37,20 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0aih"]
 
-[node name="Main Menu" type="CanvasLayer"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqfxr"]
+albedo_texture = ExtResource("4_xi02c")
+uv1_scale = Vector3(0.69, 0.69, 0.69)
+uv1_triplanar = true
+texture_filter = 4
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -352.0
-offset_top = -392.0
-offset_right = 352.0
-offset_bottom = 392.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_32ltq")
+[node name="main" type="Node3D"]
 
-[node name="Control" type="Control" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ofkw5")
+
+[node name="Main Menu" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Main Menu"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,39 +58,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_754t5")
-script = ExtResource("1_1454a")
+script = ExtResource("1_o88kq")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu/Control"]
 z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 86.0
+offset_right = 508.0
+offset_bottom = 521.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.315, 0.315)
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/Control/MarginContainer"]
 layout_mode = 2
 
-[node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="Main Menu/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
-theme_override_fonts/font = ExtResource("3_wugvk")
+theme_override_fonts/font = ExtResource("2_owhik")
 theme_override_font_sizes/font_size = 90
 text = "Project HillBilly"
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu/Control/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 150)
 layout_mode = 2
 
-[node name="StartBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="StartBtn" type="Button" parent="Main Menu/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -86,7 +109,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Start Game
 "
 
-[node name="TutorialBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="TutorialBtn" type="Button" parent="Main Menu/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -101,7 +124,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Tutorial
 "
 
-[node name="SettingsBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="SettingsBtn" type="Button" parent="Main Menu/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -117,7 +140,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Settings
 "
 
-[node name="QuitBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="QuitBtn" type="Button" parent="Main Menu/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -132,9 +155,21 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Quit
 "
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_24813")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main Menu"]
+stream = ExtResource("3_si2hp")
 autoplay = true
 
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartBtn" to="Control" method="_on_start_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitBtn" to="Control" method="_on_quit_btn_pressed"]
+[node name="TestFloor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+use_collision = true
+size = Vector3(200, 0.5, 100)
+material = SubResource("StandardMaterial3D_rqfxr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03798, 0)
+
+[node name="tree01" parent="." instance=ExtResource("5_gout0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41245, 0, -29.5834)
+
+[connection signal="pressed" from="Main Menu/Control/MarginContainer/VBoxContainer/StartBtn" to="Main Menu/Control" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Main Menu/Control/MarginContainer/VBoxContainer/QuitBtn" to="Main Menu/Control" method="_on_quit_btn_pressed"]
