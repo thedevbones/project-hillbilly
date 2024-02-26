@@ -21,16 +21,19 @@ background_color = Color(0.47451, 0.47451, 0.47451, 1)
 sky = SubResource("Sky_gkv0d")
 ambient_light_source = 2
 ambient_light_color = Color(0.305882, 0.282353, 0.278431, 1)
+tonemap_mode = 3
 fog_enabled = true
-fog_light_color = Color(0.929412, 0.917647, 0.909804, 1)
-fog_density = 0.02
+fog_light_color = Color(0.709804, 0.670588, 0.643137, 1)
+fog_density = 0.1253
 fog_aerial_perspective = 0.937
 fog_sky_affect = 0.789
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0816
+volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_emission = Color(0.172549, 0.172549, 0.172549, 1)
 volumetric_fog_detail_spread = 6.0
 volumetric_fog_sky_affect = 0.535
+adjustment_enabled = true
+adjustment_brightness = 1.5
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -253,6 +256,30 @@ transform = Transform3D(0.00495623, 0, 0.199939, 0, 0.2, 0, -0.199939, 0, 0.0049
 [node name="tree03" parent="." instance=ExtResource("8_072ty")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.37097, 0, -15.0117)
 
+[node name="tree11" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.20533, 0, -14.145)
+
+[node name="tree12" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4545, 3.8147e-06, -13.5421)
+
+[node name="tree13" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6804, 5.72205e-06, -7.73351)
+
+[node name="tree14" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6764, 5.72205e-06, -23.6927)
+
+[node name="tree15" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6497, 5.72205e-06, -28.4825)
+
+[node name="tree16" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(0.598269, 0, -0.801296, 0, 1, 0, 0.801296, 0, 0.598269, -7.70275, 5.72205e-06, -30.1297)
+
+[node name="tree17" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(0.598269, 0, -0.801296, 0, 1, 0, 0.801296, 0, 0.598269, 10.2468, 5.72205e-06, -42.1431)
+
+[node name="tree18" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(-0.900994, 0, -0.433832, 0, 1, 0, 0.433832, 0, -0.900994, 4.14737, 5.72205e-06, -30.5831)
+
 [node name="tree09" parent="." instance=ExtResource("8_072ty")]
 transform = Transform3D(0.710652, 0, -0.703544, 0, 1, 0, 0.703544, 0, 0.710652, -9.32223, -1.90735e-06, -21.1504)
 
@@ -272,6 +299,7 @@ transform = Transform3D(0.501148, 0, -0.865361, 0, 1, 0, 0.865361, 0, 0.501148, 
 multimesh = SubResource("MultiMesh_kxmfa")
 script = ExtResource("12_moka1")
 texture_albedo = ExtResource("11_8iugw")
+interactive = false
 sgt_radius = 2.0
 sgt_density = 25
 sgt_scale = 1.0
@@ -280,6 +308,10 @@ sgt_rotation_rand = 1.0
 sgt_dist_min = 0.25
 sgt_follow_normal = false
 metadata/SimpleGrassTextured = "1.0.2"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22201, 4.9914, -0.949106)
+omni_range = 53.836
 
 [connection signal="pressed" from="Main Menu/Control/MarginContainer/VBoxContainer/StartBtn" to="Main Menu/Control" method="_on_start_btn_pressed"]
 [connection signal="pressed" from="Main Menu/Control/MarginContainer/VBoxContainer/QuitBtn" to="Main Menu/Control" method="_on_quit_btn_pressed"]
