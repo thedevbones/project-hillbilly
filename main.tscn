@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://dc455xrkeqlys"]
+[gd_scene load_steps=19 format=3 uid="uid://dc455xrkeqlys"]
 
 [ext_resource type="Script" path="res://ControlSize.gd" id="1_o88kq"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="2_owhik"]
 [ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="3_si2hp"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="4_xi02c"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="5_gout0"]
-[ext_resource type="PackedScene" uid="uid://dreinxhnkf6qe" path="res://assets/car.glb" id="6_buqan"]
+[ext_resource type="PackedScene" uid="uid://bdxm35vq7qxdp" path="res://assets/car.blend" id="6_buqan"]
 [ext_resource type="PackedScene" uid="uid://cc3oxpn86wugc" path="res://assets/road.glb" id="7_kmyrq"]
+[ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="8_072ty"]
+[ext_resource type="PackedScene" uid="uid://b0b6sysj5cdfp" path="res://assets/tree03.glb" id="9_v6ygg"]
 
 [sub_resource type="Sky" id="Sky_gkv0d"]
 
@@ -175,6 +177,12 @@ transform = Transform3D(0.234394, 0, 0.24822, 0, 0.46, 0, -0.395802, 0, 0.146996
 [node name="tree01" parent="." instance=ExtResource("5_gout0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9695, 0, -48.0784)
 
+[node name="tree07" parent="." instance=ExtResource("5_gout0")]
+transform = Transform3D(0.198803, 0, -0.980039, 0, 1, 0, 0.980039, 0, 0.198803, -22.206, 0, -23.8)
+
+[node name="tree08" parent="." instance=ExtResource("5_gout0")]
+transform = Transform3D(0.198803, 0, -0.980039, 0, 1, 0, 0.980039, 0, 0.198803, 12.1883, 0, -11.6291)
+
 [node name="tree02" parent="." instance=ExtResource("5_gout0")]
 transform = Transform3D(0.989571, 0, 0.144045, 0, 1, 0, -0.144045, 0, 0.989571, 17.5217, 0, -39.0829)
 
@@ -189,6 +197,24 @@ transform = Transform3D(0.00495623, 0, 0.199939, 0, 0.2, 0, -0.199939, 0, 0.0049
 
 [node name="road4" parent="." instance=ExtResource("7_kmyrq")]
 transform = Transform3D(0.00495623, 0, 0.199939, 0, 0.2, 0, -0.199939, 0, 0.00495623, 0.734316, 0, -29.623)
+
+[node name="tree03" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.37097, 0, -15.0117)
+
+[node name="tree09" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(0.710652, 0, -0.703544, 0, 1, 0, 0.703544, 0, 0.710652, -9.32223, -1.90735e-06, -21.1504)
+
+[node name="tree10" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(0.710652, 0, -0.703544, 0, 1, 0, 0.703544, 0, 0.710652, -3.78395, -1.90735e-06, -26.696)
+
+[node name="tree04" parent="." instance=ExtResource("8_072ty")]
+transform = Transform3D(0.501148, 0, -0.865361, 0, 1, 0, 0.865361, 0, 0.501148, 6.80686, 0, -21.9606)
+
+[node name="tree05" parent="." instance=ExtResource("9_v6ygg")]
+transform = Transform3D(0.501148, 0, -0.865361, 0, 1, 0, 0.865361, 0, 0.501148, -5.05449, -4.76837e-07, -8.6947)
+
+[node name="tree06" parent="." instance=ExtResource("9_v6ygg")]
+transform = Transform3D(0.501148, 0, -0.865361, 0, 1, 0, 0.865361, 0, 0.501148, 8.03867, -4.76837e-07, -38.9356)
 
 [connection signal="pressed" from="Main Menu/Control/MarginContainer/VBoxContainer/StartBtn" to="Main Menu/Control" method="_on_start_btn_pressed"]
 [connection signal="pressed" from="Main Menu/Control/MarginContainer/VBoxContainer/QuitBtn" to="Main Menu/Control" method="_on_quit_btn_pressed"]

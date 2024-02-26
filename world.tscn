@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
 [ext_resource type="PackedScene" uid="uid://chpxwsdrnf5wk" path="res://scene_object/moon.tscn" id="16_1rbbi"]
 [ext_resource type="PackedScene" uid="uid://nuhi0p5jxjeg" path="res://scene_object/test_box.tscn" id="17_u0qlf"]
-[ext_resource type="PackedScene" uid="uid://bcf1bsfwrmc3e" path="res://scene_object/lightpost.tscn" id="18_ygqwd"]
+[ext_resource type="PackedScene" path="res://scene_object/lightpost.tscn" id="18_ygqwd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
