@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=28 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
 [ext_resource type="PackedScene" uid="uid://dxsv1cdpv17x8" path="res://scene_object/tree_3.tscn" id="10_wbd7w"]
-[ext_resource type="PackedScene" uid="uid://cfsf0mva0c75t" path="res://assets/tree03.glb" id="12_2rxda"]
 [ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
 [ext_resource type="PackedScene" uid="uid://bvco6di8jclbe" path="res://scene_object/road.tscn" id="15_8w4p2"]
 [ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
@@ -191,12 +190,6 @@ transform = Transform3D(0.704052, 0, -0.710149, 0, 1, 0, 0.710149, 0, 0.704052, 
 [node name="tree19" parent="Trees" instance=ExtResource("3_2k5bm")]
 transform = Transform3D(-0.762578, 0, 0.646896, 0, 1, 0, -0.646896, 0, -0.762578, -61.8853, 0, 31.1726)
 
-[node name="tree20" parent="Trees" instance=ExtResource("12_2rxda")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -56.4615, -1.10188, 15.5142)
-
-[node name="tree21" parent="Trees" instance=ExtResource("12_2rxda")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.3555, -1.08517, 1.69805)
-
 [node name="tree2" parent="Trees" instance=ExtResource("15_ntg5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 6)
 
@@ -310,6 +303,15 @@ transform = Transform3D(-0.399867, 9.03185e-10, 0.0103312, 3.38813e-22, -0.4, 3.
 [node name="fence16" parent="Fences" instance=ExtResource("7_3wrog")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -41.0334, 0.230874, -39.2509)
 
+[node name="tree-border" parent="Fences" instance=ExtResource("19_vw42b")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.8986, 3.8147e-06, 47.0311)
+
+[node name="tree-border2" parent="Fences" instance=ExtResource("19_vw42b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.4041, 0, -44.514)
+
+[node name="tree-border3" parent="Fences" instance=ExtResource("19_vw42b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 96.8575, 0, 37.5488)
+
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2maxx")
 volume_db = -30.0
@@ -345,14 +347,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.597, 1.11531, 22.2121)
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_w78iq")
 lock_rotation = true
-
-[node name="tree-border" parent="." instance=ExtResource("19_vw42b")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.8986, 3.8147e-06, 47.0311)
-
-[node name="tree-border2" parent="." instance=ExtResource("19_vw42b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.4041, 0, -44.514)
-
-[node name="tree-border3" parent="." instance=ExtResource("19_vw42b")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 96.8575, 0, 37.5488)
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
