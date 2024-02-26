@@ -23,8 +23,13 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$StepTimer.wait_time = 0.6 
 	$StepTimer.start() 
+	
+	
 
 func _input(event):	
+	if event.is_action_pressed("ui_cancel"):
+		$PauseMenu.paused()
+		
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 		$Camera3D.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
