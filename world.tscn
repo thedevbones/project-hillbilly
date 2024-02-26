@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=35 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
@@ -26,7 +26,13 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ge5q0"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noxdu"]
+sky_energy_multiplier = 0.0
+ground_energy_multiplier = 0.0
+use_debanding = false
+
 [sub_resource type="Sky" id="Sky_gkv0d"]
+sky_material = SubResource("ProceduralSkyMaterial_noxdu")
 
 [sub_resource type="Environment" id="Environment_wbc6u"]
 background_mode = 2
@@ -35,15 +41,12 @@ sky = SubResource("Sky_gkv0d")
 ambient_light_source = 2
 ambient_light_color = Color(0.305882, 0.282353, 0.278431, 1)
 fog_enabled = true
-fog_light_color = Color(0.929412, 0.917647, 0.909804, 1)
-fog_density = 0.02
-fog_aerial_perspective = 0.937
-fog_sky_affect = 0.789
+fog_light_color = Color(0.0862745, 0.0745098, 0.0666667, 1)
+fog_density = 0.25
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0816
-volumetric_fog_emission = Color(0.172549, 0.172549, 0.172549, 1)
-volumetric_fog_detail_spread = 6.0
-volumetric_fog_sky_affect = 0.535
+volumetric_fog_density = 0.15
+volumetric_fog_emission = Color(0.160784, 0.160784, 0.160784, 1)
+volumetric_fog_anisotropy = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmfsx"]
 albedo_texture = ExtResource("2_leqiw")
@@ -64,7 +67,7 @@ rough = true
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w78iq"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bvklu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfk0q"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -99,7 +102,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_bvklu"),
+"material": SubResource("ShaderMaterial_jfk0q"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
