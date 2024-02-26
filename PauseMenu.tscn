@@ -130,5 +130,3 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_lp0ff")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xftaa")
 text = "Quit
 "
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuBtn" to="." method="_on_menu_btn_pressed"]
