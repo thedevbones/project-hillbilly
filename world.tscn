@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=29 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
@@ -11,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
 [ext_resource type="PackedScene" uid="uid://dxsv1cdpv17x8" path="res://scene_object/tree_3.tscn" id="10_wbd7w"]
-[ext_resource type="PackedScene" uid="uid://b0b6sysj5cdfp" path="res://assets/tree03.glb" id="12_2rxda"]
+[ext_resource type="PackedScene" uid="uid://cfsf0mva0c75t" path="res://assets/tree03.glb" id="12_2rxda"]
 [ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
 [ext_resource type="PackedScene" uid="uid://bvco6di8jclbe" path="res://scene_object/road.tscn" id="15_8w4p2"]
 [ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
 [ext_resource type="PackedScene" uid="uid://chpxwsdrnf5wk" path="res://scene_object/moon.tscn" id="16_1rbbi"]
 [ext_resource type="PackedScene" uid="uid://nuhi0p5jxjeg" path="res://scene_object/test_box.tscn" id="17_u0qlf"]
 [ext_resource type="PackedScene" uid="uid://bcf1bsfwrmc3e" path="res://scene_object/lightpost.tscn" id="18_ygqwd"]
+[ext_resource type="PackedScene" uid="uid://ch2eirrtm4ukc" path="res://scene_object/tree_border.tscn" id="19_vw42b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -336,13 +337,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9912, 4.76837e-07, 23.679
 [node name="Moon" parent="Lighting" instance=ExtResource("16_1rbbi")]
 transform = Transform3D(6.4879, 0, -13.5243, 0, 15, 0, 13.5243, 0, 6.4879, -24.0802, 119.584, 12.318)
 
+[node name="lightpost3" parent="Lighting" instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9093, 0, -16.3508)
+
 [node name="TestBox" parent="." instance=ExtResource("17_u0qlf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.597, 1.11531, 22.2121)
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_w78iq")
 lock_rotation = true
 
-[node name="lightpost" parent="." instance=ExtResource("18_ygqwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9093, 0, -16.3508)
+[node name="tree-border" parent="." instance=ExtResource("19_vw42b")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.8986, 3.8147e-06, 47.0311)
+
+[node name="tree-border2" parent="." instance=ExtResource("19_vw42b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.4041, 0, -44.514)
+
+[node name="tree-border3" parent="." instance=ExtResource("19_vw42b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 96.8575, 0, 37.5488)
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
