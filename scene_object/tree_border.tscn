@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch2eirrtm4ukc"]
+
+[ext_resource type="PackedScene" path="res://assets/tree-border.glb" id="1_b72na"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tahn0"]
+size = Vector3(97.1269, 8.66998, 1.39307)
+
+[node name="tree-border" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5053, 4.11533, -0.196533)
+shape = SubResource("BoxShape3D_tahn0")
+
+[node name="tree-border6" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.0716, 4.115, -0.673)
+
+[node name="tree-border7" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.6524, 4.115, -0.673)
+
+[node name="tree-border8" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3468, 4.115, -0.673)
+
+[node name="tree-border9" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.3378, 4.115, -0.673)
+
+[node name="tree-border10" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.9416, 4.115, -0.673)
+
+[node name="tree-border" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.825, 4.115, -0.673)
+
+[node name="tree-border2" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4058, 4.115, -0.673)
+
+[node name="tree-border3" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.89982, 4.115, -0.673)
+
+[node name="tree-border4" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0912, 4.115, -0.673)
+
+[node name="tree-border5" parent="." instance=ExtResource("1_b72na")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6949, 4.115, -0.673)
