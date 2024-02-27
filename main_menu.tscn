@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://uqmsd8gbm3fk"]
 
 [ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_32ltq"]
-[ext_resource type="Script" path="res://ControlSize.gd" id="1_1454a"]
+[ext_resource type="Script" path="res://MainMenue.gd" id="1_1454a"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="3_wugvk"]
 [ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="4_24813"]
 
@@ -137,4 +137,5 @@ stream = ExtResource("4_24813")
 autoplay = true
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartBtn" to="Control" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/SettingsBtn" to="Control" method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitBtn" to="Control" method="_on_quit_btn_pressed"]
