@@ -531,4 +531,19 @@ physics_material_override = SubResource("PhysicsMaterial_wqqtr")
 lock_rotation = true
 linear_damp = 2.0
 
+[node name="lightpost" parent="." instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0535, 0.169707, 44.8944)
+
+[node name="lightpost2" parent="." instance=ExtResource("18_ygqwd")]
+transform = Transform3D(0.994753, 0, -0.102306, 0, 1, 0, 0.102306, 0, 0.994753, -25.5239, -0.264917, 62.9702)
+
+[node name="lightpost3" parent="." instance=ExtResource("18_ygqwd")]
+transform = Transform3D(0.807856, 0, -0.58938, 0, 1, 0, 0.58938, 0, 0.807856, -29.2561, 0, 73.0464)
+
+[node name="lightpost4" parent="." instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2164, 9.53674e-07, -36.3669)
+
+[node name="lightpost5" parent="." instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4995, 0, -57.1917)
+
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
