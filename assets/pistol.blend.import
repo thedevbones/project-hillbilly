@@ -31,6 +31,18 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
+"PATH:Camera": {
+"import/skip_import": true
+},
+"PATH:Empty": {
+"import/skip_import": true
+},
+"PATH:Empty_001": {
+"import/skip_import": true
+},
+"PATH:Empty_002": {
+"import/skip_import": true
+},
 "PATH:Light": {
 "import/skip_import": true
 }
