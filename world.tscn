@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=44 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://GunCamera.gd" id="1_mc2is"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="4_6bpil"]
+[ext_resource type="Script" path="res://scene_object/pistol.gd" id="4_q73kt"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/ambience.mp3" id="6_2maxx"]
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
@@ -136,8 +137,8 @@ absorbent = true
 [node name="World" type="Node3D"]
 
 [node name="GunViewport" type="SubViewportContainer" parent="."]
-offset_left = 45.0
-offset_right = 365.0
+offset_left = 99.0
+offset_right = 419.0
 offset_bottom = 240.0
 
 [node name="SubViewport" type="SubViewport" parent="GunViewport"]
@@ -150,6 +151,7 @@ size = Vector2i(320, 240)
 render_target_update_mode = 4
 
 [node name="GunCamera" type="Camera3D" parent="GunViewport/SubViewport"]
+transform = Transform3D(-0.99863, 0, 0.052336, 0, 1, 0, -0.052336, 0, -0.99863, -22.38, 1.505, 5.673)
 cull_mask = 1047554
 environment = SubResource("Environment_t0ccy")
 current = true
@@ -162,11 +164,13 @@ collision_mask = 3
 script = ExtResource("1_1ouke")
 
 [node name="MainCamera" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, 0, 0, 1, 0, 0.24091, 0)
+transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1047553
 
-[node name="pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
-transform = Transform3D(0.5, 0, -1.86265e-09, 0, 0.5, 0, 0, 0, 0.5, 0.481699, -0.409187, -1.05844)
+[node name="Pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
+transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.481699, -0.409187, -1.05844)
+visible = false
+script = ExtResource("4_q73kt")
 
 [node name="MuzzleLight" type="OmniLight3D" parent="Player/MainCamera"]
 transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 0, 0, 1, 0.483784, -0.241656, -1.5366)
