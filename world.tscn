@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=42 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
+[ext_resource type="Script" path="res://GunCamera.gd" id="1_mc2is"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
 [ext_resource type="PackedScene" uid="uid://gbkv2x4ljwad" path="res://scene_object/pistol.tscn" id="2_k4yhr"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
@@ -18,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bvco6di8jclbe" path="res://scene_object/road.tscn" id="15_8w4p2"]
 [ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
 [ext_resource type="PackedScene" uid="uid://chpxwsdrnf5wk" path="res://scene_object/moon.tscn" id="16_1rbbi"]
-[ext_resource type="PackedScene" path="res://scene_object/lightpost.tscn" id="18_ygqwd"]
+[ext_resource type="PackedScene" uid="uid://cdey5737s08u3" path="res://scene_object/lightpost.tscn" id="18_ygqwd"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="19_sl67m"]
 [ext_resource type="PackedScene" path="res://scene_object/tree_border.tscn" id="19_vw42b"]
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="20_2tew6"]
@@ -43,12 +44,14 @@ background_color = Color(0.47451, 0.47451, 0.47451, 1)
 sky = SubResource("Sky_gkv0d")
 ambient_light_source = 2
 ambient_light_color = Color(0.305882, 0.282353, 0.278431, 1)
+ssao_enabled = true
+ssao_intensity = 4.0
+ssil_enabled = true
 fog_light_color = Color(0.0862745, 0.0745098, 0.0666667, 1)
 fog_density = 0.25
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.15
 volumetric_fog_emission = Color(0.160784, 0.160784, 0.160784, 1)
-volumetric_fog_anisotropy = 0.0
 
 [sub_resource type="FogMaterial" id="FogMaterial_6527e"]
 density = -8.0
@@ -73,7 +76,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmca7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4p8p"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -108,7 +111,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_rmca7"),
+"material": SubResource("ShaderMaterial_x4p8p"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -138,9 +141,17 @@ offset_bottom = 240.0
 
 [node name="SubViewport" type="SubViewport" parent="GunViewport"]
 transparent_bg = true
+handle_input_locally = false
+msaa_3d = 3
+screen_space_aa = 1
 canvas_cull_mask = 4293918722
 size = Vector2i(320, 240)
 render_target_update_mode = 4
+
+[node name="GunCamera" type="Camera3D" parent="GunViewport/SubViewport"]
+cull_mask = 1047554
+current = true
+script = ExtResource("1_mc2is")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(-0.998887, 0, 0.0471766, 0, 1, 0, -0.0471766, 0, -0.998887, -22.3823, 1, 5.67396)
@@ -148,11 +159,11 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_1ouke")
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
+[node name="MainCamera" type="Camera3D" parent="Player"]
 cull_mask = 1047553
 
-[node name="pistol" parent="Player/Camera3D" instance=ExtResource("2_k4yhr")]
-transform = Transform3D(0.5, 0, -1.86265e-09, 0, 0.5, 0, 0, 0, 0.5, 0.481701, -0.409187, -1.05844)
+[node name="pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
+transform = Transform3D(0.5, 0, -1.86265e-09, 0, 0.5, 0, 0, 0, 0.5, 0.481699, -0.409187, -1.05844)
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_hnuiv")

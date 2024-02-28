@@ -36,9 +36,9 @@ func _input(event):
 		
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		$Camera3D.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+		$MainCamera.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		# Clamp the camera's vertical rotation
-		$Camera3D.rotation.x = clamp($Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		$MainCamera.rotation.x = clamp($MainCamera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -75,7 +75,7 @@ func _physics_process(delta):
 		$StepAudio.set_max_db(-4)
 		speed = NORMAL_SPEED * SPRINT_MULTIPLIER
 		stamina -= delta  # Stamina depletes continuously while sprinting
-		$Camera3D.fov = lerp($Camera3D.fov, SPRINT_FOV, 0.1)
+		$MainCamera.fov = lerp($MainCamera.fov, SPRINT_FOV, 0.1)
 		if stamina <= 0.0:
 			stamina = 0.0  # Clamp stamina to zero
 			is_sprinting = false
@@ -84,7 +84,7 @@ func _physics_process(delta):
 	elif is_crouching:
 		$StepTimer.wait_time = 1.2 
 		$StepAudio.set_max_db(-10)
-		$Camera3D.global_transform.origin.y = lerp($Camera3D.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
+		$MainCamera.global_transform.origin.y = lerp($MainCamera.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
 		speed = NORMAL_SPEED * CROUCH_MULTIPLIER
 		can_sprint = false
 		stamina += delta / 2
@@ -92,8 +92,8 @@ func _physics_process(delta):
 	else:
 		$StepTimer.wait_time = 0.6 
 		$StepAudio.set_max_db(-7)
-		$Camera3D.global_transform.origin.y = lerp($Camera3D.global_transform.origin.y, global_transform.origin.y, delta * 10)
-		$Camera3D.fov = lerp($Camera3D.fov, NORMAL_FOV, 0.1)
+		$MainCamera.global_transform.origin.y = lerp($MainCamera.global_transform.origin.y, global_transform.origin.y, delta * 10)
+		$MainCamera.fov = lerp($MainCamera.fov, NORMAL_FOV, 0.1)
 		speed = NORMAL_SPEED
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA)  # Clamp stamina to its maximum value
