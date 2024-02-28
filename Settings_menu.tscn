@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://0scyeg7rux1e"]
 
-[ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_4f7lt"]
 [ext_resource type="Script" path="res://SettingsMenu.gd" id="2_bjasd"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="3_80oxy"]
 [ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="4_3loys"]
+[ext_resource type="PackedScene" uid="uid://bqsekwu7gnglj" path="res://main.tscn" id="4_wtdaa"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -33,14 +33,6 @@
 
 [node name="Settings  Menu" type="CanvasLayer"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_4f7lt")
-
 [node name="SettingsControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -57,8 +49,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -6.0
+offset_right = 422.0
+offset_bottom = 515.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.315, 0.315)
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
@@ -139,6 +135,8 @@ text = "Main Menu
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3loys")
 autoplay = true
+
+[node name="main" parent="." instance=ExtResource("4_wtdaa")]
 
 [connection signal="pressed" from="SettingsControl/MarginContainer/VBoxContainer/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/VBoxContainer/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
