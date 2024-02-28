@@ -153,6 +153,8 @@ func shoot():
 		$MainCamera/Pistol/MuzzleLight.show()
 		await get_tree().create_timer(0.1).timeout
 		$MainCamera/Pistol/MuzzleLight.hide()
+	else:
+		$NoAmmo.play()
 
 func reload():
 	var weapon = get_current_weapon()

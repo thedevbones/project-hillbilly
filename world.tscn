@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=48 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://GunCamera.gd" id="1_mc2is"]
@@ -11,12 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="4_6bpil"]
 [ext_resource type="Script" path="res://scene_object/pistol.gd" id="4_q73kt"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
-[ext_resource type="AudioStream" uid="uid://c1tj08fga2ppv" path="res://audio/pistol_fire.wav" id="5_qsv7b"]
+[ext_resource type="AudioStream" path="res://audio/pistol_fire.wav" id="5_qsv7b"]
 [ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/ambience.mp3" id="6_2maxx"]
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
-[ext_resource type="AudioStream" uid="uid://x7jcquebmimb" path="res://audio/temp_reload.wav" id="7_mt7f5"]
+[ext_resource type="AudioStream" path="res://audio/temp_reload.wav" id="7_mt7f5"]
+[ext_resource type="AudioStream" uid="uid://tp8mnyni4uxp" path="res://audio/temp_noammo.wav" id="9_q2jjc"]
 [ext_resource type="PackedScene" uid="uid://dxsv1cdpv17x8" path="res://scene_object/tree_3.tscn" id="10_wbd7w"]
 [ext_resource type="PackedScene" path="res://scene_object/tree_border_small.tscn" id="13_qqkrj"]
 [ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
@@ -81,7 +82,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vysk3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0ggp"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -116,7 +117,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_vysk3"),
+"material": SubResource("ShaderMaterial_d0ggp"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -138,6 +139,23 @@ rough = true
 absorbent = true
 
 [node name="World" type="Node3D"]
+
+[node name="TempCrosshair" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.47451)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AmmoCount" type="Label" parent="."]
 anchors_preset = 3
@@ -194,7 +212,6 @@ transform = Transform3D(0.992404, 0.0871559, 0.0868241, -0.0868242, 0.996195, -0
 visible = false
 layers = 3
 light_color = Color(0.768627, 0.705882, 0.466667, 1)
-light_energy = 4.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.5
 light_size = 0.383
@@ -218,9 +235,13 @@ stream = ExtResource("2_f4xii")
 
 [node name="PistolFire" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("5_qsv7b")
+unit_size = 50.0
 
 [node name="PistolReleod" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("7_mt7f5")
+
+[node name="NoAmmo" type="AudioStreamPlayer3D" parent="Player"]
+stream = ExtResource("9_q2jjc")
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("3_ec8lf")]
 visible = false
