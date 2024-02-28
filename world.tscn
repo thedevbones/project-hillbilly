@@ -1,8 +1,9 @@
-[gd_scene load_steps=48 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=49 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://GunCamera.gd" id="1_mc2is"]
 [ext_resource type="Script" path="res://AmmoCount.gd" id="1_o3nit"]
+[ext_resource type="Script" path="res://Crosshair.gd" id="1_yn51g"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
 [ext_resource type="PackedScene" uid="uid://gbkv2x4ljwad" path="res://scene_object/pistol.tscn" id="2_k4yhr"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
@@ -140,7 +141,7 @@ absorbent = true
 
 [node name="World" type="Node3D"]
 
-[node name="TempCrosshair" type="Label" parent="."]
+[node name="Crosshair" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.47451)
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,9 +154,10 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "x"
+text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("1_yn51g")
 
 [node name="AmmoCount" type="Label" parent="."]
 anchors_preset = 3
@@ -218,6 +220,17 @@ light_size = 0.383
 light_specular = 2.0
 light_cull_mask = 4294966275
 shadow_enabled = true
+shadow_blur = 0.596
+omni_attenuation = 0.435275
+
+[node name="ExtraLight" type="OmniLight3D" parent="Player/MainCamera/Pistol/MuzzleLight"]
+transform = Transform3D(1, 5.7284e-14, 0, -2.21004e-15, 1, 1.11022e-16, 0, 5.55112e-17, 1, 0, 0, 1.04624)
+light_color = Color(0.768627, 0.705882, 0.466667, 1)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.5
+light_size = 0.383
+light_specular = 2.0
+light_cull_mask = 4294966275
 shadow_blur = 0.596
 omni_attenuation = 0.435275
 
