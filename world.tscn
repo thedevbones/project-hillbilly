@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=47 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
@@ -13,17 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
 [ext_resource type="PackedScene" uid="uid://dxsv1cdpv17x8" path="res://scene_object/tree_3.tscn" id="10_wbd7w"]
-[ext_resource type="PackedScene" path="res://scene_object/tree_border_small.tscn" id="13_qqkrj"]
+[ext_resource type="PackedScene" uid="uid://dn57va7fvxmn8" path="res://scene_object/tree_border_small.tscn" id="13_qqkrj"]
 [ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
 [ext_resource type="PackedScene" uid="uid://bvco6di8jclbe" path="res://scene_object/road.tscn" id="15_8w4p2"]
 [ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
 [ext_resource type="PackedScene" uid="uid://chpxwsdrnf5wk" path="res://scene_object/moon.tscn" id="16_1rbbi"]
-[ext_resource type="PackedScene" path="res://scene_object/lightpost.tscn" id="18_ygqwd"]
+[ext_resource type="PackedScene" uid="uid://bcf1bsfwrmc3e" path="res://scene_object/lightpost.tscn" id="18_ygqwd"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="19_sl67m"]
-[ext_resource type="PackedScene" path="res://scene_object/tree_border.tscn" id="19_vw42b"]
+[ext_resource type="PackedScene" uid="uid://ch2eirrtm4ukc" path="res://scene_object/tree_border.tscn" id="19_vw42b"]
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="20_2tew6"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="21_qsmwn"]
 [ext_resource type="PackedScene" uid="uid://c7xki0kc6jtbd" path="res://scene_object/box.tscn" id="22_btxxw"]
+[ext_resource type="Texture2D" uid="uid://dhes14etb26md" path="res://textures/gravel.jpg" id="25_1kycs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -73,7 +74,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmca7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_git05"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -108,7 +109,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_rmca7"),
+"material": SubResource("ShaderMaterial_git05"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -129,6 +130,31 @@ absorbent = true
 rough = true
 absorbent = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q64ut"]
+shading_mode = 0
+diffuse_mode = 3
+albedo_color = Color(0.392157, 0.282353, 0, 1)
+albedo_texture = ExtResource("25_1kycs")
+
+[sub_resource type="Curve3D" id="Curve3D_5bjw5"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -17.8722, -0.00969887, 12.8135, 0, 0, 0, 0, 0, 0, -13.9534, -0.00927353, 12.1439, 0, 0, 0, 0, 0, 0, -8.03246, -0.00961113, 12.3633, 0, 0, 0, 0, 0, 0, 5.37734, -0.00294495, 18.1187, 0, 0, 0, 0, 0, 0, 10.0125, -0.00187683, 23.0789, 0, 0, 0, 0, 0, 0, 15.2169, -0.00187683, 31.4893, 0, 0, 0, 0, 0, 0, 20.7689, 0.000701904, 34.3165, 0, 0, 0, 0, 0, 0, 26.4601, 0.00509644, 33.0314, 0, 0, 0, 0, 0, 0, 30.843, 0.010704, 26.7404, 0, 0, 0, 0, 0, 0, 35.2803, 0.017662, 17.2844, 0, 0, 0, 0, 0, 0, 41.2342, 0.0241852, 11.3633, 0, 0, 0, 0, 0, 0, 47.3577, 0.032547, 1.16935, 0, 0, 0, 0, 0, 0, 49.9614, 0.038147, -8.16133, 0, 0, 0, 0, 0, 0, 52.7287, 0.043457, -16.4809, 0, 0, 0, 0, 0, 0, 58.043, 0.0487595, -20.5617, 0, 0, 0, 0, 0, 0, 67.1743, 0.0563354, -23.8293, 0, 0, 0, 0, 0, 0, 75.6884, 0.0617981, -22.954, 0, 0, 0, 0, 0, 0, 79.7356, 0.0630188, -19.1727, 0, 0, 0, 0, 0, 0, 85.2864, 0.063179, -10.3038, 0, 0, 0, 0, 0, 0, 92.3689, 0.0653, -3.68666, 0, 0, 0, 0, 0, 0, 95.8598, 0.0672684, -2.67768),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 21
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hhp5n"]
+rough = true
+absorbent = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rapqp"]
+rough = true
+absorbent = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fms4m"]
+rough = true
+absorbent = true
+
 [node name="World" type="Node3D"]
 
 [node name="GunViewport" type="SubViewportContainer" parent="."]
@@ -138,6 +164,7 @@ offset_bottom = 240.0
 
 [node name="SubViewport" type="SubViewport" parent="GunViewport"]
 transparent_bg = true
+handle_input_locally = false
 canvas_cull_mask = 4293918722
 size = Vector2i(320, 240)
 render_target_update_mode = 4
@@ -565,5 +592,84 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2164, 9.53674e-07, -36.36
 
 [node name="lightpost5" parent="." instance=ExtResource("18_ygqwd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4995, 0, -57.1917)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3748, 0.0893555, -1.37418)
+snap = 1e-06
+polygon = PackedVector2Array(0.1, 0, 1, 0, 2, 0)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 2.1
+path_joined = false
+material = SubResource("StandardMaterial3D_q64ut")
+
+[node name="Path3D" type="Path3D" parent="CSGPolygon3D"]
+curve = SubResource("Curve3D_5bjw5")
+
+[node name="tree2" parent="." instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3867, 3.8147e-06, 7.70999)
+
+[node name="tree3" parent="." instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.4227, -0.590801, -17.8719)
+
+[node name="tree4" parent="." instance=ExtResource("15_ntg5n")]
+transform = Transform3D(-0.190466, 0, -0.981694, 0, 1, 0, 0.981694, 0, -0.190466, 50.231, 3.8147e-06, -16.2283)
+
+[node name="tree5" parent="." instance=ExtResource("15_ntg5n")]
+transform = Transform3D(0.473135, 0, -0.88099, 0, 1, 0, 0.88099, 0, 0.473135, 27.5311, 3.8147e-06, 22.8718)
+
+[node name="tree6" parent="." instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7947, 0, -25.0101)
+
+[node name="tree7" parent="." instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 59.0678, -0.989281, 22.6184)
+
+[node name="tree8" parent="." instance=ExtResource("10_wbd7w")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 70.9221, -0.654114, -28.1804)
+
+[node name="tree9" parent="." instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.7504, -0.862835, -5.7954)
+
+[node name="tree10" parent="." instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 63.3473, -0.787666, -16.5333)
+
+[node name="tree11" parent="." instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9947, 0, -35.0166)
+
+[node name="tree12" parent="." instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4832, -3.8147e-06, -8.14228)
+
+[node name="box" parent="." instance=ExtResource("22_btxxw")]
+transform = Transform3D(0.976672, 0, -0.214735, 0, 1, 0, 0.214735, 0, 0.976672, 70.639, 0.5, -17.762)
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_hhp5n")
+lock_rotation = true
+linear_damp = 2.0
+
+[node name="box2" parent="." instance=ExtResource("22_btxxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9768, 0.5, -17.787)
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_rapqp")
+lock_rotation = true
+linear_damp = 2.0
+
+[node name="box3" parent="." instance=ExtResource("22_btxxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.202, 1.60215, -17.6654)
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_fms4m")
+lock_rotation = true
+linear_damp = 2.0
+
+[node name="tree13" parent="." instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.9527, 0, -12.2003)
+
+[node name="tree14" parent="." instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.4179, 0.1093, -16.8189)
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
