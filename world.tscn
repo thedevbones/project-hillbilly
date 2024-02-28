@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=43 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://GunCamera.gd" id="1_mc2is"]
@@ -26,6 +26,8 @@
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="21_qsmwn"]
 [ext_resource type="PackedScene" uid="uid://c7xki0kc6jtbd" path="res://scene_object/box.tscn" id="22_btxxw"]
 
+[sub_resource type="Environment" id="Environment_t0ccy"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ge5q0"]
@@ -50,7 +52,6 @@ ssil_enabled = true
 fog_light_color = Color(0.0862745, 0.0745098, 0.0666667, 1)
 fog_density = 0.25
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.15
 volumetric_fog_emission = Color(0.160784, 0.160784, 0.160784, 1)
 
 [sub_resource type="FogMaterial" id="FogMaterial_6527e"]
@@ -76,7 +77,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4p8p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tsfah"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -111,7 +112,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_x4p8p"),
+"material": SubResource("ShaderMaterial_tsfah"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -150,6 +151,7 @@ render_target_update_mode = 4
 
 [node name="GunCamera" type="Camera3D" parent="GunViewport/SubViewport"]
 cull_mask = 1047554
+environment = SubResource("Environment_t0ccy")
 current = true
 script = ExtResource("1_mc2is")
 
@@ -185,6 +187,7 @@ environment = SubResource("Environment_wbc6u")
 
 [node name="ClearSky" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3221, 65.821, 12.2616)
+layers = 3
 size = Vector3(250, 100, 125)
 material = SubResource("FogMaterial_6527e")
 
@@ -561,5 +564,14 @@ mass = 30.0
 physics_material_override = SubResource("PhysicsMaterial_wqqtr")
 lock_rotation = true
 linear_damp = 2.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.774634, 0.621926, 0.114675, 0.137044, -0.342103, 0.929615, 0.617382, -0.704396, -0.350236, 0, 100.632, -28.35)
+layers = 2
+light_energy = 1.646
+light_volumetric_fog_energy = 0.0
+light_cull_mask = 4294966274
+shadow_enabled = true
+sky_mode = 1
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
