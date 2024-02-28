@@ -148,18 +148,13 @@ func _on_step_timer_timeout():
 func shoot():
 	var weapon = get_current_weapon()
 	if weapon and weapon.ammo > 0:
-		$PistolFire.play()
 		weapon.shoot()
-		$MainCamera/Pistol/MuzzleLight.show()
-		await get_tree().create_timer(0.1).timeout
-		$MainCamera/Pistol/MuzzleLight.hide()
 	else:
 		$NoAmmo.play()
 
 func reload():
 	var weapon = get_current_weapon()
 	if weapon and not weapon.is_reloading:
-		$PistolReleod.play()
 		weapon.reload()
 
 func switch_weapon_by_index(index):

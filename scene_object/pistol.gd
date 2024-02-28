@@ -12,20 +12,26 @@ var RELOAD_TIME = 1.5
 signal shot_fired
 signal reloaded
 
-@onready var fire_audio = $Player/PistolFire
-
 func shoot():
 	if ammo > 0 and not is_reloading:
-		# fire_audio.play()
-		#var bullet_instance = bullet_scene.instance()
-		#bullet_instance.global_transform = global_transform
-		#bullet_instance.linear_velocity = -global_transform.basis.z.normalized() * BULLET_SPEED
-		#get_tree().root.add_child(bullet_instance)
+		# Play fire sound
+		$PistolFire.play()
+		# Flash muzzle flash light
+		$MuzzleLight.show()
+		await get_tree().create_timer(0.1).timeout
+		$MuzzleLight.hide()
+		# Create bullet
+		var bullet_instance = bullet_scene.instance()
+		bullet_instance.global_transform = global_transform
+		bullet_instance.linear_velocity = -global_transform.basis.z.normalized() * BULLET_SPEED
+		get_tree().root.add_child(bullet_instance)
+		# Adjust ammo
 		ammo -= 1
 		emit_signal("shot_fired")
 
 func reload():
 	if not is_reloading and ammo < MAX_AMMO:
+		$PistolReleod.play()
 		is_reloading = true
 		await get_tree().create_timer(RELOAD_TIME).timeout
 		ammo = MAX_AMMO
