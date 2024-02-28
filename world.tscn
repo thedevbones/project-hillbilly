@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="20_2tew6"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="21_qsmwn"]
 [ext_resource type="PackedScene" uid="uid://c7xki0kc6jtbd" path="res://scene_object/box.tscn" id="22_btxxw"]
-[ext_resource type="Texture2D" uid="uid://dhes14etb26md" path="res://textures/gravel.jpg" id="25_1kycs"]
+[ext_resource type="Texture2D" uid="uid://dhgqjcpdui70s" path="res://textures/dirt.jpg" id="25_0gkn8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -65,6 +65,18 @@ texture_filter = 4
 height = 3.88853
 radius = 1.52373
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hhp5n"]
+rough = true
+absorbent = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rapqp"]
+rough = true
+absorbent = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fms4m"]
+rough = true
+absorbent = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vysbs"]
 size = Vector3(1.38953, 4.86829, 256.345)
 
@@ -74,7 +86,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_git05"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cxvi"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -109,7 +121,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_git05"),
+"material": SubResource("ShaderMaterial_7cxvi"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -133,8 +145,8 @@ absorbent = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q64ut"]
 shading_mode = 0
 diffuse_mode = 3
-albedo_color = Color(0.392157, 0.282353, 0, 1)
-albedo_texture = ExtResource("25_1kycs")
+albedo_color = Color(0.333333, 0.239216, 0, 1)
+albedo_texture = ExtResource("25_0gkn8")
 
 [sub_resource type="Curve3D" id="Curve3D_5bjw5"]
 _data = {
@@ -142,18 +154,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 21
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hhp5n"]
-rough = true
-absorbent = true
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rapqp"]
-rough = true
-absorbent = true
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fms4m"]
-rough = true
-absorbent = true
 
 [node name="World" type="Node3D"]
 
@@ -358,6 +358,66 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7, -0.512247, -12)
 [node name="tree8" parent="Trees" instance=ExtResource("15_ntg5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1106, 0, 44.3128)
 
+[node name="tree9" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3867, 3.8147e-06, 7.70999)
+
+[node name="tree20" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.4227, -0.590801, -17.8719)
+
+[node name="tree21" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(-0.190466, 0, -0.981694, 0, 1, 0, 0.981694, 0, -0.190466, 50.231, 3.8147e-06, -16.2283)
+
+[node name="tree23" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(0.473135, 0, -0.88099, 0, 1, 0, 0.88099, 0, 0.473135, 27.5311, 3.8147e-06, 22.8718)
+
+[node name="tree24" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7947, 0, -25.0101)
+
+[node name="tree25" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 59.0678, -0.989281, 22.6184)
+
+[node name="tree26" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 70.9221, -0.654114, -28.1804)
+
+[node name="tree27" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.7504, -0.862835, -5.7954)
+
+[node name="tree28" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 63.3473, -0.787666, -16.5333)
+
+[node name="tree29" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9947, 0, -35.0166)
+
+[node name="tree30" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4832, -3.8147e-06, -8.14228)
+
+[node name="box" parent="Trees" instance=ExtResource("22_btxxw")]
+transform = Transform3D(0.976672, 0, -0.214735, 0, 1, 0, 0.214735, 0, 0.976672, 70.639, 0.5, -17.762)
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_hhp5n")
+lock_rotation = true
+linear_damp = 2.0
+
+[node name="box2" parent="Trees" instance=ExtResource("22_btxxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9768, 0.5, -17.787)
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_rapqp")
+lock_rotation = true
+linear_damp = 2.0
+
+[node name="box3" parent="Trees" instance=ExtResource("22_btxxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.202, 1.60215, -17.6654)
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_fms4m")
+lock_rotation = true
+linear_damp = 2.0
+
+[node name="tree31" parent="Trees" instance=ExtResource("10_wbd7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.9527, 0, -12.2003)
+
+[node name="tree32" parent="Trees" instance=ExtResource("15_ntg5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.4179, 0.1093, -16.8189)
+
 [node name="Bushes" type="Node3D" parent="."]
 
 [node name="bush01" parent="Bushes" instance=ExtResource("5_pfnyj")]
@@ -545,6 +605,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9093, 0, -16.3508)
 [node name="Moon" parent="Lighting" instance=ExtResource("16_1rbbi")]
 transform = Transform3D(6.4879, 0, -13.5243, 0, 15, 0, 13.5243, 0, 6.4879, -24.0802, 119.584, 12.318)
 
+[node name="lightpost4" parent="Lighting" instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0535, 0.169707, 44.8944)
+
+[node name="lightpost5" parent="Lighting" instance=ExtResource("18_ygqwd")]
+transform = Transform3D(0.994753, 0, -0.102306, 0, 1, 0, 0.102306, 0, 0.994753, -25.5239, -0.264917, 62.9702)
+
+[node name="lightpost6" parent="Lighting" instance=ExtResource("18_ygqwd")]
+transform = Transform3D(0.807856, 0, -0.58938, 0, 1, 0, 0.58938, 0, 0.807856, -29.2561, 0, 73.0464)
+
+[node name="lightpost7" parent="Lighting" instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2164, 9.53674e-07, -36.3669)
+
+[node name="lightpost8" parent="Lighting" instance=ExtResource("18_ygqwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4995, 0, -57.1917)
+
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
 multimesh = SubResource("MultiMesh_pb5br")
 script = ExtResource("21_qsmwn")
@@ -578,22 +653,7 @@ physics_material_override = SubResource("PhysicsMaterial_wqqtr")
 lock_rotation = true
 linear_damp = 2.0
 
-[node name="lightpost" parent="." instance=ExtResource("18_ygqwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0535, 0.169707, 44.8944)
-
-[node name="lightpost2" parent="." instance=ExtResource("18_ygqwd")]
-transform = Transform3D(0.994753, 0, -0.102306, 0, 1, 0, 0.102306, 0, 0.994753, -25.5239, -0.264917, 62.9702)
-
-[node name="lightpost3" parent="." instance=ExtResource("18_ygqwd")]
-transform = Transform3D(0.807856, 0, -0.58938, 0, 1, 0, 0.58938, 0, 0.807856, -29.2561, 0, 73.0464)
-
-[node name="lightpost4" parent="." instance=ExtResource("18_ygqwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2164, 9.53674e-07, -36.3669)
-
-[node name="lightpost5" parent="." instance=ExtResource("18_ygqwd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4995, 0, -57.1917)
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+[node name="Path" type="CSGPolygon3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3748, 0.0893555, -1.37418)
 snap = 1e-06
 polygon = PackedVector2Array(0.1, 0, 1, 0, 2, 0)
@@ -605,71 +665,11 @@ path_simplify_angle = 0.0
 path_rotation = 2
 path_local = true
 path_continuous_u = true
-path_u_distance = 2.1
+path_u_distance = 10.0
 path_joined = false
 material = SubResource("StandardMaterial3D_q64ut")
 
-[node name="Path3D" type="Path3D" parent="CSGPolygon3D"]
+[node name="Path3D" type="Path3D" parent="Path"]
 curve = SubResource("Curve3D_5bjw5")
-
-[node name="tree2" parent="." instance=ExtResource("15_ntg5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3867, 3.8147e-06, 7.70999)
-
-[node name="tree3" parent="." instance=ExtResource("10_wbd7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.4227, -0.590801, -17.8719)
-
-[node name="tree4" parent="." instance=ExtResource("15_ntg5n")]
-transform = Transform3D(-0.190466, 0, -0.981694, 0, 1, 0, 0.981694, 0, -0.190466, 50.231, 3.8147e-06, -16.2283)
-
-[node name="tree5" parent="." instance=ExtResource("15_ntg5n")]
-transform = Transform3D(0.473135, 0, -0.88099, 0, 1, 0, 0.88099, 0, 0.473135, 27.5311, 3.8147e-06, 22.8718)
-
-[node name="tree6" parent="." instance=ExtResource("15_ntg5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7947, 0, -25.0101)
-
-[node name="tree7" parent="." instance=ExtResource("10_wbd7w")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 59.0678, -0.989281, 22.6184)
-
-[node name="tree8" parent="." instance=ExtResource("10_wbd7w")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 70.9221, -0.654114, -28.1804)
-
-[node name="tree9" parent="." instance=ExtResource("10_wbd7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.7504, -0.862835, -5.7954)
-
-[node name="tree10" parent="." instance=ExtResource("10_wbd7w")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 63.3473, -0.787666, -16.5333)
-
-[node name="tree11" parent="." instance=ExtResource("15_ntg5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9947, 0, -35.0166)
-
-[node name="tree12" parent="." instance=ExtResource("15_ntg5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4832, -3.8147e-06, -8.14228)
-
-[node name="box" parent="." instance=ExtResource("22_btxxw")]
-transform = Transform3D(0.976672, 0, -0.214735, 0, 1, 0, 0.214735, 0, 0.976672, 70.639, 0.5, -17.762)
-mass = 20.0
-physics_material_override = SubResource("PhysicsMaterial_hhp5n")
-lock_rotation = true
-linear_damp = 2.0
-
-[node name="box2" parent="." instance=ExtResource("22_btxxw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9768, 0.5, -17.787)
-mass = 20.0
-physics_material_override = SubResource("PhysicsMaterial_rapqp")
-lock_rotation = true
-linear_damp = 2.0
-
-[node name="box3" parent="." instance=ExtResource("22_btxxw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.202, 1.60215, -17.6654)
-mass = 15.0
-physics_material_override = SubResource("PhysicsMaterial_fms4m")
-lock_rotation = true
-linear_damp = 2.0
-
-[node name="tree13" parent="." instance=ExtResource("10_wbd7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.9527, 0, -12.2003)
-
-[node name="tree14" parent="." instance=ExtResource("15_ntg5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.4179, 0.1093, -16.8189)
 
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
