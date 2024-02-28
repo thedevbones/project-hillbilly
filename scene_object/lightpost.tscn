@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdey5737s08u3"]
+
+[ext_resource type="PackedScene" uid="uid://cg31tsyr7paq8" path="res://assets/lightpost.glb" id="1_b4sdj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lf2cg"]
+height = 5.11873
+radius = 0.114923
+
+[node name="lightpost" type="StaticBody3D"]
+
+[node name="lightpost" parent="." instance=ExtResource("1_b4sdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05524, -1.18692, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0519681, 2.39457, 0)
+shape = SubResource("CylinderShape3D_lf2cg")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.999994, 0.00349072, 1.29258e-08, -1.30715e-08, 4.17112e-08, 1, 0.00349072, -0.999994, 4.17565e-08, 1.60266, 5.14508, 0.505924)
+layers = 3
+light_color = Color(0.941176, 0.87451, 0.337255, 1)
+light_energy = 5.0
+light_size = 1.0
+light_specular = 4.864
+shadow_enabled = true
+shadow_transmittance_bias = 2.959
+distance_fade_enabled = true
+spot_range = 6.6
+spot_angle = 23.44
