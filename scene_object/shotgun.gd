@@ -47,9 +47,13 @@ func shoot():
 		can_shoot = true # Allow shooting again
 
 func reload():
+	var was_aiming = false
 	if is_reloading or ammo >= MAX_AMMO:
 		return
 	is_reloading = true
+	if is_aiming: 
+		was_aiming = true
+		aim()
 	while ammo < MAX_AMMO:
 		$ShotgunLoad.play()
 		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
@@ -57,6 +61,7 @@ func reload():
 	$ShotgunCock.play()
 	await get_tree().create_timer(COCK_TIME).timeout
 	is_reloading = false
+	if was_aiming and not is_aiming: aim()
 	emit_signal("reloaded")
 
 func aim():
@@ -89,11 +94,14 @@ func _process(delta):
 	rotation = rotation.slerp(target_rot, 10.0 * delta)
 	if is_aiming:
 		position.y = lerp(position.y, ADS_POS.y, 10.0 * delta)
-		pass
+	elif is_reloading: 
+		position.y = lerp(position.y, -0.45, 10.0 * delta)
 	elif position.y > original_pos.y + BOB_OFFSET: 
 		position.y = lerp(position.y, original_pos.y + BOB_OFFSET, 10.0 * delta)
 		going_up = false
-		pass
+	elif position.y < original_pos.y - BOB_OFFSET: 
+		position.y = lerp(position.y, original_pos.y - BOB_OFFSET, 10.0 * delta)
+		going_up = true
 	var anim_speed
 	if not $"../..".is_moving or $"../..".is_crouching:
 		anim_speed = ANIM_SPEED * 0.25

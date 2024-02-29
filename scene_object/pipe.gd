@@ -3,11 +3,11 @@ extends Node3D
 # Pipe properties
 @onready var camera = $".."
 @onready var raycast = $"../HitScan"
-var damage = 1
+var damage = 2
 var range = Vector3(50.0, 50.0, 3)
 var ranged = false
 var is_swinging = false
-var swing_duration = 0.5 # Duration of the swing in seconds
+var swing_duration = 0.4 # Duration of the swing in seconds
 var swing_timer = 0.0 # Timer to track the swing progress
 
 # Temp animation variables
@@ -17,9 +17,9 @@ var swing_timer = 0.0 # Timer to track the swing progress
 @onready var original_position = position
 const ANIM_SPEED = 0.00025
 const BOB_OFFSET = 0.01
-var going_up = true
 var swing_rotation_degrees = Vector3 (-65, 55, 0) # Adjust as needed
 var swing_position = Vector3 (-0.761, -0.291, -1.093) # Adjust as needed
+var going_up = true
 
 func swing():
 	if is_swinging:
@@ -29,7 +29,6 @@ func swing():
 	$Swing.play()
 	if raycast.is_enabled():
 		hitscan()
-	
 
 func hitscan():
 	raycast.force_raycast_update()  # Updates the raycast immediately
