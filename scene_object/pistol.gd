@@ -11,9 +11,8 @@ var is_reloading = false
 var is_aiming = false
 
 # Temp animation variables
-@onready var max = position.y + 0.02
-@onready var min = position.y - 0.02
-@onready var original_pos_z = position.z
+@onready var max_y = position.y + 0.02
+@onready var min_y = position.y - 0.02
 @onready var original_pos = position
 @onready var original_rot = rotation
 const ADS_POS = Vector3(0, -0.4, -1.058)
@@ -75,7 +74,16 @@ func hitscan():
 # Temp animation
 func _process(delta):
 	if not visible: pass
-	if position.z > original_pos_z: position.z -= 0.01
+	if position.z > original_pos.z: position.z -= 0.01
+	position.x = lerp(position.x, target_pos.x, 10.0 * delta)
+	rotation = rotation.slerp(target_rot, 10.0 * delta)
+	if is_aiming:
+		position.y = lerp(position.y, -0.2, 10.0 * delta)
+		pass
+	elif position.y > -0.38: 
+		position.y = lerp(position.y, -0.38, 10.0 * delta)
+		going_up = false
+		pass
 	var anim_speed
 	if not $"../..".is_moving or $"../..".is_crouching:
 		anim_speed = ANIM_SPEED * 0.25
@@ -84,11 +92,8 @@ func _process(delta):
 	else:
 		anim_speed = ANIM_SPEED 
 	if going_up:
-		if position.y >= max: going_up = false
+		if position.y >= max_y: going_up = false
 		position.y += anim_speed
 	else:
-		if position.y <= min: going_up = true
+		if position.y <= min_y: going_up = true
 		position.y -= anim_speed
-	var x_pos = position.x
-	position.x = lerp(position.x, target_pos.x, 10.0 * delta)
-	rotation = rotation.slerp(target_rot, 10.0 * delta)

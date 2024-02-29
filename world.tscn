@@ -84,7 +84,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1c2ss"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcg72"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -119,7 +119,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_1c2ss"),
+"material": SubResource("ShaderMaterial_tcg72"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -143,7 +143,7 @@ absorbent = true
 [node name="World" type="Node3D"]
 
 [node name="Crosshair" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0.435294)
+modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -176,8 +176,8 @@ text = "9/9"
 script = ExtResource("1_o3nit")
 
 [node name="GunViewport" type="SubViewportContainer" parent="."]
-offset_left = 99.0
-offset_right = 419.0
+offset_left = 60.5
+offset_right = 380.5
 offset_bottom = 240.0
 
 [node name="SubViewport" type="SubViewport" parent="GunViewport"]
