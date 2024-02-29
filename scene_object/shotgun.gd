@@ -8,7 +8,7 @@ const RELOAD_TIME_PER_SHELL = 0.5
 const COCK_TIME = 0.5
 var ammo = MAX_AMMO
 var damage = 3
-var range = Vector3(1.0, 1.0, 20)
+var range = Vector3(1.0, 1.0, 50)
 var is_reloading = false
 var is_aiming = false
 var ranged = true
@@ -75,16 +75,32 @@ func aim():
 		target_rot = original_rot
 
 func hitscan():
-	raycast.force_raycast_update()  # Updates the raycast immediately
-	if raycast.is_colliding():
-		var collider = raycast.get_collider()
-		if collider and collider.has_method("apply_damage"):
-			collider.apply_damage(damage)
-			# NOTE: followig code is unused atm but will be used for FX
-			# var collision_point = raycast.get_collision_point()
-			# var collision_normal = raycast.get_collision_normal()
-			# Call a function to create FX
-			# emit_signal("shot_fired", collision_point, collision_normal)
+	var num_pellets = 8
+	var spread_angle = 10
+	for i in range(num_pellets):
+		# Calculate the direction with a random spread
+		var random_spread_x = randf_range(-spread_angle, spread_angle)
+		var random_spread_y = randf_range(-spread_angle, spread_angle)
+		var forward_dir = camera.global_transform.basis.z.normalized() * -1
+		var right_dir = camera.global_transform.basis.x
+		var up_dir = camera.global_transform.basis.y
+		var spread_rot_x = deg_to_rad(random_spread_x)
+		var spread_rot_y = deg_to_rad(random_spread_y)
+		var pellet_direction = forward_dir.rotated(up_dir, spread_rot_x).rotated(right_dir, spread_rot_y)
+		# Setup the ray query parameters
+		var ray_query = PhysicsRayQueryParameters3D.new()
+		ray_query.from = camera.global_transform.origin
+		ray_query.to = ray_query.from + pellet_direction * range.z  # Might need to adjust range.z for distance
+		ray_query.collision_mask = 0xFFFFFFFF
+		ray_query.collide_with_areas = true
+		ray_query.collide_with_bodies = true
+		# Perform the raycast
+		var result = get_world_3d().direct_space_state.intersect_ray(ray_query)
+		if result.size() != 0:  # If there is collision
+			var collider = result.collider
+			if collider and collider.has_method("apply_damage"):
+				collider.apply_damage(damage)
+				# Handle effects here, similar to your existing setup
 
 # Temp animation
 func _process(delta):
