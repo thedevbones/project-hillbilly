@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum Weapons { UNARMED, PISTOL }
+enum Weapons { UNARMED, PIPE, PISTOL, SHOTGUN }
 
 const NORMAL_FOV = 70.0
 const SPRINT_FOV = 90.0
@@ -27,6 +27,7 @@ var push_force = 8.0
 # Weapon variables
 var weapons = {}
 var current_weapon_index = 0
+var can_switch = true
 
 func _ready():
 	# Capture the mouse
@@ -35,7 +36,9 @@ func _ready():
 	$StepTimer.start()
 	# Initialize weapons 
 	weapons[Weapons.UNARMED] = null
+	weapons[Weapons.PIPE] = $MainCamera/Pipe
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
+	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 
 func _input(event):	
 	# Handle pressing esc
@@ -43,7 +46,7 @@ func _input(event):
 		$PauseMenu.paused()
 	# Handle weapon inputs
 	if event.is_action_pressed("fire"):
-		shoot()
+		attack()
 	if event.is_action_pressed("reload"):
 		reload()
 	if event.is_action_pressed("aim"):
@@ -145,23 +148,29 @@ func _on_step_timer_timeout():
 		$StepAudio.pitch_scale = randf_range(0.8, 1.2)
 		$StepAudio.play()
 
-func shoot():
+func attack():
 	var weapon = get_current_weapon()
-	if weapon:
+	if not weapon:
+		return
+	if weapon.ranged:
 		if weapon.ammo > 0: weapon.shoot()
 		else: $NoAmmo.play()
+	else:
+		weapon.swing()
 
 func reload():
 	var weapon = get_current_weapon()
-	if weapon and not weapon.is_reloading:
+	if weapon and weapon.ranged:
 		weapon.reload()
 
 func aim():
 	var weapon = get_current_weapon()
-	if weapon: 
+	if weapon and weapon.ranged:
 		weapon.aim()
 
 func switch_weapon_by_index(index):
+	if not can_switch:
+		return
 	if index in weapons:
 		current_weapon_index = index
 		update_weapon_visibility()
@@ -170,7 +179,14 @@ func update_weapon_visibility():
 	for i in weapons.keys():
 		var weapon = weapons[i]
 		if weapon: weapon.visible = i == current_weapon_index
+	update_hitscan()
 
+func update_hitscan():
+	var weapon = get_current_weapon()
+	if weapon:
+		$MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
+		print(str(get_current_weapon()) + str($MainCamera/HitScan.get_scale()))
+	
 func get_current_weapon():
 	return weapons[current_weapon_index]
 

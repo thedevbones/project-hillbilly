@@ -8,8 +8,8 @@ func _ready():
 
 func _process(delta):
 	var weapon = $"../Player".get_current_weapon()
-	if weapon and not weapon.is_aiming:
-		target_alpha = 1.0
+	if weapon and weapon.ranged and not weapon.is_aiming:
+		target_alpha = 0.5
 	else:
 		target_alpha = 0.0
 	# Animate the fade
