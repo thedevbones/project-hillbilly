@@ -249,18 +249,52 @@ shadow_blur = 0.596
 omni_attenuation = 0.435275
 
 [node name="PistolFire" type="AudioStreamPlayer3D" parent="Player/MainCamera/Pistol"]
-transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
+transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151922, -0.174311, 4.7957e-08, 1.99239, -0.19503, -0.165255, -1.05115)
 stream = ExtResource("5_qsv7b")
 unit_size = 50.0
 
 [node name="PistolReload" type="AudioStreamPlayer3D" parent="Player/MainCamera/Pistol"]
-transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
+transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151922, -0.174311, 4.74084e-08, 1.99239, 0.0201492, -0.18408, 0.266028)
 stream = ExtResource("7_mt7f5")
 
 [node name="Shotgun" parent="Player/MainCamera" instance=ExtResource("6_vnudb")]
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.35, -0.31, -0.5)
 visible = false
 script = ExtResource("12_62glt")
+
+[node name="MuzzleLight" type="OmniLight3D" parent="Player/MainCamera/Shotgun"]
+transform = Transform3D(0.992404, 0.0871559, 0.0868241, -0.0868242, 0.996195, -0.00759613, -0.0871557, -6.51926e-09, 0.996195, -0.0496864, 0.34069, -0.953045)
+visible = false
+layers = 3
+light_color = Color(0.768627, 0.705882, 0.466667, 1)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.5
+light_size = 0.383
+light_specular = 2.0
+light_cull_mask = 4294966275
+shadow_enabled = true
+shadow_blur = 0.596
+omni_attenuation = 0.435275
+
+[node name="ExtraLight" type="OmniLight3D" parent="Player/MainCamera/Shotgun/MuzzleLight"]
+transform = Transform3D(1, 5.7284e-14, 0, -2.21004e-15, 1, 1.11022e-16, 0, 5.55112e-17, 1, 0, 0, 1.04624)
+light_color = Color(0.768627, 0.705882, 0.466667, 1)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.5
+light_size = 0.383
+light_specular = 2.0
+light_cull_mask = 4294966275
+shadow_blur = 0.596
+omni_attenuation = 0.435275
+
+[node name="ShotgunFire" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
+transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
+stream = ExtResource("5_qsv7b")
+unit_size = 50.0
+
+[node name="ShotgunReload" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
+transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
+stream = ExtResource("7_mt7f5")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_hnuiv")
