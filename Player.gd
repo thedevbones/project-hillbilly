@@ -147,10 +147,9 @@ func _on_step_timer_timeout():
 
 func shoot():
 	var weapon = get_current_weapon()
-	if weapon and weapon.ammo > 0:
-		weapon.shoot()
-	else:
-		$NoAmmo.play()
+	if weapon:
+		if weapon.ammo > 0: weapon.shoot()
+		else: $NoAmmo.play()
 
 func reload():
 	var weapon = get_current_weapon()

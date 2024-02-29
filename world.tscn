@@ -83,7 +83,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oi55p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5bt6"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -118,7 +118,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_oi55p"),
+"material": SubResource("ShaderMaterial_s5bt6"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -188,14 +188,14 @@ size = Vector2i(320, 240)
 render_target_update_mode = 4
 
 [node name="GunCamera" type="Camera3D" parent="GunViewport/SubViewport"]
-transform = Transform3D(-0.99863, 0, 0.052336, 0, 1, 0, -0.052336, 0, -0.99863, -22.38, 1.505, 5.673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.38, 1.505, 5.673)
 cull_mask = 1047554
 environment = SubResource("Environment_t0ccy")
 current = true
 script = ExtResource("1_mc2is")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-0.998887, 0, 0.0471766, 0, 1, 0, -0.0471766, 0, -0.998887, -22.3823, 1, 5.67396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3823, 1, 5.67396)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_1ouke")
@@ -203,6 +203,10 @@ script = ExtResource("1_1ouke")
 [node name="MainCamera" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1047553
+
+[node name="HitScan" type="RayCast3D" parent="Player/MainCamera"]
+target_position = Vector3(0, 0, -200)
+collide_with_areas = true
 
 [node name="Pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
 transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.481699, -0.409187, -1.05844)
@@ -239,7 +243,7 @@ transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151
 stream = ExtResource("5_qsv7b")
 unit_size = 50.0
 
-[node name="PistolReleod" type="AudioStreamPlayer3D" parent="Player/MainCamera/Pistol"]
+[node name="PistolReload" type="AudioStreamPlayer3D" parent="Player/MainCamera/Pistol"]
 transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
 stream = ExtResource("7_mt7f5")
 
