@@ -8,13 +8,20 @@ const RELOAD_TIME = 1.5
 var ammo = MAX_AMMO
 var damage = 1
 var is_reloading = false
+var is_aiming = false
 
 # Temp animation variables
 @onready var max = position.y + 0.02
 @onready var min = position.y - 0.02
 @onready var original_pos_z = position.z
+@onready var original_pos = position
+@onready var original_rot = rotation
+const ADS_POS = Vector3(0, -0.4, -1.058)
+const ADS_ROT = Vector3(0, 0, 0)
 const ANIM_SPEED = 0.0005
 var going_up = true
+@onready var target_pos = original_pos
+@onready var target_rot = original_rot
 
 # Signals
 signal shot_fired
@@ -43,6 +50,16 @@ func reload():
 		is_reloading = false
 		emit_signal("reloaded")
 
+func aim():
+	if not is_aiming: 
+		is_aiming = true
+		target_pos = ADS_POS
+		target_rot = ADS_ROT
+	else:
+		is_aiming = false
+		target_pos = original_pos
+		target_rot = original_rot
+
 func hitscan():
 	raycast.force_raycast_update()  # Updates the raycast immediately
 	if raycast.is_colliding():
@@ -57,8 +74,7 @@ func hitscan():
 
 # Temp animation
 func _process(delta):
-	if not visible:
-		pass
+	if not visible: pass
 	if position.z > original_pos_z: position.z -= 0.01
 	var anim_speed
 	if not $"../..".is_moving or $"../..".is_crouching:
@@ -73,3 +89,5 @@ func _process(delta):
 	else:
 		if position.y <= min: going_up = true
 		position.y -= anim_speed
+	position = position.lerp(target_pos, 10.0 * delta)
+	rotation = rotation.slerp(target_rot, 10.0 * delta)

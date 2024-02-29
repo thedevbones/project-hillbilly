@@ -45,6 +45,8 @@ func _input(event):
 		shoot()
 	if event.is_action_pressed("reload"):
 		reload()
+	if event.is_action_pressed("aim"):
+		aim()
 	# Handle number key presses for direct weapon selection
 	for i in range(weapons.size()):
 		if event.is_action_pressed("ui_select_" + str(i + 1)):
@@ -152,6 +154,10 @@ func reload():
 	var weapon = get_current_weapon()
 	if weapon and not weapon.is_reloading:
 		weapon.reload()
+
+func aim():
+	var weapon = get_current_weapon()
+	if weapon: weapon.aim()
 
 func switch_weapon_by_index(index):
 	if index in weapons:
