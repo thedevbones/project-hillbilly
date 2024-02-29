@@ -249,7 +249,7 @@ visible = false
 script = ExtResource("6_av8cb")
 
 [node name="Swing" type="AudioStreamPlayer3D" parent="Player/MainCamera/Pipe"]
-transform = Transform3D(2, -5.96046e-07, -6.25848e-07, 5.39231e-07, 1.99239, -0.174311, 6.75415e-07, 0.174311, 1.99239, -0.101585, -1.42445, -1.61312)
+transform = Transform3D(2, -5.96045e-07, -6.25847e-07, 5.39231e-07, 1.99239, -0.174311, 6.75415e-07, 0.174311, 1.99239, -0.101585, -0.961294, 0.296771)
 stream = ExtResource("7_blicd")
 unit_size = 5.0
 pitch_scale = 0.9
@@ -299,7 +299,7 @@ visible = false
 script = ExtResource("12_62glt")
 
 [node name="MuzzleLight" type="OmniLight3D" parent="Player/MainCamera/Shotgun"]
-transform = Transform3D(0.992404, 0.0871559, 0.0868241, -0.0868242, 0.996195, -0.00759613, -0.0871557, -6.51926e-09, 0.996195, -0.0496864, 0.34069, -0.953045)
+transform = Transform3D(0.992404, 0.0871558, 0.086824, -0.0868242, 0.996195, -0.00759613, -0.0871556, 1.07102e-08, 0.996195, 8.43092, 0.749911, 0.103912)
 visible = false
 layers = 3
 light_color = Color(0.768627, 0.705882, 0.466667, 1)
@@ -313,7 +313,7 @@ shadow_blur = 0.596
 omni_attenuation = 0.435275
 
 [node name="ExtraLight" type="OmniLight3D" parent="Player/MainCamera/Shotgun/MuzzleLight"]
-transform = Transform3D(1, 5.7284e-14, 0, -2.21004e-15, 1, 1.11022e-16, 0, 5.55112e-17, 1, 0, 0, 1.04624)
+transform = Transform3D(1, -7.45058e-09, 0, 7.45058e-09, 1, -9.31323e-10, -7.45058e-09, -4.65661e-10, 1, -1.54235, 5.96046e-08, -1.90735e-06)
 light_color = Color(0.768627, 0.705882, 0.466667, 1)
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.5
@@ -324,16 +324,16 @@ shadow_blur = 0.596
 omni_attenuation = 0.435275
 
 [node name="ShotgunFire" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
-transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
+transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434118, 4.98097, -0.0379805, -0.435776, 2.5332e-07, 4.98096, 4.956, 0.635898, 0.0807266)
 stream = ExtResource("13_o0qn3")
 unit_size = 50.0
 
 [node name="ShotgunLoad" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
-transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
+transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434119, 4.98097, -0.0379805, -0.435776, 2.38419e-07, 4.98096, 1.85349, 0.331798, -0.198746)
 stream = ExtResource("14_5b3kg")
 
 [node name="ShotgunCock" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
-transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
+transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434118, 4.98097, -0.0379805, -0.435776, 2.75671e-07, 4.98096, 4.01608, 0.424915, -0.121834)
 stream = ExtResource("15_1to8r")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
