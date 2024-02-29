@@ -151,7 +151,7 @@ func _on_step_timer_timeout():
 func attack():
 	var weapon = get_current_weapon()
 	if not weapon:
-		pass
+		return
 	if weapon.ranged:
 		if weapon.ammo > 0: weapon.shoot()
 		else: $NoAmmo.play()
