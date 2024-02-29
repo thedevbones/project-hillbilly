@@ -2,6 +2,7 @@ extends Node3D
 
 # Pipe properties
 @onready var camera = $".."
+@onready var player = $"../.."
 @onready var raycast = $"../HitScan"
 var damage = 2
 var range = Vector3(50.0, 50.0, 3)
@@ -25,6 +26,7 @@ func swing():
 	if is_swinging:
 		return # Prevent starting a new swing while already swinging
 	is_swinging = true
+	player.can_switch = false
 	swing_timer = swing_duration
 	$Swing.play()
 	if raycast.is_enabled():
@@ -57,6 +59,7 @@ func _process(delta):
 		swing_timer -= delta
 		if swing_timer <= 0.0:
 			is_swinging = false
+			player.can_switch = true
 			rotation_degrees = original_rotation_degrees # Ensure it's exactly the original rotation after swing
 	var anim_speed
 	if not $"../..".is_moving or $"../..".is_crouching:

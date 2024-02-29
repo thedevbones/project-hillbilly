@@ -27,6 +27,7 @@ var push_force = 8.0
 # Weapon variables
 var weapons = {}
 var current_weapon_index = 0
+var can_switch = true
 
 func _ready():
 	# Capture the mouse
@@ -168,6 +169,8 @@ func aim():
 		weapon.aim()
 
 func switch_weapon_by_index(index):
+	if not can_switch:
+		return
 	if index in weapons:
 		current_weapon_index = index
 		update_weapon_visibility()

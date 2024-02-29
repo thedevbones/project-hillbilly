@@ -2,6 +2,7 @@ extends Node3D
 
 # Pistol properties
 @onready var camera = $".."
+@onready var player = $"../.."
 @onready var raycast = $"../HitScan"
 const MAX_AMMO = 6
 const RELOAD_TIME_PER_SHELL = 0.5
@@ -33,6 +34,7 @@ signal reloaded
 
 func shoot():
 	if ammo > 0 and not is_reloading and can_shoot:
+		player.can_switch = false
 		can_shoot = false
 		position.z += 0.2
 		$ShotgunFire.play()
@@ -44,13 +46,15 @@ func shoot():
 		ammo -= 1
 		$ShotgunCock.play(0.0)
 		await get_tree().create_timer(COCK_TIME).timeout
-		can_shoot = true # Allow shooting again
+		can_shoot = true
+		player.can_switch = true
 
 func reload():
 	var was_aiming = false
 	if is_reloading or ammo >= MAX_AMMO:
 		return
 	is_reloading = true
+	player.can_switch = false
 	if is_aiming: 
 		was_aiming = true
 		aim()
@@ -61,6 +65,7 @@ func reload():
 	$ShotgunCock.play()
 	await get_tree().create_timer(COCK_TIME).timeout
 	is_reloading = false
+	player.can_switch = true
 	if was_aiming and not is_aiming: aim()
 	emit_signal("reloaded")
 
@@ -131,3 +136,7 @@ func _process(delta):
 	else:
 		if position.y <= min_y: going_up = true
 		position.y -= anim_speed
+
+
+func _on_visibility_changed():
+	if is_aiming and not visible: aim()

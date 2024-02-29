@@ -870,4 +870,6 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -40.6791, 0.56533, 49.3
 [node name="fence02" parent="." instance=ExtResource("7_3wrog")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -40.8435, 0.542776, 52.551)
 
+[connection signal="visibility_changed" from="Player/MainCamera/Pistol" to="Player/MainCamera/Pistol" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Player/MainCamera/Shotgun" to="Player/MainCamera/Shotgun" method="_on_visibility_changed"]
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
