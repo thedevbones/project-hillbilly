@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=52 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://GunCamera.gd" id="1_mc2is"]
@@ -13,8 +13,10 @@
 [ext_resource type="Script" path="res://scene_object/pistol.gd" id="4_q73kt"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="AudioStream" path="res://audio/pistol_fire.wav" id="5_qsv7b"]
+[ext_resource type="PackedScene" uid="uid://oehrrypj30e2" path="res://scene_object/pipe.tscn" id="5_wk88o"]
 [ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/ambience.mp3" id="6_2maxx"]
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
+[ext_resource type="PackedScene" uid="uid://bop0xcykaossl" path="res://scene_object/shotgun.tscn" id="6_vnudb"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
 [ext_resource type="AudioStream" path="res://audio/temp_reload.wav" id="7_mt7f5"]
@@ -84,7 +86,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcg72"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gk82j"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -119,7 +121,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_tcg72"),
+"material": SubResource("ShaderMaterial_gk82j"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -208,6 +210,11 @@ cull_mask = 1047553
 
 [node name="HitScan" type="RayCast3D" parent="Player/MainCamera"]
 target_position = Vector3(0, 0, -100)
+
+[node name="Pipe" parent="Player/MainCamera" instance=ExtResource("5_wk88o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644321, -1.57506)
+
+[node name="Shotgun" parent="Player/MainCamera" instance=ExtResource("6_vnudb")]
 
 [node name="Pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
 transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.482, -0.4, -1.058)

@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://udu2sswq1tvl" path="res://assets/pipe.glb" id="1_fujuj"]
 
 [node name="pipe" instance=ExtResource("1_fujuj")]
+
+[node name="Torus_003" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0)

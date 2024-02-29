@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bop0xcykaossl"]
+
+[ext_resource type="PackedScene" uid="uid://b5s71sbqlhefe" path="res://assets/shotgun.glb" id="1_grmu6"]
+
+[node name="Shotgun" instance=ExtResource("1_grmu6")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
