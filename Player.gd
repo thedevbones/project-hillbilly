@@ -176,7 +176,14 @@ func update_weapon_visibility():
 	for i in weapons.keys():
 		var weapon = weapons[i]
 		if weapon: weapon.visible = i == current_weapon_index
+	update_hitscan()
 
+func update_hitscan():
+	var weapon = get_current_weapon()
+	if weapon:
+		$MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
+		print(str(get_current_weapon()) + str($MainCamera/HitScan.get_scale()))
+	
 func get_current_weapon():
 	return weapons[current_weapon_index]
 

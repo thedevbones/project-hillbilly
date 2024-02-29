@@ -7,6 +7,7 @@ const MAX_AMMO = 8
 const RELOAD_TIME = 1.5
 var ammo = MAX_AMMO
 var damage = 1
+var range = Vector3(1.0, 1.0, 100)
 var is_reloading = false
 var is_aiming = false
 var ranged = true

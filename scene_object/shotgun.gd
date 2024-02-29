@@ -8,6 +8,7 @@ const RELOAD_TIME_PER_SHELL = 0.5
 const COCK_TIME = 0.5
 var ammo = MAX_AMMO
 var damage = 3
+var range = Vector3(1.0, 1.0, 20)
 var is_reloading = false
 var is_aiming = false
 var ranged = true
