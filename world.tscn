@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://GunCamera.gd" id="1_mc2is"]
+[ext_resource type="Script" path="res://AmmoCount.gd" id="1_o3nit"]
+[ext_resource type="Script" path="res://Crosshair.gd" id="1_yn51g"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/stepgravel1.mp3" id="2_f4xii"]
 [ext_resource type="PackedScene" uid="uid://gbkv2x4ljwad" path="res://scene_object/pistol.tscn" id="2_k4yhr"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
@@ -9,12 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="Script" path="res://scene_object/pistol.gd" id="4_q73kt"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
+[ext_resource type="AudioStream" path="res://audio/pistol_fire.wav" id="5_qsv7b"]
 [ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/ambience.mp3" id="6_2maxx"]
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/storm.mp3" id="7_b0214"]
+[ext_resource type="AudioStream" path="res://audio/temp_reload.wav" id="7_mt7f5"]
+[ext_resource type="AudioStream" uid="uid://tp8mnyni4uxp" path="res://audio/temp_noammo.wav" id="9_q2jjc"]
 [ext_resource type="PackedScene" uid="uid://dxsv1cdpv17x8" path="res://scene_object/tree_3.tscn" id="10_wbd7w"]
-[ext_resource type="PackedScene" uid="uid://dn57va7fvxmn8" path="res://scene_object/tree_border_small.tscn" id="13_qqkrj"]
+[ext_resource type="PackedScene" uid="uid://ylgj4yoabfhv" path="res://scene_object/target.tscn" id="12_u5br6"]
+[ext_resource type="PackedScene" path="res://scene_object/tree_border_small.tscn" id="13_qqkrj"]
 [ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
 [ext_resource type="PackedScene" uid="uid://bvco6di8jclbe" path="res://scene_object/road.tscn" id="15_8w4p2"]
 [ext_resource type="PackedScene" uid="uid://c35nv36t7xnut" path="res://scene_object/tree_2.tscn" id="15_ntg5n"]
@@ -99,7 +105,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_onkq3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcg72"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -134,7 +140,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_onkq3"),
+"material": SubResource("ShaderMaterial_tcg72"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -162,9 +168,42 @@ point_count = 21
 
 [node name="World" type="Node3D"]
 
+[node name="Crosshair" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_yn51g")
+
+[node name="AmmoCount" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "9/9"
+script = ExtResource("1_o3nit")
+
 [node name="GunViewport" type="SubViewportContainer" parent="."]
-offset_left = 99.0
-offset_right = 419.0
+offset_left = 60.5
+offset_right = 380.5
 offset_bottom = 240.0
 
 [node name="SubViewport" type="SubViewport" parent="GunViewport"]
@@ -177,14 +216,14 @@ size = Vector2i(320, 240)
 render_target_update_mode = 4
 
 [node name="GunCamera" type="Camera3D" parent="GunViewport/SubViewport"]
-transform = Transform3D(-0.99863, 0, 0.052336, 0, 1, 0, -0.052336, 0, -0.99863, -22.38, 1.505, 5.673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.38, 1.505, 5.673)
 cull_mask = 1047554
 environment = SubResource("Environment_t0ccy")
 current = true
 script = ExtResource("1_mc2is")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(-0.998887, 0, 0.0471766, 0, 1, 0, -0.0471766, 0, -0.998887, -22.3823, 1, 5.67396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3823, 1, 5.67396)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_1ouke")
@@ -193,17 +232,19 @@ script = ExtResource("1_1ouke")
 transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1047553
 
+[node name="HitScan" type="RayCast3D" parent="Player/MainCamera"]
+target_position = Vector3(0, 0, -100)
+
 [node name="Pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
-transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.481699, -0.409187, -1.05844)
+transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.482, -0.4, -1.058)
 visible = false
 script = ExtResource("4_q73kt")
 
-[node name="MuzzleLight" type="OmniLight3D" parent="Player/MainCamera"]
-transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 0, 0, 1, 0.483784, -0.241656, -1.5366)
+[node name="MuzzleLight" type="OmniLight3D" parent="Player/MainCamera/Pistol"]
+transform = Transform3D(0.992404, 0.0871559, 0.0868241, -0.0868242, 0.996195, -0.00759613, -0.0871557, -6.51926e-09, 0.996195, -0.0496864, 0.34069, -0.953045)
 visible = false
 layers = 3
-light_color = Color(0.870588, 0.67451, 0, 1)
-light_energy = 4.0
+light_color = Color(0.768627, 0.705882, 0.466667, 1)
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.5
 light_size = 0.383
@@ -212,6 +253,26 @@ light_cull_mask = 4294966275
 shadow_enabled = true
 shadow_blur = 0.596
 omni_attenuation = 0.435275
+
+[node name="ExtraLight" type="OmniLight3D" parent="Player/MainCamera/Pistol/MuzzleLight"]
+transform = Transform3D(1, 5.7284e-14, 0, -2.21004e-15, 1, 1.11022e-16, 0, 5.55112e-17, 1, 0, 0, 1.04624)
+light_color = Color(0.768627, 0.705882, 0.466667, 1)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.5
+light_size = 0.383
+light_specular = 2.0
+light_cull_mask = 4294966275
+shadow_blur = 0.596
+omni_attenuation = 0.435275
+
+[node name="PistolFire" type="AudioStreamPlayer3D" parent="Player/MainCamera/Pistol"]
+transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
+stream = ExtResource("5_qsv7b")
+unit_size = 50.0
+
+[node name="PistolReload" type="AudioStreamPlayer3D" parent="Player/MainCamera/Pistol"]
+transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
+stream = ExtResource("7_mt7f5")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_hnuiv")
@@ -224,6 +285,9 @@ mesh = SubResource("CapsuleMesh_ge5q0")
 
 [node name="StepAudio" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("2_f4xii")
+
+[node name="NoAmmo" type="AudioStreamPlayer3D" parent="Player"]
+stream = ExtResource("9_q2jjc")
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("3_ec8lf")]
 visible = false
@@ -287,6 +351,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5, -0.25, -3)
 use_collision = true
 size = Vector3(101, 0.5, 196)
 material = SubResource("StandardMaterial3D_nmfsx")
+
+[node name="Target" parent="." instance=ExtResource("12_u5br6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.5728, 1.5714, 3.92077)
 
 [node name="Roads" type="Node3D" parent="."]
 transform = Transform3D(-0.00474361, 0, -0.299963, 0, 0.3, 0, 0.299963, 0, -0.00474361, -21.6377, 0.0496855, -21.2794)

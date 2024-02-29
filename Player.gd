@@ -4,13 +4,13 @@ enum Weapons { UNARMED, PISTOL }
 
 const NORMAL_FOV = 70.0
 const SPRINT_FOV = 90.0
+const ADS_FOV = 60.0
 const NORMAL_SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MAX_STAMINA = 10
 const SPRINT_MULTIPLIER = 1.5
 const CROUCH_MULTIPLIER = 0.75
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.2
 var speed = NORMAL_SPEED
@@ -46,6 +46,8 @@ func _input(event):
 		shoot()
 	if event.is_action_pressed("reload"):
 		reload()
+	if event.is_action_pressed("aim"):
+		aim()
 	# Handle number key presses for direct weapon selection
 	for i in range(weapons.size()):
 		if event.is_action_pressed("ui_select_" + str(i + 1)):
@@ -55,7 +57,6 @@ func _input(event):
 	if event.is_action_pressed("scroll_up"):
 		var prev_index = current_weapon_index - 1
 		prev_index = wrap_index(prev_index)
-		print("Previous index: ", prev_index)
 		switch_weapon_by_index(prev_index)
 	elif event.is_action_pressed("scroll_down"):
 		var next_index = current_weapon_index + 1
@@ -129,7 +130,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 		is_moving = false
-	# print("sprinting: " + str(is_sprinting) + " crouching: " + str(is_crouching) + " can sprint: " + str(can_sprint) + " stamina: " + str(stamina) + " speed: " + str(speed))
 	move_and_slide()
 	# Getting slide collision
 	for i in get_slide_collision_count():
@@ -147,13 +147,19 @@ func _on_step_timer_timeout():
 
 func shoot():
 	var weapon = get_current_weapon()
-	if weapon and weapon.ammo > 0:
-		weapon.shoot()
+	if weapon:
+		if weapon.ammo > 0: weapon.shoot()
+		else: $NoAmmo.play()
 
 func reload():
 	var weapon = get_current_weapon()
 	if weapon and not weapon.is_reloading:
 		weapon.reload()
+
+func aim():
+	var weapon = get_current_weapon()
+	if weapon: 
+		weapon.aim()
 
 func switch_weapon_by_index(index):
 	if index in weapons:
