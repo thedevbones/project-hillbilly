@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum Weapons { UNARMED, PISTOL }
+enum Weapons { UNARMED, PIPE, PISTOL, SHOTGUN }
 
 const NORMAL_FOV = 70.0
 const SPRINT_FOV = 90.0
@@ -35,7 +35,9 @@ func _ready():
 	$StepTimer.start()
 	# Initialize weapons 
 	weapons[Weapons.UNARMED] = null
+	weapons[Weapons.PIPE] = $MainCamera/Pipe
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
+	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 
 func _input(event):	
 	# Handle pressing esc
@@ -43,7 +45,7 @@ func _input(event):
 		$PauseMenu.paused()
 	# Handle weapon inputs
 	if event.is_action_pressed("fire"):
-		shoot()
+		attack()
 	if event.is_action_pressed("reload"):
 		reload()
 	if event.is_action_pressed("aim"):
@@ -145,20 +147,24 @@ func _on_step_timer_timeout():
 		$StepAudio.pitch_scale = randf_range(0.8, 1.2)
 		$StepAudio.play()
 
-func shoot():
+func attack():
 	var weapon = get_current_weapon()
-	if weapon:
+	if not weapon:
+		pass
+	if weapon.ranged:
 		if weapon.ammo > 0: weapon.shoot()
 		else: $NoAmmo.play()
+	else:
+		weapon.swing()
 
 func reload():
 	var weapon = get_current_weapon()
-	if weapon and not weapon.is_reloading:
+	if weapon and weapon.ranged:
 		weapon.reload()
 
 func aim():
 	var weapon = get_current_weapon()
-	if weapon: 
+	if weapon and weapon.ranged:
 		weapon.aim()
 
 func switch_weapon_by_index(index):

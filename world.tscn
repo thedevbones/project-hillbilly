@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=54 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://GunCamera.gd" id="1_mc2is"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" path="res://audio/pistol_fire.wav" id="5_qsv7b"]
 [ext_resource type="PackedScene" uid="uid://oehrrypj30e2" path="res://scene_object/pipe.tscn" id="5_wk88o"]
 [ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/ambience.mp3" id="6_2maxx"]
+[ext_resource type="Script" path="res://scene_object/pipe.gd" id="6_av8cb"]
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
 [ext_resource type="PackedScene" uid="uid://bop0xcykaossl" path="res://scene_object/shotgun.tscn" id="6_vnudb"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
@@ -22,6 +23,7 @@
 [ext_resource type="AudioStream" path="res://audio/temp_reload.wav" id="7_mt7f5"]
 [ext_resource type="AudioStream" uid="uid://tp8mnyni4uxp" path="res://audio/temp_noammo.wav" id="9_q2jjc"]
 [ext_resource type="PackedScene" uid="uid://dxsv1cdpv17x8" path="res://scene_object/tree_3.tscn" id="10_wbd7w"]
+[ext_resource type="Script" path="res://scene_object/shotgun.gd" id="12_62glt"]
 [ext_resource type="PackedScene" uid="uid://ylgj4yoabfhv" path="res://scene_object/target.tscn" id="12_u5br6"]
 [ext_resource type="PackedScene" path="res://scene_object/tree_border_small.tscn" id="13_qqkrj"]
 [ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
@@ -214,10 +216,7 @@ target_position = Vector3(0, 0, -100)
 [node name="Pipe" parent="Player/MainCamera" instance=ExtResource("5_wk88o")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.489, 0.289, -0.848)
 visible = false
-
-[node name="Shotgun" parent="Player/MainCamera" instance=ExtResource("6_vnudb")]
-transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.35, -0.31, -0.5)
-visible = false
+script = ExtResource("6_av8cb")
 
 [node name="Pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
 transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.482, -0.4, -1.058)
@@ -257,6 +256,11 @@ unit_size = 50.0
 [node name="PistolReload" type="AudioStreamPlayer3D" parent="Player/MainCamera/Pistol"]
 transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151923, -0.174311, 2.60771e-08, 1.99239, -0.788105, -0.113369, 2.19279)
 stream = ExtResource("7_mt7f5")
+
+[node name="Shotgun" parent="Player/MainCamera" instance=ExtResource("6_vnudb")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.35, -0.31, -0.5)
+visible = false
+script = ExtResource("12_62glt")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_hnuiv")
