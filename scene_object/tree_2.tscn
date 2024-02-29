@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="1_pbsvt"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fydud"]
-height = 3.19048
+height = 8.51602
 radius = 0.81654
 
 [node name="tree2" type="StaticBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.983363, 0.181652, 0, -0.181652, 0.983363, 0.114325, 1.30549, 0.498684)
+transform = Transform3D(0.997797, -0.0120514, 0.0652398, 0.00900959, 0.998867, 0.0467207, -0.0657289, -0.04603, 0.996775, 0.114325, 3.96353, 0.498684)
 shape = SubResource("CylinderShape3D_fydud")
 
 [node name="tree02" parent="." instance=ExtResource("1_pbsvt")]
