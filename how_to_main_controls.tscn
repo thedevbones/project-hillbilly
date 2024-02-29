@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhi37jhw8qivr"]
+
+[ext_resource type="Script" path="res://how_to_main_controls.gd" id="1_e1b71"]
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_e1b71")
+
+[node name="main_controls_screen" type="Node2D" parent="."]
+
+[node name="main_controls_toggle" type="Button" parent="main_controls_screen"]
+offset_left = 66.0
+offset_top = 25.0
+offset_right = 146.0
+offset_bottom = 55.0
+
+[node name="Label" type="Label" parent="main_controls_screen/main_controls_toggle"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 77.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 11
+text = "Main Controls"
+
+[node name="attack_controls_toggle2" type="Button" parent="main_controls_screen"]
+offset_left = 161.0
+offset_top = 24.0
+offset_right = 241.0
+offset_bottom = 54.0
+
+[node name="Label" type="Label" parent="main_controls_screen/attack_controls_toggle2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 79.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "Attack Controls"
+
+[connection signal="pressed" from="main_controls_screen/main_controls_toggle" to="." method="_on_main_controls_toggle_pressed"]
+[connection signal="pressed" from="main_controls_screen/attack_controls_toggle2" to="." method="_on_main_controls_toggle_pressed"]
