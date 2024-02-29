@@ -8,6 +8,13 @@ var ammo = MAX_AMMO
 var is_reloading = false
 var bullet_scene = preload("res://scene_object/bullet.tscn")
 
+# Temp animation variables
+var going_up = true
+@onready var max = position.y + 0.02
+@onready var min = position.y - 0.02
+var anim_speed_default = 0.0005
+var original_pos_z = global_position.z
+
 @onready var camera = $".."
 
 # Signals
@@ -38,3 +45,21 @@ func reload():
 		ammo = MAX_AMMO
 		is_reloading = false
 		emit_signal("reloaded")
+
+# Temp animation
+func _process(delta):
+	if not visible:
+		pass
+	var anim_speed
+	if not $"../..".is_moving or $"../..".is_crouching:
+		anim_speed = anim_speed_default * 0.5
+	elif $"../..".is_sprinting:
+		anim_speed = anim_speed_default * 1.5
+	else:
+		anim_speed = anim_speed_default 
+	if going_up:
+		if position.y >= max: going_up = false
+		position.y += anim_speed
+	else:
+		if position.y <= min: going_up = true
+		position.y -= anim_speed

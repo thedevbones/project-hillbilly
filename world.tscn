@@ -205,11 +205,11 @@ transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1047553
 
 [node name="HitScan" type="RayCast3D" parent="Player/MainCamera"]
-target_position = Vector3(0, 0, -200)
+target_position = Vector3(0, 0, -100)
 collide_with_areas = true
 
 [node name="Pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
-transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.481699, -0.409187, -1.05844)
+transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.482, -0.4, -1.058)
 visible = false
 script = ExtResource("4_q73kt")
 
