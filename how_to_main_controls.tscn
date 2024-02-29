@@ -17,7 +17,7 @@ offset_top = 25.0
 offset_right = 146.0
 offset_bottom = 55.0
 
-[node name="Label" type="Label" parent="main_controls_screen/main_controls_toggle"]
+[node name="main_controls_label" type="Label" parent="main_controls_screen/main_controls_toggle"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
@@ -32,7 +32,7 @@ offset_top = 24.0
 offset_right = 241.0
 offset_bottom = 54.0
 
-[node name="Label" type="Label" parent="main_controls_screen/attack_controls_toggle2"]
+[node name="attack_label" type="Label" parent="main_controls_screen/attack_controls_toggle2"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 7.0
@@ -40,6 +40,14 @@ offset_right = 79.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 10
 text = "Attack Controls"
+
+[node name="back_to_world" type="Button" parent="main_controls_screen"]
+offset_left = 232.0
+offset_top = 209.0
+offset_right = 345.0
+offset_bottom = 240.0
+scale = Vector2(0.75, 0.75)
+text = "back to world"
 
 [node name="Walk" type="Sprite2D" parent="."]
 position = Vector2(153, 88)
@@ -61,7 +69,7 @@ position = Vector2(151.375, 203.25)
 scale = Vector2(0.0508893, 0.0493311)
 texture = ExtResource("5_dn3y8")
 
-[node name="Label" type="Label" parent="."]
+[node name="walk_label" type="Label" parent="."]
 offset_left = 37.0
 offset_top = 72.0
 offset_right = 82.0
@@ -69,7 +77,7 @@ offset_bottom = 95.0
 text = "WALK
 "
 
-[node name="Label2" type="Label" parent="."]
+[node name="run_label" type="Label" parent="."]
 offset_left = 41.0
 offset_top = 112.0
 offset_right = 86.0
@@ -77,7 +85,7 @@ offset_bottom = 135.0
 text = "RUN
 "
 
-[node name="Label3" type="Label" parent="."]
+[node name="jump_label" type="Label" parent="."]
 offset_left = 39.0
 offset_top = 147.0
 offset_right = 84.0
@@ -85,7 +93,7 @@ offset_bottom = 170.0
 text = "JUMP
 "
 
-[node name="Label4" type="Label" parent="."]
+[node name="croutch_label" type="Label" parent="."]
 offset_left = 27.0
 offset_top = 191.0
 offset_right = 104.0
@@ -95,3 +103,5 @@ text = "CROUTCH
 
 [connection signal="pressed" from="main_controls_screen/main_controls_toggle" to="." method="_on_main_controls_toggle_pressed"]
 [connection signal="pressed" from="main_controls_screen/attack_controls_toggle2" to="." method="_on_main_controls_toggle_pressed"]
+[connection signal="pressed" from="main_controls_screen/back_to_world" to="." method="_on_main_controls_toggle_pressed"]
+[connection signal="pressed" from="main_controls_screen/back_to_world" to="." method="_on_back_to_world_pressed"]
