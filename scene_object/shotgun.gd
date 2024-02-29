@@ -3,13 +3,15 @@ extends Node3D
 # Pistol properties
 @onready var camera = $".."
 @onready var raycast = $"../HitScan"
-const MAX_AMMO = 8
-const RELOAD_TIME = 1.5
+const MAX_AMMO = 6
+const RELOAD_TIME_PER_SHELL = 0.5
+const COCK_TIME = 0.5
 var ammo = MAX_AMMO
-var damage = 1
+var damage = 3
 var is_reloading = false
 var is_aiming = false
 var ranged = true
+var can_shoot = true 
 
 # Temp animation variables
 @onready var max_y = position.y + 0.02
@@ -28,27 +30,32 @@ signal shot_fired
 signal reloaded
 
 func shoot():
-	if ammo > 0 and not is_reloading:
+	if ammo > 0 and not is_reloading and can_shoot:
+		can_shoot = false
 		position.z += 0.2
-		# Play fire sound
-		$PistolFire.play()
-		# Flash muzzle flash light
+		$ShotgunFire.play()
 		$MuzzleLight.show()
 		await get_tree().create_timer(0.1).timeout
 		$MuzzleLight.hide()
 		if raycast.is_enabled():
 			hitscan()
-		# Adjust ammo
 		ammo -= 1
+		$ShotgunCock.play(0.0)
+		await get_tree().create_timer(COCK_TIME).timeout
+		can_shoot = true # Allow shooting again
 
 func reload():
-	if not is_reloading and ammo < MAX_AMMO:
-		is_reloading = true
-		$PistolReload.play()
-		await get_tree().create_timer(RELOAD_TIME).timeout
-		ammo = MAX_AMMO
-		is_reloading = false
-		emit_signal("reloaded")
+	if is_reloading or ammo >= MAX_AMMO:
+		return
+	is_reloading = true
+	while ammo < MAX_AMMO:
+		$ShotgunLoad.play()
+		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
+		ammo += 1
+	$ShotgunCock.play()
+	await get_tree().create_timer(COCK_TIME).timeout
+	is_reloading = false
+	emit_signal("reloaded")
 
 func aim():
 	if not is_aiming: 
