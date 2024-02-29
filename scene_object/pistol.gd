@@ -89,5 +89,6 @@ func _process(delta):
 	else:
 		if position.y <= min: going_up = true
 		position.y -= anim_speed
-	position = position.lerp(target_pos, 10.0 * delta)
+	var x_pos = position.x
+	position.x = lerp(position.x, target_pos.x, 10.0 * delta)
 	rotation = rotation.slerp(target_rot, 10.0 * delta)

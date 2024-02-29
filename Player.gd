@@ -4,6 +4,7 @@ enum Weapons { UNARMED, PISTOL }
 
 const NORMAL_FOV = 70.0
 const SPRINT_FOV = 90.0
+const ADS_FOV = 60.0
 const NORMAL_SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MAX_STAMINA = 10
@@ -157,7 +158,8 @@ func reload():
 
 func aim():
 	var weapon = get_current_weapon()
-	if weapon: weapon.aim()
+	if weapon: 
+		weapon.aim()
 
 func switch_weapon_by_index(index):
 	if index in weapons:
