@@ -83,7 +83,7 @@ layout_mode = 2
 [node name="SettingsBanner" type="Label" parent="SettingsControl/MarginContainer/SettingsDisplay/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_uxq3o")
 theme_override_font_sizes/font_size = 75
 text = "Settings "
@@ -178,20 +178,26 @@ size_flags_stretch_ratio = 0.0
 [node name="Master" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
 layout_mode = 2
 size_flags_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
 text = "Master"
 
 [node name="Music" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
 layout_mode = 2
 size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
 text = "Music"
 
 [node name="Sound FX" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
 layout_mode = 2
 size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
 text = "Sound FX"
 
 [node name="Sliders" type="VBoxContainer" parent="Audio/MarginContainer/AudioDisplay"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -199,19 +205,84 @@ size_flags_stretch_ratio = 0.0
 [node name="Master" type="HSlider" parent="Audio/MarginContainer/AudioDisplay/Sliders"]
 layout_mode = 2
 size_flags_vertical = 2
+min_value = -20.0
+max_value = 20.0
+value = 20.0
 
 [node name="Music" type="HSlider" parent="Audio/MarginContainer/AudioDisplay/Sliders"]
 layout_mode = 2
 size_flags_vertical = 2
+value = 100.0
 
 [node name="SoundFX" type="HSlider" parent="Audio/MarginContainer/AudioDisplay/Sliders"]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 1
+value = 100.0
 
 [node name="BackBtn" type="Button" parent="Audio/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="Video" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 424.0
+offset_bottom = 527.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.315, 0.315)
+
+[node name="MarginContainer" type="MarginContainer" parent="Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -22.2222
+offset_bottom = -22.2222
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Video/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Labels" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Fullscreen" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Fullscreen"
+
+[node name="Checks" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="CheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+
+[node name="BackBtn2" type="Button" parent="Video/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
 text = "Back"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -222,8 +293,16 @@ autoplay = true
 
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="." method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="SettingsControl" method="_on_audio_setting_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
+[connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="pressed" from="Audio/MarginContainer/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="Audio/MarginContainer/BackBtn" to="SettingsControl" method="_on_back_btn_pressed"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="Video/MarginContainer/BackBtn2" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="Video/MarginContainer/BackBtn2" to="." method="_on_back_btn_2_pressed"]
+[connection signal="pressed" from="Video/MarginContainer/BackBtn2" to="SettingsControl" method="_on_back_btn_pressed"]
