@@ -178,7 +178,6 @@ func update_weapon_visibility():
 		if weapon: weapon.visible = i == current_weapon_index
 
 func get_current_weapon():
-	print(str(weapons[current_weapon_index]))
 	return weapons[current_weapon_index]
 
 func wrap_index(index):

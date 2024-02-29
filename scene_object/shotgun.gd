@@ -14,13 +14,14 @@ var ranged = true
 var can_shoot = true 
 
 # Temp animation variables
-@onready var max_y = position.y + 0.02
-@onready var min_y = position.y - 0.02
+@onready var max_y = position.y + BOB_OFFSET
+@onready var min_y = position.y - BOB_OFFSET
 @onready var original_pos = position
 @onready var original_rot = rotation
-const ADS_POS = Vector3(0, -0.4, -1.058)
-const ADS_ROT = Vector3(0, 0, 0)
-const ANIM_SPEED = 0.0005
+const ADS_POS = Vector3(0, -0.15, -0.395)
+const ADS_ROT = Vector3(0, 1.570796, 0)
+const ANIM_SPEED = 0.00025
+const BOB_OFFSET = 0.01
 var going_up = true
 @onready var target_pos = original_pos
 @onready var target_rot = original_rot
@@ -86,17 +87,17 @@ func _process(delta):
 	position.x = lerp(position.x, target_pos.x, 10.0 * delta)
 	rotation = rotation.slerp(target_rot, 10.0 * delta)
 	if is_aiming:
-		position.y = lerp(position.y, -0.2, 10.0 * delta)
+		position.y = lerp(position.y, ADS_POS.y, 10.0 * delta)
 		pass
-	elif position.y > -0.38: 
-		position.y = lerp(position.y, -0.38, 10.0 * delta)
+	elif position.y > original_pos.y + BOB_OFFSET: 
+		position.y = lerp(position.y, original_pos.y + BOB_OFFSET, 10.0 * delta)
 		going_up = false
 		pass
 	var anim_speed
 	if not $"../..".is_moving or $"../..".is_crouching:
 		anim_speed = ANIM_SPEED * 0.25
 	elif $"../..".is_sprinting:
-		anim_speed = ANIM_SPEED * 2
+		anim_speed = ANIM_SPEED * 1.5
 	else:
 		anim_speed = ANIM_SPEED 
 	if going_up:
