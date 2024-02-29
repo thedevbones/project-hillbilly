@@ -13,7 +13,7 @@ var going_up = true
 @onready var max = position.y + 0.02
 @onready var min = position.y - 0.02
 var anim_speed_default = 0.0005
-var original_pos_z = global_position.z
+var original_pos_z = position.z
 
 @onready var camera = $".."
 
@@ -23,6 +23,7 @@ signal reloaded
 
 func shoot():
 	if ammo > 0 and not is_reloading:
+		position.z += 0.2
 		# Play fire sound
 		$PistolFire.play()
 		# Flash muzzle flash light
@@ -50,11 +51,12 @@ func reload():
 func _process(delta):
 	if not visible:
 		pass
+	if position.z > original_pos_z: position.z -= 0.01
 	var anim_speed
 	if not $"../..".is_moving or $"../..".is_crouching:
-		anim_speed = anim_speed_default * 0.5
+		anim_speed = anim_speed_default * 0.25
 	elif $"../..".is_sprinting:
-		anim_speed = anim_speed_default * 1.5
+		anim_speed = anim_speed_default * 2
 	else:
 		anim_speed = anim_speed_default 
 	if going_up:
