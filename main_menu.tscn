@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://uqmsd8gbm3fk"]
 
-[ext_resource type="Texture2D" uid="uid://cqakyvnigkxup" path="res://ProjectHillBilly.png" id="1_32ltq"]
 [ext_resource type="Script" path="res://MainMenue.gd" id="1_1454a"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="3_wugvk"]
 [ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="4_24813"]
+[ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://Background.tscn" id="4_wtf1n"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -19,23 +19,13 @@
 
 [node name="Main Menu" type="CanvasLayer"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -352.0
-offset_top = -392.0
-offset_right = 352.0
-offset_bottom = 392.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_32ltq")
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -5.0
+offset_right = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_754t5")
@@ -47,8 +37,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -6.0
+offset_right = 422.0
+offset_bottom = 515.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.315, 0.315)
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
@@ -135,6 +129,8 @@ text = "Quit
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_24813")
 autoplay = true
+
+[node name="main" parent="." instance=ExtResource("4_wtf1n")]
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartBtn" to="Control" method="_on_start_btn_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/SettingsBtn" to="Control" method="_on_settings_btn_pressed"]
