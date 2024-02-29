@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhi37jhw8qivr"]
+
+[ext_resource type="Script" path="res://how_to_main_controls.gd" id="1_e1b71"]
+[ext_resource type="Texture2D" uid="uid://jq5rj648ga6a" path="res://images/run.png" id="2_rpdtf"]
+[ext_resource type="Texture2D" uid="uid://v2ds4dd8ltdn" path="res://images/walk.png" id="2_twktn"]
+[ext_resource type="Texture2D" uid="uid://brj8qtwpnj4m5" path="res://images/jump.png" id="4_03ol4"]
+[ext_resource type="Texture2D" uid="uid://d0ifprsfwwy0o" path="res://images/croutch.png" id="5_dn3y8"]
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_e1b71")
+
+[node name="main_controls_screen" type="Node2D" parent="."]
+
+[node name="main_controls_toggle" type="Button" parent="main_controls_screen"]
+offset_left = 66.0
+offset_top = 25.0
+offset_right = 146.0
+offset_bottom = 55.0
+
+[node name="main_controls_label" type="Label" parent="main_controls_screen/main_controls_toggle"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 77.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 11
+text = "Main Controls"
+
+[node name="attack_controls_toggle2" type="Button" parent="main_controls_screen"]
+offset_left = 161.0
+offset_top = 24.0
+offset_right = 241.0
+offset_bottom = 54.0
+
+[node name="attack_label" type="Label" parent="main_controls_screen/attack_controls_toggle2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 79.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "Attack Controls"
+
+[node name="back_to_world" type="Button" parent="main_controls_screen"]
+offset_left = 232.0
+offset_top = 209.0
+offset_right = 345.0
+offset_bottom = 240.0
+scale = Vector2(0.75, 0.75)
+text = "back to world"
+
+[node name="Walk" type="Sprite2D" parent="."]
+position = Vector2(153, 88)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_twktn")
+
+[node name="Run" type="Sprite2D" parent="."]
+position = Vector2(153, 125)
+scale = Vector2(0.0496645, 0.0542735)
+texture = ExtResource("2_rpdtf")
+
+[node name="Jump" type="Sprite2D" parent="."]
+position = Vector2(153.25, 162.188)
+scale = Vector2(0.0493464, 0.0459651)
+texture = ExtResource("4_03ol4")
+
+[node name="Croutch" type="Sprite2D" parent="."]
+position = Vector2(151.375, 203.25)
+scale = Vector2(0.0508893, 0.0493311)
+texture = ExtResource("5_dn3y8")
+
+[node name="walk_label" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 72.0
+offset_right = 82.0
+offset_bottom = 95.0
+text = "WALK
+"
+
+[node name="run_label" type="Label" parent="."]
+offset_left = 41.0
+offset_top = 112.0
+offset_right = 86.0
+offset_bottom = 135.0
+text = "RUN
+"
+
+[node name="jump_label" type="Label" parent="."]
+offset_left = 39.0
+offset_top = 147.0
+offset_right = 84.0
+offset_bottom = 170.0
+text = "JUMP
+"
+
+[node name="croutch_label" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 191.0
+offset_right = 104.0
+offset_bottom = 214.0
+text = "CROUTCH
+"
+
+[connection signal="pressed" from="main_controls_screen/main_controls_toggle" to="." method="_on_main_controls_toggle_pressed"]
+[connection signal="pressed" from="main_controls_screen/attack_controls_toggle2" to="." method="_on_main_controls_toggle_pressed"]
+[connection signal="pressed" from="main_controls_screen/back_to_world" to="." method="_on_main_controls_toggle_pressed"]
+[connection signal="pressed" from="main_controls_screen/back_to_world" to="." method="_on_back_to_world_pressed"]
