@@ -1,21 +1,20 @@
 extends Node3D
 
 # Pistol properties
+@onready var camera = $".."
+@onready var raycast = $"../HitScan"
 const MAX_AMMO = 8
-const BULLET_SPEED = 50.0
 const RELOAD_TIME = 1.5
 var ammo = MAX_AMMO
+var damage = 1
 var is_reloading = false
-var bullet_scene = preload("res://scene_object/bullet.tscn")
 
 # Temp animation variables
-var going_up = true
 @onready var max = position.y + 0.02
 @onready var min = position.y - 0.02
-var anim_speed_default = 0.0005
-var original_pos_z = position.z
-
-@onready var camera = $".."
+@onready var original_pos_z = position.z
+const ANIM_SPEED = 0.0005
+var going_up = true
 
 # Signals
 signal shot_fired
@@ -30,13 +29,10 @@ func shoot():
 		$MuzzleLight.show()
 		await get_tree().create_timer(0.1).timeout
 		$MuzzleLight.hide()
-		# Create and initialize bullet
-		var bullet_instance = bullet_scene.instantiate()
-		bullet_instance.initialize_bullet(-camera.global_transform.basis.z.normalized() * BULLET_SPEED, self.global_transform)
-		get_tree().root.add_child(bullet_instance)
+		if raycast.is_enabled():
+			hitscan()
 		# Adjust ammo
 		ammo -= 1
-		emit_signal("shot_fired")
 
 func reload():
 	if not is_reloading and ammo < MAX_AMMO:
@@ -47,6 +43,18 @@ func reload():
 		is_reloading = false
 		emit_signal("reloaded")
 
+func hitscan():
+	raycast.force_raycast_update()  # Updates the raycast immediately
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider and collider.has_method("apply_damage"):
+			collider.apply_damage(damage)
+			# NOTE: followig code is unused atm but will be used for FX
+			# var collision_point = raycast.get_collision_point()
+			# var collision_normal = raycast.get_collision_normal()
+			# Call a function to create FX
+			# emit_signal("shot_fired", collision_point, collision_normal)
+
 # Temp animation
 func _process(delta):
 	if not visible:
@@ -54,11 +62,11 @@ func _process(delta):
 	if position.z > original_pos_z: position.z -= 0.01
 	var anim_speed
 	if not $"../..".is_moving or $"../..".is_crouching:
-		anim_speed = anim_speed_default * 0.25
+		anim_speed = ANIM_SPEED * 0.25
 	elif $"../..".is_sprinting:
-		anim_speed = anim_speed_default * 2
+		anim_speed = ANIM_SPEED * 2
 	else:
-		anim_speed = anim_speed_default 
+		anim_speed = ANIM_SPEED 
 	if going_up:
 		if position.y >= max: going_up = false
 		position.y += anim_speed

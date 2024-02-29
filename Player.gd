@@ -10,7 +10,6 @@ const MAX_STAMINA = 10
 const SPRINT_MULTIPLIER = 1.5
 const CROUCH_MULTIPLIER = 0.75
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.2
 var speed = NORMAL_SPEED
@@ -55,7 +54,6 @@ func _input(event):
 	if event.is_action_pressed("scroll_up"):
 		var prev_index = current_weapon_index - 1
 		prev_index = wrap_index(prev_index)
-		print("Previous index: ", prev_index)
 		switch_weapon_by_index(prev_index)
 	elif event.is_action_pressed("scroll_down"):
 		var next_index = current_weapon_index + 1
@@ -129,7 +127,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 		is_moving = false
-	# print("sprinting: " + str(is_sprinting) + " crouching: " + str(is_crouching) + " can sprint: " + str(can_sprint) + " stamina: " + str(stamina) + " speed: " + str(speed))
 	move_and_slide()
 	# Getting slide collision
 	for i in get_slide_collision_count():

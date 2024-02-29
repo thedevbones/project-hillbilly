@@ -142,7 +142,8 @@ absorbent = true
 [node name="World" type="Node3D"]
 
 [node name="Crosshair" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0.47451)
+modulate = Color(1, 1, 1, 0.435294)
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -206,7 +207,6 @@ cull_mask = 1047553
 
 [node name="HitScan" type="RayCast3D" parent="Player/MainCamera"]
 target_position = Vector3(0, 0, -100)
-collide_with_areas = true
 
 [node name="Pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
 transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.482, -0.4, -1.058)
