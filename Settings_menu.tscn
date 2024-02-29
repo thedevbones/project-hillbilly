@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://0scyeg7rux1e"]
+[gd_scene load_steps=19 format=3 uid="uid://0scyeg7rux1e"]
 
 [ext_resource type="Script" path="res://Settings_menu.gd" id="1_33auo"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://text/Another Danger - Demo.otf" id="3_80oxy"]
@@ -31,10 +31,19 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0aih"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owi1m"]
+content_margin_left = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+
 [node name="Settings  Menu" type="CanvasLayer"]
 script = ExtResource("1_33auo")
 
 [node name="SettingsControl" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -228,7 +237,6 @@ theme_override_font_sizes/font_size = 50
 text = "Back"
 
 [node name="Video" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -274,8 +282,10 @@ size_flags_vertical = 4
 
 [node name="CheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_owi1m")
 
 [node name="BackBtn2" type="Button" parent="Video/MarginContainer"]
 layout_mode = 2
