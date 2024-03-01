@@ -37,18 +37,22 @@ signal shot_fired
 signal reloaded
 
 func shoot():
-	if ammo > 0 and not is_reloading and can_shoot:
+	if is_reloading and ammo > 0:
+		is_reloading = false
+		$ShotgunCock.play()
+		pump_animating = true
+		await get_tree().create_timer(COCK_TIME).timeout
+		player.can_switch = true
+	if ammo > 0 and can_shoot:
 		player.can_switch = false
 		can_shoot = false
 		position.z += 0.2
-		$MuzzleLight.show()
-		await get_tree().create_timer(0.1).timeout
-		$MuzzleLight.hide()
+		muzzle_flash()
 		if raycast.is_enabled():
 			hitscan()
 		ammo -= 1
 		$ShotgunFire.play()
-		await get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(0.1).timeout
 		$ShotgunCock.play(0.0)
 		pump_animating = true
 		await get_tree().create_timer(COCK_TIME).timeout
@@ -64,7 +68,7 @@ func reload():
 	if is_aiming: 
 		was_aiming = true
 		aim()
-	while ammo < MAX_AMMO:
+	while ammo < MAX_AMMO and is_reloading:
 		$ShotgunLoad.play()
 		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
 		ammo += 1
@@ -113,6 +117,11 @@ func hitscan():
 			if collider and collider.has_method("apply_damage"):
 				collider.apply_damage(damage)
 				# Handle effects here, similar to your existing setup
+
+func muzzle_flash():
+	$MuzzleLight.show()
+	await get_tree().create_timer(0.1).timeout
+	$MuzzleLight.hide()
 
 # Temp animation
 func _process(delta):
