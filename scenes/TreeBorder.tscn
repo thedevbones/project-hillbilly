@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch2eirrtm4ukc"]
+[gd_scene load_steps=3 format=3 uid="uid://dhedjnvbqwndx"]
 
-[ext_resource type="PackedScene" path="res://assets/tree-border.glb" id="1_b72na"]
+[ext_resource type="PackedScene" uid="uid://cfsf0mva0c75t" path="res://assets/tree-border.glb" id="1_b72na"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tahn0"]
 size = Vector3(97.1269, 8.66998, 1.39307)

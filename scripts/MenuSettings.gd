@@ -10,7 +10,7 @@ func _ready():
 	video.visible = false
 
 func _on_main_menu_btn_pressed():
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/MenuMain.tscn")
 	
 func _on_back_btn_pressed():
 	settings.visible = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dhi37jhw8qivr"]
 
-[ext_resource type="Script" path="res://how_to_main_controls.gd" id="1_e1b71"]
+[ext_resource type="Script" path="res://scripts/TutorialControls.gd" id="1_e1b71"]
 [ext_resource type="Texture2D" uid="uid://jq5rj648ga6a" path="res://images/run.png" id="2_rpdtf"]
 [ext_resource type="Texture2D" uid="uid://v2ds4dd8ltdn" path="res://images/walk.png" id="2_twktn"]
 [ext_resource type="Texture2D" uid="uid://brj8qtwpnj4m5" path="res://images/jump.png" id="4_03ol4"]
@@ -103,5 +103,5 @@ text = "CROUTCH
 
 [connection signal="pressed" from="main_controls_screen/main_controls_toggle" to="." method="_on_main_controls_toggle_pressed"]
 [connection signal="pressed" from="main_controls_screen/attack_controls_toggle2" to="." method="_on_main_controls_toggle_pressed"]
-[connection signal="pressed" from="main_controls_screen/back_to_world" to="." method="_on_main_controls_toggle_pressed"]
 [connection signal="pressed" from="main_controls_screen/back_to_world" to="." method="_on_back_to_world_pressed"]
+[connection signal="pressed" from="main_controls_screen/back_to_world" to="." method="_on_main_controls_toggle_pressed"]

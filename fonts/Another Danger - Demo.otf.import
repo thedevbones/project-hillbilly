@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dhcubomh0v2j6"
-path="res://.godot/imported/Another Danger - Demo.otf-73f8283ed6e4688ce6eab14d4f02cdbd.fontdata"
+path="res://.godot/imported/Another Danger - Demo.otf-60e353c9e394768d36d5f153662752be.fontdata"
 
 [deps]
 
-source_file="res://text/Another Danger - Demo.otf"
-dest_files=["res://.godot/imported/Another Danger - Demo.otf-73f8283ed6e4688ce6eab14d4f02cdbd.fontdata"]
+source_file="res://fonts/Another Danger - Demo.otf"
+dest_files=["res://.godot/imported/Another Danger - Demo.otf-60e353c9e394768d36d5f153662752be.fontdata"]
 
 [params]
 

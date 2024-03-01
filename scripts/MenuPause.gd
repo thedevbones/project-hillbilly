@@ -21,4 +21,6 @@ func paused():
 	show()
 
 func mainMenu():
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	unpaused()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file("res://scenes/MenuMain.tscn")
