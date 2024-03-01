@@ -33,15 +33,12 @@ func shoot():
 	if ammo > 0 and not is_reloading:
 		player.can_switch = false
 		position.z += 0.2
-		# Play fire sound
 		$PistolFire.play()
-		# Flash muzzle flash light
 		$MuzzleLight.show()
 		await get_tree().create_timer(0.1).timeout
 		$MuzzleLight.hide()
 		if raycast.is_enabled():
 			hitscan()
-		# Adjust ammo
 		ammo -= 1
 		player.can_switch = true
 
@@ -86,7 +83,7 @@ func hitscan():
 # Temp animation
 func _process(delta):
 	if not visible: pass
-	if position.z > original_pos.z: position.z -= 0.01
+	if position.z > original_pos.z: position.z = lerp(position.z, original_pos.z, 10.0 * delta)
 	position.x = lerp(position.x, target_pos.x, 10.0 * delta)
 	rotation = rotation.slerp(target_rot, 10.0 * delta)
 	if is_aiming:

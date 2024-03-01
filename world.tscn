@@ -26,7 +26,7 @@
 [ext_resource type="Script" path="res://scene_object/shotgun.gd" id="12_62glt"]
 [ext_resource type="PackedScene" uid="uid://ylgj4yoabfhv" path="res://scene_object/target.tscn" id="12_u5br6"]
 [ext_resource type="AudioStream" uid="uid://2yc4knfojp1j" path="res://audio/shotgun_fire.wav" id="13_o0qn3"]
-[ext_resource type="PackedScene" path="res://scene_object/tree_border_small.tscn" id="13_qqkrj"]
+[ext_resource type="PackedScene" uid="uid://dn57va7fvxmn8" path="res://scene_object/tree_border_small.tscn" id="13_qqkrj"]
 [ext_resource type="AudioStream" uid="uid://dxsl7p5buash0" path="res://audio/shotgun_load.wav" id="14_5b3kg"]
 [ext_resource type="PackedScene" uid="uid://cm3kxsmdpcmk6" path="res://scene_object/car.tscn" id="14_gytsm"]
 [ext_resource type="AudioStream" uid="uid://b8tkrrk6ybirk" path="res://audio/shotgun_cock.wav" id="15_1to8r"]
@@ -35,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://chpxwsdrnf5wk" path="res://scene_object/moon.tscn" id="16_1rbbi"]
 [ext_resource type="PackedScene" uid="uid://cdey5737s08u3" path="res://scene_object/lightpost.tscn" id="18_ygqwd"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="19_sl67m"]
-[ext_resource type="PackedScene" path="res://scene_object/tree_border.tscn" id="19_vw42b"]
+[ext_resource type="PackedScene" uid="uid://ch2eirrtm4ukc" path="res://scene_object/tree_border.tscn" id="19_vw42b"]
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="20_2tew6"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="21_qsmwn"]
 [ext_resource type="PackedScene" uid="uid://c7xki0kc6jtbd" path="res://scene_object/box.tscn" id="22_btxxw"]
@@ -113,7 +113,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v23l7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pt50h"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -148,7 +148,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_v23l7"),
+"material": SubResource("ShaderMaterial_pt50h"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,

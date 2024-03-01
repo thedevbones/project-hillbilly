@@ -110,7 +110,7 @@ func hitscan():
 # Temp animation
 func _process(delta):
 	if not visible: pass
-	if position.z > original_pos.z: position.z -= 0.01
+	if position.z > original_pos.z: position.z = lerp(position.z, original_pos.z, 10.0 * delta)
 	position.x = lerp(position.x, target_pos.x, 10.0 * delta)
 	rotation = rotation.slerp(target_rot, 10.0 * delta)
 	if is_aiming:
