@@ -100,7 +100,7 @@ func _physics_process(delta):
 		$StepTimer.wait_time = 0.3
 		$StepAudio.set_max_db(-4)
 		speed = NORMAL_SPEED * SPRINT_MULTIPLIER
-		stamina -= delta  # Stamina depletes continuously while sprinting
+		stamina -= delta
 		$MainCamera.fov = lerp($MainCamera.fov, SPRINT_FOV, 0.1)
 		if stamina <= 0.0:
 			stamina = 0.0  # Clamp stamina to zero
