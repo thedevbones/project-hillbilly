@@ -16,7 +16,7 @@ var swing_timer = 0.0
 @onready var min_y = position.y - BOB_OFFSET
 @onready var original_rotation_degrees = rotation_degrees
 @onready var original_position = position
-const ANIM_SPEED = 0.00025
+const ANIM_SPEED = 0.025
 const SWING_SPEED = 10.0
 const BOB_OFFSET = 0.01
 var swing_rotation_degrees = Vector3 (-65, 55, 0)
@@ -70,7 +70,7 @@ func _process(delta):
 		anim_speed = ANIM_SPEED 
 	if going_up:
 		if position.y >= max_y: going_up = false
-		position.y += anim_speed
+		position.y += anim_speed * delta
 	else:
 		if position.y <= min_y: going_up = true
-		position.y -= anim_speed
+		position.y -= anim_speed * delta

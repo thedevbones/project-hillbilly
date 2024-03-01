@@ -22,7 +22,7 @@ var can_shoot = true
 @onready var original_rot = rotation
 const ADS_POS = Vector3(0, -0.15, -0.395)
 const ADS_ROT = Vector3(0, 1.570796, 0)
-const ANIM_SPEED = 0.00025
+const ANIM_SPEED = 0.025
 const BOB_OFFSET = 0.01
 var going_up = true
 @onready var target_pos = original_pos
@@ -132,10 +132,10 @@ func _process(delta):
 		anim_speed = ANIM_SPEED 
 	if going_up:
 		if position.y >= max_y: going_up = false
-		position.y += anim_speed
+		position.y += anim_speed * delta
 	else:
 		if position.y <= min_y: going_up = true
-		position.y -= anim_speed
+		position.y -= anim_speed * delta
 
 
 func _on_visibility_changed():

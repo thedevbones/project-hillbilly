@@ -20,7 +20,7 @@ var ranged = true
 @onready var original_rot = rotation
 const ADS_POS = Vector3(0, -0.4, -1.058)
 const ADS_ROT = Vector3(0, 0, 0)
-const ANIM_SPEED = 0.0005
+const ANIM_SPEED = 0.05
 var going_up = true
 @onready var target_pos = original_pos
 @onready var target_rot = original_rot
@@ -105,10 +105,10 @@ func _process(delta):
 		anim_speed = ANIM_SPEED 
 	if going_up:
 		if position.y >= max_y: going_up = false
-		position.y += anim_speed
+		position.y += anim_speed * delta
 	else:
 		if position.y <= min_y: going_up = true
-		position.y -= anim_speed
+		position.y -= anim_speed * delta
 
 
 func _on_visibility_changed():

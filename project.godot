@@ -26,6 +26,7 @@ window/size/viewport_height=240
 window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
