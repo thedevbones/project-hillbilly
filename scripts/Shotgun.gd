@@ -25,8 +25,12 @@ const ADS_ROT = Vector3(0, 1.570796, 0)
 const ANIM_SPEED = 0.025
 const BOB_OFFSET = 0.01
 var going_up = true
+var pump_animating = false
+var pumping_back = true
 @onready var target_pos = original_pos
 @onready var target_rot = original_rot
+@onready var pump_original_pos = $Cube_004.position.x
+@onready var pump_target_pos = $Cube_004.position.x - 0.4
 
 # Signals
 signal shot_fired
@@ -37,14 +41,16 @@ func shoot():
 		player.can_switch = false
 		can_shoot = false
 		position.z += 0.2
-		$ShotgunFire.play()
 		$MuzzleLight.show()
 		await get_tree().create_timer(0.1).timeout
 		$MuzzleLight.hide()
 		if raycast.is_enabled():
 			hitscan()
 		ammo -= 1
+		$ShotgunFire.play()
+		await get_tree().create_timer(0.4).timeout
 		$ShotgunCock.play(0.0)
+		pump_animating = true
 		await get_tree().create_timer(COCK_TIME).timeout
 		can_shoot = true
 		player.can_switch = true
@@ -63,6 +69,7 @@ func reload():
 		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
 		ammo += 1
 	$ShotgunCock.play()
+	pump_animating = true
 	await get_tree().create_timer(COCK_TIME).timeout
 	is_reloading = false
 	player.can_switch = true
@@ -113,7 +120,23 @@ func _process(delta):
 	if position.z > original_pos.z: position.z = lerp(position.z, original_pos.z, 10.0 * delta)
 	position.x = lerp(position.x, target_pos.x, 10.0 * delta)
 	rotation = rotation.slerp(target_rot, 10.0 * delta)
+	
+	if pump_animating:
+		var pump = $Cube_004 
+		if pumping_back:
+			if pump.position.x <= pump_target_pos: pumping_back = false
+			$Cube_004.position.x -= 3.0 * delta
+		else:
+			if pump.position.x >= pump_original_pos:
+				pumping_back = true
+				pump_animating = false
+			$Cube_004.position.x += 3.0 * delta
+	
 	if is_aiming:
+		if pump_animating: 
+			position.x = lerp(position.x, ADS_POS.x + 0.2, 10.0 * delta)
+			rotation_degrees.x = lerp(rotation_degrees.x, 45.0, 10.0 * delta)
+			position.y = lerp(position.y, ADS_POS.y - 0.1, 10.0 * delta)
 		position.y = lerp(position.y, ADS_POS.y, 10.0 * delta)
 	elif is_reloading: 
 		position.y = lerp(position.y, -0.45, 10.0 * delta)

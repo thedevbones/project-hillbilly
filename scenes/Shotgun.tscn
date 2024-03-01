@@ -15,4 +15,5 @@ layers = 2
 layers = 2
 
 [node name="Cube_004" parent="." index="3"]
+transform = Transform3D(0.543287, 0, 0, 0, 0.128477, 0, 0, 0, 0.183362, 2.538, 0.38, 0.004)
 layers = 2
