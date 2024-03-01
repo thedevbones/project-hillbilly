@@ -332,7 +332,7 @@ unit_size = 50.0
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434119, 4.98097, -0.0379805, -0.435776, 2.38419e-07, 4.98096, 1.85349, 0.331798, -0.198746)
 stream = ExtResource("14_5b3kg")
 
-[node name="ShotgunCock" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
+[node name="ShotgunPump" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434118, 4.98097, -0.0379805, -0.435776, 2.75671e-07, 4.98096, 4.01608, 0.424915, -0.121834)
 stream = ExtResource("15_1to8r")
 

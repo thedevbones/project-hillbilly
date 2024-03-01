@@ -1,12 +1,28 @@
 extends Node3D
 
-# Pistol properties
+signal shot_fired
+signal reloaded
+
 @onready var camera = $".."
 @onready var player = $"../.."
 @onready var raycast = $"../HitScan"
+@onready var bob_max = position.y + BOB_OFFSET
+@onready var bob_min = position.y - BOB_OFFSET
+@onready var original_pos = position
+@onready var original_rot = rotation
+@onready var target_pos = original_pos
+@onready var target_rot = original_rot
+@onready var pump_original_pos = $Cube_004.position.x
+@onready var pump_target_pos = $Cube_004.position.x - 0.4
+
 const MAX_AMMO = 6
 const RELOAD_TIME_PER_SHELL = 0.5
-const COCK_TIME = 0.5
+const PUMP_TIME = 0.5
+const ADS_POS = Vector3(0, -0.15, -0.395)
+const ADS_ROT = Vector3(0, 1.570796, 0)
+const BOB_SPEED = 0.025
+const BOB_OFFSET = 0.01
+
 var ammo = MAX_AMMO
 var damage = 3
 var range = Vector3(1.0, 1.0, 50)
@@ -14,69 +30,50 @@ var is_reloading = false
 var is_aiming = false
 var ranged = true
 var can_shoot = true 
-
-# Temp animation variables
-@onready var max_y = position.y + BOB_OFFSET
-@onready var min_y = position.y - BOB_OFFSET
-@onready var original_pos = position
-@onready var original_rot = rotation
-const ADS_POS = Vector3(0, -0.15, -0.395)
-const ADS_ROT = Vector3(0, 1.570796, 0)
-const ANIM_SPEED = 0.025
-const BOB_OFFSET = 0.01
-var going_up = true
+var bob_up = true
 var pump_animating = false
 var pumping_back = true
-@onready var target_pos = original_pos
-@onready var target_rot = original_rot
-@onready var pump_original_pos = $Cube_004.position.x
-@onready var pump_target_pos = $Cube_004.position.x - 0.4
-
-# Signals
-signal shot_fired
-signal reloaded
 
 func shoot():
 	if is_reloading and ammo > 0:
 		is_reloading = false
-		$ShotgunCock.play()
-		pump_animating = true
-		await get_tree().create_timer(COCK_TIME).timeout
 		player.can_switch = true
+		pump()
+	
 	if ammo > 0 and can_shoot:
 		player.can_switch = false
 		can_shoot = false
 		position.z += 0.2
-		muzzle_flash()
-		if raycast.is_enabled():
-			hitscan()
 		ammo -= 1
+		
+		muzzle_flash()
+		hitscan()
+		
 		$ShotgunFire.play()
 		await get_tree().create_timer(0.1).timeout
-		$ShotgunCock.play(0.0)
-		pump_animating = true
-		await get_tree().create_timer(COCK_TIME).timeout
-		can_shoot = true
+		pump()
 		player.can_switch = true
 
 func reload():
-	var was_aiming = false
 	if is_reloading or ammo >= MAX_AMMO:
 		return
+	
 	is_reloading = true
 	player.can_switch = false
+	
+	var was_aiming = false
 	if is_aiming: 
 		was_aiming = true
 		aim()
+	
 	while ammo < MAX_AMMO and is_reloading:
 		$ShotgunLoad.play()
 		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
 		ammo += 1
-	$ShotgunCock.play()
-	pump_animating = true
-	await get_tree().create_timer(COCK_TIME).timeout
+	
+	pump()
+	
 	is_reloading = false
-	player.can_switch = true
 	if was_aiming and not is_aiming: aim()
 	emit_signal("reloaded")
 
@@ -91,8 +88,12 @@ func aim():
 		target_rot = original_rot
 
 func hitscan():
+	if not raycast.is_enabled():
+		return
+	
 	var num_pellets = 8
 	var spread_angle = 10
+	
 	for i in range(num_pellets):
 		# Calculate the direction with a random spread
 		var random_spread_x = randf_range(-spread_angle, spread_angle)
@@ -123,10 +124,18 @@ func muzzle_flash():
 	await get_tree().create_timer(0.1).timeout
 	$MuzzleLight.hide()
 
-# Temp animation
+func pump():
+	$ShotgunPump.play()
+	pump_animating = true
+	await get_tree().create_timer(PUMP_TIME).timeout
+	can_shoot = true
+
 func _process(delta):
 	if not visible: pass
-	if position.z > original_pos.z: position.z = lerp(position.z, original_pos.z, 10.0 * delta)
+	
+	if position.z > original_pos.z: 
+		position.z = lerp(position.z, original_pos.z, 10.0 * delta)
+	
 	position.x = lerp(position.x, target_pos.x, 10.0 * delta)
 	rotation = rotation.slerp(target_rot, 10.0 * delta)
 	
@@ -151,24 +160,24 @@ func _process(delta):
 		position.y = lerp(position.y, -0.45, 10.0 * delta)
 	elif position.y > original_pos.y + BOB_OFFSET: 
 		position.y = lerp(position.y, original_pos.y + BOB_OFFSET, 10.0 * delta)
-		going_up = false
+		bob_up = false
 	elif position.y < original_pos.y - BOB_OFFSET: 
 		position.y = lerp(position.y, original_pos.y - BOB_OFFSET, 10.0 * delta)
-		going_up = true
-	var anim_speed
-	if not $"../..".is_moving or $"../..".is_crouching:
-		anim_speed = ANIM_SPEED * 0.25
-	elif $"../..".is_sprinting:
-		anim_speed = ANIM_SPEED * 1.5
-	else:
-		anim_speed = ANIM_SPEED 
-	if going_up:
-		if position.y >= max_y: going_up = false
-		position.y += anim_speed * delta
-	else:
-		if position.y <= min_y: going_up = true
-		position.y -= anim_speed * delta
+		bob_up = true
 
+	var bob_speed
+	if not $"../..".is_moving or $"../..".is_crouching:
+		bob_speed = BOB_SPEED * 0.25
+	elif $"../..".is_sprinting:
+		bob_speed = BOB_SPEED * 1.5
+	else:
+		bob_speed = BOB_SPEED 
+	if bob_up:
+		if position.y >= bob_max: bob_up = false
+		position.y += bob_speed * delta
+	else:
+		if position.y <= bob_min: bob_up = true
+		position.y -= bob_speed * delta
 
 func _on_visibility_changed():
 	if is_aiming and not visible: aim()
