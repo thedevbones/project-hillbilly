@@ -64,15 +64,15 @@
 
 - `Jira Task: Jordan - Design Player Control`  
 	- [FER-27](https://cs3398s24ferengi.atlassian.net/browse/FER-27), 
-    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/%7B66959c0a-8754-4321-a203-1172c8ca1a8b%7D/commits/9026aa9898c8012a8c4c9c1c967a16f17c00071c)
-	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/%7B66959c0a-8754-4321-a203-1172c8ca1a8b%7D/commits/665bd1d7ceff287688398b56c3824320b11523d5)    
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/%7B66959c0a-8754-4321-a203-1172c8ca1a8b%7D/commits/9026aa9898c8012a8c4c9c1c967a16f17c00071c)
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/%7B66959c0a-8754-4321-a203-1172c8ca1a8b%7D/commits/665bd1d7ceff287688398b56c3824320b11523d5)    
 - `Jira Task: Jordan - Implement Player Movements`  
 	- [FER-28](https://cs3398s24ferengi.atlassian.net/browse/FER-28), 
     [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature%2FFER-28-implement-player-movement)  
 - `Jira Task: Jordan - Implement Camera Controls`   
 	- [FER-29](https://cs3398s24ferengi.atlassian.net/browse/FER-29), 
-    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/%7B66959c0a-8754-4321-a203-1172c8ca1a8b%7D/commits/4456c3d9c64383fe0f455398eb424849d50072dd)
-	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/%7B66959c0a-8754-4321-a203-1172c8ca1a8b%7D/commits/91bc5fc0dddd76e0f17a120fe0846c6a9bdb6943)     
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/%7B66959c0a-8754-4321-a203-1172c8ca1a8b%7D/commits/4456c3d9c64383fe0f455398eb424849d50072dd)
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/%7B66959c0a-8754-4321-a203-1172c8ca1a8b%7D/commits/91bc5fc0dddd76e0f17a120fe0846c6a9bdb6943)     
 - `Jira Task: Jordan - Control Tasks`   
 	- [FER-14](https://cs3398s24ferengi.atlassian.net/browse/FER-14), 
     [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature%2FFER-14-control-tasks)  
