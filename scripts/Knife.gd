@@ -18,8 +18,8 @@ var ranged = false
 var is_swinging = false
 var swing_duration = 0.2
 var swing_timer = 0.0
-var swing_rotation_degrees = Vector3 (-95, 55, 5)
-var swing_position = Vector3 (-0.9, -0.4, -1.093)
+var swing_rotation_degrees = Vector3 (-0, -140,55.5)
+var swing_position = Vector3 (-1.0, -0.25, -0.55)
 var bob_up = true
 
 func swing():

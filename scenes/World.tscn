@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=67 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/GunCamera.gd" id="1_mc2is"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://d1fvf2bvgan1x" path="res://scenes/Knife.tscn" id="8_d2t2t"]
 [ext_resource type="Script" path="res://scripts/Knife.gd" id="9_67cu2"]
 [ext_resource type="AudioStream" uid="uid://tp8mnyni4uxp" path="res://audio/temp_noammo.wav" id="9_q2jjc"]
+[ext_resource type="AudioStream" uid="uid://be2dh6xsph0a6" path="res://audio/knife_swing.wav" id="10_2ipc6"]
 [ext_resource type="PackedScene" uid="uid://h7cr5wiomeqw" path="res://scenes/Tree3.tscn" id="10_wbd7w"]
 [ext_resource type="Script" path="res://scripts/Shotgun.gd" id="12_62glt"]
 [ext_resource type="PackedScene" uid="uid://ylgj4yoabfhv" path="res://scenes/Target.tscn" id="12_u5br6"]
@@ -115,7 +116,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0asuy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4iab4"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -150,7 +151,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_0asuy"),
+"material": SubResource("ShaderMaterial_4iab4"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -257,15 +258,15 @@ unit_size = 5.0
 pitch_scale = 0.9
 
 [node name="Knife" parent="Player/MainCamera" instance=ExtResource("8_d2t2t")]
-transform = Transform3D(-0.1, 0, -8.74228e-09, -8.56212e-09, 0.0201967, 0.0979392, 1.76565e-09, 0.0979392, -0.0201967, 0.450645, -0.234221, -0.540555)
+transform = Transform3D(-0.1, -4.2547e-09, -7.86489e-09, -8.56213e-09, 0.0201967, 0.0979392, -2.57857e-09, 0.0979392, -0.0201967, 0.450645, -0.234221, -0.540555)
 visible = false
 script = ExtResource("9_67cu2")
 
 [node name="Swing" type="AudioStreamPlayer3D" parent="Player/MainCamera/Knife"]
 transform = Transform3D(-10, 2.12401e-06, 3.3058e-06, 3.66666e-06, 2.01966, 9.79392, 1.41258e-06, 9.79392, -2.01966, 0.124374, -1.03727, 0.799327)
-stream = ExtResource("7_blicd")
+stream = ExtResource("10_2ipc6")
+volume_db = -4.0
 unit_size = 5.0
-pitch_scale = 0.9
 
 [node name="Pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
 transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.482, -0.4, -1.058)
