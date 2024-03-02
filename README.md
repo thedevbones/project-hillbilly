@@ -50,13 +50,13 @@
 	- [FER-59](https://cs3398s24ferengi.atlassian.net/browse/FER-59?atlOrigin=eyJpIjoiNjIwMzY0ZmU4YzljNDZmMzk2YzEyMjExZGMzZDc4YzAiLCJwIjoiaiJ9), 
     [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-59-Border-Art)  
 - `Jira Task: Jacob - Create Collision for scene objects`  
-	[FER-60](https://cs3398s24ferengi.atlassian.net/browse/FER-60?atlOrigin=eyJpIjoiODNiOTYyMThiNWQzNDI0MGI0MzJmNjQ0NjY1ZmE2MmEiLCJwIjoiaiJ9), 
+	- [FER-60](https://cs3398s24ferengi.atlassian.net/browse/FER-60?atlOrigin=eyJpIjoiODNiOTYyMThiNWQzNDI0MGI0MzJmNjQ0NjY1ZmE2MmEiLCJwIjoiaiJ9), 
     [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-60-Collision-Detection)   
 - `Jira Task: Jacob - Create Floor Texture`   
-	[FER-61](https://cs3398s24ferengi.atlassian.net/browse/FER-61?atlOrigin=eyJpIjoiYzYzMDNlOTA0NTg2NDA1YmFjMjBkZTk0YmI4NGNjNzMiLCJwIjoiaiJ9), 
+	- [FER-61](https://cs3398s24ferengi.atlassian.net/browse/FER-61?atlOrigin=eyJpIjoiYzYzMDNlOTA0NTg2NDA1YmFjMjBkZTk0YmI4NGNjNzMiLCJwIjoiaiJ9), 
     [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-61-%26-FER-49-Create-Floor)   
 - `Jira Task: Jacob - Create Scene Objects and Elements`   
-	[FER-69](https://cs3398s24ferengi.atlassian.net/browse/FER-69?atlOrigin=eyJpIjoiN2VjMzcyZjE2ODM0NGNmM2FhMDE2MWUxNDdmZThkZmUiLCJwIjoiaiJ9), 
+	- [FER-69](https://cs3398s24ferengi.atlassian.net/browse/FER-69?atlOrigin=eyJpIjoiN2VjMzcyZjE2ODM0NGNmM2FhMDE2MWUxNDdmZThkZmUiLCJwIjoiaiJ9), 
     [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature/FER-69-Extra-Scene-Elements)   
 
 
