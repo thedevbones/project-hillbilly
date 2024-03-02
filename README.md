@@ -26,7 +26,7 @@
 - Blender
 
 ## General Info
-- Cover Art
+- Cover Art  
 -![Cover Art](ProjectHillBilly.png)
 
 ## Features
@@ -37,27 +37,27 @@
 
 **Jacob**: "provided users with an interactive environment and scenery"
 
-- `Jira Task: Jacob - Integrate Assets into Godot` 
+- `Jira Task: Jacob - Integrate Assets into Godot`  
 	- [FER-49](https://cs3398s24ferengi.atlassian.net/browse/FER-49?atlOrigin=eyJpIjoiYWY1YmRhNGZiMjMxNGYwYWEwZTlhMzYyMmVmN2E5YWMiLCJwIjoiaiJ9), 
-    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-61-%26-FER-49-Create-Floorox)
-- `Jira Task: Jacob - Create Tree and Shrub Assets` 
+    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-61-%26-FER-49-Create-Floorox)  
+- `Jira Task: Jacob - Create Tree and Shrub Assets`  
 	- [FER-57](https://cs3398s24ferengi.atlassian.net/browse/FER-57?atlOrigin=eyJpIjoiM2U3NjQyZmZlMzcwNDdiNmI4NzgyYTE1YWFlMGIyNjYiLCJwIjoiaiJ9), 
-    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/JD1568-Level1-Buiild)
-- `Jira Task: Jacob - Create level one lighting design` 
+    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/JD1568-Level1-Buiild)  
+- `Jira Task: Jacob - Create level one lighting design`   
 	- [FER-58](https://cs3398s24ferengi.atlassian.net/browse/FER-58?atlOrigin=eyJpIjoiYWQxMDkyN2FmMjExNDllZTkyM2MzZDM2YWQzZDAwNDUiLCJwIjoiaiJ9), 
-    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature%2FFER-58-lighting-design) 
-- `Jira Task: Jacob - Create Scene Border` 
+    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature%2FFER-58-lighting-design)   
+- `Jira Task: Jacob - Create Scene Border`   
 	- [FER-59](https://cs3398s24ferengi.atlassian.net/browse/FER-59?atlOrigin=eyJpIjoiNjIwMzY0ZmU4YzljNDZmMzk2YzEyMjExZGMzZDc4YzAiLCJwIjoiaiJ9), 
-    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-59-Border-Art)
+    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-59-Border-Art)  
 - `Jira Task: Jacob - Create Collision for scene objects`  
 	[FER-60](https://cs3398s24ferengi.atlassian.net/browse/FER-60?atlOrigin=eyJpIjoiODNiOTYyMThiNWQzNDI0MGI0MzJmNjQ0NjY1ZmE2MmEiLCJwIjoiaiJ9), 
-    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-60-Collision-Detection) 
-- `Jira Task: Jacob - Create Floor Texture` 
+    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-60-Collision-Detection)   
+- `Jira Task: Jacob - Create Floor Texture`   
 	[FER-61](https://cs3398s24ferengi.atlassian.net/browse/FER-61?atlOrigin=eyJpIjoiYzYzMDNlOTA0NTg2NDA1YmFjMjBkZTk0YmI4NGNjNzMiLCJwIjoiaiJ9), 
-    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-61-%26-FER-49-Create-Floor) 
-- `Jira Task: Jacob - Create Scene Objects and Elements` 
+    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-61-%26-FER-49-Create-Floor)   
+- `Jira Task: Jacob - Create Scene Objects and Elements`   
 	[FER-69](https://cs3398s24ferengi.atlassian.net/browse/FER-69?atlOrigin=eyJpIjoiN2VjMzcyZjE2ODM0NGNmM2FhMDE2MWUxNDdmZThkZmUiLCJwIjoiaiJ9), 
-    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature/FER-69-Extra-Scene-Elements) 
+    [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature/FER-69-Extra-Scene-Elements)   
 
 
 - List the ready features here:
