@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1fvf2bvgan1x"]
+
+[ext_resource type="PackedScene" uid="uid://btge72bqng0h4" path="res://assets/knife.glb" id="1_dqfre"]
+
+[node name="Knife" instance=ExtResource("1_dqfre")]
+transform = Transform3D(-0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, 0, 0, 0)
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.0220167, 0, 0, 0, 1, 0, 6.66134e-16, 0, 1, -0.0176919, 0.0370002, -0.0227284)
+layers = 2
+
+[node name="Cube_001" parent="." index="1"]
+transform = Transform3D(0.0802189, 0, 0, 0, 0.375796, 0.0519244, 0, -0.0195393, 0.998651, 0, 0.397, -1.754)
+layers = 2
