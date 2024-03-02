@@ -62,11 +62,11 @@
 
 ### Next Steps for Sprint 2
 
-***Jacob:**
-- Design level one objectives
-- Design and create enemy non-player characters
-- Create enemy AI to interact with player 
-- Create interactive elements in level
+**Jacob:**  
+- Design level one objectives  
+- Design and create enemy non-player characters  
+- Create enemy AI to interact with player  
+- Create interactive elements in level  
 
 <!-- Optional -->
 <!-- ## License -->
