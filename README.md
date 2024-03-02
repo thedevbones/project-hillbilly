@@ -60,16 +60,13 @@
     [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature/FER-69-Extra-Scene-Elements)   
 
 
-- List the ready features here:
+### Next Steps for Sprint 2
 
-- Main Menu:
-	- The game will have a working main menu with various selections.
-
--  Scary Enviroment:
-	- Set in a dark wooded area.
-
-- Movable character:
-	- the main player will be able to move around the area. He will have the abiity to walk and run.
+***Jacob:**
+- Design level one objectives
+- Design and create enemy non-player characters
+- Create enemy AI to interact with player 
+- Create interactive elements in level
 
 <!-- Optional -->
 <!-- ## License -->
