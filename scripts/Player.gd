@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum Weapons { UNARMED, PIPE, PISTOL, SHOTGUN }
+enum Weapons { UNARMED, PIPE, KNIFE, PISTOL, SHOTGUN }
 
 const NORMAL_FOV = 70.0
 const SPRINT_FOV = 90.0
@@ -37,6 +37,7 @@ func _ready():
 	# Initialize weapons 
 	weapons[Weapons.UNARMED] = null
 	weapons[Weapons.PIPE] = $MainCamera/Pipe
+	weapons[Weapons.KNIFE] = $MainCamera/Knife
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 
