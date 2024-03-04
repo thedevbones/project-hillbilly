@@ -133,7 +133,7 @@
 
 - `Jira Task: Diego - Design Tutorial Flow`  
 	- [FER-52](https://cs3398s24ferengi.atlassian.net/browse/FER-52), 
-    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature%2FFER-26-menu-task)
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-52-design-tutorial-flow)
 - `Jira Task: Diego - Create Tutorial Menu with buttons`  
 	- [FER-68](https://cs3398s24ferengi.atlassian.net/browse/FER-68), 
     [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-68-create-tutorial-menu-with-buttons)
@@ -142,7 +142,7 @@
     [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-71-create-main-controls-menu)
 - `Jira Task: Diego - Research Common Video Game Tutorials`  
 	- [FER-70](https://cs3398s24ferengi.atlassian.net/browse/FER-70), 
-    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-53-expand-settings-menu-1)
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-70-research-common-video-game-tutori)
 
 ### Next Steps for Sprint 2
 
@@ -169,6 +169,13 @@
 -	Fix known bugs in the menu  
 -	Complete the pause game menu  
 -	Create audio buses and connect them to audio files  
+
+**Diego:**	
+-	Add menu music and audio to tutorial menus 
+-	Fix known bugs in the menu  
+-	Make sure buttons from other menus link to tutorial menus 
+-	Edit buttons and menu so that they fit the theme of the game
+	- edit menu backgrounds so that they have the same theme as the main menu
 
 <!-- Optional -->
 <!-- ## License -->
