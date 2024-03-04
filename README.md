@@ -118,17 +118,17 @@
 - 	Create enemy AI to interact with player  
 - 	Create interactive elements in level  
 
-**Jordan:**	
+**Jordan:**  
 -	Implement enemy AI to target player  
 - 	Design and implement new weapons  
 - 	Refine player controls  
 - 	Refine gameplay loop in level one
 
 **Luis:**	
--	Consolidate the menus to optimize code and size
--	Fix known bugs in the menu
--	Complete the pause game menu 
--	Create audio buses and connect them to audio files
+-	Consolidate the menus to optimize code and size  
+-	Fix known bugs in the menu  
+-	Complete the pause game menu  
+-	Create audio buses and connect them to audio files  
 
 <!-- Optional -->
 <!-- ## License -->
