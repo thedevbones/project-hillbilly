@@ -35,6 +35,25 @@
 
 #### Contributions 
 
+**Gage**: "Designed and created weapons and a vehicle"
+
+- `Jira Task: Gage - Create Car Asset`  
+	- [FER-48](https://cs3398s24ferengi.atlassian.net/browse/FER-48), 
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-48-Create-Car-Asset)
+- `Jira Task: Gage - Create Pistol Weapon Asset`  
+	- [FER-62](https://cs3398s24ferengi.atlassian.net/browse/FER-62), 
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-62-create-pistol-weapon-asset)
+- `Jira Task: Gage - Create Shotgun Weapon Asset`  
+	- [FER-64](https://cs3398s24ferengi.atlassian.net/browse/FER-64), 
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-64-create-shotgun-weapon-asset)
+- `Jira Task: Gage - Create Pipe Weapon Asset`  
+	- [FER-63](https://cs3398s24ferengi.atlassian.net/browse/FER-63), 
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-63-create-pipe-weapon-asset)
+- `Jira Task: Gage - Create Knife Weapon Asset`  
+	- [FER-73](https://cs3398s24ferengi.atlassian.net/browse/FER-73), 
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-73-create-knife-weapon-asset)
+
+
 **Jacob**: "provided users with an interactive environment and scenery"
 
 - `Jira Task: Jacob - Integrate Assets into Godot`  
@@ -111,6 +130,12 @@
     [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-53-expand-settings-menu-1)
 
 ### Next Steps for Sprint 2
+
+**Gage**
+-	Design and create player character
+-	Design and create environment elements
+-	Design and create enemy non-player character weapons
+-	Design puzzle for level one
 
 **Jacob:**	
 -	Design level one objectives  
