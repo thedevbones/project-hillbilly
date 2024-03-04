@@ -99,6 +99,7 @@
     [Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature%2FFER-15-audio-task)   
 
 **Luis**: "Designed and created the User Interface including main and in-game menu"
+
 - `Jira Task: Luis - Menu Task`  
 	- [FER-26](https://cs3398s24ferengi.atlassian.net/browse/FER-26), 
     [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature%2FFER-26-menu-task)
@@ -124,10 +125,10 @@
 - 	Refine gameplay loop in level one
 
 **Luis:**	
--	Consolidate the menus to optimize code and size 
-- 	Fix known bugs in the menu
-- 	Complete the pause game menu 
-- 	Create audio buses and connect them to audio files
+-	Consolidate the menus to optimize code and size
+-	Fix known bugs in the menu
+-	Complete the pause game menu 
+-	Create audio buses and connect them to audio files
 
 <!-- Optional -->
 <!-- ## License -->
