@@ -131,7 +131,7 @@
 
 ### Next Steps for Sprint 2
 
-**Gage**
+**Gage**  
 -	Design and create player character  
 -	Design and create environment elements  
 -	Design and create enemy non-player character weapons  
