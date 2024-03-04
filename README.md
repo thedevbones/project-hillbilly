@@ -171,11 +171,12 @@
 -	Create audio buses and connect them to audio files  
 
 **Diego:**	
--	Add menu music and audio to tutorial menus 
+-	Add menu music to tutorial menus 
 -	Fix known bugs in the menu  
 -	Make sure buttons from other menus link to tutorial menus 
 -	Edit buttons and menu so that they fit the theme of the game
-	- edit menu backgrounds so that they have the same theme as the main menu
+-	Edit menu backgrounds so that they have the same theme as the main
+
 
 <!-- Optional -->
 <!-- ## License -->
