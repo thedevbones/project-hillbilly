@@ -172,10 +172,11 @@
 
 **Diego:**	
 -	Add menu music to tutorial menus 
--	Fix known bugs in the menu  
--	Make sure buttons from other menus link to tutorial menus 
+-	Fix known bugs in the menu 
+-	Make sure buttons from other menus link to tutorial menus  
 -	Edit buttons and menu so that they fit the theme of the game
 -	Edit menu backgrounds so that they have the same theme as the main
+
 
 
 ## Burnup Charts
