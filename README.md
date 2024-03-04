@@ -129,6 +129,21 @@
 	- [FER-53](https://cs3398s24ferengi.atlassian.net/browse/FER-53), 
     [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-53-expand-settings-menu-1)
 
+**Diego**: "Designed and created User Interface on in-game Tutorials and mapped out tutorial layout as the game progresses"
+
+- `Jira Task: Diego - Design Tutorial Flow`  
+	- [FER-52](https://cs3398s24ferengi.atlassian.net/browse/FER-52), 
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature%2FFER-26-menu-task)
+- `Jira Task: Diego - Create Tutorial Menu with buttons`  
+	- [FER-68](https://cs3398s24ferengi.atlassian.net/browse/FER-68), 
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-68-create-tutorial-menu-with-buttons)
+- `Jira Task: Diego - Create Main Controls Menu`  
+	- [FER-71](https://cs3398s24ferengi.atlassian.net/browse/FER-71), 
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-71-create-main-controls-menu)
+- `Jira Task: Diego - Research Common Video Game Tutorials`  
+	- [FER-70](https://cs3398s24ferengi.atlassian.net/browse/FER-70), 
+    [Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-53-expand-settings-menu-1)
+
 ### Next Steps for Sprint 2
 
 **Gage**  
