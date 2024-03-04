@@ -178,6 +178,12 @@
 -	Edit menu backgrounds so that they have the same theme as the main
 
 
+## Burnup Charts
+### Sprint 1
+-![Sprint1_BurnupChart](Sprint1_BurnupChart.png)
+
+
+
 <!-- Optional -->
 <!-- ## License -->
 <!-- This project is open source and available under the [... License](). -->
