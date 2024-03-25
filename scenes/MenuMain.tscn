@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=25 format=3 uid="uid://b5q002s5r4mtn"]
 
-[ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_1454a"]
+[ext_resource type="Script" path="res://scenes/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
 [ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="4_24813"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="4_wtf1n"]
@@ -17,10 +17,45 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0aih"]
 
+[sub_resource type="Theme" id="Theme_w04i1"]
+
+[sub_resource type="SystemFont" id="SystemFont_fl1l1"]
+
+[sub_resource type="SystemFont" id="SystemFont_5hsyj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m42nc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkswo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7tvk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dt7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sfq3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0gnl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xynpk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6ai4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a61mk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w58wm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkl7x"]
+content_margin_left = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+
 [node name="Main Menu" type="CanvasLayer"]
 process_mode = 3
+script = ExtResource("1_qtm8j")
 
-[node name="Control" type="Control" parent="."]
+[node name="Main Menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,9 +65,8 @@ offset_right = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_754t5")
-script = ExtResource("1_1454a")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
 z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
@@ -49,10 +83,10 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/MarginContainer"]
 layout_mode = 2
 
-[node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
@@ -62,11 +96,11 @@ theme_override_fonts/font = ExtResource("3_wugvk")
 theme_override_font_sizes/font_size = 90
 text = "Project HillBilly"
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 150)
 layout_mode = 2
 
-[node name="StartBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="StartBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -81,7 +115,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Start Game
 "
 
-[node name="TutorialBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="TutorialBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -96,7 +130,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Tutorial
 "
 
-[node name="SettingsBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="SettingsBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -112,7 +146,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Settings
 "
 
-[node name="QuitBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="QuitBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -127,13 +161,270 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Quit
 "
 
+[node name="SettingsControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 28.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_w04i1")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsControl"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_right = 422.0
+offset_bottom = 515.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.315, 0.315)
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 80
+
+[node name="SettingsDisplay" type="VBoxContainer" parent="SettingsControl/MarginContainer"]
+layout_mode = 2
+
+[node name="SettingsLabel" type="Label" parent="SettingsControl/MarginContainer/SettingsDisplay"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("3_wugvk")
+theme_override_font_sizes/font_size = 90
+text = "Project HillBilly"
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsControl/MarginContainer/SettingsDisplay"]
+custom_minimum_size = Vector2(2.08165e-12, 150)
+layout_mode = 2
+
+[node name="SettingsBanner" type="Label" parent="SettingsControl/MarginContainer/SettingsDisplay/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_fl1l1")
+theme_override_font_sizes/font_size = 75
+text = "Settings "
+
+[node name="AudioSettingBtn" type="Button" parent="SettingsControl/MarginContainer/SettingsDisplay"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_fonts/font = SubResource("SystemFont_5hsyj")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m42nc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jkswo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v7tvk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5dt7i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sfq3k")
+text = "Audio
+"
+
+[node name="VideoSettingBtn" type="Button" parent="SettingsControl/MarginContainer/SettingsDisplay"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_fonts/font = SubResource("SystemFont_5hsyj")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m42nc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jkswo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v7tvk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5dt7i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sfq3k")
+text = "Video
+"
+
+[node name="MainMenuBtn" type="Button" parent="SettingsControl/MarginContainer/SettingsDisplay"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l0gnl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xynpk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w6ai4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_a61mk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w58wm")
+text = "Main Menu
+"
+
+[node name="Audio" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 56.0
+offset_right = 4.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Audio"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_right = 422.0
+offset_bottom = 515.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.315, 0.315)
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 80
+
+[node name="AudioDisplay" type="HBoxContainer" parent="Audio/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Labels" type="VBoxContainer" parent="Audio/MarginContainer/AudioDisplay"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Master" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Master"
+
+[node name="Music" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Music"
+
+[node name="Sound FX" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Sound FX"
+
+[node name="Sliders" type="VBoxContainer" parent="Audio/MarginContainer/AudioDisplay"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Master" type="HSlider" parent="Audio/MarginContainer/AudioDisplay/Sliders"]
+layout_mode = 2
+size_flags_vertical = 2
+min_value = -20.0
+max_value = 20.0
+value = 20.0
+
+[node name="Music" type="HSlider" parent="Audio/MarginContainer/AudioDisplay/Sliders"]
+layout_mode = 2
+size_flags_vertical = 2
+value = 100.0
+
+[node name="SoundFX" type="HSlider" parent="Audio/MarginContainer/AudioDisplay/Sliders"]
+layout_mode = 2
+size_flags_vertical = 1
+value = 100.0
+
+[node name="BackBtn" type="Button" parent="Audio/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="Video" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 424.0
+offset_bottom = 527.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.315, 0.315)
+
+[node name="MarginContainer" type="MarginContainer" parent="Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -22.2222
+offset_bottom = -22.2222
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Video/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Labels" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Fullscreen" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Fullscreen"
+
+[node name="Checks" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="CheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_mkl7x")
+
+[node name="BackBtn2" type="Button" parent="Video/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_24813")
 autoplay = true
 
 [node name="main" parent="." instance=ExtResource("4_wtf1n")]
 
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartBtn" to="Control" method="_on_start_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/TutorialBtn" to="Control" method="_on_tutorial_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/SettingsBtn" to="Control" method="_on_settings_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitBtn" to="Control" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/StartBtn" to="Main Menu" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="Main Menu" method="_on_tutorial_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/SettingsBtn" to="Main Menu" method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/QuitBtn" to="Main Menu" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="SettingsControl" method="_on_audio_setting_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
