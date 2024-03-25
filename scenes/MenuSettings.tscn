@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://0scyeg7rux1e"]
+[gd_scene load_steps=18 format=3 uid="uid://0scyeg7rux1e"]
 
-[ext_resource type="Script" path="res://scripts/MenuSettings.gd" id="1_33auo"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="3_80oxy"]
 [ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="4_3loys"]
 [ext_resource type="PackedScene" uid="uid://b1fl2kisgxai" path="res://scenes/MenuBackground.tscn" id="4_wtdaa"]
@@ -40,7 +39,6 @@ border_width_right = 12
 border_width_bottom = 12
 
 [node name="Settings  Menu" type="CanvasLayer"]
-script = ExtResource("1_33auo")
 
 [node name="SettingsControl" type="Control" parent="."]
 visible = false
