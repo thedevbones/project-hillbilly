@@ -14,3 +14,7 @@ func _process(delta):
 		target_alpha = 0.0
 	# Animate the fade
 	modulate.a = lerp(modulate.a, target_alpha, fade_speed * delta)
+
+
+func _on_death_finished():
+	pass # Replace with function body.
