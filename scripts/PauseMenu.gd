@@ -4,6 +4,10 @@ extends ColorRect
 @onready var ResumeBtn: Button = find_child("ResumeBtn")
 @onready var QuitBtn: Button = find_child("QuitBtn")
 @onready var MenuBtn: Button = find_child("MenuBtn")
+@onready var InPaused = $PauseMain
+@onready var InSetting = $PauseSetting
+@onready var InAudio = $PauseAudio
+@onready var InVideo = $PausedVideo
 
 func _ready() -> void:
 	ResumeBtn.pressed.connect(unpaused)
