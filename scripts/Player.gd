@@ -42,9 +42,6 @@ func _ready():
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 
 func _input(event):	
-	# Handle pressing esc
-	if event.is_action_pressed("ui_cancel"):
-		$PauseMenu.paused()
 	# Handle weapon inputs
 	if event.is_action_pressed("fire"):
 		attack()
