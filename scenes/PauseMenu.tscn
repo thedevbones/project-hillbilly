@@ -236,7 +236,7 @@ theme_override_fonts/font = SubResource("SystemFont_gonmc")
 theme_override_font_sizes/font_size = 75
 text = "Settings "
 
-[node name="AudioSettingBtn" type="Button" parent="PauseSetting/MarginContainer/SettingsDisplay"]
+[node name="InAudioSettingBtn" type="Button" parent="PauseSetting/MarginContainer/SettingsDisplay"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -252,7 +252,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kidid")
 text = "Audio
 "
 
-[node name="VideoSettingBtn" type="Button" parent="PauseSetting/MarginContainer/SettingsDisplay"]
+[node name="InVideoSettingBtn" type="Button" parent="PauseSetting/MarginContainer/SettingsDisplay"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -268,7 +268,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kidid")
 text = "Video
 "
 
-[node name="MainMenuBtn" type="Button" parent="PauseSetting/MarginContainer/SettingsDisplay"]
+[node name="BackPauseBtn" type="Button" parent="PauseSetting/MarginContainer/SettingsDisplay"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
@@ -280,7 +280,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_qk1fl")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_lkfew")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_h3l78")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ckfta")
-text = "Main Menu
+text = "Back
 "
 
 [node name="PauseAudio" type="Control" parent="."]
@@ -367,7 +367,7 @@ layout_mode = 2
 size_flags_vertical = 1
 value = 100.0
 
-[node name="BackBtn" type="Button" parent="PauseAudio/MarginContainer"]
+[node name="BackSettingBtn" type="Button" parent="PauseAudio/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -420,14 +420,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="CheckBox" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
+[node name="InGameCheckBox" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_r6hrd")
 
-[node name="BackBtn2" type="Button" parent="PausedVideo/MarginContainer"]
+[node name="BackSettingBtn2" type="Button" parent="PausedVideo/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -435,6 +435,13 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Back"
 
-[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/AudioSettingBtn" to="PauseSetting" method="_on_audio_setting_btn_pressed"]
-[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/MainMenuBtn" to="PauseSetting" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/MainMenuBtn" to="PauseSetting" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="PauseMain/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InAudioSettingBtn" to="." method="_on_in_audio_setting_btn_pressed"]
+[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InAudioSettingBtn" to="PauseSetting" method="_on_audio_setting_btn_pressed"]
+[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InVideoSettingBtn" to="." method="_on_in_video_setting_btn_pressed"]
+[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="." method="_on_back_pause_btn_pressed"]
+[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="PauseAudio/MarginContainer/BackSettingBtn" to="." method="_on_back_setting_btn_pressed"]
+[connection signal="toggled" from="PausedVideo/MarginContainer/HBoxContainer/Checks/InGameCheckBox" to="." method="_on_in_game_check_box_toggled"]
+[connection signal="pressed" from="PausedVideo/MarginContainer/BackSettingBtn2" to="." method="_on_back_setting_btn_2_pressed"]
