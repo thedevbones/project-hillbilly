@@ -1,23 +1,24 @@
 extends CharacterBody3D
 
-var health = 5
-var state = "patrol"
-var hit_audio
-var death_audio
+enum States { PATROL, COMBAT, SEARCH }
 
-var patrol_points = []  # Array of Vector3 points
-var patrol_radius = 10.0  # Radius around the spawn position
-var number_of_patrol_points = 5  # Number of patrol points to generate
+var health = 5
+var state = States.PATROL
+var hit_audio: AudioStreamPlayer3D
+var death_audio: AudioStreamPlayer3D
+
+var patrol_points = []
+var patrol_radius = 10.0
+var number_of_patrol_points = 5 
 var current_target = 0
 var speed = 1.0
-var arrived_distance = 1.0  # Distance to consider arrived at the target
+var arrived_distance = 1.0
 var navigation_agent: NavigationAgent3D
-var patrol_timer
-var wait_time = 3.0  # Time to wait at each patrol point in seconds
-var is_waiting = false  # Flag to check if the enemy is waiting
+var patrol_timer: Timer
+var wait_time = 3.0
+var is_waiting = false
 
 func spawn():
-	# Initialize enemy settings
 	navigation_agent = NavigationAgent3D.new()
 	add_child(navigation_agent)
 	generate_patrol_points()
@@ -34,7 +35,6 @@ func apply_damage(damage):
 		die()
 
 func die():
-	# Handle enemy death (e.g., play animation, remove from scene)
 	if death_audio:
 		death_audio.play()
 	else: 
@@ -50,11 +50,11 @@ func generate_patrol_points():
 
 func _process(delta):
 	match state:
-		"patrol":
+		States.PATROL:
 			patrol_behavior(delta)
-		"combat":
+		States.COMBAT:
 			combat_behavior(delta)
-		"search":
+		States.SEARCH:
 			search_behavior(delta)
 
 func patrol_behavior(delta):
@@ -64,18 +64,15 @@ func patrol_behavior(delta):
 	var target_location = patrol_points[current_target]
 
 	if location.distance_to(target_location) <= arrived_distance:
-		# Arrived at the target, choose the next point
 		is_waiting = true
 		patrol_timer.start()
 
-	# Get the next navigation point
 	var next_point = navigation_agent.get_next_path_position()
 	
 	if next_point != Vector3.INF:
-		# Move towards the next point
 		var direction = (next_point - location).normalized()
-		velocity = direction * speed  # Set the linear_velocity
-		move_and_slide()  # Call move_and_slide without parameters
+		velocity = direction * speed
+		move_and_slide() 
 
 
 func combat_behavior(delta):
