@@ -18,6 +18,15 @@ var patrol_timer: Timer
 var wait_time = 3.0
 var is_waiting = false
 
+func _process(delta):
+	match state:
+		States.PATROL:
+			patrol_behavior(delta)
+		States.COMBAT:
+			combat_behavior(delta)
+		States.SEARCH:
+			search_behavior(delta)
+
 func spawn():
 	navigation_agent = NavigationAgent3D.new()
 	add_child(navigation_agent)
@@ -27,35 +36,6 @@ func spawn():
 	
 	if patrol_timer:
 		patrol_timer.wait_time = wait_time
-
-func apply_damage(damage):
-	health -= damage
-	if hit_audio: hit_audio.play()
-	if health <= 0:
-		die()
-
-func die():
-	if death_audio:
-		death_audio.play()
-	else: 
-		queue_free()
-
-func generate_patrol_points():
-	var rng = RandomNumberGenerator.new()
-	for i in range(number_of_patrol_points):
-		var random_direction = Vector3(rng.randf_range(-1, 1), 0, rng.randf_range(-1, 1)).normalized()
-		var random_distance = rng.randf_range(0, patrol_radius)
-		var patrol_point = global_transform.origin + random_direction * random_distance
-		patrol_points.append(patrol_point)
-
-func _process(delta):
-	match state:
-		States.PATROL:
-			patrol_behavior(delta)
-		States.COMBAT:
-			combat_behavior(delta)
-		States.SEARCH:
-			search_behavior(delta)
 
 func patrol_behavior(delta):
 	if patrol_points.size() <= 0 or is_waiting: return
@@ -82,3 +62,24 @@ func combat_behavior(delta):
 func search_behavior(delta):
 	# Implement search logic
 	pass
+
+
+func apply_damage(damage):
+	health -= damage
+	if hit_audio: hit_audio.play()
+	if health <= 0:
+		die()
+
+func die():
+	if death_audio:
+		death_audio.play()
+	else: 
+		queue_free()
+
+func generate_patrol_points():
+	var rng = RandomNumberGenerator.new()
+	for i in range(number_of_patrol_points):
+		var random_direction = Vector3(rng.randf_range(-1, 1), 0, rng.randf_range(-1, 1)).normalized()
+		var random_distance = rng.randf_range(0, patrol_radius)
+		var patrol_point = global_transform.origin + random_direction * random_distance
+		patrol_points.append(patrol_point)
