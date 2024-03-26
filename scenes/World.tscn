@@ -273,6 +273,7 @@ stream = ExtResource("6_o2f8q")
 one_shot = true
 
 [node name="Player" type="CharacterBody3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3823, 1, 5.67396)
 collision_layer = 3
 collision_mask = 3

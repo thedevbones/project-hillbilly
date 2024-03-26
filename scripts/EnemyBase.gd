@@ -2,11 +2,12 @@ extends CharacterBody3D
 
 enum States { PATROL, COMBAT, SEARCH }
 
+@onready var player = %Player
+
 var health = 5
 var state = States.PATROL
 var hit_audio: AudioStreamPlayer3D
 var death_audio: AudioStreamPlayer3D
-
 var patrol_points = []
 var patrol_radius = 10.0
 var number_of_patrol_points = 5 
@@ -17,6 +18,7 @@ var navigation_agent: NavigationAgent3D
 var patrol_timer: Timer
 var wait_time = 3.0
 var is_waiting = false
+var attack_distance = 2
 
 func _process(delta):
 	match state:
@@ -56,13 +58,27 @@ func patrol_behavior(delta):
 
 
 func combat_behavior(delta):
-	# Implement combat logic
-	pass
+	if player == null: return 
+
+	var player_position = player.global_transform.origin
+	navigation_agent.set_target_position(player_position)
+
+	var location = global_transform.origin
+	if location.distance_to(player_position) <= attack_distance:
+		attack_player()
+	else:
+		var next_point = navigation_agent.get_next_path_position()
+		if next_point != Vector3.INF:
+			var direction = (next_point - location).normalized()
+			velocity = direction * speed
+			move_and_slide()
 
 func search_behavior(delta):
 	# Implement search logic
 	pass
 
+func attack_player():
+	pass
 
 func apply_damage(damage):
 	health -= damage
