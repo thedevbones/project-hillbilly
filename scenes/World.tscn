@@ -116,7 +116,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0bc42"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_608ys"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -151,7 +151,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_0bc42"),
+"material": SubResource("ShaderMaterial_608ys"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -256,6 +256,7 @@ transform = Transform3D(2, -5.96045e-07, -6.25847e-07, 5.39231e-07, 1.99239, -0.
 stream = ExtResource("7_blicd")
 unit_size = 5.0
 pitch_scale = 0.9
+bus = &"SFX"
 
 [node name="Knife" parent="Player/MainCamera" instance=ExtResource("8_d2t2t")]
 transform = Transform3D(-0.1, -4.2547e-09, -7.86489e-09, -8.56213e-09, 0.0201967, 0.0979392, -2.57857e-09, 0.0979392, -0.0201967, 0.450645, -0.234221, -0.540555)
@@ -267,6 +268,7 @@ transform = Transform3D(-10, 2.12401e-06, 3.3058e-06, 3.66666e-06, 2.01966, 9.79
 stream = ExtResource("10_2ipc6")
 volume_db = -4.0
 unit_size = 5.0
+bus = &"SFX"
 
 [node name="Pistol" parent="Player/MainCamera" instance=ExtResource("2_k4yhr")]
 transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.482, -0.4, -1.058)
@@ -302,10 +304,12 @@ omni_attenuation = 0.435275
 transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151922, -0.174311, 4.7957e-08, 1.99239, -0.19503, -0.165255, -1.05115)
 stream = ExtResource("5_qsv7b")
 unit_size = 50.0
+bus = &"SFX"
 
 [node name="PistolReload" type="AudioStreamPlayer3D" parent="Player/MainCamera/Pistol"]
 transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151922, -0.174311, 4.74084e-08, 1.99239, 0.0201492, -0.18408, 0.266028)
 stream = ExtResource("7_mt7f5")
+bus = &"SFX"
 
 [node name="Shotgun" parent="Player/MainCamera" instance=ExtResource("6_vnudb")]
 transform = Transform3D(0.0347296, 0, 0.196962, 0, 0.2, 0, -0.196962, 0, 0.0347296, 0.285, -0.25, -0.315)
@@ -341,14 +345,17 @@ omni_attenuation = 0.435275
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434118, 4.98097, -0.0379805, -0.435776, 2.5332e-07, 4.98096, 4.956, 0.635898, 0.0807266)
 stream = ExtResource("13_o0qn3")
 unit_size = 50.0
+bus = &"SFX"
 
 [node name="ShotgunLoad" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434119, 4.98097, -0.0379805, -0.435776, 2.38419e-07, 4.98096, 1.85349, 0.331798, -0.198746)
 stream = ExtResource("14_5b3kg")
+bus = &"SFX"
 
 [node name="ShotgunPump" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434118, 4.98097, -0.0379805, -0.435776, 2.75671e-07, 4.98096, 4.01608, 0.424915, -0.121834)
 stream = ExtResource("15_1to8r")
+bus = &"SFX"
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_hnuiv")
@@ -361,9 +368,11 @@ mesh = SubResource("CapsuleMesh_ge5q0")
 
 [node name="StepAudio" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("2_f4xii")
+bus = &"SFX"
 
 [node name="NoAmmo" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("9_q2jjc")
+bus = &"SFX"
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("3_ec8lf")]
 visible = false
@@ -797,11 +806,13 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -40.8435, 0.542776, 52.
 stream = ExtResource("6_2maxx")
 volume_db = -30.0
 autoplay = true
+bus = &"SFX"
 
 [node name="storm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_b0214")
 volume_db = -15.0
 autoplay = true
+bus = &"SFX"
 
 [node name="car" parent="." instance=ExtResource("14_gytsm")]
 transform = Transform3D(0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, 0.0555601, -23.5275, 0.605905, 11.3887)
