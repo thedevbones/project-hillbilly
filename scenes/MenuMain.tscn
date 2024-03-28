@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
-[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/menu.mp3" id="4_24813"]
+[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/Music/menu.mp3" id="4_24813"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="4_wtf1n"]
 
 [sub_resource type="Theme" id="Theme_754t5"]

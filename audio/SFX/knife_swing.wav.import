@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b8tkrrk6ybirk"
-path="res://.godot/imported/shotgun_cock.wav-3c547c7d03fbb1ac2bae1f3f85779770.sample"
+uid="uid://be2dh6xsph0a6"
+path="res://.godot/imported/knife_swing.wav-2dfe5eb4128df8add3ccac2be656754e.sample"
 
 [deps]
 
-source_file="res://audio/shotgun_cock.wav"
-dest_files=["res://.godot/imported/shotgun_cock.wav-3c547c7d03fbb1ac2bae1f3f85779770.sample"]
+source_file="res://audio/SFX/knife_swing.wav"
+dest_files=["res://.godot/imported/knife_swing.wav-2dfe5eb4128df8add3ccac2be656754e.sample"]
 
 [params]
 

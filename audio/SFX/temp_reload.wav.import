@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://tp8mnyni4uxp"
-path="res://.godot/imported/temp_noammo.wav-fac32fff4a281daf87e4b494740527e5.sample"
+uid="uid://x7jcquebmimb"
+path="res://.godot/imported/temp_reload.wav-79ea4b9ab55af07b0c839f64cdf40375.sample"
 
 [deps]
 
-source_file="res://audio/temp_noammo.wav"
-dest_files=["res://.godot/imported/temp_noammo.wav-fac32fff4a281daf87e4b494740527e5.sample"]
+source_file="res://audio/SFX/temp_reload.wav"
+dest_files=["res://.godot/imported/temp_reload.wav-79ea4b9ab55af07b0c839f64cdf40375.sample"]
 
 [params]
 
