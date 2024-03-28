@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="res://scenes/MenuMain.tscn"
 
+[audio]
+
+buses/default_bus_layout="res://audio/default_bus_layout.tres"
+
 [autoload]
 
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"

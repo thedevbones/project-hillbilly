@@ -183,6 +183,7 @@ func update_hitscan():
 	var weapon = get_current_weapon()
 	if weapon:
 		$MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
+		print(str(get_current_weapon()) + str($MainCamera/HitScan.get_scale()))
 	
 func get_current_weapon():
 	return weapons[current_weapon_index]
