@@ -4,22 +4,26 @@ enum States { PATROL, COMBAT, SEARCH }
 
 @onready var player = %Player
 
-var health = 5
 var state = States.PATROL
-var hit_audio: AudioStreamPlayer3D
-var death_audio: AudioStreamPlayer3D
+var health = 5
+var speed = 1.0
+var combat_speed = 2.0
+var attack_distance = 2
+var sight_distance = 20
+
 var patrol_points = []
 var patrol_radius = 10.0
 var number_of_patrol_points = 5 
 var current_target = 0
-var speed = 1.0
 var arrived_distance = 1.0
+
 var navigation_agent: NavigationAgent3D
 var patrol_timer: Timer
 var wait_time = 3.0
 var is_waiting = false
-var attack_distance = 2
-var sight_distance = 20
+
+var hit_audio: AudioStreamPlayer3D
+var death_audio: AudioStreamPlayer3D
 
 func _process(delta):
 	match state:
@@ -36,7 +40,6 @@ func spawn():
 	generate_patrol_points()
 	if patrol_points.size() > 0:
 		navigation_agent.set_target_position(patrol_points[current_target])
-	
 	if patrol_timer:
 		patrol_timer.wait_time = wait_time
 
@@ -46,6 +49,7 @@ func patrol_behavior(delta):
 	var player_position = player.global_transform.origin
 	var location = global_transform.origin
 	var target_location = patrol_points[current_target]
+	speed = 1
 	
 	if location.distance_to(target_location) <= arrived_distance:
 		is_waiting = true
@@ -61,13 +65,13 @@ func patrol_behavior(delta):
 			state = States.COMBAT
 			return
 
-
 func combat_behavior(delta):
 	if player == null: return 
 
 	var player_position = player.global_transform.origin
 	var location = global_transform.origin
 	
+	speed = combat_speed
 	navigation_agent.set_target_position(player_position)
 	
 	if location.distance_to(player_position) <= attack_distance:
@@ -124,14 +128,11 @@ func attack_player():
 func apply_damage(damage):
 	health -= damage
 	if hit_audio: hit_audio.play()
-	if health <= 0:
-		die()
+	if health <= 0: die()
 
 func die():
-	if death_audio:
-		death_audio.play()
-	else: 
-		queue_free()
+	if death_audio: death_audio.play()
+	else: queue_free()
 
 func generate_patrol_points():
 	var rng = RandomNumberGenerator.new()

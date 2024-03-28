@@ -272,9 +272,6 @@ stream = ExtResource("6_o2f8q")
 [node name="PatrolTimer" type="Timer" parent="HillBilly"]
 one_shot = true
 
-[node name="DetectRay" type="RayCast3D" parent="HillBilly"]
-target_position = Vector3(20, 0, 0)
-
 [node name="Player" type="CharacterBody3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3823, 1, 5.67396)
