@@ -5,7 +5,6 @@ func _ready():
 	hit_audio = $BulletHit
 	death_audio = $Death
 	patrol_timer = $PatrolTimer
-	detect_ray = $DetectRay
 
 func _on_death_finished():
 	queue_free()

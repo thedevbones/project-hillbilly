@@ -19,7 +19,7 @@ var patrol_timer: Timer
 var wait_time = 3.0
 var is_waiting = false
 var attack_distance = 2
-var detect_ray: RayCast3D
+var sight_distance = 20
 
 func _process(delta):
 	match state:
@@ -47,10 +47,6 @@ func patrol_behavior(delta):
 	var location = global_transform.origin
 	var target_location = patrol_points[current_target]
 	
-	if detect_player(player_position, location):
-		state = States.COMBAT
-		return
-	
 	if location.distance_to(target_location) <= arrived_distance:
 		is_waiting = true
 		patrol_timer.start()
@@ -60,7 +56,10 @@ func patrol_behavior(delta):
 	if next_point != Vector3.INF:
 		var direction = (next_point - location).normalized()
 		velocity = direction * speed
-		move_and_slide() 
+		move_and_slide()
+		if player_heard() or player_in_fov(direction):
+			state = States.COMBAT
+			return
 
 
 func combat_behavior(delta):
@@ -68,10 +67,6 @@ func combat_behavior(delta):
 
 	var player_position = player.global_transform.origin
 	var location = global_transform.origin
-	
-	if not detect_player(player_position, location):
-		state = States.SEARCH
-		return
 	
 	navigation_agent.set_target_position(player_position)
 	
@@ -83,18 +78,45 @@ func combat_behavior(delta):
 			var direction = (next_point - location).normalized()
 			velocity = direction * speed
 			move_and_slide()
+			if not player_heard() and not player_in_fov(direction):
+				state = States.SEARCH
+				return
 
 func search_behavior(delta):
 	state = States.PATROL
 	return
 
-func detect_player(player_position, location):
-	var player_distance = player_position.distance_to(location)
-	if player_distance <= 10 and player.is_moving:
-		return true
-	if player_distance <= 20 and detect_ray.get_collider() == player:
+func player_heard():
+	var detection_radius = 10.0
+	if not player.is_moving: return false
+	if state == States.COMBAT: detection_radius = detection_radius * 2.0
+	elif player.is_crouching: detection_radius = detection_radius / 2.0
+	elif player.is_sprinting: detection_radius = detection_radius * 2.0
+	if global_transform.origin.distance_to(player.global_transform.origin) < detection_radius:
 		return true
 	return false
+
+func player_in_fov(current_direction):
+	var direction_to_player = (player.global_transform.origin - global_transform.origin).normalized()
+	var distance_to_player = (player.global_transform.origin - global_transform.origin).length()
+	var angle_to_player = acos(current_direction.dot(direction_to_player))
+	angle_to_player = rad_to_deg(angle_to_player)
+	
+	var crouching_modifier = 1.0
+	if %Player.is_crouching: crouching_modifier = 0.5
+	if angle_to_player <= 30.0  * crouching_modifier:
+		if distance_to_player <= sight_distance * crouching_modifier:
+			if not player_obscured():
+				return true
+	return false
+
+func player_obscured():
+	var space_state = get_world_3d().direct_space_state
+	var ray_query = PhysicsRayQueryParameters3D.new()
+	ray_query.from = global_transform.origin
+	ray_query.to = %Player.global_transform.origin
+	var result = space_state.intersect_ray(ray_query)
+	return result and result.collider != %Player
 
 func attack_player():
 	pass
