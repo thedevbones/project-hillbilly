@@ -19,6 +19,7 @@ var patrol_timer: Timer
 var wait_time = 3.0
 var is_waiting = false
 var attack_distance = 2
+var detect_ray: RayCast3D
 
 func _process(delta):
 	match state:
@@ -42,9 +43,14 @@ func spawn():
 func patrol_behavior(delta):
 	if patrol_points.size() <= 0 or is_waiting: return
 	
+	var player_position = player.global_transform.origin
 	var location = global_transform.origin
 	var target_location = patrol_points[current_target]
-
+	
+	if detect_player(player_position, location):
+		state = States.COMBAT
+		return
+	
 	if location.distance_to(target_location) <= arrived_distance:
 		is_waiting = true
 		patrol_timer.start()
@@ -61,9 +67,14 @@ func combat_behavior(delta):
 	if player == null: return 
 
 	var player_position = player.global_transform.origin
-	navigation_agent.set_target_position(player_position)
-
 	var location = global_transform.origin
+	
+	if not detect_player(player_position, location):
+		state = States.SEARCH
+		return
+	
+	navigation_agent.set_target_position(player_position)
+	
 	if location.distance_to(player_position) <= attack_distance:
 		attack_player()
 	else:
@@ -74,8 +85,16 @@ func combat_behavior(delta):
 			move_and_slide()
 
 func search_behavior(delta):
-	# Implement search logic
-	pass
+	state = States.PATROL
+	return
+
+func detect_player(player_position, location):
+	var player_distance = player_position.distance_to(location)
+	if player_distance <= 10 and player.is_moving:
+		return true
+	if player_distance <= 20 and detect_ray.get_collider() == player:
+		return true
+	return false
 
 func attack_player():
 	pass
