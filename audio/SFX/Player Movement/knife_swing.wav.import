@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://be2dh6xsph0a6"
-path="res://.godot/imported/knife_swing.wav-2dfe5eb4128df8add3ccac2be656754e.sample"
+path="res://.godot/imported/knife_swing.wav-af9fa3dd0cff205db8faebcbb52993ce.sample"
 
 [deps]
 
-source_file="res://audio/SFX/knife_swing.wav"
-dest_files=["res://.godot/imported/knife_swing.wav-2dfe5eb4128df8add3ccac2be656754e.sample"]
+source_file="res://audio/SFX/Player Movement/knife_swing.wav"
+dest_files=["res://.godot/imported/knife_swing.wav-af9fa3dd0cff205db8faebcbb52993ce.sample"]
 
 [params]
 

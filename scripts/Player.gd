@@ -28,13 +28,6 @@ var push_force = 8.0
 var weapons = {}
 var current_weapon_index = 0
 var can_switch = true
-var inventory = {
-	Weapons.UNARMED: {"is_unlocked": true, "total_ammo": 0},
-	Weapons.PIPE: {"is_unlocked": false, "total_ammo": 0},
-	Weapons.KNIFE: {"is_unlocked": false, "total_ammo": 0},
-	Weapons.PISTOL: {"is_unlocked": false, "total_ammo": 8},
-	Weapons.SHOTGUN: {"is_unlocked": false, "total_ammo": 6},
-}
 
 func _ready():
 	# Capture the mouse
@@ -47,8 +40,6 @@ func _ready():
 	weapons[Weapons.KNIFE] = $MainCamera/Knife
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
-	unlock_weapon(Weapons.PISTOL)
-	unlock_weapon(Weapons.SHOTGUN)
 
 func _input(event):	
 	# Handle weapon inputs
@@ -65,11 +56,13 @@ func _input(event):
 			break
 	# Handle mouse wheel for switching weapons
 	if event.is_action_pressed("scroll_up"):
-		var next_index = next_weapon_index(current_weapon_index, -1)
-		switch_weapon_by_index(next_index)
+		var prev_index = current_weapon_index - 1
+		prev_index = wrap_index(prev_index)
+		switch_weapon_by_index(prev_index)
 	elif event.is_action_pressed("scroll_down"):
-		var next_index = next_weapon_index(current_weapon_index, 1)
-		switch_weapon_by_index(next_index)	
+		var next_index = current_weapon_index + 1
+		next_index = wrap_index(next_index)
+		switch_weapon_by_index(next_index)
 	# Handle mouse input
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
@@ -155,7 +148,8 @@ func _on_step_timer_timeout():
 
 func attack():
 	var weapon = get_current_weapon()
-	if not weapon: return
+	if not weapon:
+		return
 	if weapon.ranged:
 		if weapon.ammo > 0: weapon.shoot()
 		else: $NoAmmo.play()
@@ -164,16 +158,18 @@ func attack():
 
 func reload():
 	var weapon = get_current_weapon()
-	if weapon and weapon.ranged: weapon.reload()
+	if weapon and weapon.ranged:
+		weapon.reload()
 
 func aim():
 	var weapon = get_current_weapon()
-	if weapon and weapon.ranged: weapon.aim()
+	if weapon and weapon.ranged:
+		weapon.aim()
 
 func switch_weapon_by_index(index):
-	if not can_switch: return
-	
-	if index in weapons and inventory[weapons.keys()[index]]["is_unlocked"]:
+	if not can_switch:
+		return
+	if index in weapons:
 		current_weapon_index = index
 		update_weapon_visibility()
 
@@ -185,8 +181,10 @@ func update_weapon_visibility():
 
 func update_hitscan():
 	var weapon = get_current_weapon()
-	if weapon: $MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
-
+	if weapon:
+		$MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
+		print(str(get_current_weapon()) + str($MainCamera/HitScan.get_scale()))
+	
 func get_current_weapon():
 	return weapons[current_weapon_index]
 
@@ -194,31 +192,3 @@ func wrap_index(index):
 	if index < 0: return weapons.size() - 1
 	elif index >= weapons.size(): return 0
 	else: return index
-
-func next_weapon_index(current_index, direction):
-	var attempts = 0
-	var next_index = current_index
-	while attempts < weapons.size():
-		next_index += direction
-		next_index = wrap_index(next_index)
-		if inventory[weapons.keys()[next_index]]["is_unlocked"]:
-			return next_index
-		attempts += 1
-	return current_index
-
-func unlock_weapon(weapon_type):
-	var weapon = weapons[weapon_type]
-	inventory[weapon_type]["is_unlocked"] = true
-	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
-
-func add_ammo(weapon_type, amount):
-	var weapon = weapons[weapon_type]
-	if inventory[weapon_type]["is_unlocked"]: inventory[weapon_type]["total_ammo"] += amount
-	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
-
-func has_weapon(weapon_type):
-	return inventory[weapon_type]["is_unlocked"]
-
-func get_ammo(weapon_type):
-	if inventory[weapon_type]["is_unlocked"]: return inventory[weapon_type]["total_ammo"] 
-	else: return 0 

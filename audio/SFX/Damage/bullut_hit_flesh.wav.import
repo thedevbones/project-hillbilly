@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://0dc76c5uye2"
-path="res://.godot/imported/bullut_hit_flesh.wav-f43fc4191b42461410d01d97adba4d13.sample"
+path="res://.godot/imported/bullut_hit_flesh.wav-83e412edea3ea54907ef323101e99ad8.sample"
 
 [deps]
 
-source_file="res://audio/SFX/bullut_hit_flesh.wav"
-dest_files=["res://.godot/imported/bullut_hit_flesh.wav-f43fc4191b42461410d01d97adba4d13.sample"]
+source_file="res://audio/SFX/Damage/bullut_hit_flesh.wav"
+dest_files=["res://.godot/imported/bullut_hit_flesh.wav-83e412edea3ea54907ef323101e99ad8.sample"]
 
 [params]
 
