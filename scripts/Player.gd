@@ -190,8 +190,7 @@ func update_hitscan():
 	var weapon = get_current_weapon()
 	if weapon:
 		$MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
-		print(str(get_current_weapon()) + str($MainCamera/HitScan.get_scale()))
-	
+
 func get_current_weapon():
 	return weapons[current_weapon_index]
 
@@ -199,3 +198,20 @@ func wrap_index(index):
 	if index < 0: return weapons.size() - 1
 	elif index >= weapons.size(): return 0
 	else: return index
+
+func unlock_weapon(weapon_type):
+	inventory[weapon_type]["is_unlocked"] = true
+	# inventory[weapon_type]["ammo"] = amount
+
+func add_ammo(weapon_type, amount):
+	if inventory[weapon_type]["is_unlocked"]:
+		inventory[weapon_type]["ammo"] += amount
+
+func has_weapon(weapon_type):
+	return inventory[weapon_type]["is_unlocked"]
+
+func get_ammo(weapon_type):
+	if inventory[weapon_type]["is_unlocked"]:
+		return inventory[weapon_type]["ammo"] 
+	else: 
+		return 0 
