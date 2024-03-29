@@ -54,3 +54,6 @@ func _process(delta):
 	else:
 		if position.y <= bob_min: bob_up = true
 		position.y -= bob_speed * delta
+
+func _on_visibility_changed():
+	if is_aiming and not visible: aim()

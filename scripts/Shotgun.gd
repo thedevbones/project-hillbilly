@@ -1,38 +1,37 @@
-extends Node3D
+extends "res://scripts/Weapon.gd"
 
-signal shot_fired
-signal reloaded
-
-@onready var camera = $".."
-@onready var player = $"../.."
-@onready var raycast = $"../HitScan"
-@onready var bob_max = position.y + BOB_OFFSET
-@onready var bob_min = position.y - BOB_OFFSET
-@onready var original_pos = position
-@onready var original_rot = rotation
-@onready var target_pos = original_pos
-@onready var target_rot = original_rot
-@onready var pump_original_pos = $Cube_004.position.x
-@onready var pump_target_pos = $Cube_004.position.x - 0.4
-
-const MAX_AMMO = 6
-const RELOAD_TIME_PER_SHELL = 0.5
-const PUMP_TIME = 0.5
 const ADS_POS = Vector3(0, -0.15, -0.395)
 const ADS_ROT = Vector3(0, 1.570796, 0)
+const PUMP_TIME = 0.5
+const RELOAD_TIME_PER_SHELL = 0.5
+const MAX_AMMO = 6
 const BOB_SPEED = 0.025
 const BOB_OFFSET = 0.01
+var pump_target_pos: float
+var pump_original_pos: float
+var can_shoot: bool = true
+var pump_animating: bool = false
+var pumping_back: bool = true
+var camera: Camera3D
 
-var ammo = MAX_AMMO
-var damage = 3
-var range = Vector3(1.0, 1.0, 50)
-var is_reloading = false
-var is_aiming = false
-var ranged = true
-var can_shoot = true 
-var bob_up = true
-var pump_animating = false
-var pumping_back = true
+func _ready():
+	damage = 3
+	max_ammo = MAX_AMMO
+	ammo = max_ammo
+	reload_time = RELOAD_TIME_PER_SHELL  # Used in a loop for each shell
+	range = Vector3(1.0, 1.0, 50)
+	ranged = true
+	original_pos = position
+	original_rot = rotation
+	target_pos = original_pos
+	target_rot = original_rot
+	ads_pos = ADS_POS
+	ads_rot = ADS_ROT
+	fire_sound = $ShotgunFire
+	reload_sound = $ShotgunLoad  # This sound is played per shell loaded
+	pump_original_pos = $Cube_004.position.x
+	pump_target_pos = $Cube_004.position.x - 0.4
+	camera = $".."
 
 func shoot():
 	if is_reloading and ammo > 0:
@@ -77,16 +76,6 @@ func reload():
 	if was_aiming and not is_aiming: aim()
 	emit_signal("reloaded")
 
-func aim():
-	if not is_aiming: 
-		is_aiming = true
-		target_pos = ADS_POS
-		target_rot = ADS_ROT
-	else:
-		is_aiming = false
-		target_pos = original_pos
-		target_rot = original_rot
-
 func hitscan():
 	if not raycast.is_enabled():
 		return
@@ -118,11 +107,6 @@ func hitscan():
 			if collider and collider.has_method("apply_damage"):
 				collider.apply_damage(damage)
 				# Handle effects here, similar to your existing setup
-
-func muzzle_flash():
-	$MuzzleLight.show()
-	await get_tree().create_timer(0.1).timeout
-	$MuzzleLight.hide()
 
 func pump():
 	$ShotgunPump.play()
