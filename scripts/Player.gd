@@ -28,6 +28,13 @@ var push_force = 8.0
 var weapons = {}
 var current_weapon_index = 0
 var can_switch = true
+var inventory = {
+	Weapons.UNARMED: {"is_unlocked": true, "ammo": 0},
+	Weapons.PIPE: {"is_unlocked": false, "ammo": 0},
+	Weapons.KNIFE: {"is_unlocked": false, "ammo": 0},
+	Weapons.PISTOL: {"is_unlocked": false, "ammo": 0},
+	Weapons.SHOTGUN: {"is_unlocked": false, "ammo": 0},
+}
 
 func _ready():
 	# Capture the mouse
