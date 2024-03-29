@@ -19,7 +19,7 @@ func _ready():
 	damage = 3
 	max_ammo = MAX_AMMO
 	ammo = max_ammo
-	reload_time = RELOAD_TIME_PER_SHELL  # Used in a loop for each shell
+	reload_time = RELOAD_TIME_PER_SHELL
 	range = Vector3(1.0, 1.0, 50)
 	ranged = true
 	original_pos = position
@@ -29,7 +29,7 @@ func _ready():
 	ads_pos = ADS_POS
 	ads_rot = ADS_ROT
 	fire_sound = $ShotgunFire
-	reload_sound = $ShotgunLoad  # This sound is played per shell loaded
+	reload_sound = $ShotgunLoad
 	pump_original_pos = $Cube_004.position.x
 	pump_target_pos = $Cube_004.position.x - 0.4
 	camera = $".."
@@ -90,7 +90,7 @@ func hitscan():
 	var spread_angle = 10
 	
 	for i in range(num_pellets):
-		# Calculate the direction with a random spread
+		# Calculate direction with random spread
 		var random_spread_x = randf_range(-spread_angle, spread_angle)
 		var random_spread_y = randf_range(-spread_angle, spread_angle)
 		var forward_dir = camera.global_transform.basis.z.normalized() * -1
@@ -99,20 +99,20 @@ func hitscan():
 		var spread_rot_x = deg_to_rad(random_spread_x)
 		var spread_rot_y = deg_to_rad(random_spread_y)
 		var pellet_direction = forward_dir.rotated(up_dir, spread_rot_x).rotated(right_dir, spread_rot_y)
-		# Setup the ray query parameters
+		# Setup ray query parameters
 		var ray_query = PhysicsRayQueryParameters3D.new()
 		ray_query.from = camera.global_transform.origin
-		ray_query.to = ray_query.from + pellet_direction * range.z  # Might need to adjust range.z for distance
+		ray_query.to = ray_query.from + pellet_direction * range.z
 		ray_query.collision_mask = 0xFFFFFFFF
 		ray_query.collide_with_areas = true
 		ray_query.collide_with_bodies = true
-		# Perform the raycast
+		# Perform raycast
 		var result = get_world_3d().direct_space_state.intersect_ray(ray_query)
-		if result.size() != 0:  # If there is collision
+		if result.size() != 0:  # If collision
 			var collider = result.collider
 			if collider and collider.has_method("apply_damage"):
 				collider.apply_damage(damage)
-				# Handle effects here, similar to your existing setup
+				# Implement other FX here
 
 func pump():
 	$ShotgunPump.play()

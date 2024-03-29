@@ -12,9 +12,9 @@ var swing_position = Vector3(-1.0, -0.25, -0.55)
 func _ready():
 	damage = 1
 	range = Vector3(50.0, 50.0, 2)
-	ranged = false  # Indicating this is a melee weapon
+	ranged = false
 	swing_duration = 0.2
-	original_pos = position  # Assuming original_pos is used in Weapon.gd for resetting position after actions
+	original_pos = position
 	original_rot = rotation
 	bob_max = position.y + BOB_OFFSET
 	bob_min = position.y - BOB_OFFSET
@@ -37,7 +37,6 @@ func _process(delta):
 			position = original_position
 			rotation_degrees = original_rotation_degrees
 	
-	# Bobbing effect, similar to the base Weapon.gd logic
 	var bob_speed
 	if not player.is_moving or player.is_crouching:
 		bob_speed = BOB_SPEED * 0.25

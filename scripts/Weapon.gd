@@ -3,7 +3,7 @@ extends Node3D
 signal shot_fired
 signal reloaded
 
-# Common properties
+# Weapon variables
 var damage = 1
 var ammo = 0
 var max_ammo = 0
@@ -18,7 +18,7 @@ var swing_duration = 0.4
 var swing_timer = 0.0
 var bob_up = true
 
-# References for common functionality
+# Weapon references
 @onready var player = $"../.."
 @onready var raycast = $"../HitScan"
 @onready var bob_max = position.y + 0.02
@@ -37,8 +37,7 @@ func _ready():
 	pass # Placeholder for potential setup needed by all weapons
 
 func swing():
-	if is_swinging:
-		return 
+	if is_swinging: return 
 	
 	is_swinging = true
 	player.can_switch = false
@@ -82,7 +81,6 @@ func reload():
 	player.can_switch = true
 	emit_signal("reloaded")
 	if was_aiming and not is_aiming: aim()
-
 
 func aim():
 	if not is_aiming: 
