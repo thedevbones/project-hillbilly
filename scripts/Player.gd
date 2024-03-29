@@ -29,11 +29,11 @@ var weapons = {}
 var current_weapon_index = 0
 var can_switch = true
 var inventory = {
-	Weapons.UNARMED: {"is_unlocked": true, "ammo": 0},
-	Weapons.PIPE: {"is_unlocked": false, "ammo": 0},
-	Weapons.KNIFE: {"is_unlocked": false, "ammo": 0},
-	Weapons.PISTOL: {"is_unlocked": false, "ammo": 0},
-	Weapons.SHOTGUN: {"is_unlocked": false, "ammo": 0},
+	Weapons.UNARMED: {"is_unlocked": true, "total_ammo": 0},
+	Weapons.PIPE: {"is_unlocked": false, "total_ammo": 0},
+	Weapons.KNIFE: {"is_unlocked": false, "total_ammo": 0},
+	Weapons.PISTOL: {"is_unlocked": false, "total_ammo": 8},
+	Weapons.SHOTGUN: {"is_unlocked": false, "total_ammo": 6},
 }
 
 func _ready():
@@ -47,10 +47,10 @@ func _ready():
 	weapons[Weapons.KNIFE] = $MainCamera/Knife
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
+	unlock_weapon(Weapons.PISTOL)
+	unlock_weapon(Weapons.SHOTGUN)
 
 func _input(event):	
-	if event.is_action_pressed("ui_select_5"):
-		unlock_weapon(Weapons.PISTOL)
 	# Handle weapon inputs
 	if event.is_action_pressed("fire"):
 		attack()
@@ -65,10 +65,10 @@ func _input(event):
 			break
 	# Handle mouse wheel for switching weapons
 	if event.is_action_pressed("scroll_up"):
-		var next_index = get_next_unlocked_weapon_index(current_weapon_index, -1)
+		var next_index = next_weapon_index(current_weapon_index, -1)
 		switch_weapon_by_index(next_index)
 	elif event.is_action_pressed("scroll_down"):
-		var next_index = get_next_unlocked_weapon_index(current_weapon_index, 1)
+		var next_index = next_weapon_index(current_weapon_index, 1)
 		switch_weapon_by_index(next_index)	
 	# Handle mouse input
 	if event is InputEventMouseMotion:
@@ -155,8 +155,7 @@ func _on_step_timer_timeout():
 
 func attack():
 	var weapon = get_current_weapon()
-	if not weapon:
-		return
+	if not weapon: return
 	if weapon.ranged:
 		if weapon.ammo > 0: weapon.shoot()
 		else: $NoAmmo.play()
@@ -165,17 +164,14 @@ func attack():
 
 func reload():
 	var weapon = get_current_weapon()
-	if weapon and weapon.ranged:
-		weapon.reload()
+	if weapon and weapon.ranged: weapon.reload()
 
 func aim():
 	var weapon = get_current_weapon()
-	if weapon and weapon.ranged:
-		weapon.aim()
+	if weapon and weapon.ranged: weapon.aim()
 
 func switch_weapon_by_index(index):
-	if not can_switch:
-		return
+	if not can_switch: return
 	
 	if index in weapons and inventory[weapons.keys()[index]]["is_unlocked"]:
 		current_weapon_index = index
@@ -189,8 +185,7 @@ func update_weapon_visibility():
 
 func update_hitscan():
 	var weapon = get_current_weapon()
-	if weapon:
-		$MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
+	if weapon: $MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
 
 func get_current_weapon():
 	return weapons[current_weapon_index]
@@ -200,7 +195,7 @@ func wrap_index(index):
 	elif index >= weapons.size(): return 0
 	else: return index
 
-func get_next_unlocked_weapon_index(current_index, direction):
+func next_weapon_index(current_index, direction):
 	var attempts = 0
 	var next_index = current_index
 	while attempts < weapons.size():
@@ -212,18 +207,18 @@ func get_next_unlocked_weapon_index(current_index, direction):
 	return current_index
 
 func unlock_weapon(weapon_type):
+	var weapon = weapons[weapon_type]
 	inventory[weapon_type]["is_unlocked"] = true
-	# inventory[weapon_type]["ammo"] = amount
+	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
 
 func add_ammo(weapon_type, amount):
-	if inventory[weapon_type]["is_unlocked"]:
-		inventory[weapon_type]["ammo"] += amount
+	var weapon = weapons[weapon_type]
+	if inventory[weapon_type]["is_unlocked"]: inventory[weapon_type]["total_ammo"] += amount
+	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
 
 func has_weapon(weapon_type):
 	return inventory[weapon_type]["is_unlocked"]
 
 func get_ammo(weapon_type):
-	if inventory[weapon_type]["is_unlocked"]:
-		return inventory[weapon_type]["ammo"] 
-	else: 
-		return 0 
+	if inventory[weapon_type]["is_unlocked"]: return inventory[weapon_type]["total_ammo"] 
+	else: return 0 

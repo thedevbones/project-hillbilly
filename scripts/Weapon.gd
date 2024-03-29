@@ -3,10 +3,11 @@ extends Node3D
 signal shot_fired
 signal reloaded
 
-# Common properties
+# Weapon variables
 var damage = 1
 var ammo = 0
 var max_ammo = 0
+var total_ammo = 0
 var reload_time = 1
 var range = Vector3.ZERO
 var is_reloading = false
@@ -17,7 +18,7 @@ var swing_duration = 0.4
 var swing_timer = 0.0
 var bob_up = true
 
-# References for common functionality
+# Weapon references
 @onready var player = $"../.."
 @onready var raycast = $"../HitScan"
 @onready var bob_max = position.y + 0.02
@@ -30,13 +31,13 @@ var ads_pos: Vector3
 var ads_rot: Vector3
 var original_pos: Vector3
 var original_rot: Vector3
+var weapon_type
 
 func _ready():
 	pass # Placeholder for potential setup needed by all weapons
 
 func swing():
-	if is_swinging:
-		return 
+	if is_swinging: return 
 	
 	is_swinging = true
 	player.can_switch = false
@@ -56,23 +57,30 @@ func shoot():
 		player.can_switch = true
 
 func reload():
+	if is_reloading or ammo >= max_ammo: return
+	
+	var total_ammo = player.get_ammo(weapon_type)
+	if total_ammo == 0: return
+	is_reloading = true
+	player.can_switch = false
+
 	var was_aiming = false
-	if not is_reloading and ammo < max_ammo:
-		is_reloading = true
-		player.can_switch = false
-		
-		if is_aiming: 
-			was_aiming = true
-			aim()
-		
-		reload_sound.play()
-		await get_tree().create_timer(reload_time).timeout
-		
-		ammo = max_ammo
-		is_reloading = false
-		player.can_switch = true
-		emit_signal("reloaded")
-		if was_aiming and not is_aiming: aim()
+	if is_aiming:
+		was_aiming = true
+		aim()
+
+	reload_sound.play()
+	await get_tree().create_timer(reload_time).timeout
+	var ammo_needed = max_ammo - ammo
+	var ammo_to_load = min(ammo_needed, total_ammo)
+
+	ammo += ammo_to_load
+	player.add_ammo(weapon_type, -ammo_to_load)
+
+	is_reloading = false
+	player.can_switch = true
+	emit_signal("reloaded")
+	if was_aiming and not is_aiming: aim()
 
 func aim():
 	if not is_aiming: 
