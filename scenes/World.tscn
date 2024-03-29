@@ -427,6 +427,10 @@ layers = 3
 size = Vector3(500, 100, 250)
 material = SubResource("FogMaterial_6527e")
 
+[node name="pistol" parent="." instance=ExtResource("2_k4yhr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -22.4657, 1.31377, 2.18359)
+
+[node name="TestFloor" type="CSGBox3D" parent="."]
 [node name="Lighting" type="Node" parent="."]
 
 [node name="lightpost" parent="Lighting" instance=ExtResource("18_ygqwd")]
