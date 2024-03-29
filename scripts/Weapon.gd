@@ -58,28 +58,31 @@ func shoot():
 		player.can_switch = true
 
 func reload():
+	if is_reloading or ammo >= max_ammo: return
+	
+	var total_ammo = player.get_ammo(weapon_type)
+	if total_ammo == 0: return
+	is_reloading = true
+	player.can_switch = false
+
 	var was_aiming = false
-	if not is_reloading:
-		if total_ammo == 0 or ammo == max_ammo: return
-		is_reloading = true
-		player.can_switch = false
+	if is_aiming:
+		was_aiming = true
+		aim()
 
-		if is_aiming: 
-			was_aiming = true
-			aim()
+	reload_sound.play()
+	await get_tree().create_timer(reload_time).timeout
+	var ammo_needed = max_ammo - ammo
+	var ammo_to_load = min(ammo_needed, total_ammo)
 
-		reload_sound.play()
-		await get_tree().create_timer(reload_time).timeout
-		var ammo_needed = max_ammo - ammo
-		var ammo_to_load = min(ammo_needed, total_ammo)
+	ammo += ammo_to_load
+	player.add_ammo(weapon_type, -ammo_to_load)
 
-		ammo += ammo_to_load
-		player.add_ammo(weapon_type, -ammo_to_load)
+	is_reloading = false
+	player.can_switch = true
+	emit_signal("reloaded")
+	if was_aiming and not is_aiming: aim()
 
-		is_reloading = false
-		player.can_switch = true
-		emit_signal("reloaded")
-		if was_aiming and not is_aiming: aim()
 
 func aim():
 	if not is_aiming: 

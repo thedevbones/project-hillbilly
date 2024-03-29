@@ -15,6 +15,7 @@ var pumping_back: bool = true
 var camera: Camera3D
 
 func _ready():
+	weapon_type = player.Weapons.SHOTGUN
 	damage = 3
 	max_ammo = MAX_AMMO
 	ammo = max_ammo
@@ -54,9 +55,10 @@ func shoot():
 		player.can_switch = true
 
 func reload():
-	if is_reloading or ammo >= MAX_AMMO:
-		return
-	
+	if is_reloading or ammo >= MAX_AMMO: return
+
+	var total_ammo = player.get_ammo(weapon_type)
+	if total_ammo == 0: return
 	is_reloading = true
 	player.can_switch = false
 	
@@ -64,17 +66,21 @@ func reload():
 	if is_aiming: 
 		was_aiming = true
 		aim()
-	
-	while ammo < MAX_AMMO and is_reloading:
+
+	while ammo < MAX_AMMO and total_ammo > 0 and is_reloading:
 		$ShotgunLoad.play()
 		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
 		ammo += 1
+		player.add_ammo(weapon_type, -1)
 	
-	pump()
-	
+	pump() 
 	is_reloading = false
-	if was_aiming and not is_aiming: aim()
+	player.can_switch = true
 	emit_signal("reloaded")
+
+	if was_aiming and not is_aiming:
+		aim()
+
 
 func hitscan():
 	if not raycast.is_enabled():

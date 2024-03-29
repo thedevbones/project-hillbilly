@@ -33,7 +33,7 @@ var inventory = {
 	Weapons.PIPE: {"is_unlocked": false, "total_ammo": 0},
 	Weapons.KNIFE: {"is_unlocked": false, "total_ammo": 0},
 	Weapons.PISTOL: {"is_unlocked": false, "total_ammo": 8},
-	Weapons.SHOTGUN: {"is_unlocked": false, "total_ammo": 0},
+	Weapons.SHOTGUN: {"is_unlocked": false, "total_ammo": 6},
 }
 
 func _ready():
@@ -48,6 +48,7 @@ func _ready():
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 	unlock_weapon(Weapons.PISTOL)
+	unlock_weapon(Weapons.SHOTGUN)
 
 func _input(event):	
 	# Handle weapon inputs
