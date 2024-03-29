@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var settings = $SettingsControl
 @onready var audio = $Audio
 @onready var video = $Video
+@onready var MASTER_BUS = AudioServer.get_bus_index("Master")
 @onready var MUSIC_BUS = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS = AudioServer.get_bus_index("SFX")
 
@@ -53,7 +54,8 @@ func _on_main_menu_btn_pressed():
 	audio.visible = false
 	
 func _on_master_value_changed(value):
-	volume(0,value)
+	AudioServer.set_bus_volume_db(MASTER_BUS, linear_to_db(value)) 
+	AudioServer.set_bus_mute(MASTER_BUS, value < .05)
 
 func volume(bus_index, value):
 	AudioServer.set_bus_volume_db(bus_index, value)
