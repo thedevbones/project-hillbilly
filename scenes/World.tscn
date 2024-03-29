@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://scenes/PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="Script" path="res://scenes/EnemyWeak.gd" id="4_3vmyr"]
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
+[ext_resource type="AudioStream" path="res://audio/bullut_hit_flesh.wav" id="5_ahthy"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/bullut_hit_flesh.wav" id="5_qjwhm"]
 [ext_resource type="AudioStream" uid="uid://c1tj08fga2ppv" path="res://audio/SFX/pistol_fire.wav" id="5_qsv7b"]
@@ -273,6 +274,7 @@ stream = ExtResource("6_mfa6c")
 one_shot = true
 
 [node name="Player" type="CharacterBody3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3823, 1, 5.67396)
 collision_layer = 3
 collision_mask = 3

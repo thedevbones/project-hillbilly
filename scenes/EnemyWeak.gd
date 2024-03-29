@@ -6,7 +6,6 @@ func _ready():
 	death_audio = $Death
 	patrol_timer = $PatrolTimer
 
-
 func _on_death_finished():
 	queue_free()
 
