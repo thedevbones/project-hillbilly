@@ -9,6 +9,9 @@ var is_paused = false
 @onready var InSetting = $PauseSetting
 @onready var InAudio = $PauseAudio
 @onready var InVideo = $PausedVideo
+@onready var MASTER_BUS = AudioServer.get_bus_index("Master")
+@onready var MUSIC_BUS = AudioServer.get_bus_index("Music")
+@onready var SFX_BUS = AudioServer.get_bus_index("SFX")
 
 func _ready() -> void:
 	ResumeBtn.pressed.connect(unpause_game)
@@ -94,9 +97,13 @@ func _on_in_game_check_box_toggled(button_pressed):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_master_value_changed(value):
-	volume(0,value)
+	AudioServer.set_bus_volume_db(MASTER_BUS, linear_to_db(value)) 
+	AudioServer.set_bus_mute(MASTER_BUS, value < .05)
 
-func volume(bus_index, value):
-	AudioServer.set_bus_volume_db(bus_index, value)
+func _on_music_value_changed(value):
+	AudioServer.set_bus_volume_db(MUSIC_BUS, linear_to_db(value)) 
+	AudioServer.set_bus_mute(MUSIC_BUS, value < .05)
 
-
+func _on_sound_fx_value_changed(value):
+	AudioServer.set_bus_volume_db(SFX_BUS, linear_to_db(value)) 
+	AudioServer.set_bus_mute(SFX_BUS, value < .05)

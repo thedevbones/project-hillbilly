@@ -385,11 +385,13 @@ omni_attenuation = 0.435275
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434118, 4.98097, -0.0379805, -0.435776, 2.5332e-07, 4.98096, 4.956, 0.635898, 0.0807266)
 stream = ExtResource("13_o0qn3")
 unit_size = 50.0
+max_db = -9.0
 bus = &"SFX"
 
 [node name="ShotgunLoad" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434119, 4.98097, -0.0379805, -0.435776, 2.38419e-07, 4.98096, 1.85349, 0.331798, -0.198746)
 stream = ExtResource("14_5b3kg")
+max_db = -20.0
 bus = &"SFX"
 
 [node name="ShotgunPump" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
@@ -408,6 +410,9 @@ mesh = SubResource("CapsuleMesh_ge5q0")
 
 [node name="StepAudio" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("2_f4xii")
+volume_db = -80.0
+unit_size = 0.1
+max_db = -24.0
 bus = &"SFX"
 
 [node name="NoAmmo" type="AudioStreamPlayer3D" parent="Player"]
@@ -921,7 +926,7 @@ physics_material_override = SubResource("PhysicsMaterial_xlcod")
 
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2maxx")
-volume_db = -30.0
+volume_db = -50.0
 autoplay = true
 
 [node name="storm" type="AudioStreamPlayer" parent="."]

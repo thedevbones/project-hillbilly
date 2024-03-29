@@ -350,19 +350,23 @@ size_flags_stretch_ratio = 0.0
 [node name="Master" type="HSlider" parent="PauseAudio/MarginContainer/AudioDisplay/Sliders"]
 layout_mode = 2
 size_flags_vertical = 2
-min_value = -20.0
-max_value = 20.0
-value = 20.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="Music" type="HSlider" parent="PauseAudio/MarginContainer/AudioDisplay/Sliders"]
 layout_mode = 2
 size_flags_vertical = 2
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="SoundFX" type="HSlider" parent="PauseAudio/MarginContainer/AudioDisplay/Sliders"]
 layout_mode = 2
 size_flags_vertical = 1
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="BackSettingBtn" type="Button" parent="PauseAudio/MarginContainer"]
 layout_mode = 2
@@ -440,6 +444,8 @@ text = "Back"
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_quit_btn_pressed"]
 [connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="pressed" from="PauseAudio/MarginContainer/BackSettingBtn" to="." method="_on_back_setting_btn_pressed"]
 [connection signal="toggled" from="PausedVideo/MarginContainer/HBoxContainer/Checks/InGameCheckBox" to="." method="_on_in_game_check_box_toggled"]
 [connection signal="pressed" from="PausedVideo/MarginContainer/BackSettingBtn2" to="." method="_on_back_setting_btn_2_pressed"]
