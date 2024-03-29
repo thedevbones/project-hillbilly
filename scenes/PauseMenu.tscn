@@ -440,6 +440,7 @@ text = "Back"
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_quit_btn_pressed"]
 [connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/Music" to="." method="_on_music_value_changed"]
 [connection signal="pressed" from="PauseAudio/MarginContainer/BackSettingBtn" to="." method="_on_back_setting_btn_pressed"]
 [connection signal="toggled" from="PausedVideo/MarginContainer/HBoxContainer/Checks/InGameCheckBox" to="." method="_on_in_game_check_box_toggled"]
 [connection signal="pressed" from="PausedVideo/MarginContainer/BackSettingBtn2" to="." method="_on_back_setting_btn_2_pressed"]

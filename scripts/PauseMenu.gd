@@ -100,5 +100,6 @@ func _on_master_value_changed(value):
 	AudioServer.set_bus_volume_db(MASTER_BUS, linear_to_db(value)) 
 	AudioServer.set_bus_mute(MASTER_BUS, value < .05)
 
-
-
+func _on_music_value_changed(value):
+	AudioServer.set_bus_volume_db(MUSIC_BUS, linear_to_db(value)) 
+	AudioServer.set_bus_mute(MUSIC_BUS, value < .05)
