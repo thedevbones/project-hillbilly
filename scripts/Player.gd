@@ -49,6 +49,8 @@ func _ready():
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 
 func _input(event):	
+	if event.is_action_pressed("ui_select_5"):
+		unlock_weapon(Weapons.PISTOL)
 	# Handle weapon inputs
 	if event.is_action_pressed("fire"):
 		attack()
@@ -176,9 +178,11 @@ func aim():
 func switch_weapon_by_index(index):
 	if not can_switch:
 		return
-	if index in weapons:
+	
+	if index in weapons and inventory[weapons.keys()[index]]["is_unlocked"]:
 		current_weapon_index = index
 		update_weapon_visibility()
+
 
 func update_weapon_visibility():
 	for i in weapons.keys():
