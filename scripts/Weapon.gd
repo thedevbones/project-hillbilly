@@ -60,7 +60,6 @@ func shoot():
 func reload():
 	var was_aiming = false
 	if not is_reloading:
-		total_ammo = player.get_ammo(weapon_type)
 		if total_ammo == 0 or ammo == max_ammo: return
 		is_reloading = true
 		player.can_switch = false
@@ -76,7 +75,6 @@ func reload():
 
 		ammo += ammo_to_load
 		player.add_ammo(weapon_type, -ammo_to_load)
-		total_ammo = player.get_ammo(weapon_type)
 
 		is_reloading = false
 		player.can_switch = true

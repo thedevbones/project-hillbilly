@@ -217,8 +217,10 @@ func unlock_weapon(weapon_type):
 	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
 
 func add_ammo(weapon_type, amount):
+	var weapon = weapons[weapon_type]
 	if inventory[weapon_type]["is_unlocked"]:
 		inventory[weapon_type]["total_ammo"] += amount
+	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
 
 func has_weapon(weapon_type):
 	return inventory[weapon_type]["is_unlocked"]
