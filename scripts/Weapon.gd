@@ -7,6 +7,7 @@ signal reloaded
 var damage = 1
 var ammo = 0
 var max_ammo = 0
+var total_ammo = 0
 var reload_time = 1
 var range = Vector3.ZERO
 var is_reloading = false
@@ -30,6 +31,7 @@ var ads_pos: Vector3
 var ads_rot: Vector3
 var original_pos: Vector3
 var original_rot: Vector3
+var weapon_type
 
 func _ready():
 	pass # Placeholder for potential setup needed by all weapons
@@ -57,18 +59,25 @@ func shoot():
 
 func reload():
 	var was_aiming = false
-	if not is_reloading and ammo < max_ammo:
+	if not is_reloading:
+		total_ammo = player.get_ammo(weapon_type)
+		if total_ammo == 0 or ammo == max_ammo: return
 		is_reloading = true
 		player.can_switch = false
-		
+
 		if is_aiming: 
 			was_aiming = true
 			aim()
-		
+
 		reload_sound.play()
 		await get_tree().create_timer(reload_time).timeout
-		
-		ammo = max_ammo
+		var ammo_needed = max_ammo - ammo
+		var ammo_to_load = min(ammo_needed, total_ammo)
+
+		ammo += ammo_to_load
+		player.add_ammo(weapon_type, -ammo_to_load)
+		total_ammo = player.get_ammo(weapon_type)
+
 		is_reloading = false
 		player.can_switch = true
 		emit_signal("reloaded")
