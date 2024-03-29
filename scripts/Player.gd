@@ -65,13 +65,11 @@ func _input(event):
 			break
 	# Handle mouse wheel for switching weapons
 	if event.is_action_pressed("scroll_up"):
-		var prev_index = current_weapon_index - 1
-		prev_index = wrap_index(prev_index)
-		switch_weapon_by_index(prev_index)
-	elif event.is_action_pressed("scroll_down"):
-		var next_index = current_weapon_index + 1
-		next_index = wrap_index(next_index)
+		var next_index = get_next_unlocked_weapon_index(current_weapon_index, -1)
 		switch_weapon_by_index(next_index)
+	elif event.is_action_pressed("scroll_down"):
+		var next_index = get_next_unlocked_weapon_index(current_weapon_index, 1)
+		switch_weapon_by_index(next_index)	
 	# Handle mouse input
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
@@ -183,7 +181,6 @@ func switch_weapon_by_index(index):
 		current_weapon_index = index
 		update_weapon_visibility()
 
-
 func update_weapon_visibility():
 	for i in weapons.keys():
 		var weapon = weapons[i]
@@ -202,6 +199,17 @@ func wrap_index(index):
 	if index < 0: return weapons.size() - 1
 	elif index >= weapons.size(): return 0
 	else: return index
+
+func get_next_unlocked_weapon_index(current_index, direction):
+	var attempts = 0
+	var next_index = current_index
+	while attempts < weapons.size():
+		next_index += direction
+		next_index = wrap_index(next_index)
+		if inventory[weapons.keys()[next_index]]["is_unlocked"]:
+			return next_index
+		attempts += 1
+	return current_index
 
 func unlock_weapon(weapon_type):
 	inventory[weapon_type]["is_unlocked"] = true
