@@ -29,11 +29,11 @@ var weapons = {}
 var current_weapon_index = 0
 var can_switch = true
 var inventory = {
-	Weapons.UNARMED: {"is_unlocked": true, "ammo": 0},
-	Weapons.PIPE: {"is_unlocked": false, "ammo": 0},
-	Weapons.KNIFE: {"is_unlocked": false, "ammo": 0},
-	Weapons.PISTOL: {"is_unlocked": false, "ammo": 0},
-	Weapons.SHOTGUN: {"is_unlocked": false, "ammo": 0},
+	Weapons.UNARMED: {"is_unlocked": true, "total_ammo": 0},
+	Weapons.PIPE: {"is_unlocked": false, "total_ammo": 0},
+	Weapons.KNIFE: {"is_unlocked": false, "total_ammo": 0},
+	Weapons.PISTOL: {"is_unlocked": false, "total_ammo": 8},
+	Weapons.SHOTGUN: {"is_unlocked": false, "total_ammo": 0},
 }
 
 func _ready():
@@ -47,10 +47,9 @@ func _ready():
 	weapons[Weapons.KNIFE] = $MainCamera/Knife
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
+	unlock_weapon(Weapons.PISTOL)
 
 func _input(event):	
-	if event.is_action_pressed("ui_select_5"):
-		unlock_weapon(Weapons.PISTOL)
 	# Handle weapon inputs
 	if event.is_action_pressed("fire"):
 		attack()
@@ -184,7 +183,8 @@ func switch_weapon_by_index(index):
 func update_weapon_visibility():
 	for i in weapons.keys():
 		var weapon = weapons[i]
-		if weapon: weapon.visible = i == current_weapon_index
+		if weapon: 
+			weapon.visible = i == current_weapon_index
 	update_hitscan()
 
 func update_hitscan():
@@ -212,18 +212,19 @@ func get_next_unlocked_weapon_index(current_index, direction):
 	return current_index
 
 func unlock_weapon(weapon_type):
+	var weapon = weapons[weapon_type]
 	inventory[weapon_type]["is_unlocked"] = true
-	# inventory[weapon_type]["ammo"] = amount
+	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
 
 func add_ammo(weapon_type, amount):
 	if inventory[weapon_type]["is_unlocked"]:
-		inventory[weapon_type]["ammo"] += amount
+		inventory[weapon_type]["total_ammo"] += amount
 
 func has_weapon(weapon_type):
 	return inventory[weapon_type]["is_unlocked"]
 
 func get_ammo(weapon_type):
 	if inventory[weapon_type]["is_unlocked"]:
-		return inventory[weapon_type]["ammo"] 
+		return inventory[weapon_type]["total_ammo"] 
 	else: 
 		return 0 
