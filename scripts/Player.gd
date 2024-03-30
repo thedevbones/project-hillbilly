@@ -50,8 +50,10 @@ func _ready():
 	weapons[Weapons.KNIFE] = $MainCamera/Knife
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
-	unlock_weapon(Weapons.PISTOL)
-	unlock_weapon(Weapons.SHOTGUN)
+	items[Items.FLASHLIGHT] = $MainCamera/Flashlight
+	unlock_item(Weapons.PISTOL)
+	unlock_item(Weapons.SHOTGUN)
+	unlock_item(Items.FLASHLIGHT)
 
 func _input(event):	
 	# Handle weapon inputs
@@ -61,6 +63,8 @@ func _input(event):
 		reload()
 	if event.is_action_pressed("aim"):
 		aim()
+	if event.is_action_pressed("flashlight_toggle"):
+		toggle_flashlight()
 	# Handle number key presses for direct weapon selection
 	for i in range(weapons.size()):
 		if event.is_action_pressed("ui_select_" + str(i + 1)):
@@ -209,19 +213,25 @@ func next_weapon_index(current_index, direction):
 		attempts += 1
 	return current_index
 
-func unlock_weapon(weapon_type):
-	var weapon = weapons[weapon_type]
-	inventory[weapon_type]["is_unlocked"] = true
-	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
+func unlock_item(item_type):
+	if not item_type in inventory: return
+	inventory[item_type]["is_unlocked"] = true
+	if item_type in weapons and weapons[item_type]:
+		weapons[item_type].total_ammo = inventory[item_type]["total_ammo"]
 
 func add_ammo(weapon_type, amount):
 	var weapon = weapons[weapon_type]
 	if inventory[weapon_type]["is_unlocked"]: inventory[weapon_type]["total_ammo"] += amount
 	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
 
-func has_weapon(weapon_type):
-	return inventory[weapon_type]["is_unlocked"]
+func has_item(item_type):
+	return inventory[item_type]["is_unlocked"]
 
 func get_ammo(weapon_type):
 	if inventory[weapon_type]["is_unlocked"]: return inventory[weapon_type]["total_ammo"] 
 	else: return 0 
+
+func toggle_flashlight():
+	if not has_item(Items.FLASHLIGHT): return
+	var flashlight = items[Items.FLASHLIGHT]
+	if flashlight: flashlight.visible = !flashlight.visible
