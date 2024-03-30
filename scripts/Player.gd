@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
-enum Weapons { UNARMED, PIPE, KNIFE, PISTOL, SHOTGUN }
+enum Weapons { UNARMED = 0, PIPE = 1, KNIFE = 2, PISTOL = 3, SHOTGUN = 4}
+enum Items { FLASHLIGHT = 10, KEY = 11}
 
 const NORMAL_FOV = 70.0
 const SPRINT_FOV = 90.0
@@ -26,6 +27,7 @@ var push_force = 8.0
 
 # Weapon variables
 var weapons = {}
+var items = {}
 var current_weapon_index = 0
 var can_switch = true
 var inventory = {
@@ -34,6 +36,7 @@ var inventory = {
 	Weapons.KNIFE: {"is_unlocked": false, "total_ammo": 0},
 	Weapons.PISTOL: {"is_unlocked": false, "total_ammo": 8},
 	Weapons.SHOTGUN: {"is_unlocked": false, "total_ammo": 6},
+	Items.FLASHLIGHT: {"is_unlocked": false, "total_ammo": 0},
 }
 
 func _ready():
