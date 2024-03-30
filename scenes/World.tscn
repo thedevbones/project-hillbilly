@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://scenes/PauseMenu.tscn" id="3_ec8lf"]
-[ext_resource type="Script" path="res://scenes/EnemyWeak.gd" id="4_3vmyr"]
+[ext_resource type="Script" path="res://scripts/EnemyWeak.gd" id="4_3vmyr"]
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/bullut_hit_flesh.wav" id="5_qjwhm"]
@@ -28,7 +28,7 @@
 [ext_resource type="Script" path="res://scripts/Knife.gd" id="9_67cu2"]
 [ext_resource type="AudioStream" uid="uid://d3pocg7hckdyw" path="res://audio/SFX/flashlight.mp3" id="9_liogq"]
 [ext_resource type="AudioStream" uid="uid://tp8mnyni4uxp" path="res://audio/SFX/temp_noammo.wav" id="9_q2jjc"]
-[ext_resource type="Script" path="res://scenes/Flashlight.gd" id="9_vaxnc"]
+[ext_resource type="Script" path="res://scripts/Flashlight.gd" id="9_vaxnc"]
 [ext_resource type="AudioStream" uid="uid://be2dh6xsph0a6" path="res://audio/SFX/knife_swing.wav" id="10_2ipc6"]
 [ext_resource type="PackedScene" uid="uid://h7cr5wiomeqw" path="res://scenes/Tree3.tscn" id="10_wbd7w"]
 [ext_resource type="Script" path="res://scripts/Shotgun.gd" id="12_62glt"]
@@ -153,7 +153,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gqgi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yxvg6"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -188,7 +188,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_4gqgi"),
+"material": SubResource("ShaderMaterial_yxvg6"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
