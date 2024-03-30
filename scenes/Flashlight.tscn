@@ -11,9 +11,17 @@ roughness = 0.4
 
 [node name="Light" parent="." index="0"]
 transform = Transform3D(-0.290865, -0.771101, 0.566393, -0.0551891, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, 0.00763772, 0.453161, 0.410994)
+visible = false
 layers = 3
 light_energy = 0.5
 light_volumetric_fog_energy = 0.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Light" index="0"]
+transform = Transform3D(0.290864, -0.0551891, 0.955171, 0.771101, 0.604525, -0.199883, -0.566393, 0.794672, 0.218391, 0.0681803, -0.0196165, 0.0246216)
+light_energy = 0.5
+spot_range = 16.224
+spot_angle = 25.0
+spot_angle_attenuation = 0.659754
 
 [node name="Cylinder" parent="." index="2"]
 transform = Transform3D(0.106351, 0, 0, 0, 0.278918, 0, 0, 0, 0.106351, 0, 0, 0)
@@ -27,7 +35,3 @@ layers = 2
 [node name="Plane" parent="." index="4"]
 transform = Transform3D(1.61017e-07, -6.22739e-05, 0.0675345, 0.0675348, 0.00042658, 0, -0.000270886, 0.106349, 3.95452e-05, 0, 0, 0)
 layers = 2
-
-[node name="SpotLight3D" type="SpotLight3D" parent="." index="5"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0168783, 0.457105, 0.336572)
-light_energy = 0.5
