@@ -234,4 +234,4 @@ func get_ammo(weapon_type):
 func toggle_flashlight():
 	if not has_item(Items.FLASHLIGHT): return
 	var flashlight = items[Items.FLASHLIGHT]
-	if flashlight: flashlight.visible = !flashlight.visible
+	if flashlight: $MainCamera/Flashlight.toggle()
