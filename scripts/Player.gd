@@ -212,9 +212,13 @@ func next_weapon_index(current_index, direction):
 
 func unlock_item(item_type):
 	if not item_type in inventory: return
-	inventory[item_type]["is_unlocked"] = true
-	if item_type in weapons and weapons[item_type]:
-		weapons[item_type].total_ammo = inventory[item_type]["total_ammo"]
+	var is_weapon = false
+	if item_type in weapons and weapons[item_type]: is_weapon = true
+	if not inventory[item_type]["is_unlocked"]:
+		inventory[item_type]["is_unlocked"] = true 
+		if is_weapon: weapons[item_type].total_ammo = inventory[item_type]["total_ammo"]
+	elif is_weapon:
+		weapons[item_type].total_ammo += weapons[item_type].max_ammo
 
 func add_ammo(weapon_type, amount):
 	var weapon = weapons[weapon_type]

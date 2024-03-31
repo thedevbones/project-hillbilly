@@ -294,6 +294,12 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -19.1125, 0.8, -2.02
 [node name="PickupShotgun" parent="." instance=ExtResource("8_454jr")]
 transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, -17.5559, 0.8, -2.3411)
 
+[node name="PickupPistol2" parent="." instance=ExtResource("7_avcdy")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -19.1125, 0.8, -4.18655)
+
+[node name="PickupShotgun2" parent="." instance=ExtResource("8_454jr")]
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, -17.5559, 0.8, -4.50397)
+
 [node name="PickupPipe" parent="." instance=ExtResource("9_xrxbx")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -19.193, 0.8, -0.442)
 
