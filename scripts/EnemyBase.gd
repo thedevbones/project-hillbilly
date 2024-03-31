@@ -26,6 +26,7 @@ var hit_audio: AudioStreamPlayer3D
 var death_audio: AudioStreamPlayer3D
 
 func _process(delta):
+	SimpleGrass.set_player_position(global_position)
 	match state:
 		States.PATROL:
 			patrol_behavior(delta)
@@ -35,6 +36,7 @@ func _process(delta):
 			search_behavior(delta)
 
 func spawn():
+	SimpleGrass.set_interactive(true)
 	navigation_agent = NavigationAgent3D.new()
 	add_child(navigation_agent)
 	generate_patrol_points()

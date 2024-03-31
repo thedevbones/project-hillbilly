@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://byngu8vgbfeqe"]
+
+[ext_resource type="PackedScene" uid="uid://b5s71sbqlhefe" path="res://assets/shotgun.glb" id="1_wgp2o"]
+[ext_resource type="AudioStream" uid="uid://cgdcwnruvu2ij" path="res://audio/SFX/pickup.wav" id="2_vkkwp"]
+
+[sub_resource type="GDScript" id="GDScript_v6wqm"]
+resource_name = "PickupShotgun"
+script/source = "extends \"res://scripts/Pickup.gd\"
+
+func _ready():
+	var player = %Player
+	if player: item = %Player.Weapons.SHOTGUN
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gk6hg"]
+radius = 2.0
+
+[node name="PickupShotgun" instance=ExtResource("1_wgp2o")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = SubResource("GDScript_v6wqm")
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.179153, -3.15475, -0.224333, 0)
+layers = 5
+
+[node name="Cube_001" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.166179, -2.19289, -0.0219224, 0)
+layers = 5
+
+[node name="Cube_002" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.179153, -3.15475, -0.213371, 0)
+layers = 5
+
+[node name="Cube_004" parent="." index="3"]
+transform = Transform3D(0.543287, 0, 0, 0, 0.128477, 0, 0, 0, 0.183362, 0.345111, 0.38, 0.004)
+layers = 5
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="4"]
+transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 0, -0.088, 0.617)
+layers = 7
+light_energy = 0.56
+light_volumetric_fog_energy = 0.5
+omni_range = 1.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." index="5"]
+transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 0, -0.088, -0.617)
+layers = 7
+light_energy = 0.56
+light_volumetric_fog_energy = 0.5
+omni_range = 1.0
+
+[node name="PickupArea" type="Area3D" parent="." index="6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" index="0"]
+shape = SubResource("SphereShape3D_gk6hg")
+
+[node name="PickupSound" type="AudioStreamPlayer3D" parent="." index="7"]
+stream = ExtResource("2_vkkwp")
+
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="finished" from="PickupSound" to="." method="_on_pickup_sound_finished"]
