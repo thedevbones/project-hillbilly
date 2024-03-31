@@ -23,8 +23,10 @@ func spawn_enemy(enemy_type, spawn_point):
 
 func spawn_wave(enemies_to_spawn):
 	for enemy_info in enemies_to_spawn:
-		var spawn_point = choose_spawn_point()
-		spawn_enemy(enemy_info.type, spawn_point)
+		for i in range(enemy_info.count):  # Spawn enemies according to the count
+			var spawn_point = choose_spawn_point()
+			spawn_enemy(enemy_info.type, spawn_point)
+
 
 func choose_spawn_point():
 	# Simple random selection; can be expanded with more logic

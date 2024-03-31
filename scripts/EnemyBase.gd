@@ -3,6 +3,7 @@ extends CharacterBody3D
 enum States { PATROL, COMBAT, SEARCH }
 
 @onready var player = get_node("/root/World/Player")
+@onready var world = get_node("/root/World")
 
 var state = States.COMBAT
 var health = 5
@@ -40,6 +41,7 @@ func spawn():
 	SimpleGrass.set_interactive(true)
 	navigation_agent = NavigationAgent3D.new()
 	add_child(navigation_agent)
+	world.add_alive_enemies(1)
 	#generate_patrol_points()
 	#if patrol_points.size() > 0:
 		#navigation_agent.set_target_position(patrol_points[current_target])
@@ -134,8 +136,11 @@ func apply_damage(damage):
 	if health <= 0: die()
 
 func die():
-	if death_audio: death_audio.play()
-	else: queue_free()
+	if death_audio: 
+		death_audio.play()
+	else: 
+		world.add_alive_enemies(-1)
+		queue_free()
 
 #func generate_patrol_points():
 	#var rng = RandomNumberGenerator.new()

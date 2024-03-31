@@ -7,6 +7,7 @@ func _ready():
 	#patrol_timer = $PatrolTimer
 
 func _on_death_finished():
+	world.add_alive_enemies(-1)
 	queue_free()
 
 #func _on_patrol_timer_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=80 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_3lw2b"]
@@ -18,7 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/SFX/ambience.mp3" id="6_2maxx"]
 [ext_resource type="Script" path="res://scripts/Pipe.gd" id="6_av8cb"]
 [ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
-[ext_resource type="PackedScene" uid="uid://b7elh68rmvspb" path="res://scenes/EnemyWeak.tscn" id="6_mx1y7"]
 [ext_resource type="PackedScene" uid="uid://fkhmfphsj65u" path="res://scenes/Shotgun.tscn" id="6_vnudb"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="PackedScene" uid="uid://bncea5c0r6hqt" path="res://scenes/PickupPistol.tscn" id="7_avcdy"]
@@ -244,6 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1047, 0.875, 11.0156)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.1516, 0.875, -8.99226)
 
 [node name="PrepTimer" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 
 [node name="Crosshair" type="Label" parent="."]
@@ -299,8 +299,6 @@ cull_mask = 982018
 environment = SubResource("Environment_t0ccy")
 current = true
 script = ExtResource("1_mc2is")
-
-[node name="HillBilly" parent="." instance=ExtResource("6_mx1y7")]
 
 [node name="PickupPistol" parent="." instance=ExtResource("7_avcdy")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -19.1125, 0.8, -2.02367)
