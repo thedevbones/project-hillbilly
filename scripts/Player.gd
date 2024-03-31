@@ -6,7 +6,7 @@ enum Items { FLASHLIGHT = 10, KEY = 11}
 const NORMAL_FOV = 70.0
 const SPRINT_FOV = 90.0
 const ADS_FOV = 60.0
-const NORMAL_SPEED = 5.0
+const NORMAL_SPEED = 15.0
 const JUMP_VELOCITY = 4.5
 const MAX_STAMINA = 10
 const SPRINT_MULTIPLIER = 1.5

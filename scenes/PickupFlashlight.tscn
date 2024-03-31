@@ -142,13 +142,13 @@ shadow_mesh = SubResource("ArrayMesh_c43bd")
 radius = 2.0
 
 [node name="PickupFlashlight" type="Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 script = SubResource("GDScript_svi66")
 
 [node name="Light" type="OmniLight3D" parent="."]
 transform = Transform3D(-0.290865, -0.771101, 0.566393, -0.0551891, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, 0.00763772, 0.453161, 0.410994)
 visible = false
 layers = 3
-light_color = Color(1, 1, 1, 1)
 light_energy = 0.5
 light_volumetric_fog_energy = 0.0
 omni_range = 4096.0

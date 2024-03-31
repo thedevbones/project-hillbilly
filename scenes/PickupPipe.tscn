@@ -16,6 +16,7 @@ func _ready():
 radius = 2.0
 
 [node name="PickupPipe" instance=ExtResource("1_bdvol")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 script = SubResource("GDScript_reowc")
 
 [node name="Torus_003" parent="." index="0"]

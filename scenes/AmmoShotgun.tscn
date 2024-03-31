@@ -522,6 +522,7 @@ shadow_mesh = SubResource("ArrayMesh_fee04")
 radius = 2.0
 
 [node name="AmmoShotgun" type="Node3D"]
+transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, 0, -0.1, 0)
 script = SubResource("GDScript_hm30m")
 
 [node name="Cube" type="MeshInstance3D" parent="."]

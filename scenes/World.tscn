@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=79 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_3lw2b"]
@@ -34,7 +34,6 @@
 [ext_resource type="AudioStream" uid="uid://be2dh6xsph0a6" path="res://audio/SFX/knife_swing.wav" id="10_2ipc6"]
 [ext_resource type="PackedScene" uid="uid://cx8sbyr8b4wlj" path="res://scenes/PickupKnife.tscn" id="10_2wh4d"]
 [ext_resource type="PackedScene" uid="uid://h7cr5wiomeqw" path="res://scenes/Tree3.tscn" id="10_wbd7w"]
-[ext_resource type="PackedScene" uid="uid://bywx8eu3kc87u" path="res://scenes/PickupFlashlight.tscn" id="11_exqf5"]
 [ext_resource type="Script" path="res://scripts/Shotgun.gd" id="12_62glt"]
 [ext_resource type="PackedScene" uid="uid://bu4rlc2p1onvg" path="res://scenes/AmmoPistol.tscn" id="12_go1kp"]
 [ext_resource type="PackedScene" uid="uid://ylgj4yoabfhv" path="res://scenes/Target.tscn" id="12_u5br6"]
@@ -146,7 +145,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_113ik"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2p88g"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -181,7 +180,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_113ik"),
+"material": SubResource("ShaderMaterial_2p88g"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -294,48 +293,15 @@ size = Vector2i(500, 240)
 render_target_update_mode = 4
 
 [node name="GunCamera" type="Camera3D" parent="GunViewport/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.38, 1.505, 5.673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3262, 1.505, 15.7454)
 cull_mask = 982018
 environment = SubResource("Environment_t0ccy")
 current = true
 script = ExtResource("1_mc2is")
 
-[node name="PickupPistol" parent="." instance=ExtResource("7_avcdy")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -19.1125, 0.8, -2.02367)
-
-[node name="PickupShotgun" parent="." instance=ExtResource("8_454jr")]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, -17.5559, 0.8, -2.3411)
-
-[node name="PickupPistol2" parent="." instance=ExtResource("7_avcdy")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -19.1125, 0.8, -4.18655)
-
-[node name="PickupShotgun2" parent="." instance=ExtResource("8_454jr")]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, -17.5559, 0.8, -4.50397)
-
-[node name="PickupPipe" parent="." instance=ExtResource("9_xrxbx")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -19.193, 0.8, -0.442)
-
-[node name="PickupKnife" parent="." instance=ExtResource("10_2wh4d")]
-transform = Transform3D(-0.07, 0, 1.05697e-08, 0, 0.07, 0, -1.05697e-08, 0, -0.07, -17.358, 0.8, -0.235)
-
-[node name="PickupFlashlight" parent="." instance=ExtResource("11_exqf5")]
-transform = Transform3D(0.3, 0.000485603, 0.000206532, -0.000485252, 0.299999, -0.000508969, -0.000207353, 0.000508634, 0.3, -18.68, 0.8, -6.43)
-
-[node name="AmmoPistol" parent="." instance=ExtResource("12_go1kp")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -24.813, 0.85, -4.982)
-
-[node name="AmmoShotgun" parent="." instance=ExtResource("13_6303c")]
-transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, -25.026, 0.66009, -7.122)
-
-[node name="AmmoPistol2" parent="." instance=ExtResource("12_go1kp")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -25.7734, 0.85, -4.982)
-
-[node name="AmmoShotgun2" parent="." instance=ExtResource("13_6303c")]
-transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, -25.8051, 0.66009, -7.122)
-
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3823, 1, 5.67396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3285, 1, 15.7464)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_1ouke")
@@ -1017,6 +983,30 @@ sgt_rotation_rand = 1.0
 sgt_dist_min = 0.25
 sgt_follow_normal = false
 metadata/SimpleGrassTextured = "2.0.3"
+
+[node name="PickupPipe" parent="." instance=ExtResource("9_xrxbx")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -24.2754, 0.8, 5.03757)
+
+[node name="PickupPistol" parent="." instance=ExtResource("7_avcdy")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -22.356, 1, 11.129)
+
+[node name="PickupShotgun" parent="." instance=ExtResource("8_454jr")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -43.7776, 0.8, 15.2146)
+
+[node name="AmmoPistol" parent="." instance=ExtResource("12_go1kp")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 22.6256, 0.8, 11.9446)
+
+[node name="AmmoShotgun" parent="." instance=ExtResource("13_6303c")]
+transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, -43.8309, 0.7, 14.1615)
+
+[node name="AmmoPistol2" parent="." instance=ExtResource("12_go1kp")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 66.7471, 0.8, -13.5389)
+
+[node name="AmmoPistol3" parent="." instance=ExtResource("12_go1kp")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 23.4062, 0.8, 10.2654)
+
+[node name="PickupKnife" parent="." instance=ExtResource("10_2wh4d")]
+transform = Transform3D(-0.07, 0, 1.05697e-08, 0, 0.07, 0, -1.05697e-08, 0, -0.07, 70.3113, 0.8, -14.874)
 
 [connection signal="timeout" from="PrepTimer" to="." method="_on_prep_timer_timeout"]
 [connection signal="visibility_changed" from="Player/MainCamera/Pistol" to="Player/MainCamera/Pistol" method="_on_visibility_changed"]
