@@ -21,11 +21,11 @@ script = SubResource("GDScript_px6ha")
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(0.0220167, -4.4252e-08, -1.20272e-08, 9.74284e-10, 0.862425, 0.506184, -2.64798e-10, -0.506184, 0.862425, -0.0176919, 0.499935, -0.0507048)
-layers = 2
+layers = 5
 
 [node name="Cube_001" parent="." index="1"]
 transform = Transform3D(0.0802189, -1.63947e-08, -1.43087e-08, 3.54985e-09, 0.314205, 0.550282, -9.64805e-10, -0.207073, 0.834979, 2.19235e-09, -0.0659346, -1.72602)
-layers = 2
+layers = 5
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533, -0.088, 0)

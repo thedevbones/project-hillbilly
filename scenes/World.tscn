@@ -157,7 +157,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_52q1a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swmlc"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -192,7 +192,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_52q1a"),
+"material": SubResource("ShaderMaterial_swmlc"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -289,10 +289,10 @@ layers = 65536
 mesh = SubResource("SphereMesh_r8lt3")
 
 [node name="PickupPistol" parent="." instance=ExtResource("7_avcdy")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -22.406, 1, 0.617)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -19.1125, 0.8, -2.02367)
 
 [node name="PickupShotgun" parent="." instance=ExtResource("8_454jr")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -21.0713, 1, 0)
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, -17.5559, 0.8, -2.3411)
 
 [node name="PickupPipe" parent="." instance=ExtResource("9_xrxbx")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -19.193, 0.8, -0.442)
