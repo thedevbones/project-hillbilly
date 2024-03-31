@@ -1,38 +1,38 @@
-extends Node3D
+extends "res://scripts/Weapon.gd"
 
-signal shot_fired
-signal reloaded
-
-@onready var camera = $".."
-@onready var player = $"../.."
-@onready var raycast = $"../HitScan"
-@onready var bob_max = position.y + BOB_OFFSET
-@onready var bob_min = position.y - BOB_OFFSET
-@onready var original_pos = position
-@onready var original_rot = rotation
-@onready var target_pos = original_pos
-@onready var target_rot = original_rot
-@onready var pump_original_pos = $Cube_004.position.x
-@onready var pump_target_pos = $Cube_004.position.x - 0.4
-
-const MAX_AMMO = 6
-const RELOAD_TIME_PER_SHELL = 0.5
-const PUMP_TIME = 0.5
 const ADS_POS = Vector3(0, -0.15, -0.395)
 const ADS_ROT = Vector3(0, 1.570796, 0)
+const PUMP_TIME = 0.5
+const RELOAD_TIME_PER_SHELL = 0.5
+const MAX_AMMO = 6
 const BOB_SPEED = 0.025
 const BOB_OFFSET = 0.01
+var pump_target_pos: float
+var pump_original_pos: float
+var can_shoot: bool = true
+var pump_animating: bool = false
+var pumping_back: bool = true
+var camera: Camera3D
 
-var ammo = MAX_AMMO
-var damage = 3
-var range = Vector3(1.0, 1.0, 50)
-var is_reloading = false
-var is_aiming = false
-var ranged = true
-var can_shoot = true 
-var bob_up = true
-var pump_animating = false
-var pumping_back = true
+func _ready():
+	weapon_type = player.Weapons.SHOTGUN
+	damage = 3
+	max_ammo = MAX_AMMO
+	ammo = max_ammo
+	reload_time = RELOAD_TIME_PER_SHELL
+	range = Vector3(1.0, 1.0, 50)
+	ranged = true
+	original_pos = position
+	original_rot = rotation
+	target_pos = original_pos
+	target_rot = original_rot
+	ads_pos = ADS_POS
+	ads_rot = ADS_ROT
+	fire_sound = $ShotgunFire
+	reload_sound = $ShotgunLoad
+	pump_original_pos = $Cube_004.position.x
+	pump_target_pos = $Cube_004.position.x - 0.4
+	camera = $".."
 
 func shoot():
 	if is_reloading and ammo > 0:
@@ -55,9 +55,10 @@ func shoot():
 		player.can_switch = true
 
 func reload():
-	if is_reloading or ammo >= MAX_AMMO:
-		return
-	
+	if is_reloading or ammo >= MAX_AMMO: return
+
+	var total_ammo = player.get_ammo(weapon_type)
+	if total_ammo == 0: return
 	is_reloading = true
 	player.can_switch = false
 	
@@ -65,27 +66,21 @@ func reload():
 	if is_aiming: 
 		was_aiming = true
 		aim()
-	
-	while ammo < MAX_AMMO and is_reloading:
+
+	while ammo < MAX_AMMO and total_ammo > 0 and is_reloading:
 		$ShotgunLoad.play()
 		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
 		ammo += 1
+		player.add_ammo(weapon_type, -1)
 	
-	pump()
-	
+	pump() 
 	is_reloading = false
-	if was_aiming and not is_aiming: aim()
+	player.can_switch = true
 	emit_signal("reloaded")
 
-func aim():
-	if not is_aiming: 
-		is_aiming = true
-		target_pos = ADS_POS
-		target_rot = ADS_ROT
-	else:
-		is_aiming = false
-		target_pos = original_pos
-		target_rot = original_rot
+	if was_aiming and not is_aiming:
+		aim()
+
 
 func hitscan():
 	if not raycast.is_enabled():
@@ -95,7 +90,7 @@ func hitscan():
 	var spread_angle = 10
 	
 	for i in range(num_pellets):
-		# Calculate the direction with a random spread
+		# Calculate direction with random spread
 		var random_spread_x = randf_range(-spread_angle, spread_angle)
 		var random_spread_y = randf_range(-spread_angle, spread_angle)
 		var forward_dir = camera.global_transform.basis.z.normalized() * -1
@@ -104,25 +99,20 @@ func hitscan():
 		var spread_rot_x = deg_to_rad(random_spread_x)
 		var spread_rot_y = deg_to_rad(random_spread_y)
 		var pellet_direction = forward_dir.rotated(up_dir, spread_rot_x).rotated(right_dir, spread_rot_y)
-		# Setup the ray query parameters
+		# Setup ray query parameters
 		var ray_query = PhysicsRayQueryParameters3D.new()
 		ray_query.from = camera.global_transform.origin
-		ray_query.to = ray_query.from + pellet_direction * range.z  # Might need to adjust range.z for distance
+		ray_query.to = ray_query.from + pellet_direction * range.z
 		ray_query.collision_mask = 0xFFFFFFFF
 		ray_query.collide_with_areas = true
 		ray_query.collide_with_bodies = true
-		# Perform the raycast
+		# Perform raycast
 		var result = get_world_3d().direct_space_state.intersect_ray(ray_query)
-		if result.size() != 0:  # If there is collision
+		if result.size() != 0:  # If collision
 			var collider = result.collider
 			if collider and collider.has_method("apply_damage"):
 				collider.apply_damage(damage)
-				# Handle effects here, similar to your existing setup
-
-func muzzle_flash():
-	$MuzzleLight.show()
-	await get_tree().create_timer(0.1).timeout
-	$MuzzleLight.hide()
+				# Implement other FX here
 
 func pump():
 	$ShotgunPump.play()
