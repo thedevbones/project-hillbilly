@@ -12,6 +12,5 @@ func _on_pickup_area_body_entered(body):
 		player.unlock_item(item)
 		hide()
 
-
 func _on_pickup_sound_finished():
 	queue_free()

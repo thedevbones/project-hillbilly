@@ -34,8 +34,8 @@ var inventory = {
 	Weapons.UNARMED: {"is_unlocked": true, "total_ammo": 0},
 	Weapons.PIPE: {"is_unlocked": false, "total_ammo": 0},
 	Weapons.KNIFE: {"is_unlocked": false, "total_ammo": 0},
-	Weapons.PISTOL: {"is_unlocked": false, "total_ammo": 8},
-	Weapons.SHOTGUN: {"is_unlocked": false, "total_ammo": 6},
+	Weapons.PISTOL: {"is_unlocked": false, "total_ammo": 0},
+	Weapons.SHOTGUN: {"is_unlocked": false, "total_ammo": 0},
 	Items.FLASHLIGHT: {"is_unlocked": false, "total_ammo": 0},
 }
 
@@ -216,14 +216,14 @@ func unlock_item(item_type):
 	if item_type in weapons and weapons[item_type]: is_weapon = true
 	if not inventory[item_type]["is_unlocked"]:
 		inventory[item_type]["is_unlocked"] = true 
-		if is_weapon: weapons[item_type].total_ammo = inventory[item_type]["total_ammo"]
-	elif is_weapon:
-		weapons[item_type].total_ammo += weapons[item_type].max_ammo
+		if is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
+	elif is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
 
 func add_ammo(weapon_type, amount):
 	var weapon = weapons[weapon_type]
-	if inventory[weapon_type]["is_unlocked"]: inventory[weapon_type]["total_ammo"] += amount
-	if weapon: weapon.total_ammo = inventory[weapon_type]["total_ammo"]
+	if inventory[weapon_type]["is_unlocked"]: 
+		inventory[weapon_type]["total_ammo"] += amount
+		weapon.total_ammo = inventory[weapon_type]["total_ammo"]
 
 func has_item(item_type):
 	return inventory[item_type]["is_unlocked"]
