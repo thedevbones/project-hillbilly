@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="1_okkg7"]
 [ext_resource type="Script" path="res://scenes/Tutorials/AttackControls.gd" id="1_pehbv"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="2_t57mi"]
-[ext_resource type="AudioStream" path="res://audio/Music/menu.mp3" id="3_0bl2a"]
+[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/Music/menu.mp3" id="3_0bl2a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsxwy"]
 
@@ -25,7 +25,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uhpa8"]
 
-[node name="Tutorial" type="CanvasLayer"]
+[node name="Tutorial2" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_pehbv")
 

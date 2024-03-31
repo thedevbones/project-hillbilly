@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnfcld47ch1sh"]
+[gd_scene load_steps=12 format=3 uid="uid://dnfcld47ch1sh"]
 
 [ext_resource type="Script" path="res://scenes/Tutorials/MainControls.gd" id="1_t4e0k"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="1_u1lsb"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="2_cg8xk"]
-[ext_resource type="AudioStream" path="res://audio/Music/menu.mp3" id="3_2u61i"]
+[ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_0l8br"]
+[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/Music/menu.mp3" id="3_2u61i"]
+[ext_resource type="Texture2D" uid="uid://bppmuvhfnsea5" path="res://images/keyboards.png" id="6_m4lsd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsxwy"]
 
@@ -82,43 +84,134 @@ text = "Attack Controls
 
 [node name="Walk" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 25.0
+offset_left = 95.0
 offset_top = 95.0
-offset_right = 70.0
+offset_right = 232.0
 offset_bottom = 118.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 text = "Walk - arrow keys"
 
+[node name="W" type="Label" parent="MainControls Control"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 92.0
+offset_right = 70.0
+offset_bottom = 109.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_0l8br")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="A" type="Label" parent="MainControls Control"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 101.0
+offset_right = 65.0
+offset_bottom = 118.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_0l8br")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="S" type="Label" parent="MainControls Control"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 101.0
+offset_right = 71.0
+offset_bottom = 118.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_0l8br")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D" type="Label" parent="MainControls Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 101.0
+offset_right = 77.0
+offset_bottom = 118.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_0l8br")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Run" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 107.0
-offset_right = 206.0
-offset_bottom = 130.0
+offset_left = 95.0
+offset_top = 116.0
+offset_right = 276.0
+offset_bottom = 139.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-text = "Run - shift + arrow keys"
+text = "Run (press and hold)"
+
+[node name="run (shift)" type="Label" parent="MainControls Control"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 118.0
+offset_right = 101.0
+offset_bottom = 135.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_0l8br")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "Shift"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Jump" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 118.0
-offset_right = 154.0
-offset_bottom = 141.0
+offset_left = 95.0
+offset_top = 137.0
+offset_right = 224.0
+offset_bottom = 160.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-text = "Jump - space bar"
+text = "Jump"
+
+[node name="jump (space)" type="Label" parent="MainControls Control"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 140.0
+offset_right = 101.0
+offset_bottom = 157.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_0l8br")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "Space"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Croutch" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 129.0
-offset_right = 126.0
-offset_bottom = 152.0
+offset_left = 95.0
+offset_top = 161.0
+offset_right = 196.0
+offset_bottom = 184.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 text = "Croutch - ctrl"
+
+[node name="croutch (ctrl)" type="Label" parent="MainControls Control"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 164.0
+offset_right = 101.0
+offset_bottom = 181.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_0l8br")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "Ctrl"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Main Menu" type="Button" parent="MainControls Control"]
 layout_mode = 2
@@ -145,6 +238,11 @@ text = "Main Menu
 stream = ExtResource("3_2u61i")
 autoplay = true
 bus = &"Music"
+
+[node name="Keyboards" type="Sprite2D" parent="."]
+position = Vector2(169, 356)
+scale = Vector2(0.41875, 0.525723)
+texture = ExtResource("6_m4lsd")
 
 [connection signal="pressed" from="MainControls Control/AttackControls" to="." method="_on_attack_controls_pressed"]
 [connection signal="pressed" from="MainControls Control/Main Menu" to="." method="_on_main_menu_pressed"]
