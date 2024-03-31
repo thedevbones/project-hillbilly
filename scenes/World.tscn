@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=79 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/GunCamera.gd" id="1_mc2is"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://5pnojxj8pl22" path="res://audio/SFX/enemy_death.wav" id="6_mfa6c"]
 [ext_resource type="PackedScene" uid="uid://fkhmfphsj65u" path="res://scenes/Shotgun.tscn" id="6_vnudb"]
 [ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
+[ext_resource type="PackedScene" uid="uid://bncea5c0r6hqt" path="res://scenes/PickupPistol.tscn" id="7_avcdy"]
 [ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/SFX/storm.mp3" id="7_b0214"]
 [ext_resource type="AudioStream" uid="uid://kadt1bdl7dai" path="res://audio/SFX/swing.wav" id="7_blicd"]
 [ext_resource type="AudioStream" uid="uid://x7jcquebmimb" path="res://audio/SFX/temp_reload.wav" id="7_mt7f5"]
@@ -153,7 +154,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yxvg6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qkshd"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -188,7 +189,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_yxvg6"),
+"material": SubResource("ShaderMaterial_qkshd"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -284,7 +285,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.675532, 0)
 layers = 65536
 mesh = SubResource("SphereMesh_r8lt3")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Pistol" parent="." instance=ExtResource("7_avcdy")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -22.4058, 0.443196, 0.617315)
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3823, 1, 5.67396)
 collision_layer = 3
@@ -451,9 +455,6 @@ layers = 3
 size = Vector3(500, 100, 250)
 material = SubResource("FogMaterial_6527e")
 
-[node name="pistol" parent="." instance=ExtResource("2_k4yhr")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -22.4657, 1.31377, 2.18359)
-
 [node name="TestFloor" type="CSGBox3D" parent="."]
 
 [node name="Lighting" type="Node" parent="."]
@@ -487,7 +488,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4995, 0, -57.1917)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
 transform = Transform3D(0.774634, 0.621926, 0.114675, 0.137044, -0.342103, 0.929615, 0.617382, -0.704396, -0.350236, 0, 100.632, -28.35)
-layers = 2
+layers = 6
 light_energy = 1.646
 light_volumetric_fog_energy = 0.0
 light_cull_mask = 4294966274
