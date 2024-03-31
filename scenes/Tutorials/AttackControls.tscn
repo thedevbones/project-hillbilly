@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="1_okkg7"]
 [ext_resource type="Script" path="res://scenes/Tutorials/AttackControls.gd" id="1_pehbv"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="2_t57mi"]
-[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/Music/menu.mp3" id="3_0bl2a"]
+[ext_resource type="AudioStream" path="res://audio/Music/menu.mp3" id="3_0bl2a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsxwy"]
 
@@ -90,7 +90,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bgrax")
 text = "Attack Controls
 "
 
-[node name="Walk" type="Label" parent="AttackControls Control"]
+[node name="Select Weapon" type="Label" parent="AttackControls Control"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 95.0
@@ -98,43 +98,74 @@ offset_right = 70.0
 offset_bottom = 118.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-text = "Walk"
+text = "Select Weapon:"
 
-[node name="Run" type="Label" parent="AttackControls Control"]
+[node name="Pipe" type="Label" parent="AttackControls Control"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 107.0
-offset_right = 206.0
-offset_bottom = 130.0
+offset_left = 32.0
+offset_top = 117.0
+offset_right = 213.0
+offset_bottom = 140.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-text = "Run - shift + arrow keys"
+text = "Pipe - 2 key"
 
-[node name="Jump" type="Label" parent="AttackControls Control"]
+[node name="Knife" type="Label" parent="AttackControls Control"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 118.0
-offset_right = 154.0
-offset_bottom = 141.0
+offset_left = 32.0
+offset_top = 128.0
+offset_right = 161.0
+offset_bottom = 151.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-text = "Jump - space bar"
+text = "Knife - 3 key"
 
-[node name="Croutch" type="Label" parent="AttackControls Control"]
+[node name="Pistol" type="Label" parent="AttackControls Control"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 129.0
-offset_right = 126.0
-offset_bottom = 152.0
+offset_left = 32.0
+offset_top = 139.0
+offset_right = 133.0
+offset_bottom = 162.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-text = "Croutch - ctrl"
+text = "Pistol - 4 key"
+
+[node name="Shotgun" type="Label" parent="AttackControls Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 151.0
+offset_right = 150.0
+offset_bottom = 174.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "Shotgun - 5 key"
+
+[node name="Attack_Shoot" type="Label" parent="AttackControls Control"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 162.0
+offset_right = 203.0
+offset_bottom = 185.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "Attack/Shoot - left click"
+
+[node name="Hide Weapon" type="Label" parent="AttackControls Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 106.0
+offset_right = 188.0
+offset_bottom = 129.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+text = "Hide weapon - 1 key"
 
 [node name="Main Menu" type="Button" parent="AttackControls Control"]
+layout_mode = 0
 offset_left = 25.0
-offset_top = 183.0
+offset_top = 196.0
 offset_right = 80.0
-offset_bottom = 197.0
+offset_bottom = 210.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)

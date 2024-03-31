@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/Tutorials/MainControls.gd" id="1_t4e0k"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="1_u1lsb"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="2_cg8xk"]
-[ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/Music/menu.mp3" id="3_2u61i"]
+[ext_resource type="AudioStream" path="res://audio/Music/menu.mp3" id="3_2u61i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsxwy"]
 
@@ -123,9 +123,9 @@ text = "Croutch - ctrl"
 [node name="Main Menu" type="Button" parent="MainControls Control"]
 layout_mode = 2
 offset_left = 25.0
-offset_top = 183.0
+offset_top = 196.0
 offset_right = 80.0
-offset_bottom = 197.0
+offset_bottom = 210.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
