@@ -51,8 +51,6 @@ func _ready():
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 	items[Items.FLASHLIGHT] = $MainCamera/Flashlight
-	unlock_item(Weapons.SHOTGUN)
-	unlock_item(Items.FLASHLIGHT)
 
 func _input(event):	
 	# Handle weapon inputs
