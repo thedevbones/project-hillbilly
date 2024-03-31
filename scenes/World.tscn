@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=82 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/GunCamera.gd" id="1_mc2is"]
@@ -31,7 +31,9 @@
 [ext_resource type="AudioStream" uid="uid://d3pocg7hckdyw" path="res://audio/SFX/flashlight.mp3" id="9_liogq"]
 [ext_resource type="AudioStream" uid="uid://tp8mnyni4uxp" path="res://audio/SFX/temp_noammo.wav" id="9_q2jjc"]
 [ext_resource type="Script" path="res://scripts/Flashlight.gd" id="9_vaxnc"]
+[ext_resource type="PackedScene" uid="uid://86dl5tnkd18h" path="res://scenes/PickupPipe.tscn" id="9_xrxbx"]
 [ext_resource type="AudioStream" uid="uid://be2dh6xsph0a6" path="res://audio/SFX/knife_swing.wav" id="10_2ipc6"]
+[ext_resource type="PackedScene" uid="uid://cx8sbyr8b4wlj" path="res://scenes/PickupKnife.tscn" id="10_2wh4d"]
 [ext_resource type="PackedScene" uid="uid://h7cr5wiomeqw" path="res://scenes/Tree3.tscn" id="10_wbd7w"]
 [ext_resource type="Script" path="res://scripts/Shotgun.gd" id="12_62glt"]
 [ext_resource type="PackedScene" uid="uid://ylgj4yoabfhv" path="res://scenes/Target.tscn" id="12_u5br6"]
@@ -155,7 +157,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7o8qa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52q1a"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -190,7 +192,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_7o8qa"),
+"material": SubResource("ShaderMaterial_52q1a"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -291,6 +293,12 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -22.406, 1, 0.617)
 
 [node name="PickupShotgun" parent="." instance=ExtResource("8_454jr")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -21.0713, 1, 0)
+
+[node name="PickupPipe" parent="." instance=ExtResource("9_xrxbx")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -19.193, 0.8, -0.442)
+
+[node name="PickupKnife" parent="." instance=ExtResource("10_2wh4d")]
+transform = Transform3D(-0.07, 0, 1.05697e-08, 0, 0.07, 0, -1.05697e-08, 0, -0.07, -17.358, 0.8, -0.235)
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 unique_name_in_owner = true

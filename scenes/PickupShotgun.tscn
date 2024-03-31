@@ -20,27 +20,30 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = SubResource("GDScript_v6wqm")
 
 [node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.179153, -3.15475, -0.224333, 0)
 layers = 5
 
 [node name="Cube_001" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.166179, -2.19289, -0.0219224, 0)
 layers = 5
 
 [node name="Cube_002" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.179153, -3.15475, -0.213371, 0)
 layers = 5
 
 [node name="Cube_004" parent="." index="3"]
-transform = Transform3D(0.543287, 0, 0, 0, 0.128477, 0, 0, 0, 0.183362, 2.538, 0.38, 0.004)
+transform = Transform3D(0.543287, 0, 0, 0, 0.128477, 0, 0, 0, 0.183362, 0.345111, 0.38, 0.004)
 layers = 5
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="4"]
-transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 2.62023, -0.088, 0.617182)
+transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 0, -0.088, 0.617)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." index="5"]
-transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 2.61984, -0.0876529, -0.617182)
+transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 0, -0.088, -0.617)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
