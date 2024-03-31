@@ -85,19 +85,19 @@ text = "Attack Controls
 [node name="Walk" type="Label" parent="MainControls Control"]
 layout_mode = 0
 offset_left = 95.0
-offset_top = 95.0
+offset_top = 103.0
 offset_right = 232.0
-offset_bottom = 118.0
+offset_bottom = 126.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-text = "Walk - arrow keys"
+text = "Walk"
 
 [node name="W" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 92.0
-offset_right = 70.0
-offset_bottom = 109.0
+offset_left = 57.0
+offset_top = 103.0
+offset_right = 69.0
+offset_bottom = 120.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
@@ -107,10 +107,10 @@ vertical_alignment = 1
 
 [node name="A" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 101.0
-offset_right = 65.0
-offset_bottom = 118.0
+offset_left = 52.0
+offset_top = 112.0
+offset_right = 64.0
+offset_bottom = 129.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
@@ -120,10 +120,10 @@ vertical_alignment = 1
 
 [node name="S" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 101.0
-offset_right = 71.0
-offset_bottom = 118.0
+offset_left = 58.0
+offset_top = 112.0
+offset_right = 70.0
+offset_bottom = 129.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
@@ -133,10 +133,10 @@ vertical_alignment = 1
 
 [node name="D" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 101.0
-offset_right = 77.0
-offset_bottom = 118.0
+offset_left = 64.0
+offset_top = 112.0
+offset_right = 76.0
+offset_bottom = 129.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
@@ -147,9 +147,9 @@ vertical_alignment = 1
 [node name="Run" type="Label" parent="MainControls Control"]
 layout_mode = 0
 offset_left = 95.0
-offset_top = 116.0
+offset_top = 128.0
 offset_right = 276.0
-offset_bottom = 139.0
+offset_bottom = 151.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 text = "Run (press and hold)"
@@ -157,9 +157,9 @@ text = "Run (press and hold)"
 [node name="run (shift)" type="Label" parent="MainControls Control"]
 layout_mode = 0
 offset_left = 49.0
-offset_top = 118.0
+offset_top = 131.0
 offset_right = 101.0
-offset_bottom = 135.0
+offset_bottom = 148.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
@@ -170,9 +170,9 @@ vertical_alignment = 1
 [node name="Jump" type="Label" parent="MainControls Control"]
 layout_mode = 0
 offset_left = 95.0
-offset_top = 137.0
+offset_top = 153.0
 offset_right = 224.0
-offset_bottom = 160.0
+offset_bottom = 176.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 text = "Jump"
@@ -180,9 +180,9 @@ text = "Jump"
 [node name="jump (space)" type="Label" parent="MainControls Control"]
 layout_mode = 0
 offset_left = 49.0
-offset_top = 140.0
+offset_top = 156.0
 offset_right = 101.0
-offset_bottom = 157.0
+offset_bottom = 173.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
@@ -193,19 +193,19 @@ vertical_alignment = 1
 [node name="Croutch" type="Label" parent="MainControls Control"]
 layout_mode = 0
 offset_left = 95.0
-offset_top = 161.0
+offset_top = 178.0
 offset_right = 196.0
-offset_bottom = 184.0
+offset_bottom = 201.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-text = "Croutch - ctrl"
+text = "Croutch"
 
 [node name="croutch (ctrl)" type="Label" parent="MainControls Control"]
 layout_mode = 0
 offset_left = 49.0
-offset_top = 164.0
+offset_top = 180.0
 offset_right = 101.0
-offset_bottom = 181.0
+offset_bottom = 197.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
@@ -216,9 +216,9 @@ vertical_alignment = 1
 [node name="Main Menu" type="Button" parent="MainControls Control"]
 layout_mode = 2
 offset_left = 25.0
-offset_top = 196.0
+offset_top = 205.0
 offset_right = 80.0
-offset_bottom = 210.0
+offset_bottom = 219.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
