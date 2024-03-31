@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://dn6qvrgmyyeud"]
+[gd_scene load_steps=23 format=3 uid="uid://dn6qvrgmyyeud"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_hpt1c"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="2_5b21v"]
+[ext_resource type="AudioStream" uid="uid://cgdcwnruvu2ij" path="res://audio/SFX/pickup.wav" id="3_qbkss"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gc10"]
 
@@ -16,8 +17,10 @@
 [sub_resource type="Theme" id="Theme_j5uos"]
 
 [sub_resource type="SystemFont" id="SystemFont_gonmc"]
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_7w42e"]
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idv7t"]
 
@@ -436,13 +439,18 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Back"
 
+[node name="UISound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qbkss")
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="PauseMain/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InAudioSettingBtn" to="." method="_on_in_audio_setting_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InAudioSettingBtn" to="PauseSetting" method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InVideoSettingBtn" to="." method="_on_in_video_setting_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="." method="_on_back_pause_btn_pressed"]
-[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_main_menu_btn_pressed"]
 [connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/Master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]
