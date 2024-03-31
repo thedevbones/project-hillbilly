@@ -571,16 +571,16 @@ mesh = SubResource("ArrayMesh_eedqy")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03092, -0.088, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03092, 0.60202, 0)
 layers = 7
-light_energy = 0.56
+light_energy = 0.25
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00026, -0.0876529, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00026, 0.602367, 0)
 layers = 7
-light_energy = 0.56
+light_energy = 0.25
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
