@@ -1058,7 +1058,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.2891, 0.8, -17.8822)
 [node name="PickupKnife" parent="." instance=ExtResource("10_2wh4d")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 66.491, 0.8, -15.699)
 
-[connection signal="ready" from="UI" to="." method="_on_ui_ready"]
 [connection signal="timeout" from="PrepTimer" to="." method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="BoundsTimer" to="." method="_on_bounds_timer_timeout"]
 [connection signal="visibility_changed" from="Player/MainCamera/Pistol" to="Player/MainCamera/Pistol" method="_on_visibility_changed"]

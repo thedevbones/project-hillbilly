@@ -49,7 +49,6 @@ func swing():
 
 func shoot():
 	if ammo > 0 and not is_reloading:
-		if gui: gui.update_ammo_count()
 		player.can_switch = false
 		position.z += 0.2
 		fire_sound.play()
@@ -57,6 +56,7 @@ func shoot():
 		hitscan()
 		ammo -= 1
 		player.can_switch = true
+		if gui: gui.update_ammo_count()
 
 func reload():
 	if is_reloading or ammo >= max_ammo: return
@@ -115,9 +115,4 @@ func muzzle_flash():
 	$MuzzleLight.hide()
 
 func _process(delta):
-	# Placeholder for any common processing tasks, like animation updates
 	pass
-
-func _on_ui_ready():
-	gui = $UI
-	print("ui ready" + str(gui))

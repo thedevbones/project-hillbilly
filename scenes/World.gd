@@ -9,6 +9,7 @@ var gui: Control
 
 func _ready():
 	switch_state(GameState.GAME_START)
+	gui = $UI
 
 func switch_state(new_state):
 	current_state = new_state
@@ -23,6 +24,7 @@ func switch_state(new_state):
 			pass
 
 func start_wave():
+	if gui: gui.update_wave_count(current_wave)
 	current_wave += 1
 	var enemies_to_spawn = [{"type": "weak", "count": current_wave * 5}]
 	$Spawner.spawn_wave(enemies_to_spawn)
@@ -59,7 +61,3 @@ func is_out_of_bounds(position):
 func respawn(enemy):
 	var spawn_point = $Spawner.choose_spawn_point()
 	enemy.global_transform.origin = spawn_point.global_transform.origin
-
-
-func _on_ui_ready():
-	gui = $UI
