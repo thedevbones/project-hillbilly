@@ -9,8 +9,7 @@ resource_name = "PickupKnife"
 script/source = "extends \"res://scripts/Pickup.gd\"
 
 func _ready():
-	var player = %Player
-	if player: item = %Player.Weapons.KNIFE
+	if player: item = player.Weapons.KNIFE
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgc0p"]
@@ -99,7 +98,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pbmhj")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cd6fv"]
-radius = 2.0
+radius = 1.0
 
 [node name="PickupKnife" type="Node3D"]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
@@ -121,14 +120,14 @@ mesh = SubResource("ArrayMesh_2vfxr")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533, -0.088, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124185, -0.088, 6.17293e-08)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701365, -0.0876529, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131148, -0.0876529, -8.61003e-08)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5

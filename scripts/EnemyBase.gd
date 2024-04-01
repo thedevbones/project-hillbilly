@@ -91,8 +91,8 @@ func drop_loot():
 	rng.randomize()
 	var drop_chance = rng.randf() 
 	
-	var weapon_drop_chance = 0.5
-	var ammo_drop_chance = 0.5
+	var weapon_drop_chance = 0.1
+	var ammo_drop_chance = 0.2
 	
 	var item_to_spawn = ""
 	if drop_chance < weapon_drop_chance:

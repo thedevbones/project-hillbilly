@@ -10,8 +10,7 @@ resource_name = "PickupShotgun"
 script/source = "extends \"res://scripts/Pickup.gd\"
 
 func _ready():
-	var player = %Player
-	if player: item = %Player.Weapons.SHOTGUN
+	if player: item = player.Weapons.SHOTGUN
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ti3sm"]
@@ -201,13 +200,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bg8y2")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gk6hg"]
-radius = 2.0
+radius = 1.0
 
 [node name="PickupShotgun" type="Node3D"]
 script = SubResource("GDScript_v6wqm")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.1, 0)
 
 [node name="Cube" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.179153, -3.15475, -0.224333, 0)
@@ -234,14 +233,14 @@ mesh = SubResource("ArrayMesh_m08uu")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 0, -0.088, 0.617)
+transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 0, -0.088, 0.221301)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 0, -0.088, -0.617)
+transform = Transform3D(0.000314192, 0, -1, 0, 1, 0, 1, 0, 0.000314192, 0, -0.088, -0.318264)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5

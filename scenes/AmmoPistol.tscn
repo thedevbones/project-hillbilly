@@ -7,9 +7,8 @@ resource_name = "PickupAmmoPistol"
 script/source = "extends \"res://scripts/Pickup.gd\"
 
 func _on_pickup_area_body_entered(body):
-	var player = %Player
 	if body == player: 
-		var weapon = %Player.Weapons.PISTOL
+		var weapon = player.Weapons.PISTOL
 		$PickupSound.play()
 		player.add_ammo(weapon, 8)
 		hide()
@@ -137,7 +136,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wx0gn")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0d3ju"]
-radius = 2.0
+radius = 1.0
 
 [node name="AmmoPistol" type="Node3D"]
 script = SubResource("GDScript_im3om")
@@ -162,14 +161,14 @@ mesh = SubResource("ArrayMesh_pf3n1")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533, -0.088, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134359, -0.088, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590154, -0.0876529, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.173875, -0.0876529, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5

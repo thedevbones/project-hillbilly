@@ -8,8 +8,7 @@ resource_name = "PickupPipe"
 script/source = "extends \"res://scripts/Pickup.gd\"
 
 func _ready():
-	var player = %Player
-	if player: item = %Player.Weapons.PIPE
+	if player: item = player.Weapons.PIPE
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rcpf"]
@@ -53,7 +52,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_i40kv")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4onx0"]
-radius = 2.0
+radius = 1.0
 
 [node name="PickupPipe" type="Node3D"]
 script = SubResource("GDScript_reowc")
@@ -68,14 +67,14 @@ mesh = SubResource("ArrayMesh_nmo58")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533, -0.088, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190059, -0.088, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701365, -0.0876529, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.280906, -0.0876529, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
