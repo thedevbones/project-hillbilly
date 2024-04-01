@@ -1,15 +1,12 @@
 extends Node3D
 
-# Assume enemy scenes are preloaded or dynamically loaded
 var enemy_weak = preload("res://scenes/EnemyWeak.tscn")
 # var enemy_strong = preload("res://path/to/EnemyStrong.tscn")
 
-# A list of spawn points, manually assigned or dynamically found
 var spawn_points = []
 
 func _ready():
-	# Optionally, find all spawn points automatically if they're named consistently
-	spawn_points = get_children() # Assuming all children are spawn points
+	spawn_points = get_children()
 
 func spawn_enemy(enemy_type, spawn_point):
 	var enemy_scene
@@ -23,11 +20,17 @@ func spawn_enemy(enemy_type, spawn_point):
 
 func spawn_wave(enemies_to_spawn):
 	for enemy_info in enemies_to_spawn:
-		for i in range(enemy_info.count):  # Spawn enemies according to the count
+		for i in range(enemy_info.count):
 			var spawn_point = choose_spawn_point()
 			spawn_enemy(enemy_info.type, spawn_point)
 
+func spawn_drop(scene_name, spawn_position):
+	var scene_path = "res://scenes/" + scene_name
+	var scene = load(scene_path)
+	if scene:
+		var instance = scene.instantiate()
+		instance.global_transform.origin = spawn_position
+		add_child(instance)
 
 func choose_spawn_point():
-	# Simple random selection; can be expanded with more logic
 	return spawn_points[randi() % spawn_points.size()]

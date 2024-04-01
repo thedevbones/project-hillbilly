@@ -4,6 +4,7 @@ enum States { PATROL, COMBAT, SEARCH }
 
 @onready var player = get_node("/root/World/Player")
 @onready var world = get_node("/root/World")
+@onready var spawner = get_node("/root/World/Spawner")
 
 var state = States.COMBAT
 var health = 5
@@ -48,6 +49,62 @@ func spawn():
 	#if patrol_timer:
 		#patrol_timer.wait_time = wait_time
 
+func combat_behavior(delta):
+	if player == null: return 
+
+	var player_position = player.global_transform.origin
+	var location = global_transform.origin
+	
+	speed = combat_speed
+	navigation_agent.set_target_position(player_position)
+	
+	if location.distance_to(player_position) <= attack_distance:
+		attack_player()
+	else:
+		var next_point = navigation_agent.get_next_path_position()
+		if next_point != Vector3.INF:
+			var direction = (next_point - location).normalized()
+			velocity = direction * speed
+			move_and_slide()
+			#if not player_heard() and not player_in_fov(direction):
+				#state = States.SEARCH
+				#return
+
+func attack_player():
+	pass
+
+func apply_damage(damage):
+	health -= damage
+	if hit_audio: hit_audio.play()
+	if health <= 0: die()
+
+func die():
+	if death_audio: 
+		death_audio.play()
+	else: 
+		world.add_alive_enemies(-1)
+		drop_loot()
+		queue_free()
+
+func drop_loot():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var drop_chance = rng.randf() 
+	
+	var weapon_drop_chance = 0.5
+	var ammo_drop_chance = 0.5
+	
+	var item_to_spawn = ""
+	if drop_chance < weapon_drop_chance:
+		item_to_spawn = "PickupPistol.tscn" if rng.randf() < 0.5 else "PickupShotgun.tscn"
+	elif drop_chance < weapon_drop_chance + ammo_drop_chance:
+		item_to_spawn = "AmmoPistol.tscn" if rng.randf() < 0.5 else "AmmoShotgun.tscn"
+	
+	if item_to_spawn != "":
+		spawner.spawn_drop(item_to_spawn, global_transform.origin)
+
+
+
 #func patrol_behavior(delta):
 	#if patrol_points.size() <= 0 or is_waiting: return
 	#
@@ -70,30 +127,9 @@ func spawn():
 			#state = States.COMBAT
 			#return
 
-func combat_behavior(delta):
-	if player == null: return 
-
-	var player_position = player.global_transform.origin
-	var location = global_transform.origin
-	
-	speed = combat_speed
-	navigation_agent.set_target_position(player_position)
-	
-	if location.distance_to(player_position) <= attack_distance:
-		attack_player()
-	else:
-		var next_point = navigation_agent.get_next_path_position()
-		if next_point != Vector3.INF:
-			var direction = (next_point - location).normalized()
-			velocity = direction * speed
-			move_and_slide()
-			#if not player_heard() and not player_in_fov(direction):
-				#state = States.SEARCH
-				#return
-
-func search_behavior(delta):
-	state = States.PATROL
-	return
+#func search_behavior(delta):
+	#state = States.PATROL
+	#return
 
 #func player_heard():
 	#var detection_radius = 10.0
@@ -126,21 +162,6 @@ func search_behavior(delta):
 	#ray_query.to = %Player.global_transform.origin
 	#var result = space_state.intersect_ray(ray_query)
 	#return result and result.collider != %Player
-
-func attack_player():
-	pass
-
-func apply_damage(damage):
-	health -= damage
-	if hit_audio: hit_audio.play()
-	if health <= 0: die()
-
-func die():
-	if death_audio: 
-		death_audio.play()
-	else: 
-		world.add_alive_enemies(-1)
-		queue_free()
 
 #func generate_patrol_points():
 	#var rng = RandomNumberGenerator.new()

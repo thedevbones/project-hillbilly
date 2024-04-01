@@ -8,6 +8,7 @@ func _ready():
 
 func _on_death_finished():
 	world.add_alive_enemies(-1)
+	drop_loot()
 	queue_free()
 
 #func _on_patrol_timer_timeout():

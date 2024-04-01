@@ -140,21 +140,23 @@ shadow_mesh = SubResource("ArrayMesh_wx0gn")
 radius = 2.0
 
 [node name="AmmoPistol" type="Node3D"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = SubResource("GDScript_im3om")
 
-[node name="Mag" type="MeshInstance3D" parent="."]
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Mag" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.084, 0, 0, 0, 0.4, 0, 0, 0, 0.199, -0.000380874, -0.148921, -0.0023644)
 mesh = SubResource("ArrayMesh_0bh4o")
 skeleton = NodePath("")
 metadata/_edit_group_ = true
 
-[node name="Bullet1" type="MeshInstance3D" parent="Mag"]
+[node name="Bullet1" type="MeshInstance3D" parent="Node3D/Mag"]
 transform = Transform3D(-0.632089, -0.0008172, 5.35743e-07, -3.85672e-12, -0.00032559, -0.136035, 0.000175402, -0.521949, 0.00034216, -0.0289189, 0.843885, -1.09352)
 mesh = SubResource("ArrayMesh_hv5hg")
 skeleton = NodePath("")
 
-[node name="Bullet2" type="MeshInstance3D" parent="Mag"]
+[node name="Bullet2" type="MeshInstance3D" parent="Node3D/Mag"]
 transform = Transform3D(-0.632089, -0.0008172, 5.35743e-07, -3.85672e-12, -0.00032559, -0.136035, 0.000175402, -0.521949, 0.00034216, -0.0289189, 1.14238, -1.21216)
 mesh = SubResource("ArrayMesh_pf3n1")
 skeleton = NodePath("")

@@ -142,7 +142,6 @@ shadow_mesh = SubResource("ArrayMesh_c43bd")
 radius = 2.0
 
 [node name="PickupFlashlight" type="Node3D"]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 script = SubResource("GDScript_svi66")
 
 [node name="Light" type="OmniLight3D" parent="."]
@@ -160,20 +159,23 @@ spot_range = 16.224
 spot_angle = 25.0
 spot_angle_attenuation = 0.659754
 
-[node name="Cylinder" type="MeshInstance3D" parent="."]
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Cylinder" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.106351, 0, 0, 0, 0.275038, 0.0176775, 0, -0.0463612, 0.104872, 0, 0, 0)
 layers = 5
 mesh = SubResource("ArrayMesh_ge1aa")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_0cy0h")
 
-[node name="Sphere" type="MeshInstance3D" parent="."]
+[node name="Sphere" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.0691431, 0, 0, 0, 0.0681813, 0.0176775, 0, -0.0114928, 0.104872, 0, 0, 0)
 layers = 5
 mesh = SubResource("ArrayMesh_4vnkk")
 skeleton = NodePath("")
 
-[node name="Plane" type="MeshInstance3D" parent="."]
+[node name="Plane" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1.61017e-07, -6.22739e-05, 0.0675345, 0.0665503, 0.0180978, 6.57313e-06, -0.0114926, 0.104799, 3.89951e-05, 0, 0, 0)
 layers = 5
 mesh = SubResource("ArrayMesh_7p01y")

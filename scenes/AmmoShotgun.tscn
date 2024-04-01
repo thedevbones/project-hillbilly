@@ -522,51 +522,54 @@ shadow_mesh = SubResource("ArrayMesh_fee04")
 radius = 2.0
 
 [node name="AmmoShotgun" type="Node3D"]
-transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, 0, -0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 script = SubResource("GDScript_hm30m")
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, 0, 0, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.622326, 0, 0, 0, 0.222837, 0, 0, 0, 1.18643, 0, 0, 0)
 mesh = SubResource("ArrayMesh_y0hy2")
 skeleton = NodePath("")
 
-[node name="Cylinder_001" type="MeshInstance3D" parent="."]
+[node name="Cylinder_001" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(-6.99382e-09, 0.449, -6.99382e-09, 0, -1.96264e-08, -0.16, -0.16, -1.96264e-08, 3.0571e-16, 0, 0, -0.822993)
 mesh = SubResource("ArrayMesh_gb57q")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_skksr")
 
-[node name="Cylinder_002" type="MeshInstance3D" parent="."]
+[node name="Cylinder_002" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(-6.99382e-09, 0.449, -6.99382e-09, 0, -1.96264e-08, -0.16, -0.16, -1.96264e-08, 3.0571e-16, 0, 0, -0.491282)
 mesh = SubResource("ArrayMesh_esp3h")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_skksr")
 
-[node name="Cylinder_003" type="MeshInstance3D" parent="."]
+[node name="Cylinder_003" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(-6.99382e-09, 0.449, -6.99382e-09, 0, -1.96264e-08, -0.16, -0.16, -1.96264e-08, 3.0571e-16, 0, 0, -0.166749)
 mesh = SubResource("ArrayMesh_x5eqw")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_skksr")
 
-[node name="Cylinder_004" type="MeshInstance3D" parent="."]
+[node name="Cylinder_004" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(-6.99382e-09, 0.449, -6.99382e-09, 0, -1.96264e-08, -0.16, -0.16, -1.96264e-08, 3.0571e-16, 0, 0, 0.165373)
 mesh = SubResource("ArrayMesh_iioj4")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_skksr")
 
-[node name="Cylinder_005" type="MeshInstance3D" parent="."]
+[node name="Cylinder_005" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(-6.99382e-09, 0.449, -6.99382e-09, 0, -1.96264e-08, -0.16, -0.16, -1.96264e-08, 3.0571e-16, 0, 0, 0.491878)
 mesh = SubResource("ArrayMesh_oio4c")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_skksr")
 
-[node name="Cylinder_006" type="MeshInstance3D" parent="."]
+[node name="Cylinder_006" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(-6.99382e-09, 0.449, -6.99382e-09, 0, -1.96264e-08, -0.16, -0.16, -1.96264e-08, 3.0571e-16, 0, 0, 0.822733)
 mesh = SubResource("ArrayMesh_mqgic")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_skksr")
 
-[node name="Plane" type="MeshInstance3D" parent="."]
+[node name="Plane" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.505516, 0, 0, 0, 1, 0, 0, 0, 1.09669, 0, 0.198811, 0)
 mesh = SubResource("ArrayMesh_eedqy")
 skeleton = NodePath("")
