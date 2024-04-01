@@ -88,7 +88,6 @@ process_mode = 3
 script = ExtResource("1_qtm8j")
 
 [node name="Main Menu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -512,6 +511,7 @@ text = "Main Menu
 "
 
 [node name="Tutorial_Attack" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

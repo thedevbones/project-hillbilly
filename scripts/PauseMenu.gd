@@ -9,6 +9,8 @@ var is_paused = false
 @onready var InSetting = $PauseSetting
 @onready var InAudio = $PauseAudio
 @onready var InVideo = $PausedVideo
+@onready var Tutorial_Move = $Tutorial_Movement
+@onready var Turorial_Atk = $Tutorial_Attack
 @onready var MASTER_BUS = AudioServer.get_bus_index("Master")
 @onready var MUSIC_BUS = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS = AudioServer.get_bus_index("SFX")
@@ -55,42 +57,42 @@ func mainMenu():
 	get_tree().change_scene_to_file("res://scenes/MenuMain.tscn")
 	
 func _on_settings_btn_pressed():
-	play_ui_audio(1.0)
+	play_ui_audio(0.2)
 	InMain.visible = false
 	InSetting.visible = true
 	InAudio.visible = false
 	InVideo.visible = false
 
 func _on_in_audio_setting_btn_pressed():
-	play_ui_audio(1.2)
+	play_ui_audio(0.2)
 	InMain.visible = false
 	InSetting.visible = false
 	InAudio.visible = true
 	InVideo.visible = false
 
 func _on_in_video_setting_btn_pressed():
-	play_ui_audio(1.2)
+	play_ui_audio(0.2)
 	InMain.visible = false
 	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = true
 
 func _on_back_pause_btn_pressed():
-	play_ui_audio(0.8)
+	play_ui_audio(0.2)
 	InMain.visible = true
 	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = false
 
 func _on_back_setting_btn_pressed():
-	play_ui_audio(0.9)
+	play_ui_audio(0.2)
 	InMain.visible = false
 	InSetting.visible = true
 	InAudio.visible = false
 	InVideo.visible = false
 
 func _on_back_setting_btn_2_pressed():
-	play_ui_audio(0.9)
+	play_ui_audio(0.2)
 	InMain.visible = false
 	InSetting.visible = true
 	InAudio.visible = false
