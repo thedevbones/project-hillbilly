@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0samnu66ka6d"
-path.s3tc="res://.godot/imported/Material.001 Metallic.009.png-c7c661fa445b9bd85c03711a0b16db20.s3tc.ctex"
+uid="uid://dqy6vvpxpk2mb"
+path.s3tc="res://.godot/imported/bad-guy1_Untitled_2.png-eae9528564bb9bceccccd3ace6bf7f22.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/textures/Material.001 Metallic.009.png"
-dest_files=["res://.godot/imported/Material.001 Metallic.009.png-c7c661fa445b9bd85c03711a0b16db20.s3tc.ctex"]
+source_file="res://assets/enemies/bad-guy1_Untitled_2.png"
+dest_files=["res://.godot/imported/bad-guy1_Untitled_2.png-eae9528564bb9bceccccd3ace6bf7f22.s3tc.ctex"]
 
 [params]
 
