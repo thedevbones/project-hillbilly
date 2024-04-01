@@ -3,6 +3,7 @@ extends Control
 @onready var crosshair = $Crosshair
 @onready var ammo_count = $AmmoCount
 @onready var wave_count = $WaveCount
+@onready var wave_bar = $WaveBar
 @onready var player = get_node_or_null("/root/World/Player")
 
 var fade_speed = 10.0
@@ -12,6 +13,12 @@ func _ready():
 	var clear = Color(modulate.r, modulate.g, modulate.b, 0)
 	crosshair.modulate = clear
 	wave_count.hide()
+	wave_bar.max_value = $"../PrepTimer".get_wait_time()
+
+func _process(delta):
+	if wave_bar.value < wave_bar.max_value: wave_bar.show()
+	else: wave_bar.hide()
+	wave_bar.value = wave_bar.max_value - $"../PrepTimer".get_time_left()
 
 func update_crosshair():
 	if not player: return

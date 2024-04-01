@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=82 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_3lw2b"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cf23aespwj1yw" path="res://scenes/Pistol.tscn" id="2_k4yhr"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
+[ext_resource type="Theme" uid="uid://bxh81sfd23cmy" path="res://fonts/gui.tres" id="3_civgt"]
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://scenes/PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
@@ -54,13 +55,14 @@
 [ext_resource type="PackedScene" uid="uid://be0rje6u0ibik" path="res://scenes/Tree1.tscn" id="25_qwaa1"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 
-[sub_resource type="SystemFont" id="SystemFont_ifdjw"]
-font_names = PackedStringArray("Serif")
-font_italic = true
-
 [sub_resource type="SystemFont" id="SystemFont_y7dk2"]
 font_names = PackedStringArray("Serif")
 font_italic = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_stlu8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvmj1"]
+bg_color = Color(1, 0, 0, 0.498039)
 
 [sub_resource type="Environment" id="Environment_t0ccy"]
 
@@ -153,7 +155,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4qmvp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgonn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -188,7 +190,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_4qmvp"),
+"material": SubResource("ShaderMaterial_xgonn"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -225,8 +227,8 @@ offset_right = 27.0
 offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_civgt")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_ifdjw")
 theme_override_font_sizes/font_size = 20
 text = "Wave 50"
 horizontal_alignment = 1
@@ -270,9 +272,26 @@ text = "9/9"
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="WaveBar" type="ProgressBar" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.0
+offset_right = 213.0
+offset_bottom = 8.0
+grow_horizontal = 2
+theme = ExtResource("3_civgt")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_stlu8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bvmj1")
+max_value = 15.0
+show_percentage = false
+
 [node name="GunViewport" type="SubViewportContainer" parent="."]
 offset_right = 426.0
 offset_bottom = 240.0
+metadata/_edit_lock_ = true
 
 [node name="SubViewport" type="SubViewport" parent="GunViewport"]
 transparent_bg = true
@@ -342,7 +361,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7485, 4.975, 0)
 shape = SubResource("BoxShape3D_fhrpv")
 
 [node name="PrepTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 7.5
 one_shot = true
 
 [node name="BoundsTimer" type="Timer" parent="."]
