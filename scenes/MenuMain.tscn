@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=42 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
@@ -55,6 +55,26 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rlrj"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qngds"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ic7vk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0ggr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qmw5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tykn2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cb476"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cecaf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmybr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6db1p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64aqf"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkl7x"]
 content_margin_left = 10.0
 bg_color = Color(1, 1, 1, 1)
@@ -68,6 +88,7 @@ process_mode = 3
 script = ExtResource("1_qtm8j")
 
 [node name="Main Menu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -275,8 +296,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_w58wm")
 text = "Main Menu
 "
 
-[node name="Tutorial" type="Control" parent="."]
-visible = false
+[node name="Tutorial_Movement" type="Control" parent="."]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -285,7 +305,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameTitle" type="Label" parent="Tutorial"]
+[node name="GameTitle" type="Label" parent="Tutorial_Movement"]
 layout_mode = 2
 offset_left = 41.0
 offset_top = 5.0
@@ -300,36 +320,26 @@ theme_override_fonts/font = ExtResource("3_wugvk")
 theme_override_font_sizes/font_size = 27
 text = "Project HillBilly"
 
-[node name="MainControls" type="Button" parent="Tutorial"]
-layout_mode = 2
-offset_left = 29.0
-offset_top = 59.0
-offset_right = 131.0
+[node name="Label" type="Label" parent="Tutorial_Movement"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 58.0
+offset_right = 139.0
 offset_bottom = 81.0
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.964706, 0.972549, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
-theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
-theme_override_font_sizes/font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxEmpty_t5yyn")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_5j66n")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_4b33t")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_yqgc3")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5rlrj")
-text = "Main Controls
-"
+theme_override_font_sizes/font_size = 18
+text = "Main Controls"
 
-[node name="AttackControls" type="Button" parent="Tutorial"]
+[node name="AttackControls" type="Button" parent="Tutorial_Movement"]
 layout_mode = 2
-offset_left = 141.0
+offset_left = 164.0
 offset_top = 59.0
-offset_right = 253.0
-offset_bottom = 81.0
+offset_right = 298.0
+offset_bottom = 85.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_t5yyn")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5j66n")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4b33t")
@@ -338,7 +348,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_5rlrj")
 text = "Attack Controls
 "
 
-[node name="Walk" type="Label" parent="Tutorial"]
+[node name="Walk" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 95.0
 offset_top = 107.0
@@ -349,7 +359,7 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Walk"
 
-[node name="W" type="Label" parent="Tutorial"]
+[node name="W" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 53.0
 offset_top = 91.0
@@ -363,7 +373,7 @@ text = "W"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="A" type="Label" parent="Tutorial"]
+[node name="A" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 47.0
 offset_top = 110.0
@@ -377,7 +387,7 @@ text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="S" type="Label" parent="Tutorial"]
+[node name="S" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 110.0
@@ -391,7 +401,7 @@ text = "S"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="D" type="Label" parent="Tutorial"]
+[node name="D" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 110.0
@@ -405,7 +415,7 @@ text = "D"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Run" type="Label" parent="Tutorial"]
+[node name="Run" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 95.0
 offset_top = 133.0
@@ -416,7 +426,7 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Run (press and hold)"
 
-[node name="run (shift)" type="Label" parent="Tutorial"]
+[node name="run (shift)" type="Label" parent="Tutorial_Movement"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 38.0
@@ -431,7 +441,7 @@ text = "Shift"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Jump" type="Label" parent="Tutorial"]
+[node name="Jump" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 95.0
 offset_top = 157.0
@@ -442,7 +452,7 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Jump"
 
-[node name="jump (space)" type="Label" parent="Tutorial"]
+[node name="jump (space)" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 159.0
@@ -456,7 +466,7 @@ text = "Space"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Croutch" type="Label" parent="Tutorial"]
+[node name="Croutch" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 94.0
 offset_top = 185.0
@@ -467,7 +477,7 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Croutch"
 
-[node name="croutch (ctrl)" type="Label" parent="Tutorial"]
+[node name="croutch (ctrl)" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 184.0
@@ -481,7 +491,7 @@ text = "Ctrl"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Main Menu" type="Button" parent="Tutorial"]
+[node name="Main Menu" type="Button" parent="Tutorial_Movement"]
 layout_mode = 2
 offset_left = 20.0
 offset_top = 216.0
@@ -497,6 +507,234 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_5j66n")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4b33t")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yqgc3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5rlrj")
+text = "Main Menu
+"
+
+[node name="Tutorial_Attack" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameTitle" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 5.0
+offset_right = 227.0
+offset_bottom = 52.0
+pivot_offset = Vector2(413.1, 52.8)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("3_wugvk")
+theme_override_font_sizes/font_size = 27
+text = "Project HillBilly"
+
+[node name="MainControls" type="Button" parent="Tutorial_Attack"]
+layout_mode = 2
+offset_left = 29.0
+offset_top = 59.0
+offset_right = 131.0
+offset_bottom = 81.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qngds")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ic7vk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n0ggr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3qmw5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tykn2")
+text = "Main Controls
+"
+
+[node name="AttackControls" type="Button" parent="Tutorial_Attack"]
+layout_mode = 2
+offset_left = 141.0
+offset_top = 59.0
+offset_right = 253.0
+offset_bottom = 81.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qngds")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ic7vk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n0ggr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3qmw5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tykn2")
+text = "Attack Controls
+"
+
+[node name="Select Weapon" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 85.0
+offset_right = 509.0
+offset_bottom = 125.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Select Weapon with number keys:"
+
+[node name="Hide Weapon" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 108.0
+offset_right = 235.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Hide Weapon"
+
+[node name="1" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 108.0
+offset_right = 47.0
+offset_bottom = 125.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_nhp40")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pipe" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 130.0
+offset_right = 228.0
+offset_bottom = 170.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Pipe"
+
+[node name="2" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 131.0
+offset_right = 52.0
+offset_bottom = 171.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_nhp40")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Knife" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 152.0
+offset_right = 176.0
+offset_bottom = 192.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Knife"
+
+[node name="3" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 153.0
+offset_right = 52.0
+offset_bottom = 193.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_nhp40")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pistol" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 108.0
+offset_right = 269.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Pistol"
+
+[node name="4" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 108.0
+offset_right = 173.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_nhp40")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shotgun" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 130.0
+offset_right = 286.0
+offset_bottom = 170.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Shotgun"
+
+[node name="5" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 131.0
+offset_right = 173.0
+offset_bottom = 171.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_nhp40")
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack_Shoot" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 174.0
+offset_right = 369.0
+offset_bottom = 214.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Attack/Shoot - Left Click"
+
+[node name="Main Menu" type="Button" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 216.0
+offset_right = 102.0
+offset_bottom = 238.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cb476")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cecaf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gmybr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6db1p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_64aqf")
 text = "Main Menu
 "
 

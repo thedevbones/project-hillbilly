@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var settings = $SettingsControl
 @onready var audio = $Audio
 @onready var video = $Video
+@onready var tutorialMove = $Tutorial_Movement
+@onready var turotialAtk = $Tutorial_Attack
 @onready var MASTER_BUS = AudioServer.get_bus_index("Master")
 @onready var MUSIC_BUS = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS = AudioServer.get_bus_index("SFX")
