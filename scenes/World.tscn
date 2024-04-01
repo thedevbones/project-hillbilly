@@ -1,7 +1,7 @@
 [gd_scene load_steps=82 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
-[ext_resource type="Script" path="res://scenes/World.gd" id="1_3lw2b"]
+[ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
 [ext_resource type="Script" path="res://scripts/GunCamera.gd" id="1_mc2is"]
 [ext_resource type="Script" path="res://scripts/AmmoCount.gd" id="1_o3nit"]
 [ext_resource type="Script" path="res://scripts/Crosshair.gd" id="1_yn51g"]
