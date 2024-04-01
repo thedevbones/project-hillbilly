@@ -297,6 +297,7 @@ text = "Main Menu
 "
 
 [node name="Tutorial_Movement" type="Control" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -511,7 +512,6 @@ text = "Main Menu
 "
 
 [node name="Tutorial_Attack" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -536,15 +536,15 @@ text = "Project HillBilly"
 
 [node name="MainControls" type="Button" parent="Tutorial_Attack"]
 layout_mode = 2
-offset_left = 29.0
-offset_top = 59.0
-offset_right = 131.0
-offset_bottom = 81.0
+offset_left = 30.0
+offset_top = 58.0
+offset_right = 152.0
+offset_bottom = 84.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qngds")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ic7vk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_n0ggr")
@@ -553,24 +553,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_tykn2")
 text = "Main Controls
 "
 
-[node name="AttackControls" type="Button" parent="Tutorial_Attack"]
-layout_mode = 2
-offset_left = 141.0
+[node name="Attack_Cont" type="Label" parent="Tutorial_Attack"]
+layout_mode = 0
+offset_left = 165.0
 offset_top = 59.0
-offset_right = 253.0
-offset_bottom = 81.0
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.964706, 0.972549, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
-theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
-theme_override_font_sizes/font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxEmpty_qngds")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ic7vk")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_n0ggr")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3qmw5")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tykn2")
-text = "Attack Controls
-"
+offset_right = 299.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 18
+text = "Attack Controls"
 
 [node name="Select Weapon" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
@@ -918,6 +908,8 @@ bus = &"SFX"
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="Tutorial_Movement/AttackControls" to="." method="_on_attack_controls_pressed"]
+[connection signal="pressed" from="Tutorial_Movement/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/Master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]
