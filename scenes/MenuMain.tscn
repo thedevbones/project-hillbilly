@@ -427,7 +427,7 @@ bus = &"Music"
 
 [node name="UISound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0lb08")
-bus = &"Music"
+bus = &"SFX"
 
 [node name="main" parent="." instance=ExtResource("4_wtf1n")]
 
