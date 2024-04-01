@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=79 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_3lw2b"]
@@ -54,6 +54,9 @@
 [ext_resource type="Texture2D" uid="uid://dhgqjcpdui70s" path="res://textures/dirt.jpg" id="25_0gkn8"]
 [ext_resource type="PackedScene" uid="uid://be0rje6u0ibik" path="res://scenes/Tree1.tscn" id="25_qwaa1"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fhrpv"]
+size = Vector3(140, 10, 103)
 
 [sub_resource type="Environment" id="Environment_t0ccy"]
 
@@ -239,8 +242,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1047, 0.875, 11.0156)
 [node name="SpawnPoint14" type="Marker3D" parent="Spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.1516, 0.875, -8.99226)
 
+[node name="GameBounds" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7485, 4.975, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameBounds"]
+shape = SubResource("BoxShape3D_fhrpv")
+
 [node name="PrepTimer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
+
+[node name="BoundsTimer" type="Timer" parent="."]
+wait_time = 15.0
 one_shot = true
 
 [node name="Crosshair" type="Label" parent="."]
@@ -1005,6 +1018,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.2891, 0.8, -17.8822)
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 66.491, 0.8, -15.699)
 
 [connection signal="timeout" from="PrepTimer" to="." method="_on_prep_timer_timeout"]
+[connection signal="timeout" from="BoundsTimer" to="." method="_on_bounds_timer_timeout"]
 [connection signal="visibility_changed" from="Player/MainCamera/Pistol" to="Player/MainCamera/Pistol" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Player/MainCamera/Shotgun" to="Player/MainCamera/Shotgun" method="_on_visibility_changed"]
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]

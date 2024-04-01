@@ -45,3 +45,16 @@ func add_alive_enemies(amount):
 
 func get_alive_enemies():
 	return enemies_alive
+
+func _on_bounds_timer_timeout():
+	for child in $Spawner.get_children():
+		if not child is Marker3D and is_out_of_bounds(child.global_transform.origin):
+			respawn(child)
+
+func is_out_of_bounds(position):
+	print("Enemy is out of bounds! At" + str(position))
+	return not $GameBounds.get_overlapping_bodies().has(position)
+
+func respawn(enemy):
+	var spawn_point = $Spawner.choose_spawn_point()
+	enemy.global_transform.origin = spawn_point.global_transform.origin
