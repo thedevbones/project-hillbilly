@@ -23,6 +23,7 @@ var bob_up = true
 @onready var raycast = $"../HitScan"
 @onready var bob_max = position.y + 0.02
 @onready var bob_min = position.y - 0.02
+var gui: Control
 var fire_sound: AudioStreamPlayer3D
 var reload_sound: AudioStreamPlayer3D
 var target_pos: Vector3
@@ -34,7 +35,7 @@ var original_rot: Vector3
 var weapon_type
 
 func _ready():
-	pass # Placeholder for potential setup needed by all weapons
+	pass
 
 func swing():
 	if is_swinging: return 
@@ -48,6 +49,7 @@ func swing():
 
 func shoot():
 	if ammo > 0 and not is_reloading:
+		if gui: gui.update_ammo_count()
 		player.can_switch = false
 		position.z += 0.2
 		fire_sound.play()
@@ -80,6 +82,7 @@ func reload():
 	is_reloading = false
 	player.can_switch = true
 	emit_signal("reloaded")
+	if gui: gui.update_ammo_count()
 	if was_aiming and not is_aiming: aim()
 
 func aim():
@@ -114,3 +117,7 @@ func muzzle_flash():
 func _process(delta):
 	# Placeholder for any common processing tasks, like animation updates
 	pass
+
+func _on_ui_ready():
+	gui = $UI
+	print("ui ready" + str(gui))

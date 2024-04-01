@@ -33,6 +33,7 @@ func _ready():
 	pump_original_pos = $Cube_004.position.x
 	pump_target_pos = $Cube_004.position.x - 0.4
 	camera = $".."
+	gui = $"../../../UI"
 
 func shoot():
 	if is_reloading and ammo > 0:

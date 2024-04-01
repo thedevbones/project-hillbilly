@@ -13,6 +13,7 @@ const SPRINT_MULTIPLIER = 1.5
 const CROUCH_MULTIPLIER = 0.75
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gui: Control
 var mouse_sensitivity = 0.2
 var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
@@ -21,6 +22,7 @@ var is_crouching = false
 var is_moving = false
 var can_sprint = true
 var falling = false
+
 
 # Collision variables
 var push_force = 8.0
@@ -51,6 +53,8 @@ func _ready():
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 	items[Items.FLASHLIGHT] = $MainCamera/Flashlight
+	gui = $"../UI"
+	gui.update_ammo_count()
 
 func _input(event):	
 	# Handle weapon inputs
@@ -186,6 +190,7 @@ func update_weapon_visibility():
 		var weapon = weapons[i]
 		if weapon: weapon.visible = i == current_weapon_index
 	update_hitscan()
+	gui.update_ammo_count()
 
 func update_hitscan():
 	var weapon = get_current_weapon()

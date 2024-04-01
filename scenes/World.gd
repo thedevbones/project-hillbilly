@@ -5,6 +5,7 @@ const TOTAL_WAVES = 10
 var current_state = GameState.GAME_START
 var current_wave = 0
 var enemies_alive = 0
+var gui: Control
 
 func _ready():
 	switch_state(GameState.GAME_START)
@@ -58,3 +59,7 @@ func is_out_of_bounds(position):
 func respawn(enemy):
 	var spawn_point = $Spawner.choose_spawn_point()
 	enemy.global_transform.origin = spawn_point.global_transform.origin
+
+
+func _on_ui_ready():
+	gui = $UI
