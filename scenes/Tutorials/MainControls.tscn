@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnfcld47ch1sh"]
+[gd_scene load_steps=11 format=3 uid="uid://dnfcld47ch1sh"]
 
 [ext_resource type="Script" path="res://scenes/Tutorials/MainControls.gd" id="1_t4e0k"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="1_u1lsb"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="2_cg8xk"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_0l8br"]
 [ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/Music/menu.mp3" id="3_2u61i"]
-[ext_resource type="Texture2D" uid="uid://bppmuvhfnsea5" path="res://images/keyboards.png" id="6_m4lsd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsxwy"]
 
@@ -251,11 +250,6 @@ text = "Main Menu
 stream = ExtResource("3_2u61i")
 autoplay = true
 bus = &"Music"
-
-[node name="Keyboards" type="Sprite2D" parent="."]
-position = Vector2(169, 356)
-scale = Vector2(0.41875, 0.525723)
-texture = ExtResource("6_m4lsd")
 
 [connection signal="pressed" from="MainControls Control/AttackControls" to="." method="_on_attack_controls_pressed"]
 [connection signal="pressed" from="MainControls Control/Main Menu" to="." method="_on_main_menu_pressed"]

@@ -39,6 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameTitle" type="Label" parent="AttackControls Control"]
+layout_mode = 0
 offset_left = 41.0
 offset_top = 5.0
 offset_right = 227.0
@@ -113,6 +114,7 @@ theme_override_font_sizes/font_size = 29
 text = "Hide Weapon"
 
 [node name="1" type="Label" parent="AttackControls Control"]
+layout_mode = 0
 offset_left = 35.0
 offset_top = 108.0
 offset_right = 47.0
@@ -137,6 +139,7 @@ theme_override_font_sizes/font_size = 29
 text = "Pipe"
 
 [node name="2" type="Label" parent="AttackControls Control"]
+layout_mode = 0
 offset_left = 35.0
 offset_top = 131.0
 offset_right = 52.0
@@ -161,6 +164,7 @@ theme_override_font_sizes/font_size = 29
 text = "Knife"
 
 [node name="3" type="Label" parent="AttackControls Control"]
+layout_mode = 0
 offset_left = 35.0
 offset_top = 153.0
 offset_right = 52.0
@@ -185,6 +189,7 @@ theme_override_font_sizes/font_size = 29
 text = "Pistol"
 
 [node name="4" type="Label" parent="AttackControls Control"]
+layout_mode = 0
 offset_left = 156.0
 offset_top = 108.0
 offset_right = 173.0
@@ -209,6 +214,7 @@ theme_override_font_sizes/font_size = 29
 text = "Shotgun"
 
 [node name="5" type="Label" parent="AttackControls Control"]
+layout_mode = 0
 offset_left = 156.0
 offset_top = 131.0
 offset_right = 173.0
