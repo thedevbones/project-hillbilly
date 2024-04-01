@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="2_cg8xk"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_0l8br"]
 [ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/Music/menu.mp3" id="3_2u61i"]
-[ext_resource type="Texture2D" uid="uid://bppmuvhfnsea5" path="res://images/keyboards.png" id="6_m4lsd"]
+[ext_resource type="Texture2D" uid="uid://bppmuvhfnsea5" path="res://images/png_controls_tutorial/keyboards.png" id="6_m4lsd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsxwy"]
 

@@ -104,7 +104,7 @@ layout_mode = 2
 [node name="StartBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_font_sizes/font_size = 50
@@ -442,8 +442,8 @@ bus = &"Music"
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="SettingsControl" method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/Master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]

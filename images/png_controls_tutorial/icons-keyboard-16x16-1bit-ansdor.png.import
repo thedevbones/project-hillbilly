@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ulwo1ca847ot"
-path="res://.godot/imported/5-Key.png-8c678a4d65428bd070cb1bf9681041e4.ctex"
+uid="uid://dodm11ojunui5"
+path="res://.godot/imported/icons-keyboard-16x16-1bit-ansdor.png-c8a5f572b5be8b7d67ac2dcc5901c2ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/png_controls/5-Key.png"
-dest_files=["res://.godot/imported/5-Key.png-8c678a4d65428bd070cb1bf9681041e4.ctex"]
+source_file="res://images/png_controls_tutorial/icons-keyboard-16x16-1bit-ansdor.png"
+dest_files=["res://.godot/imported/icons-keyboard-16x16-1bit-ansdor.png-c8a5f572b5be8b7d67ac2dcc5901c2ee.ctex"]
 
 [params]
 
