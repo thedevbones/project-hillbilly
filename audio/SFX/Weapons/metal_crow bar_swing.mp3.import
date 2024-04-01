@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bupo5b24174mf"
+path="res://.godot/imported/metal_crow bar_swing.mp3-e6506e35b9ddd2fc4c130372ba6fad55.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Weapons/metal_crow bar_swing.mp3"
+dest_files=["res://.godot/imported/metal_crow bar_swing.mp3-e6506e35b9ddd2fc4c130372ba6fad55.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
