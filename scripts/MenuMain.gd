@@ -11,10 +11,11 @@ extends CanvasLayer
 @onready var SFX_BUS = AudioServer.get_bus_index("SFX")
 
 func _on_start_btn_pressed():
+	play_ui_audio(0.2)
 	get_tree().change_scene_to_file("res://scenes/World.tscn")
 
 func _on_quit_btn_pressed():
-	play_ui_audio(1.2)
+	play_ui_audio(0.2)
 	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()
 
@@ -49,23 +50,22 @@ func _on_tutorial_btn_pressed():
 	tutorialMove.visible = true
 	turotialAtk.visible = false
 	
-	
 func _on_audio_setting_btn_pressed():
-	play_ui_audio(1.2)
+	play_ui_audio(0.2)
 	main.visible= false
 	audio.visible = true
 	settings.visible = false
 	video.visible = false
 	
 func _on_video_setting_btn_pressed():
-	play_ui_audio(1.2)
+	play_ui_audio(0.2)
 	main.visible= false
 	video.visible = true
 	settings.visible = false
 	audio.visible = false
 	
 func _on_main_menu_btn_pressed():
-	play_ui_audio(0.8)
+	play_ui_audio(0.2)
 	main.visible= true
 	video.visible = false
 	settings.visible = false
@@ -103,6 +103,7 @@ func play_ui_audio(pitch):
 	$UISound.play()
 
 func _on_main_menu_pressed():
+	play_ui_audio(0.2)
 	main.visible = true
 	settings.visible = false
 	audio.visible = false
@@ -110,8 +111,8 @@ func _on_main_menu_pressed():
 	tutorialMove.visible = false
 	turotialAtk.visible= false
 
-
 func _on_attack_controls_pressed():
+	play_ui_audio(0.2)
 	main.visible = false
 	settings.visible = false
 	audio.visible = false
@@ -119,3 +120,11 @@ func _on_attack_controls_pressed():
 	tutorialMove.visible = false
 	turotialAtk.visible= true
 	
+func _on_main_controls_pressed():
+	play_ui_audio(0.2)
+	main.visible = false
+	settings.visible = false
+	audio.visible = false
+	video.visible = false
+	tutorialMove.visible = true
+	turotialAtk.visible= false
