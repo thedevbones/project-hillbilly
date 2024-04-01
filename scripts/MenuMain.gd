@@ -44,9 +44,6 @@ func _on_back_btn_pressed():
 func _on_tutorial_btn_pressed():
 	play_ui_audio(0.2)
 	main.visible = false
-	settings.visible = false
-	audio.visible = false
-	video.visible = false
 	tutorialMove.visible = true
 	turotialAtk.visible = false
 	
@@ -105,26 +102,17 @@ func play_ui_audio(pitch):
 func _on_main_menu_pressed():
 	play_ui_audio(0.2)
 	main.visible = true
-	settings.visible = false
-	audio.visible = false
-	video.visible = false
 	tutorialMove.visible = false
 	turotialAtk.visible= false
 
 func _on_attack_controls_pressed():
 	play_ui_audio(0.2)
 	main.visible = false
-	settings.visible = false
-	audio.visible = false
-	video.visible = false
 	tutorialMove.visible = false
 	turotialAtk.visible= true
 	
 func _on_main_controls_pressed():
 	play_ui_audio(0.2)
 	main.visible = false
-	settings.visible = false
-	audio.visible = false
-	video.visible = false
 	tutorialMove.visible = true
 	turotialAtk.visible= false

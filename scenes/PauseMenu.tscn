@@ -340,7 +340,7 @@ theme_override_fonts/font = ExtResource("2_5b21v")
 theme_override_font_sizes/font_size = 27
 text = "Project HillBilly"
 
-[node name="Label" type="Label" parent="Tutorial_Movement"]
+[node name="Control_Tutorial" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 58.0
@@ -511,7 +511,7 @@ text = "Ctrl"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Main Menu" type="Button" parent="Tutorial_Movement"]
+[node name="Return_Menu" type="Button" parent="Tutorial_Movement"]
 layout_mode = 2
 offset_left = 20.0
 offset_top = 216.0
@@ -527,7 +527,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_uclkc")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_bplrl")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_nxtsv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x1sjn")
-text = "Main Menu
+text = "Back
 "
 
 [node name="Tutorial_Attack" type="Control" parent="."]
@@ -729,7 +729,7 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Attack/Shoot - Left Click"
 
-[node name="Main Menu" type="Button" parent="Tutorial_Attack"]
+[node name="Return_Menu2" type="Button" parent="Tutorial_Attack"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 216.0
@@ -745,7 +745,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_fg60x")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_bi7bc")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_f64ca")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_blqoc")
-text = "Main Menu
+text = "Back
 "
 
 [node name="PauseAudio" type="Control" parent="."]
@@ -909,6 +909,7 @@ stream = ExtResource("3_qbkss")
 autoplay = true
 bus = &"SFX"
 
+[connection signal="pressed" from="PauseMain/MarginContainer/VBoxContainer/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
 [connection signal="pressed" from="PauseMain/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InAudioSettingBtn" to="." method="_on_in_audio_setting_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InAudioSettingBtn" to="PauseSetting" method="_on_audio_setting_btn_pressed"]
@@ -916,6 +917,10 @@ bus = &"SFX"
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="." method="_on_back_pause_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="Tutorial_Movement/AttackControls" to="." method="_on_attack_controls_pressed"]
+[connection signal="pressed" from="Tutorial_Movement/Return_Menu" to="." method="_on_return_menu_pressed"]
+[connection signal="pressed" from="Tutorial_Attack/MainControls" to="." method="_on_main_controls_pressed"]
+[connection signal="pressed" from="Tutorial_Attack/Return_Menu2" to="." method="_on_return_menu_2_pressed"]
 [connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/Master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="PauseAudio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]
