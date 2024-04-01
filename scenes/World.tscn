@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://scenes/PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="Script" path="res://scripts/EnemyWeak.gd" id="4_3vmyr"]
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
-[ext_resource type="PackedScene" uid="uid://c82y4roax5ury" path="res://assets/enemies/bad-guy1.glb" id="5_acs3r"]
+[ext_resource type="PackedScene" uid="uid://cf2fblfms15tv" path="res://assets/enemies/bad-guy1.glb" id="5_acs3r"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/bullut_hit_flesh.wav" id="5_qjwhm"]
 [ext_resource type="AudioStream" uid="uid://c1tj08fga2ppv" path="res://audio/SFX/pistol_fire.wav" id="5_qsv7b"]
@@ -155,7 +155,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_imxl4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_47opr"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -190,7 +190,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_imxl4"),
+"material": SubResource("ShaderMaterial_47opr"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
