@@ -21,7 +21,7 @@ func update_crosshair():
 	else:
 		target_alpha = 0.0
 	# Animate the fade
-	crosshair.modulate.a = lerp(crosshair.modulate.a, target_alpha, fade_speed)
+	crosshair.modulate.a = target_alpha
 
 func update_ammo_count():
 	if not player: return

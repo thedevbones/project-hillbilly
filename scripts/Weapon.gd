@@ -94,6 +94,7 @@ func aim():
 		is_aiming = false
 		target_pos = original_pos
 		target_rot = original_rot
+	if gui: gui.update_crosshair()
 
 func hitscan():
 	if not raycast.is_enabled():

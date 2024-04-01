@@ -191,6 +191,7 @@ func update_weapon_visibility():
 		if weapon: weapon.visible = i == current_weapon_index
 	update_hitscan()
 	gui.update_ammo_count()
+	gui.update_crosshair()
 
 func update_hitscan():
 	var weapon = get_current_weapon()
