@@ -7,8 +7,7 @@ resource_name = "PickupFlashlight"
 script/source = "extends \"res://scripts/Pickup.gd\"
 
 func _ready():
-	var player = %Player
-	if player: item = %Player.Items.FLASHLIGHT
+	if player: item = player.Items.FLASHLIGHT
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tr42a"]
@@ -139,7 +138,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_c43bd")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f6fde"]
-radius = 2.0
+radius = 1.0
 
 [node name="PickupFlashlight" type="Node3D"]
 script = SubResource("GDScript_svi66")
@@ -148,7 +147,6 @@ script = SubResource("GDScript_svi66")
 transform = Transform3D(-0.290865, -0.771101, 0.566393, -0.0551891, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, 0.00763772, 0.453161, 0.410994)
 visible = false
 layers = 3
-light_color = Color(1, 1, 1, 1)
 light_energy = 0.5
 light_volumetric_fog_energy = 0.0
 omni_range = 4096.0
@@ -160,34 +158,37 @@ spot_range = 16.224
 spot_angle = 25.0
 spot_angle_attenuation = 0.659754
 
-[node name="Cylinder" type="MeshInstance3D" parent="."]
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Cylinder" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.106351, 0, 0, 0, 0.275038, 0.0176775, 0, -0.0463612, 0.104872, 0, 0, 0)
 layers = 5
 mesh = SubResource("ArrayMesh_ge1aa")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_0cy0h")
 
-[node name="Sphere" type="MeshInstance3D" parent="."]
+[node name="Sphere" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.0691431, 0, 0, 0, 0.0681813, 0.0176775, 0, -0.0114928, 0.104872, 0, 0, 0)
 layers = 5
 mesh = SubResource("ArrayMesh_4vnkk")
 skeleton = NodePath("")
 
-[node name="Plane" type="MeshInstance3D" parent="."]
+[node name="Plane" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1.61017e-07, -6.22739e-05, 0.0675345, 0.0665503, 0.0180978, 6.57313e-06, -0.0114926, 0.104799, 3.89951e-05, 0, 0, 0)
 layers = 5
 mesh = SubResource("ArrayMesh_7p01y")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533, -0.088, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0934285, -0.088, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701365, -0.0876529, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116532, -0.0876529, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5

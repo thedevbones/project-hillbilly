@@ -7,7 +7,7 @@ func _ready():
 	modulate = Color(modulate.r, modulate.g, modulate.b, 0)
 
 func _process(delta):
-	var weapon = $"../Player".get_current_weapon()
+	var weapon = %Player.get_current_weapon()
 	if weapon and weapon.ranged and not weapon.is_aiming:
 		target_alpha = 0.5
 	else:

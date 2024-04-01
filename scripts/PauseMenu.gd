@@ -55,36 +55,42 @@ func mainMenu():
 	get_tree().change_scene_to_file("res://scenes/MenuMain.tscn")
 	
 func _on_settings_btn_pressed():
+	play_ui_audio(1.0)
 	InMain.visible = false
 	InSetting.visible = true
 	InAudio.visible = false
 	InVideo.visible = false
 
 func _on_in_audio_setting_btn_pressed():
+	play_ui_audio(1.2)
 	InMain.visible = false
 	InSetting.visible = false
 	InAudio.visible = true
 	InVideo.visible = false
 
 func _on_in_video_setting_btn_pressed():
+	play_ui_audio(1.2)
 	InMain.visible = false
 	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = true
 
 func _on_back_pause_btn_pressed():
+	play_ui_audio(0.8)
 	InMain.visible = true
 	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = false
 
 func _on_back_setting_btn_pressed():
+	play_ui_audio(0.9)
 	InMain.visible = false
 	InSetting.visible = true
 	InAudio.visible = false
 	InVideo.visible = false
 
 func _on_back_setting_btn_2_pressed():
+	play_ui_audio(0.9)
 	InMain.visible = false
 	InSetting.visible = true
 	InAudio.visible = false
@@ -107,3 +113,8 @@ func _on_music_value_changed(value):
 func _on_sound_fx_value_changed(value):
 	AudioServer.set_bus_volume_db(SFX_BUS, linear_to_db(value)) 
 	AudioServer.set_bus_mute(SFX_BUS, value < .05)
+
+
+func play_ui_audio(pitch):
+	$UISound.set_pitch_scale(pitch)
+	$UISound.play()

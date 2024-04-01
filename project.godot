@@ -26,9 +26,12 @@ SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 
 [display]
 
-window/size/viewport_width=320
+window/size/viewport_width=426
 window/size/viewport_height=240
-window/size/mode=2
+window/size/resizable=false
+window/size/always_on_top=true
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0

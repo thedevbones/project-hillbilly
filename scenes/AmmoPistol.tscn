@@ -7,9 +7,8 @@ resource_name = "PickupAmmoPistol"
 script/source = "extends \"res://scripts/Pickup.gd\"
 
 func _on_pickup_area_body_entered(body):
-	var player = %Player
 	if body == player: 
-		var weapon = %Player.Weapons.PISTOL
+		var weapon = player.Weapons.PISTOL
 		$PickupSound.play()
 		player.add_ammo(weapon, 8)
 		hide()
@@ -137,36 +136,39 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wx0gn")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0d3ju"]
-radius = 2.0
+radius = 1.0
 
 [node name="AmmoPistol" type="Node3D"]
 script = SubResource("GDScript_im3om")
 
-[node name="Mag" type="MeshInstance3D" parent="."]
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Mag" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.084, 0, 0, 0, 0.4, 0, 0, 0, 0.199, -0.000380874, -0.148921, -0.0023644)
 mesh = SubResource("ArrayMesh_0bh4o")
 skeleton = NodePath("")
 metadata/_edit_group_ = true
 
-[node name="Bullet1" type="MeshInstance3D" parent="Mag"]
+[node name="Bullet1" type="MeshInstance3D" parent="Node3D/Mag"]
 transform = Transform3D(-0.632089, -0.0008172, 5.35743e-07, -3.85672e-12, -0.00032559, -0.136035, 0.000175402, -0.521949, 0.00034216, -0.0289189, 0.843885, -1.09352)
 mesh = SubResource("ArrayMesh_hv5hg")
 skeleton = NodePath("")
 
-[node name="Bullet2" type="MeshInstance3D" parent="Mag"]
+[node name="Bullet2" type="MeshInstance3D" parent="Node3D/Mag"]
 transform = Transform3D(-0.632089, -0.0008172, 5.35743e-07, -3.85672e-12, -0.00032559, -0.136035, 0.000175402, -0.521949, 0.00034216, -0.0289189, 1.14238, -1.21216)
 mesh = SubResource("ArrayMesh_pf3n1")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533, -0.088, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134359, -0.088, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590154, -0.0876529, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.173875, -0.0876529, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
@@ -179,6 +181,7 @@ shape = SubResource("SphereShape3D_0d3ju")
 
 [node name="PickupSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_q3ixq")
+pitch_scale = 1.2
 
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="finished" from="PickupSound" to="." method="_on_pickup_sound_finished"]

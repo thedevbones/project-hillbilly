@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=26 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
+[ext_resource type="AudioStream" uid="uid://cgdcwnruvu2ij" path="res://audio/SFX/pickup.wav" id="4_0lb08"]
 [ext_resource type="AudioStream" uid="uid://bwy06py3pjay6" path="res://audio/Music/menu.mp3" id="4_24813"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="4_wtf1n"]
 
@@ -424,6 +425,10 @@ stream = ExtResource("4_24813")
 autoplay = true
 bus = &"Music"
 
+[node name="UISound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0lb08")
+bus = &"Music"
+
 [node name="main" parent="." instance=ExtResource("4_wtf1n")]
 
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
@@ -437,8 +442,8 @@ bus = &"Music"
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="SettingsControl" method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/Master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]

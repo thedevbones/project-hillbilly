@@ -12,6 +12,8 @@ func _on_start_btn_pressed():
 	get_tree().change_scene_to_file("res://scenes/World.tscn")
 
 func _on_quit_btn_pressed():
+	play_ui_audio(1.2)
+	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()
 
 func _on_tutorial_btn_pressed():
@@ -24,30 +26,35 @@ func _ready():
 	video.visible = false
 	
 func _on_settings_btn_pressed():
+	play_ui_audio(1.0)
 	main.visible = false
 	settings.visible = true
 	audio.visible = false
 	video.visible = false
 	
 func _on_back_btn_pressed():
+	play_ui_audio(0.8)
 	main.visible = false
 	settings.visible = true
 	audio.visible = false
 	video.visible = false
 	
 func _on_audio_setting_btn_pressed():
+	play_ui_audio(1.2)
 	main.visible= false
 	audio.visible = true
 	settings.visible = false
 	video.visible = false
 	
 func _on_video_setting_btn_pressed():
+	play_ui_audio(1.2)
 	main.visible= false
 	video.visible = true
 	settings.visible = false
 	audio.visible = false
 	
 func _on_main_menu_btn_pressed():
+	play_ui_audio(0.8)
 	main.visible= true
 	video.visible = false
 	settings.visible = false
@@ -75,7 +82,11 @@ func _on_check_box_toggled(button_pressed):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_back_btn_2_pressed():
+	play_ui_audio(0.9)
 	main.visible= false
 	video.visible = false
 	settings.visible = true
 
+func play_ui_audio(pitch):
+	$UISound.set_pitch_scale(pitch)
+	$UISound.play()
