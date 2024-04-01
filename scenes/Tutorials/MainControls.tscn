@@ -96,9 +96,9 @@ text = "Walk"
 
 [node name="W" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 52.0
+offset_left = 53.0
 offset_top = 91.0
-offset_right = 79.0
+offset_right = 80.0
 offset_bottom = 131.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
@@ -110,9 +110,9 @@ vertical_alignment = 1
 
 [node name="A" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 46.0
+offset_left = 47.0
 offset_top = 110.0
-offset_right = 65.0
+offset_right = 66.0
 offset_bottom = 150.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
@@ -124,9 +124,9 @@ vertical_alignment = 1
 
 [node name="S" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 56.0
 offset_top = 110.0
-offset_right = 71.0
+offset_right = 72.0
 offset_bottom = 150.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
@@ -138,9 +138,9 @@ vertical_alignment = 1
 
 [node name="D" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 63.0
+offset_left = 64.0
 offset_top = 110.0
-offset_right = 84.0
+offset_right = 85.0
 offset_bottom = 150.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0l8br")
@@ -178,9 +178,9 @@ vertical_alignment = 1
 
 [node name="Jump" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 96.0
+offset_left = 95.0
 offset_top = 157.0
-offset_right = 225.0
+offset_right = 224.0
 offset_bottom = 197.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
@@ -203,9 +203,9 @@ vertical_alignment = 1
 
 [node name="Croutch" type="Label" parent="MainControls Control"]
 layout_mode = 0
-offset_left = 95.0
+offset_left = 94.0
 offset_top = 185.0
-offset_right = 205.0
+offset_right = 204.0
 offset_bottom = 225.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
