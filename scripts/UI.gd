@@ -5,12 +5,14 @@ extends Control
 @onready var wave_count = $WaveCount
 @onready var wave_bar = $WaveBar
 @onready var black_screen = $BlackScreen
+@onready var upgrade_prompt = $UpgradePrompt
 @onready var player = get_node_or_null("/root/World/Player")
 
 func _ready():
 	black_screen.show()
 	crosshair.modulate = Color("ffffff", 0)
 	wave_count.modulate = Color("ffffff", 0)
+	upgrade_prompt.modulate = Color("ffffff", 0)
 	wave_bar.max_value = $"../PrepTimer".get_wait_time()
 	fade_element(black_screen, "modulate", Color("ffffff", 0), 1.5)
 
@@ -43,6 +45,12 @@ func update_wave_count(wave):
 		fade_element(wave_count, "modulate", Color("ffffff", 1), 0.5)
 		await get_tree().create_timer(3.0).timeout
 		fade_element(wave_count, "modulate", Color("ffffff", 0), 1.0)
+
+func update_upgrade_prompt():
+	if upgrade_prompt.modulate.a == 0.0:
+		fade_element(upgrade_prompt, "modulate", Color("ffffff", 1), 0.5)
+		await get_tree().create_timer(5.0).timeout
+		fade_element(upgrade_prompt, "modulate", Color("ffffff", 0), 1.0)
 
 func fade_element(object, property, final_val, duration):
 	var tween = get_tree().create_tween()

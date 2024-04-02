@@ -30,6 +30,7 @@ var weapons = {}
 var items = {}
 var current_weapon_index = 0
 var can_switch = true
+var weapon_to_upgrade
 var inventory = {
 	Weapons.UNARMED: {"is_unlocked": true, "total_ammo": 0},
 	Weapons.PIPE: {"is_unlocked": false, "total_ammo": 0},
