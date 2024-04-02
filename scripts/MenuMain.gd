@@ -15,7 +15,7 @@ func _on_start_btn_pressed():
 	tween1.tween_property($BlackScreen, "modulate", Color("ffffff", 1), 0.5)
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property($AudioStreamPlayer, "volume_db", -20, 0.5)
-	play_ui_audio(0.2)
+	play_ui_audio(0.1)
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/World.tscn")
 

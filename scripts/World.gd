@@ -16,7 +16,7 @@ func switch_state(new_state):
 			pass
 		GameState.PREPARATION:
 			$PrepTimer.start()
-		GameState.IN_WAVE:
+		GameState.IN_WAVE:         
 			start_wave()
 		GameState.TIMEOUT:
 			prompt_upgrade()
