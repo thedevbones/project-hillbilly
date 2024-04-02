@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bjm4y1legptpu"]
 
 [ext_resource type="Script" path="res://scripts/EnemyWeak.gd" id="1_1suxf"]
-[ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/Damage/bullut_hit_flesh.wav" id="2_mro40"]
+[ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/bullut_hit_flesh.wav" id="2_mro40"]
 [ext_resource type="PackedScene" uid="uid://bk2jm78euu6fq" path="res://assets/enemies/bad-guy1.glb" id="2_swgdn"]
-[ext_resource type="AudioStream" uid="uid://5pnojxj8pl22" path="res://audio/SFX/Enemy/enemy_death.wav" id="3_ex82b"]
+[ext_resource type="AudioStream" uid="uid://5pnojxj8pl22" path="res://audio/SFX/enemy_death.wav" id="3_ex82b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vghs0"]
 height = 1.75
@@ -37,11 +37,9 @@ shape = SubResource("CapsuleShape3D_7cqrr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.875, 0)
 stream = ExtResource("2_mro40")
 unit_size = 20.0
-bus = &"SFX"
 
 [node name="Death" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ex82b")
-bus = &"SFX"
 
 [node name="PatrolTimer" type="Timer" parent="."]
 one_shot = true
