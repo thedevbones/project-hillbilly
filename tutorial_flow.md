@@ -6,5 +6,5 @@
 - As of now, Task 71 - Create Main Controls Menu, as well as other tasks in the future, such as, Attack Controls, and possibly adding video demonstrations on how to do certain things, will be reflective of this research.
 
 - the pdf attachment with the drawings of what mapped out are attached on the Jira task
-    - https://cs3398s24ferengi.atlassian.net/browse/FER-52
-    
+	- https://cs3398s24ferengi.atlassian.net/browse/FER-52
+	
