@@ -157,7 +157,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgwho"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u3216"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -192,7 +192,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_cgwho"),
+"material": SubResource("ShaderMaterial_u3216"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -533,13 +533,11 @@ omni_attenuation = 0.435275
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434118, 4.98097, -0.0379805, -0.435776, 2.5332e-07, 4.98096, 4.956, 0.635898, 0.0807266)
 stream = ExtResource("13_o0qn3")
 unit_size = 50.0
-max_db = -9.0
 bus = &"SFX"
 
 [node name="ShotgunLoad" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434119, 4.98097, -0.0379805, -0.435776, 2.38419e-07, 4.98096, 1.85349, 0.331798, -0.198746)
 stream = ExtResource("14_5b3kg")
-max_db = -20.0
 bus = &"SFX"
 
 [node name="ShotgunPump" type="AudioStreamPlayer3D" parent="Player/MainCamera/Shotgun"]
