@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=86 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -98,6 +98,15 @@ fog_density = 0.25
 volumetric_fog_enabled = true
 volumetric_fog_emission = Color(0.160784, 0.160784, 0.160784, 1)
 
+[sub_resource type="GDScript" id="GDScript_84bn3"]
+resource_name = "Environment"
+script/source = "extends WorldEnvironment
+
+func _ready():
+	Graphics.graphics = get_environment()
+	Graphics.grass = $\"../SimpleGrassTextured\"
+"
+
 [sub_resource type="FogMaterial" id="FogMaterial_6527e"]
 density = -8.0
 emission = Color(1, 1, 1, 1)
@@ -158,7 +167,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2r25"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7jdiy"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -193,7 +202,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_f2r25"),
+"material": SubResource("ShaderMaterial_7jdiy"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -576,6 +585,7 @@ visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wbc6u")
+script = SubResource("GDScript_84bn3")
 
 [node name="ClearSky" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3221, 65.821, 12.2616)
