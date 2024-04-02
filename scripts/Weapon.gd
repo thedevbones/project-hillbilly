@@ -23,7 +23,6 @@ var bob_up = true
 @onready var raycast = $"../HitScan"
 @onready var bob_max = position.y + 0.02
 @onready var bob_min = position.y - 0.02
-var gui: Control
 var fire_sound: AudioStreamPlayer3D
 var reload_sound: AudioStreamPlayer3D
 var target_pos: Vector3
@@ -56,7 +55,7 @@ func shoot():
 		hitscan()
 		ammo -= 1
 		player.can_switch = true
-		if gui: gui.update_ammo_count()
+		%UI.update_ammo_count()
 
 func reload():
 	if is_reloading or ammo >= max_ammo: return
@@ -82,7 +81,7 @@ func reload():
 	is_reloading = false
 	player.can_switch = true
 	emit_signal("reloaded")
-	if gui: gui.update_ammo_count()
+	%UI.update_ammo_count()
 	if was_aiming and not is_aiming: aim()
 
 func aim():
@@ -94,7 +93,7 @@ func aim():
 		is_aiming = false
 		target_pos = original_pos
 		target_rot = original_rot
-	if gui: gui.update_crosshair()
+	%UI.update_crosshair()
 
 func hitscan():
 	if not raycast.is_enabled():

@@ -33,7 +33,6 @@ func _ready():
 	pump_original_pos = $Cube_004.position.x
 	pump_target_pos = $Cube_004.position.x - 0.4
 	camera = $".."
-	gui = $"../../../UI"
 
 func shoot():
 	if is_reloading and ammo > 0:
@@ -50,7 +49,7 @@ func shoot():
 		muzzle_flash()
 		hitscan()
 		
-		if gui: gui.update_ammo_count()
+		%UI.update_ammo_count()
 		$ShotgunFire.play()
 		await get_tree().create_timer(0.1).timeout
 		pump()
@@ -74,7 +73,7 @@ func reload():
 		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
 		ammo += 1
 		player.add_ammo(weapon_type, -1)
-		if gui: gui.update_ammo_count()
+		%UI.update_ammo_count()
 	
 	pump() 
 	is_reloading = false

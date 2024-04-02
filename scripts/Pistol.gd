@@ -5,7 +5,6 @@ const ADS_ROT = Vector3(0, 0, 0)
 const BOB_SPEED = 0.05
 
 func _ready():
-	gui = $"../../../UI"
 	weapon_type = player.Weapons.PISTOL
 	damage = 1
 	max_ammo = 8
