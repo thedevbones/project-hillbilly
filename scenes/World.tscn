@@ -1,18 +1,18 @@
-[gd_scene load_steps=82 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=83 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
 [ext_resource type="Script" path="res://scripts/GunCamera.gd" id="1_mc2is"]
-[ext_resource type="Script" path="res://scripts/AmmoCount.gd" id="1_o3nit"]
-[ext_resource type="Script" path="res://scripts/Crosshair.gd" id="1_yn51g"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_3fj2x"]
-[ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/SFX/Player Movement/stepgravel1.mp3" id="2_f4xii"]
-[ext_resource type="Script" path="res://scenes/Spawner.gd" id="2_g6axl"]
+[ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/SFX/stepgravel1.mp3" id="2_f4xii"]
+[ext_resource type="Script" path="res://scripts/Spawner.gd" id="2_g6axl"]
 [ext_resource type="PackedScene" uid="uid://cf23aespwj1yw" path="res://scenes/Pistol.tscn" id="2_k4yhr"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
+[ext_resource type="Theme" uid="uid://b0tl6tht11hby" path="res://fonts/gui.tres" id="3_civgt"]
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://scenes/PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
+[ext_resource type="AudioStream" uid="uid://cx5s1nbutei65" path="res://audio/SFX/wave.wav" id="4_r4qik"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="AudioStream" uid="uid://c1tj08fga2ppv" path="res://audio/SFX/Weapons/pistol_fire.wav" id="5_qsv7b"]
 [ext_resource type="PackedScene" uid="uid://d0igyvn3sdf7" path="res://scenes/Pipe.tscn" id="5_wk88o"]
@@ -56,13 +56,14 @@
 [ext_resource type="PackedScene" uid="uid://be0rje6u0ibik" path="res://scenes/Tree1.tscn" id="25_qwaa1"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 
-[sub_resource type="SystemFont" id="SystemFont_ifdjw"]
-font_names = PackedStringArray("Serif")
-font_italic = true
-
 [sub_resource type="SystemFont" id="SystemFont_y7dk2"]
 font_names = PackedStringArray("Serif")
 font_italic = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_stlu8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvmj1"]
+bg_color = Color(1, 0, 0, 0.498039)
 
 [sub_resource type="Environment" id="Environment_t0ccy"]
 
@@ -155,7 +156,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_brpuo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qk4c6"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -190,7 +191,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_brpuo"),
+"material": SubResource("ShaderMaterial_qk4c6"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -207,6 +208,7 @@ buffer = PackedFloat32Array(0.824585, 0, 0.565738, -11.8156, 0, 1, 0, 0, -0.5657
 script = ExtResource("1_3lw2b")
 
 [node name="UI" type="Control" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
@@ -227,8 +229,8 @@ offset_right = 27.0
 offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_civgt")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_ifdjw")
 theme_override_font_sizes/font_size = 20
 text = "Wave 50"
 horizontal_alignment = 1
@@ -251,7 +253,6 @@ grow_vertical = 2
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("1_yn51g")
 
 [node name="AmmoCount" type="Label" parent="UI"]
 layout_mode = 1
@@ -272,11 +273,40 @@ theme_override_font_sizes/font_size = 20
 text = "9/9"
 horizontal_alignment = 2
 vertical_alignment = 2
-script = ExtResource("1_o3nit")
+
+[node name="WaveBar" type="ProgressBar" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.0
+offset_right = 213.0
+offset_bottom = 4.0
+grow_horizontal = 2
+theme = ExtResource("3_civgt")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_stlu8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bvmj1")
+max_value = 15.0
+show_percentage = false
+
+[node name="WaveSound" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("4_r4qik")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="BlackScreen" type="ColorRect" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="GunViewport" type="SubViewportContainer" parent="."]
-offset_left = -29.0
-offset_right = 471.0
+offset_right = 426.0
 offset_bottom = 240.0
 metadata/_edit_lock_ = true
 
@@ -286,7 +316,7 @@ handle_input_locally = false
 msaa_3d = 3
 screen_space_aa = 1
 canvas_cull_mask = 4293918722
-size = Vector2i(500, 240)
+size = Vector2i(426, 240)
 render_target_update_mode = 4
 
 [node name="GunCamera" type="Camera3D" parent="GunViewport/SubViewport"]
@@ -343,16 +373,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.1516, 0.875, -8.99226)
 
 [node name="GameBounds" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7485, 4.975, 0)
+collision_layer = 16
+collision_mask = 16
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameBounds"]
 shape = SubResource("BoxShape3D_fhrpv")
 
 [node name="PrepTimer" type="Timer" parent="."]
-wait_time = 5.0
 one_shot = true
 
 [node name="BoundsTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
@@ -365,6 +397,7 @@ script = ExtResource("1_1ouke")
 [node name="MainCamera" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 982017
+current = true
 
 [node name="HitScan" type="RayCast3D" parent="Player/MainCamera"]
 target_position = Vector3(0, 0, -1)

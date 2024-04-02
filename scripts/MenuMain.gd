@@ -11,7 +11,12 @@ extends CanvasLayer
 @onready var SFX_BUS = AudioServer.get_bus_index("SFX")
 
 func _on_start_btn_pressed():
+	var tween1 = get_tree().create_tween()
+	tween1.tween_property($BlackScreen, "modulate", Color("ffffff", 1), 0.5)
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property($AudioStreamPlayer, "volume_db", -20, 0.5)
 	play_ui_audio(0.2)
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/World.tscn")
 
 func _on_quit_btn_pressed():
@@ -26,7 +31,10 @@ func _ready():
 	video.visible = false
 	tutorialMove.visible = false
 	turotialAtk.visible = false
-	
+	$BlackScreen.show()
+	var tween = get_tree().create_tween()
+	tween.tween_property($BlackScreen, "modulate", Color("ffffff", 0), 1.0)
+
 func _on_settings_btn_pressed():
 	play_ui_audio(0.2)
 	main.visible = false

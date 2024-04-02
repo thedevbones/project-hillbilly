@@ -6,6 +6,7 @@ enum States { PATROL, COMBAT, SEARCH }
 @onready var world = get_node("/root/World")
 @onready var spawner = get_node("/root/World/Spawner")
 
+
 var state = States.COMBAT
 var health = 5
 var speed = 1.0

@@ -49,6 +49,7 @@ func shoot():
 		muzzle_flash()
 		hitscan()
 		
+		%UI.update_ammo_count()
 		$ShotgunFire.play()
 		await get_tree().create_timer(0.1).timeout
 		pump()
@@ -72,6 +73,7 @@ func reload():
 		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
 		ammo += 1
 		player.add_ammo(weapon_type, -1)
+		%UI.update_ammo_count()
 	
 	pump() 
 	is_reloading = false
