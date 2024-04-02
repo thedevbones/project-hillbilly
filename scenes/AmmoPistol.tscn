@@ -181,7 +181,8 @@ shape = SubResource("SphereShape3D_0d3ju")
 
 [node name="PickupSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_q3ixq")
-pitch_scale = 1.2
+pitch_scale = 0.2
+bus = &"SFX"
 
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="finished" from="PickupSound" to="." method="_on_pickup_sound_finished"]
