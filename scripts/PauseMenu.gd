@@ -86,6 +86,7 @@ func _on_in_audio_setting_btn_pressed():
 func _on_in_video_setting_btn_pressed():
 	play_ui_audio(0.2)
 	InMain.visible = false
+	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = true
 
