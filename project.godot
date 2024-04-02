@@ -23,6 +23,7 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 [autoload]
 
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
+Graphics="*res://scripts/Graphics.gd"
 
 [display]
 

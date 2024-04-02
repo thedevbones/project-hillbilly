@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=85 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_3fj2x"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/SFX/Player Movement/stepgravel1.mp3" id="2_f4xii"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="2_g6axl"]
+[ext_resource type="Script" path="res://scripts/Graphics.gd" id="2_hv1q0"]
 [ext_resource type="PackedScene" uid="uid://cf23aespwj1yw" path="res://scenes/Pistol.tscn" id="2_k4yhr"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
@@ -157,7 +158,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgwho"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2r25"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -192,7 +193,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_cgwho"),
+"material": SubResource("ShaderMaterial_f2r25"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -207,6 +208,9 @@ buffer = PackedFloat32Array(0.824585, 0, 0.565738, -11.8156, 0, 1, 0, 0, -0.5657
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_3lw2b")
+
+[node name="Graphics" type="Node" parent="."]
+script = ExtResource("2_hv1q0")
 
 [node name="UI" type="Control" parent="."]
 unique_name_in_owner = true
