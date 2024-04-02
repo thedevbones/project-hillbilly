@@ -4,10 +4,10 @@ var graphics: Environment
 var grass
 
 func update_ssao(toggle):
-	pass
+	graphics.set_ssao_enabled(toggle)
 
 func update_ssil(toggle):
-	pass
+	graphics.set_ssil_enabled(toggle)
 
 func update_grass(toggle):
-	pass
+	grass.visible = toggle

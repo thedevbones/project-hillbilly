@@ -845,7 +845,6 @@ theme_override_font_sizes/font_size = 50
 text = "Back"
 
 [node name="PausedVideo" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -970,5 +969,5 @@ bus = &"Music"
 [connection signal="toggled" from="PausedVideo/MarginContainer/HBoxContainer/Checks/InGameCheckBox" to="." method="_on_in_game_check_box_toggled"]
 [connection signal="toggled" from="PausedVideo/MarginContainer/HBoxContainer/Checks/SSAOCheckBox" to="." method="_on_ssao_check_box_toggled"]
 [connection signal="toggled" from="PausedVideo/MarginContainer/HBoxContainer/Checks/SSILCheckBox2" to="." method="_on_ssil_check_box_2_toggled"]
-[connection signal="toggled" from="PausedVideo/MarginContainer/HBoxContainer/Checks/GrassCheckBox" to="." method="_on_ssao_check_box_toggled"]
+[connection signal="toggled" from="PausedVideo/MarginContainer/HBoxContainer/Checks/GrassCheckBox" to="." method="_on_grass_check_box_toggled"]
 [connection signal="pressed" from="PausedVideo/MarginContainer/BackSettingBtn2" to="." method="_on_back_setting_btn_2_pressed"]
