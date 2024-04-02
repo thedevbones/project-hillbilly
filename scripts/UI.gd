@@ -40,7 +40,6 @@ func update_wave_count(wave):
 		wave_count.text = "Wave " + str(wave+1)
 		fade_element(wave_count, "modulate", Color("ffffff", 1), 0.5)
 		await get_tree().create_timer(3.0).timeout
-		print("test")
 		fade_element(wave_count, "modulate", Color("ffffff", 0), 1.0)
 
 func fade_element(object, property, final_val, duration):

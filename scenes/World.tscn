@@ -362,6 +362,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.1516, 0.875, -8.99226)
 
 [node name="GameBounds" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7485, 4.975, 0)
+collision_layer = 16
+collision_mask = 16
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameBounds"]
 shape = SubResource("BoxShape3D_fhrpv")
@@ -370,7 +373,7 @@ shape = SubResource("BoxShape3D_fhrpv")
 one_shot = true
 
 [node name="BoundsTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]

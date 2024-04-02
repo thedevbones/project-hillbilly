@@ -28,6 +28,8 @@ func start_wave():
 	current_wave += 1
 	var enemies_to_spawn = [{"type": "weak", "count": current_wave * 5}]
 	$Spawner.spawn_wave(enemies_to_spawn)
+	$BoundsTimer.start()
+	print("Spawned " + str(enemies_alive) + "enemies")
 
 func on_wave_completed():
 	if current_wave == TOTAL_WAVES:
@@ -50,14 +52,19 @@ func get_alive_enemies():
 	return enemies_alive
 
 func _on_bounds_timer_timeout():
+	print("Checking for out-of-bounds")
 	for child in $Spawner.get_children():
-		if not child is Marker3D and is_out_of_bounds(child.global_transform.origin):
+		if not child is Marker3D and is_out_of_bounds(child):
 			respawn(child)
 
-func is_out_of_bounds(position):
-	print("Enemy is out of bounds! At" + str(position))
-	return not $GameBounds.get_overlapping_bodies().has(position)
+func is_out_of_bounds(child):
+	var pos = child.global_transform.origin
+	if not $GameBounds.get_overlapping_bodies().has(child): 
+		print("Enemy is out of bounds! At " + str(int(pos.x)) + "," + str(int(pos.y)) + "," + str(int(pos.z)))
+		return true
+	return false
 
 func respawn(enemy):
 	var spawn_point = $Spawner.choose_spawn_point()
 	enemy.global_transform.origin = spawn_point.global_transform.origin
+	$BoundsTimer.start()
