@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=42 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
@@ -80,24 +80,10 @@ resource_name = "Checks"
 script/source = "extends VBoxContainer
 
 func _on_video_setting_btn_pressed():
-	$SSAOCheckBox.disabled = !Graphics.get_ssao()
+	$SSAOCheckBox.button_pressed = Graphics.get_ssao()
+	$SSILCheckBox.button_pressed = Graphics.get_ssil()
+	$GrassCheckBox.button_pressed = Graphics.get_grass()
 "
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkl7x"]
-content_margin_left = 10.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icav3"]
-content_margin_left = 10.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
 
 [node name="Main Menu2" type="CanvasLayer"]
 process_mode = 3
@@ -851,7 +837,6 @@ theme_override_font_sizes/font_size = 50
 text = "Back"
 
 [node name="Video" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -922,29 +907,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_mkl7x")
-disabled = true
 
 [node name="SSAOCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_icav3")
+button_pressed = true
 
 [node name="SSILCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_icav3")
+button_pressed = true
 
 [node name="GrassCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_icav3")
+button_pressed = true
 
 [node name="BackBtn2" type="Button" parent="Video/MarginContainer"]
 layout_mode = 2

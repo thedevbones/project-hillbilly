@@ -73,13 +73,14 @@ subpixel_positioning = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blqoc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6hrd"]
-content_margin_left = 10.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
+[sub_resource type="GDScript" id="GDScript_5mkmb"]
+script/source = "extends VBoxContainer
+
+func _on_in_video_setting_btn_pressed():
+	$SSAOCheckBox.button_pressed = Graphics.get_ssao()
+	$SSILCheckBox2.button_pressed = Graphics.get_ssil()
+	$GrassCheckBox.button_pressed = Graphics.get_grass()
+"
 
 [node name="PauseMenu" type="ColorRect"]
 process_mode = 3
@@ -908,35 +909,34 @@ text = "Grass"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+script = SubResource("GDScript_5mkmb")
 
 [node name="InGameCheckBox" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_r6hrd")
-disabled = true
 
 [node name="SSAOCheckBox" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_r6hrd")
+button_pressed = true
 
 [node name="SSILCheckBox2" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_r6hrd")
+button_pressed = true
 
 [node name="GrassCheckBox" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_r6hrd")
+button_pressed = true
 
 [node name="BackSettingBtn2" type="Button" parent="PausedVideo/MarginContainer"]
 layout_mode = 2
@@ -955,6 +955,7 @@ bus = &"Music"
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InAudioSettingBtn" to="." method="_on_in_audio_setting_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InAudioSettingBtn" to="PauseSetting" method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InVideoSettingBtn" to="." method="_on_in_video_setting_btn_pressed"]
+[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InVideoSettingBtn" to="PausedVideo/MarginContainer/HBoxContainer/Checks" method="_on_in_video_setting_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="." method="_on_back_pause_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_main_menu_btn_pressed"]

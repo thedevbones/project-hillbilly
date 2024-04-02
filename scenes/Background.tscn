@@ -18,9 +18,9 @@ script/source = "extends WorldEnvironment
 func _ready():
 	Graphics.graphics = get_environment()
 	Graphics.grass = $\"../SimpleGrassTextured\"
-	Graphics.update_ssao(get_environment().ssao_enabled)
-	Graphics.update_ssil(get_environment().ssil_enabled)
-	Graphics.update_grass($\"../SimpleGrassTextured\".visible)
+	Graphics.update_ssao(Graphics.get_ssao())
+	Graphics.update_ssil(Graphics.get_ssil())
+	Graphics.update_grass(Graphics.get_grass())
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqfxr"]
@@ -29,7 +29,7 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3psxn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p08b0"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_jmhoe")
@@ -64,7 +64,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_3psxn"),
+"material": SubResource("ShaderMaterial_p08b0"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
