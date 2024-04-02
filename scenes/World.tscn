@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=84 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
 [ext_resource type="AudioStream" uid="uid://cx5s1nbutei65" path="res://audio/SFX/wave.wav" id="4_r4qik"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
+[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="5_qh8ss"]
 [ext_resource type="AudioStream" uid="uid://c1tj08fga2ppv" path="res://audio/SFX/pistol_fire.wav" id="5_qsv7b"]
 [ext_resource type="PackedScene" uid="uid://d0igyvn3sdf7" path="res://scenes/Pipe.tscn" id="5_wk88o"]
 [ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/SFX/ambience.mp3" id="6_2maxx"]
@@ -156,7 +157,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qk4c6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lav7p"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -191,7 +192,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_qk4c6"),
+"material": SubResource("ShaderMaterial_lav7p"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -289,6 +290,28 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_stlu8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bvmj1")
 max_value = 15.0
 show_percentage = false
+
+[node name="UpgradePrompt" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.5
+offset_top = -61.43
+offset_right = 178.5
+offset_bottom = -17.43
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("5_qh8ss")
+theme_override_font_sizes/font_size = 20
+text = "Hold the weapon you want to upgrade"
+horizontal_alignment = 1
 
 [node name="WaveSound" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource("4_r4qik")
