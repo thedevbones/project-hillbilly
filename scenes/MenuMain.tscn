@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=43 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
@@ -76,6 +76,14 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64aqf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkl7x"]
+content_margin_left = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icav3"]
 content_margin_left = 10.0
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 12
@@ -873,6 +881,27 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Fullscreen"
 
+[node name="SSAO" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SSAO"
+
+[node name="SSIL" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SSIL"
+
+[node name="Grass" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Grass"
+
 [node name="Checks" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -884,6 +913,27 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_mkl7x")
+
+[node name="SSAOCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_icav3")
+
+[node name="SSILCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_icav3")
+
+[node name="GrassCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_icav3")
 
 [node name="BackBtn2" type="Button" parent="Video/MarginContainer"]
 layout_mode = 2
@@ -926,4 +976,7 @@ bus = &"SFX"
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="pressed" from="Audio/MarginContainer/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/SSAOCheckBox" to="." method="_on_ssao_check_box_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/SSILCheckBox" to="." method="_on_ssil_check_box_2_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/GrassCheckBox" to="." method="_on_grass_check_box_toggled"]
 [connection signal="pressed" from="Video/MarginContainer/BackBtn2" to="." method="_on_back_btn_2_pressed"]

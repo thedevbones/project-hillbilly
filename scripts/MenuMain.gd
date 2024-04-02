@@ -124,3 +124,12 @@ func _on_main_controls_pressed():
 	main.visible = false
 	tutorialMove.visible = true
 	turotialAtk.visible= false
+
+func _on_ssao_check_box_toggled(toggled_on):
+	Graphics.update_ssao(toggled_on)
+
+func _on_ssil_check_box_2_toggled(toggled_on):
+	Graphics.update_ssil(toggled_on)
+
+func _on_grass_check_box_toggled(toggled_on):
+	Graphics.update_grass(toggled_on)

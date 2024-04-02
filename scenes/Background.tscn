@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://6drj3uyglv1o"]
+[gd_scene load_steps=16 format=3 uid="uid://6drj3uyglv1o"]
 
+[ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_i1cr5"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="1_ptttf"]
 [ext_resource type="PackedScene" uid="uid://bdxm35vq7qxdp" path="res://assets/car.blend" id="2_ji46b"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_01j0b"]
@@ -10,33 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="8_w07dk"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="9_algee"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uxuk3"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0, 0, 0, 1)
-sky_energy_multiplier = 0.0
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
-ground_energy_multiplier = 0.0
+[sub_resource type="GDScript" id="GDScript_qacld"]
+resource_name = "WorldEnviroment"
+script/source = "extends WorldEnvironment
 
-[sub_resource type="Sky" id="Sky_a8bot"]
-sky_material = SubResource("ProceduralSkyMaterial_uxuk3")
-
-[sub_resource type="Environment" id="Environment_ofkw5"]
-background_mode = 2
-background_energy_multiplier = 0.0
-sky = SubResource("Sky_a8bot")
-ambient_light_source = 2
-ambient_light_color = Color(0.305882, 0.282353, 0.278431, 1)
-tonemap_mode = 3
-fog_enabled = true
-fog_light_color = Color(0.709804, 0.670588, 0.643137, 1)
-fog_light_energy = 0.05
-fog_density = 0.125
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0711
-volumetric_fog_albedo = Color(0.501961, 0.501961, 0.501961, 1)
-volumetric_fog_emission = Color(0.12549, 0.12549, 0.12549, 1)
-adjustment_brightness = 1.5
+func _ready():
+	Graphics.graphics = get_environment()
+	Graphics.grass = $\"../SimpleGrassTextured\"
+	Graphics.update_ssao(get_environment().ssao_enabled)
+	Graphics.update_ssil(get_environment().ssil_enabled)
+	Graphics.update_grass($\"../SimpleGrassTextured\".visible)
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqfxr"]
 albedo_texture = ExtResource("1_ptttf")
@@ -44,7 +29,7 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jydf0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l1g10"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_jmhoe")
@@ -79,7 +64,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_jydf0"),
+"material": SubResource("ShaderMaterial_l1g10"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -95,17 +80,22 @@ buffer = PackedFloat32Array(0.537053, 0, 0.843549, -3.23644, 0, 1, 0, 5.96046e-0
 [node name="main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ofkw5")
+environment = ExtResource("1_i1cr5")
+script = SubResource("GDScript_qacld")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22201, 4.9914, -0.949106)
+light_energy = 0.245
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 omni_range = 53.836
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.293402, 0.978947, -28.9514)
 light_color = Color(1, 0, 0, 1)
-light_energy = 7.552
+light_energy = 3.25
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.245
 light_size = 1.0
 omni_range = 20.808
 omni_attenuation = 0.450625

@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=84 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -56,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://cnhqxxcfi68xy" path="res://scenes/Box.tscn" id="22_btxxw"]
 [ext_resource type="Texture2D" uid="uid://dhgqjcpdui70s" path="res://textures/dirt.jpg" id="25_0gkn8"]
 [ext_resource type="PackedScene" uid="uid://be0rje6u0ibik" path="res://scenes/Tree1.tscn" id="25_qwaa1"]
+[ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="31_n5e12"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 
 [sub_resource type="SystemFont" id="SystemFont_y7dk2"]
@@ -75,28 +76,6 @@ size = Vector3(140, 10, 103)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ge5q0"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noxdu"]
-sky_energy_multiplier = 0.0
-ground_energy_multiplier = 0.0
-use_debanding = false
-
-[sub_resource type="Sky" id="Sky_gkv0d"]
-sky_material = SubResource("ProceduralSkyMaterial_noxdu")
-
-[sub_resource type="Environment" id="Environment_wbc6u"]
-background_mode = 2
-background_color = Color(0.47451, 0.47451, 0.47451, 1)
-sky = SubResource("Sky_gkv0d")
-ambient_light_source = 2
-ambient_light_color = Color(0.305882, 0.282353, 0.278431, 1)
-ssao_enabled = true
-ssao_intensity = 4.0
-ssil_enabled = true
-fog_light_color = Color(0.0862745, 0.0745098, 0.0666667, 1)
-fog_density = 0.25
-volumetric_fog_enabled = true
-volumetric_fog_emission = Color(0.160784, 0.160784, 0.160784, 1)
 
 [sub_resource type="GDScript" id="GDScript_84bn3"]
 resource_name = "Environment"
@@ -170,7 +149,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0lbq3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gyke1"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -205,7 +184,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_0lbq3"),
+"material": SubResource("ShaderMaterial_gyke1"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -587,7 +566,7 @@ bus = &"SFX"
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wbc6u")
+environment = ExtResource("31_n5e12")
 script = SubResource("GDScript_84bn3")
 
 [node name="ClearSky" type="FogVolume" parent="."]
