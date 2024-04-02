@@ -4,13 +4,15 @@ extends Control
 @onready var ammo_count = $AmmoCount
 @onready var wave_count = $WaveCount
 @onready var wave_bar = $WaveBar
+@onready var black_screen = $BlackScreen
 @onready var player = get_node_or_null("/root/World/Player")
 
 func _ready():
+	black_screen.show()
 	crosshair.modulate = Color("ffffff", 0)
 	wave_count.modulate = Color("ffffff", 0)
 	wave_bar.max_value = $"../PrepTimer".get_wait_time()
-
+	fade_element(black_screen, "modulate", Color("ffffff", 0), 1.5)
 
 func _process(delta):
 	if wave_bar.value < wave_bar.max_value: 
@@ -45,4 +47,3 @@ func update_wave_count(wave):
 func fade_element(object, property, final_val, duration):
 	var tween = get_tree().create_tween()
 	tween.tween_property(object, property, final_val, duration)
-	tween.play()

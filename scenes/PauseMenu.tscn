@@ -441,7 +441,6 @@ text = "Back"
 
 [node name="UISound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qbkss")
-autoplay = true
 bus = &"Music"
 
 [connection signal="pressed" from="PauseMain/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
