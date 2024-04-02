@@ -1066,11 +1066,13 @@ physics_material_override = SubResource("PhysicsMaterial_xlcod")
 stream = ExtResource("6_2maxx")
 volume_db = -25.171
 autoplay = true
+bus = &"SFX"
 
 [node name="storm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_b0214")
 volume_db = 5.144
 autoplay = true
+bus = &"SFX"
 
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
 multimesh = SubResource("MultiMesh_pb5br")
