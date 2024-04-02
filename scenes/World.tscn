@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_3fj2x"]
 [ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/SFX/Player Movement/stepgravel1.mp3" id="2_f4xii"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="2_g6axl"]
+[ext_resource type="Script" path="res://scripts/Graphics.gd" id="2_hv1q0"]
 [ext_resource type="PackedScene" uid="uid://cf23aespwj1yw" path="res://scenes/Pistol.tscn" id="2_k4yhr"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
@@ -55,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://cnhqxxcfi68xy" path="res://scenes/Box.tscn" id="22_btxxw"]
 [ext_resource type="Texture2D" uid="uid://dhgqjcpdui70s" path="res://textures/dirt.jpg" id="25_0gkn8"]
 [ext_resource type="PackedScene" uid="uid://be0rje6u0ibik" path="res://scenes/Tree1.tscn" id="25_qwaa1"]
+[ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="31_n5e12"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 
 [sub_resource type="SystemFont" id="SystemFont_y7dk2"]
@@ -75,27 +77,17 @@ size = Vector3(140, 10, 103)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ge5q0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noxdu"]
-sky_energy_multiplier = 0.0
-ground_energy_multiplier = 0.0
-use_debanding = false
+[sub_resource type="GDScript" id="GDScript_84bn3"]
+resource_name = "Environment"
+script/source = "extends WorldEnvironment
 
-[sub_resource type="Sky" id="Sky_gkv0d"]
-sky_material = SubResource("ProceduralSkyMaterial_noxdu")
-
-[sub_resource type="Environment" id="Environment_wbc6u"]
-background_mode = 2
-background_color = Color(0.47451, 0.47451, 0.47451, 1)
-sky = SubResource("Sky_gkv0d")
-ambient_light_source = 2
-ambient_light_color = Color(0.305882, 0.282353, 0.278431, 1)
-ssao_enabled = true
-ssao_intensity = 4.0
-ssil_enabled = true
-fog_light_color = Color(0.0862745, 0.0745098, 0.0666667, 1)
-fog_density = 0.25
-volumetric_fog_enabled = true
-volumetric_fog_emission = Color(0.160784, 0.160784, 0.160784, 1)
+func _ready():
+	Graphics.graphics = get_environment()
+	Graphics.grass = $\"../SimpleGrassTextured\"
+	Graphics.update_ssao(Graphics.get_ssao())
+	Graphics.update_ssil(Graphics.get_ssil())
+	Graphics.update_grass(Graphics.get_grass())
+"
 
 [sub_resource type="FogMaterial" id="FogMaterial_6527e"]
 density = -8.0
@@ -157,7 +149,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u3216"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rx7l3"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -192,7 +184,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_u3216"),
+"material": SubResource("ShaderMaterial_rx7l3"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -207,6 +199,9 @@ buffer = PackedFloat32Array(0.824585, 0, 0.565738, -11.8156, 0, 1, 0, 0, -0.5657
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_3lw2b")
+
+[node name="Graphics" type="Node" parent="."]
+script = ExtResource("2_hv1q0")
 
 [node name="UI" type="Control" parent="."]
 unique_name_in_owner = true
@@ -569,7 +564,8 @@ bus = &"SFX"
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wbc6u")
+environment = ExtResource("31_n5e12")
+script = SubResource("GDScript_84bn3")
 
 [node name="ClearSky" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3221, 65.821, 12.2616)

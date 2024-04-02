@@ -75,19 +75,22 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64aqf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkl7x"]
-content_margin_left = 10.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
+[sub_resource type="GDScript" id="GDScript_gd73m"]
+resource_name = "Checks"
+script/source = "extends VBoxContainer
+
+func _on_video_setting_btn_pressed():
+	$SSAOCheckBox.button_pressed = Graphics.get_ssao()
+	$SSILCheckBox.button_pressed = Graphics.get_ssil()
+	$GrassCheckBox.button_pressed = Graphics.get_grass()
+"
 
 [node name="Main Menu2" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_qtm8j")
 
 [node name="BlackScreen" type="ColorRect" parent="."]
+visible = false
 z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -834,7 +837,6 @@ theme_override_font_sizes/font_size = 50
 text = "Back"
 
 [node name="Video" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -873,17 +875,59 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Fullscreen"
 
+[node name="SSAO" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SSAO"
+
+[node name="SSIL" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SSIL"
+
+[node name="Grass" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Grass"
+
 [node name="Checks" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+script = SubResource("GDScript_gd73m")
 
 [node name="CheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_mkl7x")
+
+[node name="SSAOCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+button_pressed = true
+
+[node name="SSILCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+button_pressed = true
+
+[node name="GrassCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+button_pressed = true
 
 [node name="BackBtn2" type="Button" parent="Video/MarginContainer"]
 layout_mode = 2
@@ -915,6 +959,7 @@ bus = &"SFX"
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="." method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="SettingsControl" method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="Video/MarginContainer/HBoxContainer/Checks" method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
@@ -927,4 +972,7 @@ bus = &"SFX"
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="pressed" from="Audio/MarginContainer/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/SSAOCheckBox" to="." method="_on_ssao_check_box_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/SSILCheckBox" to="." method="_on_ssil_check_box_2_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/GrassCheckBox" to="." method="_on_grass_check_box_toggled"]
 [connection signal="pressed" from="Video/MarginContainer/BackBtn2" to="." method="_on_back_btn_2_pressed"]
