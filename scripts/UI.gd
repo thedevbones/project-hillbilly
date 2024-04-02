@@ -36,6 +36,7 @@ func update_ammo_count():
 func update_wave_count(wave):
 	if not player: return
 	if wave_count.modulate.a == 0.0:
+		$WaveSound.play()
 		wave_count.text = "Wave " + str(wave+1)
 		fade_element(wave_count, "modulate", Color("ffffff", 1), 0.5)
 		await get_tree().create_timer(3.0).timeout

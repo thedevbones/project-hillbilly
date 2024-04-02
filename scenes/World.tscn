@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=83 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -12,6 +12,7 @@
 [ext_resource type="Theme" uid="uid://b0tl6tht11hby" path="res://fonts/gui.tres" id="3_civgt"]
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://scenes/PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
+[ext_resource type="AudioStream" uid="uid://cx5s1nbutei65" path="res://audio/SFX/wave.wav" id="4_r4qik"]
 [ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
 [ext_resource type="AudioStream" uid="uid://c1tj08fga2ppv" path="res://audio/SFX/pistol_fire.wav" id="5_qsv7b"]
 [ext_resource type="PackedScene" uid="uid://d0igyvn3sdf7" path="res://scenes/Pipe.tscn" id="5_wk88o"]
@@ -287,6 +288,11 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_stlu8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bvmj1")
 max_value = 15.0
 show_percentage = false
+
+[node name="WaveSound" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("4_r4qik")
+volume_db = -10.0
+bus = &"SFX"
 
 [node name="GunViewport" type="SubViewportContainer" parent="."]
 offset_right = 426.0
