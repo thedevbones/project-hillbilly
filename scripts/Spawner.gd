@@ -41,5 +41,11 @@ func spawn_upgrade_select():
 		instance.global_transform.origin = spawn_position
 		add_child(instance)
 
+func spawn_ranged_upgrades():
+	pass
+
+func spawn_melee_upgrades():
+	pass
+
 func choose_spawn_point():
 	return spawn_points[randi() % spawn_points.size()]

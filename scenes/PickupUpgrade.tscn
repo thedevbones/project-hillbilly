@@ -7,12 +7,21 @@
 resource_name = "PickupUpgrade"
 script/source = "extends \"res://scripts/Pickup.gd\"
 
+@onready var gui = get_node_or_null(\"/root/World/UI\")
+@onready var spawner = get_node_or_null(\"/root/World/Spawner\")
+
 func _on_pickup_area_body_entered(body):
-	if body == player: 
+	if body != player:
+		pass
+	var weapon = player.get_current_weapon()
+	if weapon:
 		$PickupSound.play()
-		# set upgrading weapon to current weapon
-		# spawn upgrades
+		player.weapon_to_upgrade = weapon
+		if weapon.ranged: spawner.spawn_ranged_upgrades()
+		else: spawner.spawn_melee_upgrades()
 		hide()
+	else:
+		if gui: gui.update_upgrade_prompt()
 "
 
 [sub_resource type="BoxMesh" id="BoxMesh_wveu1"]
