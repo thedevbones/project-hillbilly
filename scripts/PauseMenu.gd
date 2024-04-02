@@ -152,10 +152,10 @@ func _on_return_menu_2_pressed():
 	Turorial_Atk.visible = false
 
 func _on_ssao_check_box_toggled(toggled_on):
-	pass
+	Graphics.update_ssao(toggled_on)
 
 func _on_ssil_check_box_2_toggled(toggled_on):
-	pass # Replace with function body.
+	Graphics.update_ssil(toggled_on)
 
 func _on_grass_check_box_toggled(toggled_on):
-	pass # Replace with function body.
+	Graphics.update_grass(toggled_on)
