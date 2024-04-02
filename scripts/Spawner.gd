@@ -32,5 +32,14 @@ func spawn_drop(scene_name, spawn_position):
 		instance.global_transform.origin = spawn_position
 		add_child(instance)
 
+func spawn_upgrade_select():
+	var scene = load("res://scenes/PickupUpgrade.tscn")
+	if scene:
+		var instance = scene.instantiate()
+		var forward_direction = %Player.global_transform.basis.z.normalized() * -1
+		var spawn_position = %Player.global_transform.origin + forward_direction * 3.0
+		instance.global_transform.origin = spawn_position
+		add_child(instance)
+
 func choose_spawn_point():
 	return spawn_points[randi() % spawn_points.size()]

@@ -73,3 +73,4 @@ func respawn(enemy):
 
 func prompt_upgrade():
 	%UI.update_upgrade_prompt()
+	$Spawner.spawn_upgrade_select()
