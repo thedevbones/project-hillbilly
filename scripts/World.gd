@@ -7,8 +7,7 @@ var current_wave = 0
 var enemies_alive = 0
 
 func _ready():
-	switch_state(GameState.GAME_START)
-	prompt_upgrade()
+	switch_state(GameState.TIMEOUT)
 
 func switch_state(new_state):
 	current_state = new_state

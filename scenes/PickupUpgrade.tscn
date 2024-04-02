@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://6e3ds60tabg0"]
+
+[ext_resource type="Material" uid="uid://deedf8qme57v4" path="res://assets/textures/upgrade.tres" id="1_ac6vk"]
+[ext_resource type="AudioStream" uid="uid://cgdcwnruvu2ij" path="res://audio/SFX/pickup.wav" id="2_4nsy2"]
+
+[sub_resource type="GDScript" id="GDScript_kagl2"]
+resource_name = "PickupUpgrade"
+script/source = "extends \"res://scripts/Pickup.gd\"
+
+func _on_pickup_area_body_entered(body):
+	if body == player: 
+		$PickupSound.play()
+		# set upgrading weapon to current weapon
+		# spawn upgrades
+		hide()
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_wveu1"]
+material = ExtResource("1_ac6vk")
+size = Vector3(0.1, 0.25, 0.225)
+
+[sub_resource type="PrismMesh" id="PrismMesh_y33vt"]
+material = ExtResource("1_ac6vk")
+size = Vector3(0.35, 0.25, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tx5yx"]
+radius = 1.0
+
+[node name="PickupUpgrade" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4415, 0.8, 3.12166)
+script = SubResource("GDScript_kagl2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.165398, 0)
+mesh = SubResource("BoxMesh_wveu1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.0846021, 0)
+mesh = SubResource("PrismMesh_y33vt")
+
+[node name="PickupSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_4nsy2")
+pitch_scale = 0.9
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140798, -0.088, 0)
+layers = 7
+light_energy = 0.56
+light_volumetric_fog_energy = 0.5
+omni_range = 1.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.146738, -0.0876529, 0)
+layers = 7
+light_energy = 0.56
+light_volumetric_fog_energy = 0.5
+omni_range = 1.0
+
+[node name="PickupArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea"]
+shape = SubResource("SphereShape3D_tx5yx")
+
+[connection signal="finished" from="PickupSound" to="." method="_on_pickup_sound_finished"]
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
