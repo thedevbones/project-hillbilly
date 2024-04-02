@@ -86,6 +86,7 @@ func _on_in_audio_setting_btn_pressed():
 func _on_in_video_setting_btn_pressed():
 	play_ui_audio(0.2)
 	InMain.visible = false
+	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = true
 
@@ -149,3 +150,12 @@ func _on_return_menu_2_pressed():
 	InMain.visible = true
 	Tutorial_Move.visible = false
 	Turorial_Atk.visible = false
+
+func _on_ssao_check_box_toggled(toggled_on):
+	pass
+
+func _on_ssil_check_box_2_toggled(toggled_on):
+	pass # Replace with function body.
+
+func _on_grass_check_box_toggled(toggled_on):
+	pass # Replace with function body.
