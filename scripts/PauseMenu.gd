@@ -9,6 +9,8 @@ var is_paused = false
 @onready var InSetting = $PauseSetting
 @onready var InAudio = $PauseAudio
 @onready var InVideo = $PausedVideo
+@onready var Tutorial_Move = $Tutorial_Movement
+@onready var Turorial_Atk = $Tutorial_Attack
 @onready var MASTER_BUS = AudioServer.get_bus_index("Master")
 @onready var MUSIC_BUS = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS = AudioServer.get_bus_index("SFX")
@@ -21,6 +23,8 @@ func _ready() -> void:
 	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = false
+	Tutorial_Move.visible = false
+	Turorial_Atk.visible = false
 	
 func _input(event):	
 	# Handle pressing esc
@@ -48,6 +52,8 @@ func pause_game():
 	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = false
+	Tutorial_Move.visible = false
+	Turorial_Atk.visible = false
 	
 func mainMenu():
 	unpause_game()
@@ -55,36 +61,50 @@ func mainMenu():
 	get_tree().change_scene_to_file("res://scenes/MenuMain.tscn")
 	
 func _on_settings_btn_pressed():
+	play_ui_audio(0.2)
 	InMain.visible = false
 	InSetting.visible = true
-	InAudio.visible = false
-	InVideo.visible = false
+	
+func _on_tutorial_btn_pressed():
+	play_ui_audio(0.2)
+	InMain.visible = false
+	Tutorial_Move.visible = true
+	Turorial_Atk.visible = false
+	
+func _on_return_menu_pressed():
+	play_ui_audio(0.2)
+	InMain.visible = true
+	Tutorial_Move.visible = false
+	
 
 func _on_in_audio_setting_btn_pressed():
+	play_ui_audio(0.2)
 	InMain.visible = false
 	InSetting.visible = false
 	InAudio.visible = true
-	InVideo.visible = false
 
 func _on_in_video_setting_btn_pressed():
+	play_ui_audio(0.2)
 	InMain.visible = false
-	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = true
 
 func _on_back_pause_btn_pressed():
+	play_ui_audio(0.2)
 	InMain.visible = true
 	InSetting.visible = false
 	InAudio.visible = false
 	InVideo.visible = false
 
 func _on_back_setting_btn_pressed():
+	play_ui_audio(0.2)
 	InMain.visible = false
 	InSetting.visible = true
 	InAudio.visible = false
 	InVideo.visible = false
 
 func _on_back_setting_btn_2_pressed():
+	play_ui_audio(0.2)
 	InMain.visible = false
 	InSetting.visible = true
 	InAudio.visible = false
@@ -107,3 +127,25 @@ func _on_music_value_changed(value):
 func _on_sound_fx_value_changed(value):
 	AudioServer.set_bus_volume_db(SFX_BUS, linear_to_db(value)) 
 	AudioServer.set_bus_mute(SFX_BUS, value < .05)
+
+func play_ui_audio(pitch):
+	$UISound.set_pitch_scale(pitch)
+	$UISound.play()
+
+func _on_attack_controls_pressed():
+	play_ui_audio(0.2)
+	InMain.visible = false
+	Tutorial_Move.visible = false
+	Turorial_Atk.visible = true
+
+func _on_main_controls_pressed():
+	play_ui_audio(0.2)
+	InMain.visible = false
+	Tutorial_Move.visible = true
+	Turorial_Atk.visible = false
+	
+func _on_return_menu_2_pressed():
+	play_ui_audio(0.2)
+	InMain.visible = true
+	Tutorial_Move.visible = false
+	Turorial_Atk.visible = false

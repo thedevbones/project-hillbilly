@@ -30,6 +30,7 @@ var weapons = {}
 var items = {}
 var current_weapon_index = 0
 var can_switch = true
+var weapon_to_upgrade
 var inventory = {
 	Weapons.UNARMED: {"is_unlocked": true, "total_ammo": 0},
 	Weapons.PIPE: {"is_unlocked": false, "total_ammo": 0},
@@ -51,6 +52,7 @@ func _ready():
 	weapons[Weapons.PISTOL] = $MainCamera/Pistol
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 	items[Items.FLASHLIGHT] = $MainCamera/Flashlight
+	%UI.update_ammo_count()
 
 func _input(event):	
 	# Handle weapon inputs
@@ -186,6 +188,8 @@ func update_weapon_visibility():
 		var weapon = weapons[i]
 		if weapon: weapon.visible = i == current_weapon_index
 	update_hitscan()
+	%UI.update_ammo_count()
+	%UI.update_crosshair()
 
 func update_hitscan():
 	var weapon = get_current_weapon()
@@ -218,12 +222,13 @@ func unlock_item(item_type):
 		inventory[item_type]["is_unlocked"] = true 
 		if is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
 	elif is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
+	%UI.update_ammo_count()
 
 func add_ammo(weapon_type, amount):
 	var weapon = weapons[weapon_type]
-	if inventory[weapon_type]["is_unlocked"]: 
-		inventory[weapon_type]["total_ammo"] += amount
-		weapon.total_ammo = inventory[weapon_type]["total_ammo"]
+	inventory[weapon_type]["total_ammo"] += amount
+	weapon.total_ammo = inventory[weapon_type]["total_ammo"]
+	%UI.update_ammo_count()
 
 func has_item(item_type):
 	return inventory[item_type]["is_unlocked"]
@@ -231,6 +236,7 @@ func has_item(item_type):
 func get_ammo(weapon_type):
 	if inventory[weapon_type]["is_unlocked"]: return inventory[weapon_type]["total_ammo"] 
 	else: return 0 
+	%UI.update_ammo_count()
 
 func toggle_flashlight():
 	if not has_item(Items.FLASHLIGHT): return

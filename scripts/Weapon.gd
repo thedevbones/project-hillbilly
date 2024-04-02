@@ -34,7 +34,7 @@ var original_rot: Vector3
 var weapon_type
 
 func _ready():
-	pass # Placeholder for potential setup needed by all weapons
+	pass
 
 func swing():
 	if is_swinging: return 
@@ -55,6 +55,7 @@ func shoot():
 		hitscan()
 		ammo -= 1
 		player.can_switch = true
+		%UI.update_ammo_count()
 
 func reload():
 	if is_reloading or ammo >= max_ammo: return
@@ -80,6 +81,7 @@ func reload():
 	is_reloading = false
 	player.can_switch = true
 	emit_signal("reloaded")
+	%UI.update_ammo_count()
 	if was_aiming and not is_aiming: aim()
 
 func aim():
@@ -91,6 +93,7 @@ func aim():
 		is_aiming = false
 		target_pos = original_pos
 		target_rot = original_rot
+	%UI.update_crosshair()
 
 func hitscan():
 	if not raycast.is_enabled():
@@ -112,5 +115,4 @@ func muzzle_flash():
 	$MuzzleLight.hide()
 
 func _process(delta):
-	# Placeholder for any common processing tasks, like animation updates
 	pass
