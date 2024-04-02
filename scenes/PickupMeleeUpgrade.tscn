@@ -18,6 +18,7 @@ func _on_pickup_area_body_entered(body):
 		var weapon = player.weapon_to_upgrade
 		weapon.swing_duration -= weapon.swing_duration * 0.25
 		hide()
+		world.switch_state(world.GameState.PREPARATION)
 "
 
 [sub_resource type="BoxMesh" id="BoxMesh_wveu1"]

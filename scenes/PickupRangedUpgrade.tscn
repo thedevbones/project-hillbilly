@@ -17,6 +17,7 @@ func _on_pickup_area_body_entered(body):
 		weapon.max_ammo += int(weapon.max_ammo * 0.25)
 		gui.update_ammo_count()
 		hide()
+		world.switch_state(world.GameState.PREPARATION)
 "
 
 [sub_resource type="BoxMesh" id="BoxMesh_wveu1"]
