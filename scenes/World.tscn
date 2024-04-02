@@ -156,7 +156,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8a17k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qk4c6"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -191,7 +191,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_8a17k"),
+"material": SubResource("ShaderMaterial_qk4c6"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -208,6 +208,7 @@ buffer = PackedFloat32Array(0.824585, 0, 0.565738, -11.8156, 0, 1, 0, 0, -0.5657
 script = ExtResource("1_3lw2b")
 
 [node name="UI" type="Control" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
@@ -386,6 +387,7 @@ script = ExtResource("1_1ouke")
 [node name="MainCamera" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 982017
+current = true
 
 [node name="HitScan" type="RayCast3D" parent="Player/MainCamera"]
 target_position = Vector3(0, 0, -1)

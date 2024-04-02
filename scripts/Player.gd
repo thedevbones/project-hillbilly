@@ -224,12 +224,14 @@ func unlock_item(item_type):
 		inventory[item_type]["is_unlocked"] = true 
 		if is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
 	elif is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
+	%UI.update_ammo_count()
 
 func add_ammo(weapon_type, amount):
 	var weapon = weapons[weapon_type]
 	if inventory[weapon_type]["is_unlocked"]: 
 		inventory[weapon_type]["total_ammo"] += amount
 		weapon.total_ammo = inventory[weapon_type]["total_ammo"]
+	%UI.update_ammo_count()
 
 func has_item(item_type):
 	return inventory[item_type]["is_unlocked"]
@@ -237,6 +239,7 @@ func has_item(item_type):
 func get_ammo(weapon_type):
 	if inventory[weapon_type]["is_unlocked"]: return inventory[weapon_type]["total_ammo"] 
 	else: return 0 
+	%UI.update_ammo_count()
 
 func toggle_flashlight():
 	if not has_item(Items.FLASHLIGHT): return
