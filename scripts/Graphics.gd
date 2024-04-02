@@ -11,3 +11,12 @@ func update_ssil(toggle):
 
 func update_grass(toggle):
 	grass.visible = toggle
+
+func get_ssao():
+	return graphics.is_ssao_enabled()
+
+func get_ssil():
+	return graphics.is_ssao_enabled()
+
+func get_grass():
+	return grass.visible

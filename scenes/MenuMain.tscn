@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=44 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
@@ -75,6 +75,14 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64aqf"]
 
+[sub_resource type="GDScript" id="GDScript_gd73m"]
+resource_name = "Checks"
+script/source = "extends VBoxContainer
+
+func _on_video_setting_btn_pressed():
+	$SSAOCheckBox.disabled = !Graphics.get_ssao()
+"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkl7x"]
 content_margin_left = 10.0
 bg_color = Color(1, 1, 1, 1)
@@ -96,6 +104,7 @@ process_mode = 3
 script = ExtResource("1_qtm8j")
 
 [node name="BlackScreen" type="ColorRect" parent="."]
+visible = false
 z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -906,6 +915,7 @@ text = "Grass"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+script = SubResource("GDScript_gd73m")
 
 [node name="CheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
@@ -913,6 +923,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_mkl7x")
+disabled = true
 
 [node name="SSAOCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
@@ -964,6 +975,7 @@ bus = &"SFX"
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="." method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="SettingsControl" method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="Video/MarginContainer/HBoxContainer/Checks" method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
