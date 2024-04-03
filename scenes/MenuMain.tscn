@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=58 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
@@ -75,19 +75,93 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64aqf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkl7x"]
-content_margin_left = 10.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
+[sub_resource type="GDScript" id="GDScript_gd73m"]
+resource_name = "Checks"
+script/source = "extends VBoxContainer
+
+func _on_video_setting_btn_pressed():
+	$SSAOCheckBox.button_pressed = Graphics.get_ssao()
+	$SSILCheckBox.button_pressed = Graphics.get_ssil()
+	$GrassCheckBox.button_pressed = Graphics.get_grass()
+"
+
+[sub_resource type="Gradient" id="Gradient_cnsm0"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ou5fm"]
+gradient = SubResource("Gradient_cnsm0")
+width = 30
+height = 30
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0.992268, 0.00257732)
+
+[sub_resource type="Gradient" id="Gradient_oyp21"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n7n6d"]
+gradient = SubResource("Gradient_oyp21")
+width = 30
+height = 30
+fill_from = Vector2(0.9, 0)
+fill_to = Vector2(0.9, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_tpq5b"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7d08s"]
+gradient = SubResource("Gradient_tpq5b")
+width = 30
+height = 30
+fill_to = Vector2(0.00257732, 0.00515464)
+
+[sub_resource type="Gradient" id="Gradient_yct76"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rmmh6"]
+gradient = SubResource("Gradient_yct76")
+width = 30
+height = 30
+fill_from = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_nsq4q"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cofag"]
+gradient = SubResource("Gradient_nsq4q")
+width = 30
+height = 30
+fill_from = Vector2(0.00515464, 0.00773196)
+fill_to = Vector2(0.0128866, 0.0154639)
+
+[sub_resource type="Gradient" id="Gradient_hu22d"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u2lab"]
+gradient = SubResource("Gradient_hu22d")
+width = 30
+height = 30
+fill_from = Vector2(0.0128866, 0.0128866)
+fill_to = Vector2(0.0128866, 0.0128866)
+
+[sub_resource type="Gradient" id="Gradient_q81dj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ft4no"]
+gradient = SubResource("Gradient_q81dj")
+width = 30
+height = 30
+fill_from = Vector2(0, 0.00257732)
+fill_to = Vector2(0.00773196, 0.0180412)
+
+[sub_resource type="Gradient" id="Gradient_e0y1v"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_isqim"]
+gradient = SubResource("Gradient_e0y1v")
+width = 30
+height = 30
+fill_from = Vector2(0.0180412, 0)
+fill_to = Vector2(0.0180412, 0)
 
 [node name="Main Menu2" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_qtm8j")
 
 [node name="BlackScreen" type="ColorRect" parent="."]
+visible = false
 z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,6 +171,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Main Menu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -834,7 +909,6 @@ theme_override_font_sizes/font_size = 50
 text = "Back"
 
 [node name="Video" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -868,22 +942,68 @@ size_flags_vertical = 4
 
 [node name="Fullscreen" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Fullscreen"
 
+[node name="SSAO" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SSAO"
+
+[node name="SSIL" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SSIL"
+
+[node name="Grass" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Grass"
+
 [node name="Checks" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
+size_flags_horizontal = 6
+script = SubResource("GDScript_gd73m")
+metadata/_edit_use_anchors_ = true
 
-[node name="CheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+[node name="Fullscreen" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+theme_override_icons/checked = SubResource("GradientTexture2D_ou5fm")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_n7n6d")
+
+[node name="SSAOCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_mkl7x")
+theme_override_icons/checked = SubResource("GradientTexture2D_7d08s")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_rmmh6")
+button_pressed = true
+
+[node name="SSILCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+theme_override_icons/checked = SubResource("GradientTexture2D_cofag")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_u2lab")
+button_pressed = true
+
+[node name="GrassCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+theme_override_icons/checked = SubResource("GradientTexture2D_ft4no")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_isqim")
+button_pressed = true
 
 [node name="BackBtn2" type="Button" parent="Video/MarginContainer"]
 layout_mode = 2
@@ -915,6 +1035,7 @@ bus = &"SFX"
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="." method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="SettingsControl" method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="Video/MarginContainer/HBoxContainer/Checks" method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
@@ -926,5 +1047,8 @@ bus = &"SFX"
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="Audio/MarginContainer/AudioDisplay/Sliders/SoundFX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="pressed" from="Audio/MarginContainer/BackBtn" to="." method="_on_back_btn_pressed"]
-[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/SSAOCheckBox" to="." method="_on_ssao_check_box_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/SSILCheckBox" to="." method="_on_ssil_check_box_2_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/GrassCheckBox" to="." method="_on_grass_check_box_toggled"]
 [connection signal="pressed" from="Video/MarginContainer/BackBtn2" to="." method="_on_back_btn_2_pressed"]

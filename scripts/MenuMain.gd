@@ -91,7 +91,7 @@ func _on_sound_fx_value_changed(value):
 	AudioServer.set_bus_volume_db(SFX_BUS, linear_to_db(value)) 
 	AudioServer.set_bus_mute(SFX_BUS, value < .05)
 
-func _on_check_box_toggled(button_pressed):
+func _on_fullscreen_toggled(button_pressed):
 	if button_pressed:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
@@ -124,3 +124,13 @@ func _on_main_controls_pressed():
 	main.visible = false
 	tutorialMove.visible = true
 	turotialAtk.visible= false
+
+func _on_ssao_check_box_toggled(toggled_on):
+	Graphics.update_ssao(toggled_on)
+
+func _on_ssil_check_box_2_toggled(toggled_on):
+	Graphics.update_ssil(toggled_on)
+
+func _on_grass_check_box_toggled(toggled_on):
+	Graphics.update_grass(toggled_on)
+
