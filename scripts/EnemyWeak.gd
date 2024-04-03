@@ -1,15 +1,21 @@
 extends "res://scripts/EnemyBase.gd"
 
+@onready var ani_tree = $AnimationTree
+
+const LERP = 1.5
+
 func _ready():
 	spawn()
 	hit_audio = $BulletHit
 	death_audio = $Death
 	#patrol_timer = $PatrolTimer
+	ani_tree.set("parameters/BlendSpace1D/blend_position",speed)
 
 func _on_death_finished():
 	world.add_alive_enemies(-1)
 	drop_loot()
 	queue_free()
+	
 
 #func _on_patrol_timer_timeout():
 	#is_waiting = false
