@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dn6qvrgmyyeud"]
+[gd_scene load_steps=55 format=3 uid="uid://dn6qvrgmyyeud"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_hpt1c"]
 [ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="2_5b21v"]
@@ -81,6 +81,73 @@ func _on_in_video_setting_btn_pressed():
 	$SSILCheckBox2.button_pressed = Graphics.get_ssil()
 	$GrassCheckBox.button_pressed = Graphics.get_grass()
 "
+
+[sub_resource type="Gradient" id="Gradient_fgb0f"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2fjs1"]
+gradient = SubResource("Gradient_fgb0f")
+width = 30
+height = 30
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0.994845, 0.00257732)
+
+[sub_resource type="Gradient" id="Gradient_j8eu6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hknqi"]
+gradient = SubResource("Gradient_j8eu6")
+width = 30
+height = 30
+fill_from = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_df4us"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0ojnl"]
+gradient = SubResource("Gradient_df4us")
+width = 30
+height = 30
+fill_from = Vector2(0, 0.0103093)
+fill_to = Vector2(0.00515464, 0.0154639)
+
+[sub_resource type="Gradient" id="Gradient_hall5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pqtj4"]
+gradient = SubResource("Gradient_hall5")
+width = 30
+height = 30
+fill_from = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_fbwvl"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uw8qm"]
+gradient = SubResource("Gradient_fbwvl")
+width = 30
+height = 30
+fill_from = Vector2(0.0309278, 0.00257732)
+fill_to = Vector2(0.0360825, 0.0103093)
+
+[sub_resource type="Gradient" id="Gradient_nwcls"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oh4va"]
+gradient = SubResource("Gradient_nwcls")
+width = 30
+height = 30
+fill_from = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_eh2bm"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s6xrt"]
+gradient = SubResource("Gradient_eh2bm")
+width = 30
+height = 30
+fill_to = Vector2(0, 0.00257732)
+
+[sub_resource type="Gradient" id="Gradient_xrvcj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmful"]
+gradient = SubResource("Gradient_xrvcj")
+width = 30
+height = 30
+fill_from = Vector2(1, 0)
 
 [node name="PauseMenu" type="ColorRect"]
 process_mode = 3
@@ -907,35 +974,42 @@ text = "Grass"
 
 [node name="Checks" type="VBoxContainer" parent="PausedVideo/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
+size_flags_horizontal = 6
 script = SubResource("GDScript_5mkmb")
 
 [node name="InGameCheckBox" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
+theme_override_icons/checked = SubResource("GradientTexture2D_2fjs1")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_hknqi")
 
 [node name="SSAOCheckBox" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
+theme_override_icons/checked = SubResource("GradientTexture2D_0ojnl")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_pqtj4")
 button_pressed = true
 
 [node name="SSILCheckBox2" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
+theme_override_icons/checked = SubResource("GradientTexture2D_uw8qm")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_oh4va")
 button_pressed = true
 
 [node name="GrassCheckBox" type="CheckBox" parent="PausedVideo/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
+theme_override_icons/checked = SubResource("GradientTexture2D_s6xrt")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_gmful")
 button_pressed = true
 
 [node name="BackSettingBtn2" type="Button" parent="PausedVideo/MarginContainer"]
