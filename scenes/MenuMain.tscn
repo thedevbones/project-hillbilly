@@ -966,20 +966,21 @@ text = "Grass"
 
 [node name="Checks" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 script = SubResource("GDScript_gd73m")
+metadata/_edit_use_anchors_ = true
 
 [node name="Fullscreen" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
+layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_vertical = 6
 theme_override_icons/checked = SubResource("GradientTexture2D_ou5fm")
 theme_override_icons/unchecked = SubResource("GradientTexture2D_n7n6d")
 
 [node name="SSAOCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
 theme_override_icons/checked = SubResource("GradientTexture2D_7d08s")
 theme_override_icons/unchecked = SubResource("GradientTexture2D_rmmh6")
@@ -988,7 +989,7 @@ button_pressed = true
 [node name="SSILCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
 theme_override_icons/checked = SubResource("GradientTexture2D_cofag")
 theme_override_icons/unchecked = SubResource("GradientTexture2D_u2lab")
@@ -997,7 +998,7 @@ button_pressed = true
 [node name="GrassCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
 theme_override_icons/checked = SubResource("GradientTexture2D_ft4no")
 theme_override_icons/unchecked = SubResource("GradientTexture2D_isqim")
