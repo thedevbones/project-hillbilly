@@ -966,6 +966,7 @@ text = "Grass"
 
 [node name="Checks" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
 script = SubResource("GDScript_gd73m")
 metadata/_edit_use_anchors_ = true
 
