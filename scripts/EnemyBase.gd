@@ -67,6 +67,8 @@ func combat_behavior(delta):
 			var direction = (next_point - location).normalized()
 			velocity = direction * speed
 			move_and_slide()
+			var target_angle = atan2(direction.x, direction.z)
+			rotation.y = target_angle
 			#if not player_heard() and not player_in_fov(direction):
 				#state = States.SEARCH
 				#return
