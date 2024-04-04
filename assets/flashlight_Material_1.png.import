@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm1wehtc4xmye"
-path.s3tc="res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"
+uid="uid://b4c6wbbwfklth"
+path.s3tc="res://.godot/imported/flashlight_Material_1.png-ba4c2fcddc0c83310c618f50890469f0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/Material.004 Metallic.png"
-dest_files=["res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"]
+source_file="res://assets/flashlight_Material_1.png"
+dest_files=["res://.godot/imported/flashlight_Material_1.png-ba4c2fcddc0c83310c618f50890469f0.s3tc.ctex"]
 
 [params]
 
