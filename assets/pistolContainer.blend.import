@@ -31,6 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
+"PATH:Camera": {
+"import/skip_import": true
+},
 "PATH:Cube": {
 "generate/physics": true
 },

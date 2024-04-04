@@ -1,9 +1,143 @@
-[gd_scene load_steps=2 format=3 uid="uid://bufpkpm1p57v3"]
+[gd_scene load_steps=6 format=3 uid="uid://bufpkpm1p57v3"]
 
-[ext_resource type="PackedScene" uid="uid://cqpbd5jjgei6e" path="res://assets/pistolContainer.blend" id="1_8o8mv"]
+[ext_resource type="PackedScene" uid="uid://dli5k0036wmeh" path="res://assets/pistolContainer.glb" id="1_cgfyg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8378s"]
+size = Vector3(4.1745, 1.02325, 3.13037)
+
+[sub_resource type="Animation" id="Animation_mpddp"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pistolContainer/Cube_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.848666, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pistolContainer/Cube_001:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.513113, 0), Vector3(0, 1.65838, -0.606463)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pistolContainer/Cube_003:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.003407, 0.221226, -0.5662), Vector3(-0.0197352, -0.934001, -0.05503), Vector3(-0.00389075, -0.934001, -0.05503)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pistolContainer/Cube_003:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.577931, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ajy18"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pistolContainer/Cube_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pistolContainer/Cube_001:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.513113, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pistolContainer/Cube_003:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.003407, 0.221226, -0.5662)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pistolContainer/Cube_003:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8jun"]
+_data = {
+"RESET": SubResource("Animation_ajy18"),
+"open": SubResource("Animation_mpddp")
+}
 
 [node name="pistolContainer" type="Node3D"]
 transform = Transform3D(0.310625, 0, 0, 0, 0.310625, 0, 0, 0, 0.310625, 0.209202, 0, 0)
 
-[node name="pistolContainer" parent="." instance=ExtResource("1_8o8mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66419, 0, -0.0188975)
+[node name="pistolContainer" parent="." instance=ExtResource("1_cgfyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6653, 9.59431e-08, -0.492313)
+
+[node name="Cube_001" parent="pistolContainer" index="1"]
+transform = Transform3D(2.09316, 0, 0, 0, 0.102414, 0, 0, 0, 1.59352, 0, 0.513113, 0)
+
+[node name="Cube_002" parent="pistolContainer" index="2"]
+transform = Transform3D(0.188803, 0, 0, 0, 0.305201, 0, 0, 0, 0.0599566, -0.003407, 0.221226, -1.96314)
+
+[node name="Torus" parent="pistolContainer" index="3"]
+transform = Transform3D(-0.000649448, 1, 0.000326782, 5.96919e-08, 0.000326633, -1, -0.667643, -0.000972688, -4.76837e-07, -0.194503, 0.221226, 0.148094)
+
+[node name="Cube_003" parent="pistolContainer" index="4"]
+transform = Transform3D(0.188803, 0, 0, 0, 0.305201, 0, 0, 0, 0.0371293, -0.003407, 0.221226, -0.5662)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pistolContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000582902, 0.110617, 0.0144043)
+shape = SubResource("BoxShape3D_8378s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n8jun")
+}
+
+[editable path="pistolContainer"]
