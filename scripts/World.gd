@@ -56,7 +56,7 @@ func get_alive_enemies():
 func _on_bounds_timer_timeout():
 	print("Checking for out-of-bounds")
 	for child in $Spawner.get_children():
-		if child is CharacterBody3D and child.get_collision_layer() == 17 and is_out_of_bounds(child):
+		if child is CharacterBody3D and is_out_of_bounds(child):
 			respawn(child)
 
 func is_out_of_bounds(child):
