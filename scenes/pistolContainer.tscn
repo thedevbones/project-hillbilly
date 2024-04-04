@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bufpkpm1p57v3"]
+
+[ext_resource type="PackedScene" uid="uid://cqpbd5jjgei6e" path="res://assets/pistolContainer.blend" id="1_8o8mv"]
+
+[node name="pistolContainer" type="Node3D"]
+transform = Transform3D(0.310625, 0, 0, 0, 0.310625, 0, 0, 0, 0.310625, 0.209202, 0, 0)
+
+[node name="pistolContainer" parent="." instance=ExtResource("1_8o8mv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66419, 0, -0.0188975)
