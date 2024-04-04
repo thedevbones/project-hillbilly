@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm1wehtc4xmye"
-path.s3tc="res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"
+uid="uid://cwn6igijj04ka"
+path.s3tc="res://.godot/imported/rake_Material_2.png-49789ca377cdaf72f944879368b7178f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/textures/Material.004 Metallic.png"
-dest_files=["res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"]
+source_file="res://assets/rake_Material_2.png"
+dest_files=["res://.godot/imported/rake_Material_2.png-49789ca377cdaf72f944879368b7178f.s3tc.ctex"]
 
 [params]
 
