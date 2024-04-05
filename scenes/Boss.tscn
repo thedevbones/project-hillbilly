@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://coaycrbw3wa5r"]
+[gd_scene load_steps=32 format=3 uid="uid://coaycrbw3wa5r"]
 
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="2_1uepd"]
 [ext_resource type="Texture2D" uid="uid://c86qw1qvemt4s" path="res://assets/boss_shirt.png" id="2_c2owo"]
@@ -9,6 +9,29 @@
 [ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/Damage/bullut_hit_flesh.wav" id="7_430fl"]
 [ext_resource type="AudioStream" uid="uid://vsmhy4vx0ftj" path="res://audio/SFX/Enemy/Monster_scream.mp3" id="8_4piq8"]
 [ext_resource type="AudioStream" uid="uid://bupo5b24174mf" path="res://audio/SFX/Weapons/metal_crow bar_swing.mp3" id="9_x60gk"]
+[ext_resource type="Theme" uid="uid://b0tl6tht11hby" path="res://fonts/gui.tres" id="10_ovvhp"]
+[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="11_y1rru"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2whxv"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1x54"]
+bg_color = Color(0.823529, 0, 0, 0.890196)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt74q"]
 resource_name = "Material"
@@ -559,22 +582,69 @@ node_connections = [&"output", 0, &"BlendSpace1D"]
 radius = 1.3208
 height = 8.49765
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
-transform = Transform3D(0.38, 0, 0, 0, 0.38, 0, 0, 0, 0.38, 0, 0, 0)
+[node name="Boss" type="CharacterBody3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("2_1uepd")
 
-[node name="Boss" type="Node3D" parent="."]
+[node name="BossUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BossHealthBar" type="ProgressBar" parent="BossUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 28.0
+offset_top = 26.19
+offset_right = 359.0
+offset_bottom = 33.19
+grow_horizontal = 2
+theme = ExtResource("10_ovvhp")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_2whxv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p1x54")
+max_value = 30.0
+step = 1.0
+value = 15.0
+show_percentage = false
+
+[node name="Name" type="Label" parent="BossUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.5
+offset_top = -19.15
+offset_right = 371.5
+offset_bottom = 24.8499
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("11_y1rru")
+theme_override_font_sizes/font_size = 15
+text = "B u b b a"
+horizontal_alignment = 1
+
+[node name="model" type="Node3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 3.66, 0)
 
-[node name="Armature" type="Node3D" parent="Boss"]
+[node name="Armature" type="Node3D" parent="model"]
 transform = Transform3D(13.2592, 0, 0, 0, 13.2592, 0, 0, 0, 13.2592, 0, -23.3353, 0)
 
-[node name="Armature_001" type="Node3D" parent="Boss/Armature"]
+[node name="Armature_001" type="Node3D" parent="model/Armature"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.914282, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Boss/Armature/Armature_001"]
+[node name="Skeleton3D" type="Skeleton3D" parent="model/Armature/Armature_001"]
 bones/0/name = "Hip"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0.958298, -0.285772, 0, 0.285772, 0.958298, 0, 0.0350252, -0.0516161)
@@ -947,11 +1017,11 @@ bones/52/position = Vector3(7.567e-09, 0.442277, -5.82077e-09)
 bones/52/rotation = Quaternion(-0.62347, 0.0555117, 0.0518253, 0.77815)
 bones/52/scale = Vector3(1, 1, 1)
 
-[node name="Cube" type="MeshInstance3D" parent="Boss/Armature/Armature_001/Skeleton3D"]
+[node name="Cube" type="MeshInstance3D" parent="model/Armature/Armature_001/Skeleton3D"]
 mesh = SubResource("ArrayMesh_0bvi3")
 skin = SubResource("Skin_74s51")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Boss/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="model/Armature"]
 bones/0/name = "Root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 0)
@@ -960,12 +1030,12 @@ bones/0/position = Vector3(0, -1.19209e-07, 0)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="model"]
 libraries = {
 "": SubResource("AnimationLibrary_ii6b1")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="Boss"]
+[node name="AnimationTree" type="AnimationTree" parent="model"]
 libraries = {
 "": SubResource("AnimationLibrary_ii6b1")
 }
@@ -974,6 +1044,10 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/BlendSpace1D/blend_position = 0
 
 [node name="HitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LaughTimer" type="Timer" parent="."]
+wait_time = 15.0
 one_shot = true
 
 [node name="BulletHit" type="AudioStreamPlayer3D" parent="."]
@@ -1003,3 +1077,6 @@ autostart = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_j8ook")
+
+[connection signal="timeout" from="LaughTimer" to="." method="_on_laugh_timer_timeout"]
+[connection signal="finished" from="Death" to="." method="_on_death_finished"]

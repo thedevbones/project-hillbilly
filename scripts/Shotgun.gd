@@ -88,7 +88,7 @@ func hitscan():
 	if not raycast.is_enabled():
 		return
 	
-	var num_pellets = 8
+	var num_pellets = 6
 	var spread_angle = 10
 	
 	for i in range(num_pellets):

@@ -7,6 +7,7 @@ extends Control
 @onready var black_screen = $BlackScreen
 @onready var upgrade_prompt = $UpgradePrompt
 @onready var health_bar = $HealthBar
+@onready var boss_bar = $BossHealthBar
 @onready var player = get_node_or_null("/root/World/Player")
 
 func _ready():

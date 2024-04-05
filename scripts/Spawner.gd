@@ -8,7 +8,6 @@ var spawn_points = []
 
 func _ready():
 	spawn_points = get_children()
-	spawn_boss(1)
 
 func spawn_enemy(enemy_type, spawn_point):
 	var enemy_scene
@@ -28,7 +27,6 @@ func spawn_wave(enemies_to_spawn):
 
 func spawn_boss(boss_level):
 	var spawn_point = choose_spawn_point()
-	spawn_point.position.y += 2
 	var boss_instance = boss.instantiate()
 	add_child(boss_instance)
 	boss_instance.set_level(boss_level)
@@ -47,7 +45,7 @@ func spawn_upgrade_select():
 	if scene:
 		var instance = scene.instantiate()
 		var forward_direction = %Player.global_transform.basis.z.normalized() * -1
-		var spawn_position = %Player.global_transform.origin + forward_direction * 3.0
+		var spawn_position = %Player.global_transform.origin + forward_direction * 5.0
 		instance.global_transform.origin = spawn_position
 		add_child(instance)
 
@@ -56,7 +54,7 @@ func spawn_ranged_upgrades():
 	if scene:
 		var instance = scene.instantiate()
 		var forward_direction = %Player.global_transform.basis.z.normalized() * -1
-		var spawn_position = %Player.global_transform.origin + forward_direction * 2.0
+		var spawn_position = %Player.global_transform.origin + forward_direction * 5.0
 		instance.global_transform.origin = spawn_position
 		add_child(instance)
 
