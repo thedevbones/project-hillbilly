@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@onready var raycast : RayCast3D = $/root/World/Player/MainCamera/HitScan
+
 enum Weapons { UNARMED = 0, PIPE = 1, KNIFE = 2, PISTOL = 3, SHOTGUN = 4}
 enum Items { FLASHLIGHT = 10, KEY = 11}
 
@@ -94,12 +96,16 @@ func _input(event):
 	elif event.is_action_pressed("scroll_down"):
 		var next_index = next_weapon_index(current_weapon_index, 1)
 		switch_weapon_by_index(next_index)	
+	if event.is_action_pressed("interact"):
+		process_raycast()
 	# Handle mouse input
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 		$MainCamera.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		# Clamp the camera's vertical rotation
 		$MainCamera.rotation.x = clamp($MainCamera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
+
 
 func _physics_process(delta):
 	# Gravity logic
@@ -287,3 +293,10 @@ func die():
 		var tween = get_tree().create_tween()
 		await get_tree().create_timer(3.0).timeout
 		get_tree().reload_current_scene()
+
+func process_raycast():
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider.has_method("action_used"):
+			collider.action_used()
+			print(collider)

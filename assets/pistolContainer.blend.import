@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cjw08kiqwpko5"
-path="res://.godot/imported/padlock1.blend-55ed68ff1f18a199a4c8348c9d0d53d1.scn"
+uid="uid://cqpbd5jjgei6e"
+path="res://.godot/imported/pistolContainer.blend-f7db91d026d93e0fd4a2ea2781297581.scn"
 
 [deps]
 
-source_file="res://assets/padlock1.blend"
-dest_files=["res://.godot/imported/padlock1.blend-55ed68ff1f18a199a4c8348c9d0d53d1.scn"]
+source_file="res://assets/pistolContainer.blend"
+dest_files=["res://.godot/imported/pistolContainer.blend-f7db91d026d93e0fd4a2ea2781297581.scn"]
 
 [params]
 
@@ -29,7 +29,40 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Camera": {
+"import/skip_import": true
+},
+"PATH:Cube": {
+"generate/physics": true
+},
+"PATH:Cube_001": {
+"generate/physics": true
+},
+"PATH:Cube_002": {
+"generate/physics": true
+},
+"PATH:Cube_003": {
+"generate/physics": true
+},
+"PATH:Cube_004": {
+"generate/physics": true
+},
+"PATH:Cube_005": {
+"generate/physics": true
+},
+"PATH:Cube_006": {
+"generate/physics": true
+},
+"PATH:Light": {
+"import/skip_import": true
+},
+"PATH:Torus": {
+"generate/physics": true
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
 blender/nodes/visible=0
