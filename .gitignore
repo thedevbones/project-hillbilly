@@ -4,6 +4,8 @@
 # Ignote import files
 *.import
 
+*.tres
+
 assets/car_backlight base Color_13.png
 
 assets/car_backlight base Color_13.png.import
