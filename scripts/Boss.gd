@@ -21,7 +21,7 @@ func _ready():
 	damage_type = "rake"
 	health = 30
 	damage = 2
-	speed = 2.5
+	default_speed = 5
 	$BossUI.modulate = Color("ffffff", 0)
 	adjust_ui()
 	fade_ui(Color("ffffff", 1))

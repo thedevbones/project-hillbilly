@@ -1,13 +1,13 @@
-[gd_scene load_steps=32 format=3 uid="uid://bjm4y1legptpu"]
+[gd_scene load_steps=31 format=3 uid="uid://bjm4y1legptpu"]
 
 [ext_resource type="Script" path="res://scripts/EnemyWeak.gd" id="1_1suxf"]
-[ext_resource type="Texture2D" uid="uid://b31g53jbebj2i" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled.png" id="1_04hja"]
-[ext_resource type="Texture2D" uid="uid://dbaekifagi7e2" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_1.png" id="2_2et11"]
+[ext_resource type="Texture2D" uid="uid://1ryc04wgsovv" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled.png" id="1_04hja"]
+[ext_resource type="Texture2D" uid="uid://20tlrr4k2dam" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_1.png" id="2_2et11"]
 [ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/Damage/bullut_hit_flesh.wav" id="2_mro40"]
 [ext_resource type="AudioStream" uid="uid://5pnojxj8pl22" path="res://audio/SFX/Enemy/enemy_death.wav" id="3_ex82b"]
-[ext_resource type="Texture2D" uid="uid://bi4jhnvasq0xl" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_2.png" id="3_wx4sd"]
-[ext_resource type="Texture2D" uid="uid://clyvdlry3skwc" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_3.png" id="4_6vl3q"]
-[ext_resource type="Texture2D" uid="uid://bxaceyrvdvenb" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_4.png" id="5_487ks"]
+[ext_resource type="Texture2D" uid="uid://74jufpq7g0ip" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_2.png" id="3_wx4sd"]
+[ext_resource type="Texture2D" uid="uid://d1fcjtlnj3ia7" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_3.png" id="4_6vl3q"]
+[ext_resource type="Texture2D" uid="uid://cf6ogwgqv6ds1" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_4.png" id="5_487ks"]
 [ext_resource type="AudioStream" uid="uid://kadt1bdl7dai" path="res://audio/SFX/Player Movement/swing.wav" id="9_dun4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3vd6"]
@@ -693,10 +693,6 @@ _data = {
 "walk": SubResource("Animation_0ofd5")
 }
 
-[sub_resource type="SphereMesh" id="SphereMesh_e6mqn"]
-radius = 0.65
-height = 2.0
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ewdty"]
 height = 1.75
 
@@ -714,7 +710,7 @@ collision_mask = 65537
 script = ExtResource("1_1suxf")
 
 [node name="Armature" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.648676, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0659466, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
 bones/0/name = "Bone.Bot"
@@ -888,12 +884,6 @@ bus = &"SFX"
 [node name="PatrolTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
-
-[node name="GrassInteract" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.21154, 0)
-layers = 65536
-mesh = SubResource("SphereMesh_e6mqn")
-skeleton = NodePath("../Armature")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.2272, 0, 0, 0, 4.04399, 0, 0, 0, 2.89382, -0.0646126, 0.648676, -0.32817)
