@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ylgj4yoabfhv"]
+
+[ext_resource type="Script" path="res://scripts/Target.gd" id="1_1c4oo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l40yn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7wk6m"]
+material = SubResource("StandardMaterial3D_l40yn")
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_etcn7"]
+size = Vector3(1, 1, 0.1)
+
+[node name="Target" type="StaticBody3D"]
+script = ExtResource("1_1c4oo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7wk6m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_etcn7")

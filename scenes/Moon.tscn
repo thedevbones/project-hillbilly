@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://l4nn4667vpgv"]
+
+[ext_resource type="PackedScene" uid="uid://cji3ha627hbum" path="res://assets/moon.glb" id="1_tqqr5"]
+
+[node name="Moon" type="Node3D"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.200087, 0)
+
+[node name="LightmapProbe" type="LightmapProbe" parent="."]
+transform = Transform3D(-8.17246, 1.14865, 5.64725, 5.60502, 3.86219, 7.32578, -1.3396, 9.15226, -3.80018, -1.66224, -0.118883, -2.69971)
+
+[node name="moon" parent="." instance=ExtResource("1_tqqr5")]
+transform = Transform3D(-0.382246, -0.245709, 0.890793, 0.731922, 0.507945, 0.454181, -0.564071, 0.825602, -0.0143204, -1.66224, -1.19209e-07, -2.73816)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.828885, 0.139303, 0.541797, 0.240103, 0.786169, -0.569463, -0.505272, 0.602107, 0.618197, -0.505017, -0.0757578, -2.10052)
+visible = false
+light_color = Color(1, 1, 0.831373, 1)
+light_energy = 0.177
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 3.424

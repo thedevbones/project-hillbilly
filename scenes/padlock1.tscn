@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://cutlybiwby807"]
+
+[ext_resource type="PackedScene" uid="uid://dndgoljpts08d" path="res://assets/padlock1.glb" id="1_ukv3d"]
+
+[sub_resource type="Animation" id="Animation_qyk5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("padlock1/Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.3424, 0.715304, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("padlock1/Cylinder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.34438, -0.0109162, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("padlock1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5ea3t"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("padlock1/Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.3424, 0.715304, 0), Vector3(-2.3424, -0.0477749, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("padlock1/Cylinder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.34438, -0.0109162, 0), Vector3(-2.34438, -0.783857, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("padlock1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0awpn"]
+_data = {
+"RESET": SubResource("Animation_qyk5m"),
+"open": SubResource("Animation_5ea3t")
+}
+
+[node name="padlock1" type="Node3D"]
+transform = Transform3D(-0.000959917, 0, -1, 0, 1, 0, 1, 0, -0.000959917, 0.331603, 0, 2.34561)
+
+[node name="padlock1" parent="." instance=ExtResource("1_ukv3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0719701, 0, 0.355436)
+
+[node name="Cube" parent="padlock1" index="1"]
+transform = Transform3D(0.333816, 0, -5.95274e-12, 0, 1, 0, -1.93236e-10, 0, 1, -2.3424, 0.715304, 0)
+
+[node name="Cylinder" parent="padlock1" index="2"]
+transform = Transform3D(0.243191, 0, -1.83775e-11, 0, 0.243191, 0, -5.04956e-11, 0, 0.243191, -2.34438, -0.0109162, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0awpn")
+}
+
+[editable path="padlock1"]

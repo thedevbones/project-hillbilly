@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://blaajlfinuwup"]
+
+[ext_resource type="PackedScene" uid="uid://cfsf0mva0c75t" path="res://assets/tree-border.glb" id="1_w3umm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tahn0"]
+size = Vector3(9.867, 8.67, 1.393)
+
+[node name="tree-border" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.115, 0)
+shape = SubResource("BoxShape3D_tahn0")
+
+[node name="tree-border" parent="." instance=ExtResource("1_w3umm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.115, 0)

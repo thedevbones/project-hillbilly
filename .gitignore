@@ -1,2 +1,73 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Ignote import files
+*.import
+
+*.tres
+
+assets/car_backlight base Color_13.png
+
+assets/car_backlight base Color_13.png.import
+
+assets/car_backlight base Color.png
+
+assets/car_backlight base Color.png.import
+
+assets/car_backlight base_14.png
+
+assets/car_backlight base_14.png.import
+
+assets/car_backlight base.png
+
+assets/car_backlight base.png.import
+
+assets/car_backlight_12.png
+
+assets/car_backlight_12.png.import
+
+assets/car_backlight.png
+
+assets/car_backlight.png.import
+
+assets/car_Cylinder.png
+
+assets/car_Cylinder.png.import
+
+assets/car_Front light Base Color.png
+
+assets/car_Front light Base Color.png.import
+
+assets/car_Material Base Color.png
+
+assets/car_Material Base Color.png.import
+
+assets/car_Material_10.png
+
+assets/car_Material_10.png.import
+
+assets/car_Material_7.png
+
+assets/car_Material_7.png.import
+
+assets/car_Material_8.png
+
+assets/car_Material_8.png.import
+
+assets/car_Material_9.png
+
+assets/car_Material_9.png.import
+
+assets/car_Material.png
+
+assets/car_Material.png.import
+
+assets/car_mirror.png
+
+assets/car_mirror.png.import
+
+assets/car_Plane Base Color.png
+
+assets/car_Plane Base Color.png.import
+
+*.DS_Store
