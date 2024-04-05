@@ -1,6 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 
+# Ignote import files
+*.import
+
 assets/car_backlight base Color_13.png
 
 assets/car_backlight base Color_13.png.import
