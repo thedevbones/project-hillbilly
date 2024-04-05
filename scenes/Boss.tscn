@@ -559,22 +559,22 @@ node_connections = [&"output", 0, &"BlendSpace1D"]
 radius = 1.3208
 height = 8.49765
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
-transform = Transform3D(0.38, 0, 0, 0, 0.38, 0, 0, 0, 0.38, 0, 0, 0)
+[node name="Boss" type="CharacterBody3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("2_1uepd")
 
-[node name="Boss" type="Node3D" parent="."]
+[node name="model" type="Node3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 3.66, 0)
 
-[node name="Armature" type="Node3D" parent="Boss"]
+[node name="Armature" type="Node3D" parent="model"]
 transform = Transform3D(13.2592, 0, 0, 0, 13.2592, 0, 0, 0, 13.2592, 0, -23.3353, 0)
 
-[node name="Armature_001" type="Node3D" parent="Boss/Armature"]
+[node name="Armature_001" type="Node3D" parent="model/Armature"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.914282, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Boss/Armature/Armature_001"]
+[node name="Skeleton3D" type="Skeleton3D" parent="model/Armature/Armature_001"]
 bones/0/name = "Hip"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0.958298, -0.285772, 0, 0.285772, 0.958298, 0, 0.0350252, -0.0516161)
@@ -947,11 +947,11 @@ bones/52/position = Vector3(7.567e-09, 0.442277, -5.82077e-09)
 bones/52/rotation = Quaternion(-0.62347, 0.0555117, 0.0518253, 0.77815)
 bones/52/scale = Vector3(1, 1, 1)
 
-[node name="Cube" type="MeshInstance3D" parent="Boss/Armature/Armature_001/Skeleton3D"]
+[node name="Cube" type="MeshInstance3D" parent="model/Armature/Armature_001/Skeleton3D"]
 mesh = SubResource("ArrayMesh_0bvi3")
 skin = SubResource("Skin_74s51")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Boss/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="model/Armature"]
 bones/0/name = "Root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 0)
@@ -960,12 +960,12 @@ bones/0/position = Vector3(0, -1.19209e-07, 0)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="model"]
 libraries = {
 "": SubResource("AnimationLibrary_ii6b1")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="Boss"]
+[node name="AnimationTree" type="AnimationTree" parent="model"]
 libraries = {
 "": SubResource("AnimationLibrary_ii6b1")
 }
