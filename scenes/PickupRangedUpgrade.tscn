@@ -18,6 +18,14 @@ func _on_pickup_area_body_entered(body):
 		gui.update_ammo_count()
 		hide()
 		world.switch_state(world.GameState.PREPARATION)
+
+func _ready():
+	$RespawnTimer.start()
+
+func _on_respawn_timer_timeout():
+	if world.current_state != world.GameState.TIMEOUT: return
+	spawner.spawn_upgrade_select()
+	queue_free()
 "
 
 [sub_resource type="BoxMesh" id="BoxMesh_wveu1"]
@@ -213,5 +221,9 @@ omni_range = 1.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea"]
 shape = SubResource("SphereShape3D_tx5yx")
 
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 15.0
+
 [connection signal="finished" from="PickupSound" to="." method="_on_pickup_sound_finished"]
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
