@@ -72,14 +72,12 @@ func combat_behavior(delta):
 			attack_player()
 			hit_timer.start()
 			attack_audio.play()
-	else:
-		if next_point != Vector3.INF:
-			velocity = direction * speed
-			move_and_slide()
-		movement()
-			#if not player_heard() and not player_in_fov(direction):
-				#state = States.SEARCH
-				#return
+	elif next_point != Vector3.INF:
+		velocity = direction * speed
+		move_and_slide()
+		#if not player_heard() and not player_in_fov(direction):
+			#state = States.SEARCH
+			#return
 
 func movement():
 	pass
