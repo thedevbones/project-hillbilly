@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm1wehtc4xmye"
-path.s3tc="res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"
+uid="uid://1b7dv7xplh6x"
+path.s3tc="res://.godot/imported/9mmBullet_Material Metallic_1.png-1a3a8ec943ed832e439bb7b7ff2e2485.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/textures/Material.004 Metallic.png"
-dest_files=["res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"]
+source_file="res://assets/9mmBullet_Material Metallic_1.png"
+dest_files=["res://.godot/imported/9mmBullet_Material Metallic_1.png-1a3a8ec943ed832e439bb7b7ff2e2485.s3tc.ctex"]
 
 [params]
 

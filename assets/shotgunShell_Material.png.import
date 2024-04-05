@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm1wehtc4xmye"
-path.s3tc="res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"
+uid="uid://bvfgrfsot7req"
+path.s3tc="res://.godot/imported/shotgunShell_Material.png-ea1df8e6454efe2490cde2b2d1996ca3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/textures/Material.004 Metallic.png"
-dest_files=["res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"]
+source_file="res://assets/shotgunShell_Material.png"
+dest_files=["res://.godot/imported/shotgunShell_Material.png-ea1df8e6454efe2490cde2b2d1996ca3.s3tc.ctex"]
 
 [params]
 

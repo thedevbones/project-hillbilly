@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm1wehtc4xmye"
-path.s3tc="res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"
+uid="uid://cc15vrfhe8eql"
+path.s3tc="res://.godot/imported/hatchet_Cube_3.png-4d7dc60b8bb168f37a6c9e0e8b2e1a46.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/textures/Material.004 Metallic.png"
-dest_files=["res://.godot/imported/Material.004 Metallic.png-5283f14ab3b8d2ce6f0e18e3264b8ce3.s3tc.ctex"]
+source_file="res://assets/hatchet_Cube_3.png"
+dest_files=["res://.godot/imported/hatchet_Cube_3.png-4d7dc60b8bb168f37a6c9e0e8b2e1a46.s3tc.ctex"]
 
 [params]
 
