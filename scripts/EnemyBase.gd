@@ -62,19 +62,20 @@ func combat_behavior(delta):
 	speed = combat_speed
 	navigation_agent.set_target_position(player_position)
 	
+	var next_point = navigation_agent.get_next_path_position()
+	var direction = (next_point - location).normalized()
+	var target_angle = atan2(direction.x, direction.z)
+	rotation.y = target_angle
+	
 	if location.distance_to(player_position) <= attack_distance:
 		if hit_timer.get_time_left() == 0 and not player.dying:
 			attack_player()
 			hit_timer.start()
 			attack_audio.play()
 	else:
-		var next_point = navigation_agent.get_next_path_position()
 		if next_point != Vector3.INF:
-			var direction = (next_point - location).normalized()
 			velocity = direction * speed
 			move_and_slide()
-			var target_angle = atan2(direction.x, direction.z)
-			rotation.y = target_angle
 			#if not player_heard() and not player_in_fov(direction):
 				#state = States.SEARCH
 				#return

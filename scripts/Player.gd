@@ -256,6 +256,8 @@ func apply_damage(damage):
 func die():
 	dying = true
 	%UI.fade_element($"../UI/BlackScreen", "modulate", Color("ffffff", 1), 3)
+	$"../GunViewport".hide()
+	speed = 0
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position.y", position.y - 1, 3)
 	await get_tree().create_timer(3.0).timeout

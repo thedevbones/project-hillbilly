@@ -14,6 +14,7 @@ func _ready():
 	crosshair.modulate = Color("ffffff", 0)
 	wave_count.modulate = Color("ffffff", 0)
 	upgrade_prompt.modulate = Color("ffffff", 0)
+	health_bar.modulate = Color("ffffff", 0)
 	wave_bar.max_value = $"../PrepTimer".get_wait_time()
 	fade_element(black_screen, "modulate", Color("ffffff", 0), 1.5)
 
@@ -25,9 +26,9 @@ func _process(delta):
 	wave_bar.value = wave_bar.max_value - $"../PrepTimer".get_time_left()
 	
 	if health_bar.value < health_bar.max_value: 
-		health_bar.show()
+		fade_element(health_bar, "modulate", Color("ffffff", 1), 0.5)
 	else: 
-		health_bar.hide()
+		fade_element(health_bar, "modulate", Color("ffffff", 0), 1.0)
 	health_bar.value = player.health
 
 func update_crosshair():
