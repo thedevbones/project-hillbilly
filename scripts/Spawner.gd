@@ -8,7 +8,6 @@ var spawn_points = []
 
 func _ready():
 	spawn_points = get_children()
-	spawn_boss(1)
 
 func spawn_enemy(enemy_type, spawn_point):
 	var enemy_scene

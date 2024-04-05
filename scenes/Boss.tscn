@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://coaycrbw3wa5r"]
+[gd_scene load_steps=31 format=3 uid="uid://coaycrbw3wa5r"]
 
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="2_1uepd"]
 [ext_resource type="Texture2D" uid="uid://c86qw1qvemt4s" path="res://assets/boss_shirt.png" id="2_c2owo"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/Damage/bullut_hit_flesh.wav" id="7_430fl"]
 [ext_resource type="AudioStream" uid="uid://vsmhy4vx0ftj" path="res://audio/SFX/Enemy/Monster_scream.mp3" id="8_4piq8"]
 [ext_resource type="AudioStream" uid="uid://bupo5b24174mf" path="res://audio/SFX/Weapons/metal_crow bar_swing.mp3" id="9_x60gk"]
+[ext_resource type="Theme" uid="uid://b0tl6tht11hby" path="res://fonts/gui.tres" id="10_ovvhp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt74q"]
 resource_name = "Material"
@@ -559,6 +560,11 @@ node_connections = [&"output", 0, &"BlendSpace1D"]
 radius = 1.3208
 height = 8.49765
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tpaoy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1x54"]
+bg_color = Color(1, 0, 0, 0.498039)
+
 [node name="Boss" type="CharacterBody3D"]
 transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
 collision_layer = 17
@@ -1003,3 +1009,21 @@ autostart = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_j8ook")
+
+[node name="BossHealthBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = 20.0
+offset_right = 166.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme = ExtResource("10_ovvhp")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_tpaoy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p1x54")
+max_value = 50.0
+step = 1.0
+value = 45.0
+show_percentage = false
