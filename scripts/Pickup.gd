@@ -11,7 +11,7 @@ func _on_pickup_area_body_entered(body):
 	if body == player: 
 		$PickupSound.play()
 		player.unlock_item(item)
-		if world.current_wave == 0: world.switch_state(world.GameState.IN_WAVE)
+		if world.current_wave == 0: world.switch_state(world.GameState.PREPARATION)
 		hide()
 
 func _on_pickup_sound_finished():
