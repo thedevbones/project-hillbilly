@@ -11,31 +11,31 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StaticBody3D/pistolContainer/Cube_001:rotation")
+tracks/0/path = NodePath("pistolContainer/Cube_001:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 0.513113, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StaticBody3D/pistolContainer/Cube_001:position")
+tracks/1/path = NodePath("pistolContainer/Cube_001:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.513113, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StaticBody3D/pistolContainer/Cube_003:position")
+tracks/2/path = NodePath("pistolContainer/Cube_003:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -47,7 +47,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("StaticBody3D/pistolContainer/Cube_003:rotation")
+tracks/3/path = NodePath("pistolContainer/Cube_003:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -62,50 +62,50 @@ resource_name = "open"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StaticBody3D/pistolContainer/Cube_001:rotation")
+tracks/0/path = NodePath("pistolContainer/Cube_001:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.848666, 0, 0)]
+"values": [Vector3(0, 0.513113, 0), Vector3(0, 0.627102, -0.00999549), Vector3(0, 0.765571, -0.032718), Vector3(0, 0.894852, -0.0682215), Vector3(0, 1.02149, -0.11516), Vector3(0, 1.13896, -0.173079), Vector3(0, 1.653, -0.580304)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StaticBody3D/pistolContainer/Cube_001:position")
+tracks/1/path = NodePath("pistolContainer/Cube_001:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0.513113, 0), Vector3(0, 1.65838, -0.606463)]
+"values": [Vector3(0, 0, 0), Vector3(-0.83713, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StaticBody3D/pistolContainer/Cube_003:position")
+tracks/2/path = NodePath("pistolContainer/Cube_003:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.003407, 0.221226, -0.5662), Vector3(-0.0197352, -0.934001, -0.05503), Vector3(-0.00389075, -0.934001, -0.05503)]
+"values": [Vector3(-0.003407, 0.221226, -0.5662), Vector3(-0.003407, -0.184467, -0.481447), Vector3(-0.003407, -0.552038, -0.318207), Vector3(-0.003407, -0.901668, -0.083206)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("StaticBody3D/pistolContainer/Cube_003:rotation")
+tracks/3/path = NodePath("pistolContainer/Cube_003:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.577931, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-0.18451, 0, 0), Vector3(-0.369021, 0, 0), Vector3(-0.553531, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n8jun"]
@@ -114,10 +114,13 @@ _data = {
 "open": SubResource("Animation_mpddp")
 }
 
-[node name="pistolContainer2" type="StaticBody3D"]
+[node name="pistolContainer" type="StaticBody3D"]
 script = ExtResource("1_tyqqe")
 
-[node name="pistolContainer2" parent="." instance=ExtResource("1_bobgm")]
+[node name="pistolContainer" parent="." instance=ExtResource("1_bobgm")]
+
+[node name="Cube_001" parent="pistolContainer" index="1"]
+transform = Transform3D(2.09316, 0, 0, 0, 0.102414, 0, 0, 0, 1.59352, 0, 0.513113, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0262451, 0.130768, -0.0262146)
@@ -127,3 +130,5 @@ shape = SubResource("BoxShape3D_kmval")
 libraries = {
 "": SubResource("AnimationLibrary_n8jun")
 }
+
+[editable path="pistolContainer"]

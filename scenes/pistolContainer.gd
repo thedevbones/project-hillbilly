@@ -8,7 +8,6 @@ var isOpen = false;
 var canInteract = true;
 
 func action_used():
-	$ContainAnimationPlayer.play("open")
 	#if !isLocked: 
 		#insert noise to show it is locked
 	#	if needsKey:
@@ -23,6 +22,7 @@ func action_used():
 func open_contain():
 	canInteract = false
 	#$AnimationPlayer.play("open")
-	$ContainAnimationPlayer.play("open")
+	var animPlayer = $/root/World/PistolContainer2/ContainAnimationPlayer
+	animPlayer.play("open")
 	isOpen = true
 	
