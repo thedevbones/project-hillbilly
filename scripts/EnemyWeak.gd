@@ -8,12 +8,13 @@ func _ready():
 	spawn()
 	hit_audio = $BulletHit
 	death_audio = $Death
+	attack_audio = $Swing
+	hit_timer = $HitTimer
+	damage_type = "axe"
 	#patrol_timer = $PatrolTimer
 	ani_tree.set("parameters/BlendSpace1D/blend_position",speed)
 
 func _on_death_finished():
-	world.add_alive_enemies(-1)
-	drop_loot()
 	queue_free()
 	
 

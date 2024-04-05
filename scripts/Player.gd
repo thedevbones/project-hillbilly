@@ -16,11 +16,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.2
 var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
+var health = 10
 var is_sprinting = false
 var is_crouching = false
 var is_moving = false
 var can_sprint = true
 var falling = false
+var dying = false
 
 # Collision variables
 var push_force = 8.0
@@ -40,6 +42,20 @@ var inventory = {
 	Items.FLASHLIGHT: {"is_unlocked": false, "total_ammo": 0},
 }
 
+var hurt_sounds = [
+	preload("res://audio/SFX/Damage/Player_pain_grunt2.mp3"),
+	preload("res://audio/SFX/Damage/Player_pain_grunt.mp3"),
+]
+var impact_sounds = {
+	0: preload("res://audio/SFX/Damage/Axe_impact.mp3"),
+	1: preload("res://audio/SFX/Damage/Blunt_hit.mp3"),
+	2: preload("res://audio/SFX/Damage/Blunt_impact_on_body.mp3"),
+	3: preload("res://audio/SFX/Damage/bullut_hit_flesh.wav"),
+	4: preload("res://audio/SFX/Damage/Shovel_impact.mp3"),
+	5: preload("res://audio/SFX/Damage/skull_crack_melee_impact.mp3"),
+	6: preload("res://audio/SFX/Damage/Stabbing_impact.mp3"),
+}
+
 func _ready():
 	# Capture the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -56,6 +72,8 @@ func _ready():
 
 func _input(event):	
 	# Handle weapon inputs
+	if dying:
+		return
 	if event.is_action_pressed("fire"):
 		attack()
 	if event.is_action_pressed("reload"):
@@ -92,6 +110,8 @@ func _physics_process(delta):
 		$StepAudio.play()
 		falling = false
 	# Handle jump
+	if dying:
+		return
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_crouching and stamina > 0:
 		velocity.y = JUMP_VELOCITY
 		stamina -= 1
@@ -242,3 +262,28 @@ func toggle_flashlight():
 	if not has_item(Items.FLASHLIGHT): return
 	var flashlight = items[Items.FLASHLIGHT]
 	if flashlight: $MainCamera/Flashlight.toggle()
+
+func apply_damage(damage, damage_type):
+	health -= damage
+	if not $Impact.is_playing():
+		match damage_type:
+			"axe": $Impact.set_stream(impact_sounds[0])
+		$Impact.set_pitch_scale(randf_range(0.8, 1.2))
+		$Impact.play()
+	if not $Hurt.is_playing(): 
+		var sound_to_play = hurt_sounds.pick_random()
+		$Hurt.set_stream(sound_to_play)
+		$Hurt.set_pitch_scale(randf_range(0.8, 1.2))
+		$Hurt.play()
+	if health <= 0: die()
+
+func die():
+	if not dying:
+		dying = true
+		$Death.play()
+		%UI.fade_element($"../UI/BlackScreen", "modulate", Color("ffffff", 1), 3)
+		$"../GunViewport".hide()
+		speed = 0
+		var tween = get_tree().create_tween()
+		await get_tree().create_timer(3.0).timeout
+		get_tree().reload_current_scene()

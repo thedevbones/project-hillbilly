@@ -13,6 +13,9 @@ var speed = 1.0
 var combat_speed = 2.0
 var attack_distance = 2
 var sight_distance = 20
+var damage = 1
+var hit_timer: Timer
+var damage_type = ""
 
 var patrol_points = []
 var patrol_radius = 10.0
@@ -27,6 +30,7 @@ var is_waiting = false
 
 var hit_audio: AudioStreamPlayer3D
 var death_audio: AudioStreamPlayer3D
+var attack_audio: AudioStreamPlayer3D
 
 func _process(delta):
 	SimpleGrass.set_player_position(global_position)
@@ -59,22 +63,26 @@ func combat_behavior(delta):
 	speed = combat_speed
 	navigation_agent.set_target_position(player_position)
 	
+	var next_point = navigation_agent.get_next_path_position()
+	var direction = (next_point - location).normalized()
+	var target_angle = atan2(direction.x, direction.z)
+	rotation.y = target_angle
+	
 	if location.distance_to(player_position) <= attack_distance:
-		attack_player()
+		if hit_timer.get_time_left() == 0 and not player.dying:
+			attack_player()
+			hit_timer.start()
+			attack_audio.play()
 	else:
-		var next_point = navigation_agent.get_next_path_position()
 		if next_point != Vector3.INF:
-			var direction = (next_point - location).normalized()
 			velocity = direction * speed
 			move_and_slide()
-			var target_angle = atan2(direction.x, direction.z)
-			rotation.y = target_angle
 			#if not player_heard() and not player_in_fov(direction):
 				#state = States.SEARCH
 				#return
 
 func attack_player():
-	pass
+	player.apply_damage(damage, damage_type)
 
 func apply_damage(damage):
 	health -= damage
@@ -82,12 +90,12 @@ func apply_damage(damage):
 	if health <= 0: die()
 
 func die():
-	if death_audio: 
+	if not death_audio.is_playing(): 
 		death_audio.play()
-	else: 
 		world.add_alive_enemies(-1)
 		drop_loot()
-		queue_free()
+		hide()
+		$CollisionShape3D.queue_free()
 
 func drop_loot():
 	var rng = RandomNumberGenerator.new()
