@@ -35,6 +35,7 @@ func start_wave():
 	print("Spawned " + str(enemies_alive) + " enemies")
 
 func wave_completed():
+	if %Player.health < 10: %Player.health += 1
 	if current_wave == TOTAL_WAVES:
 		victory()
 	elif current_wave % 5 == 0 or current_wave == 2:
