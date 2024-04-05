@@ -150,7 +150,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8uqm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pnaqm"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -185,7 +185,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_b8uqm"),
+"material": SubResource("ShaderMaterial_pnaqm"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -323,6 +323,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="HealthBar" parent="UI" instance=ExtResource("57_uqs6u")]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 230.0
+offset_right = 37.0
+offset_bottom = 233.0
+max_value = 10.0
+value = 10.0
 
 [node name="GunViewport" type="SubViewportContainer" parent="."]
 offset_right = 426.0
@@ -1117,12 +1126,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.2891, 0.8, -17.8822)
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 66.491, 0.8, -15.699)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("57_uqs6u")]
-offset_left = 9.0
-offset_top = 230.0
-offset_right = 37.0
-offset_bottom = 233.0
 
 [connection signal="timeout" from="PrepTimer" to="." method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="BoundsTimer" to="." method="_on_bounds_timer_timeout"]

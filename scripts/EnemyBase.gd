@@ -13,6 +13,8 @@ var speed = 1.0
 var combat_speed = 2.0
 var attack_distance = 2
 var sight_distance = 20
+var damage = 1
+var hit_timer: Timer
 
 var patrol_points = []
 var patrol_radius = 10.0
@@ -27,6 +29,7 @@ var is_waiting = false
 
 var hit_audio: AudioStreamPlayer3D
 var death_audio: AudioStreamPlayer3D
+var attack_audio: AudioStreamPlayer3D
 
 func _process(delta):
 	SimpleGrass.set_player_position(global_position)
@@ -60,7 +63,10 @@ func combat_behavior(delta):
 	navigation_agent.set_target_position(player_position)
 	
 	if location.distance_to(player_position) <= attack_distance:
-		attack_player()
+		if hit_timer.get_time_left() == 0:
+			attack_player()
+			hit_timer.start()
+			attack_audio.play()
 	else:
 		var next_point = navigation_agent.get_next_path_position()
 		if next_point != Vector3.INF:
@@ -74,7 +80,7 @@ func combat_behavior(delta):
 				#return
 
 func attack_player():
-	pass
+	player.apply_damage(damage)
 
 func apply_damage(damage):
 	health -= damage

@@ -8,6 +8,8 @@ func _ready():
 	spawn()
 	hit_audio = $BulletHit
 	death_audio = $Death
+	attack_audio = $Swing
+	hit_timer = $HitTimer
 	#patrol_timer = $PatrolTimer
 	ani_tree.set("parameters/BlendSpace1D/blend_position",speed)
 

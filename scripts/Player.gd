@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.2
 var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
+var health = 10
 var is_sprinting = false
 var is_crouching = false
 var is_moving = false
@@ -242,3 +243,7 @@ func toggle_flashlight():
 	if not has_item(Items.FLASHLIGHT): return
 	var flashlight = items[Items.FLASHLIGHT]
 	if flashlight: $MainCamera/Flashlight.toggle()
+
+func apply_damage(damage):
+	health -= damage
+	if health <= 0: print("dead")

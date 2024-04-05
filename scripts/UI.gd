@@ -6,8 +6,8 @@ extends Control
 @onready var wave_bar = $WaveBar
 @onready var black_screen = $BlackScreen
 @onready var upgrade_prompt = $UpgradePrompt
+@onready var health_bar = $HealthBar
 @onready var player = get_node_or_null("/root/World/Player")
-@onready var health_bar = $Health_bar
 
 func _ready():
 	black_screen.show()
@@ -23,6 +23,12 @@ func _process(delta):
 	else: 
 		wave_bar.hide()
 	wave_bar.value = wave_bar.max_value - $"../PrepTimer".get_time_left()
+	
+	if health_bar.value < health_bar.max_value: 
+		wave_bar.show()
+	else: 
+		health_bar.hide()
+	health_bar.value = player.health
 
 func update_crosshair():
 	if not player: return
