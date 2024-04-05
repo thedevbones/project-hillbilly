@@ -24,7 +24,6 @@ func attack_player():
 	call_deferred("_attack_player")
 
 func _attack_player():
-	print("attacking")
 	anim_name = "Attack_animation"
 	animation_player.play(anim_name)
 	player.apply_damage(damage, damage_type)

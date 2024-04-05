@@ -26,8 +26,8 @@ func switch_state(new_state):
 func start_wave():
 	current_wave += 1
 	%UI.update_wave_count(current_wave)
-	if current_wave % 5 == 0:
-		$Spawner.spawn_boss(current_wave/5)
+	if current_wave % 2 == 0:
+		$Spawner.spawn_boss(current_wave/2)
 		return
 	var enemies_to_spawn = [{"type": "weak", "count": current_wave * 5}]
 	$Spawner.spawn_wave(enemies_to_spawn)
