@@ -251,10 +251,12 @@ func toggle_flashlight():
 
 func apply_damage(damage):
 	health -= damage
+	if not $Hurt.is_playing(): $Hurt.play()
 	if health <= 0: die()
 
 func die():
 	dying = true
+	$Death.play()
 	%UI.fade_element($"../UI/BlackScreen", "modulate", Color("ffffff", 1), 3)
 	$"../GunViewport".hide()
 	speed = 0

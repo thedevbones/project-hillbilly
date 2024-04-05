@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=87 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -57,6 +57,8 @@
 [ext_resource type="Texture2D" uid="uid://dhgqjcpdui70s" path="res://textures/dirt.jpg" id="25_0gkn8"]
 [ext_resource type="PackedScene" uid="uid://be0rje6u0ibik" path="res://scenes/Tree1.tscn" id="25_qwaa1"]
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="31_n5e12"]
+[ext_resource type="AudioStream" uid="uid://b2dw4rwx78sw1" path="res://audio/SFX/Damage/Player_death.mp3" id="32_vaxi1"]
+[ext_resource type="AudioStream" uid="uid://c3k7wkoiqjne7" path="res://audio/SFX/Damage/Player_pain_grunt.mp3" id="33_ct85e"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 [ext_resource type="PackedScene" uid="uid://cb0nc6t6dr5ph" path="res://health_bar.tscn" id="57_uqs6u"]
 
@@ -573,6 +575,13 @@ bus = &"SFX"
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("3_ec8lf")]
 visible = false
+
+[node name="Death" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("32_vaxi1")
+bus = &"SFX"
+
+[node name="Hurt" type="AudioStreamPlayer3D" parent="Player"]
+stream = ExtResource("33_ct85e")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_n5e12")
