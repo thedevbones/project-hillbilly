@@ -3,7 +3,7 @@ extends Node3D
 enum GameState { GAME_START, IN_WAVE, PREPARATION, TIMEOUT, GAME_OVER }
 const TOTAL_WAVES = 10
 var current_state = GameState.GAME_START
-var current_wave = 0
+var current_wave = 4
 var enemies_alive = 0
 
 func _ready():
@@ -24,8 +24,11 @@ func switch_state(new_state):
 			pass
 
 func start_wave():
-	%UI.update_wave_count(current_wave)
 	current_wave += 1
+	%UI.update_wave_count(current_wave)
+	if current_wave % 5 == 0:
+		$Spawner.spawn_boss(current_wave/5)
+		return
 	var enemies_to_spawn = [{"type": "weak", "count": current_wave * 5}]
 	$Spawner.spawn_wave(enemies_to_spawn)
 	$BoundsTimer.start()

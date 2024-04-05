@@ -7,6 +7,7 @@ extends Control
 @onready var black_screen = $BlackScreen
 @onready var upgrade_prompt = $UpgradePrompt
 @onready var health_bar = $HealthBar
+@onready var boss_bar = $BossHealthBar
 @onready var player = get_node_or_null("/root/World/Player")
 
 func _ready():
@@ -49,7 +50,7 @@ func update_wave_count(wave):
 	if not player: return
 	if wave_count.modulate.a == 0.0:
 		$WaveSound.play()
-		wave_count.text = "Wave " + str(wave+1)
+		wave_count.text = "Wave " + str(wave)
 		fade_element(wave_count, "modulate", Color("ffffff", 1), 0.5)
 		await get_tree().create_timer(3.0).timeout
 		fade_element(wave_count, "modulate", Color("ffffff", 0), 1.0)

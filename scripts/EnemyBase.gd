@@ -9,8 +9,8 @@ enum States { PATROL, COMBAT, SEARCH }
 
 var state = States.COMBAT
 var health = 5
-var speed = 1.0
-var combat_speed = 2.0
+var speed = 1.5
+var combat_speed = speed * 1.5
 var attack_distance = 2
 var sight_distance = 20
 var damage = 1
@@ -33,7 +33,6 @@ var death_audio: AudioStreamPlayer3D
 var attack_audio: AudioStreamPlayer3D
 
 func _process(delta):
-	SimpleGrass.set_player_position(global_position)
 	combat_behavior(delta)
 	#match state:
 		#States.PATROL:www
@@ -44,7 +43,6 @@ func _process(delta):
 			#search_behavior(delta)
 
 func spawn():
-	SimpleGrass.set_interactive(true)
 	navigation_agent = NavigationAgent3D.new()
 	add_child(navigation_agent)
 	world.add_alive_enemies(1)
@@ -70,18 +68,16 @@ func combat_behavior(delta):
 	rotation.y = target_angle
 	
 	if location.distance_to(player_position) <= attack_distance:
-		if hit_timer.get_time_left() == 0 and not player.dying:
+		if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
 			attack_player()
 			hit_timer.start()
 			attack_audio.play()
-	else:
-		if next_point != Vector3.INF:
-			velocity = direction * speed
-			move_and_slide()
-		movement()
-			#if not player_heard() and not player_in_fov(direction):
-				#state = States.SEARCH
-				#return
+	elif next_point != Vector3.INF:
+		velocity = direction * speed
+		move_and_slide()
+		#if not player_heard() and not player_in_fov(direction):
+			#state = States.SEARCH
+			#return
 
 func movement():
 	pass

@@ -2,6 +2,7 @@ extends Node3D
 
 var enemy_weak = preload("res://scenes/EnemyWeak.tscn")
 # var enemy_strong = preload("res://path/to/EnemyStrong.tscn")
+var boss = preload("res://scenes/Boss.tscn")
 
 var spawn_points = []
 
@@ -24,6 +25,13 @@ func spawn_wave(enemies_to_spawn):
 			var spawn_point = choose_spawn_point()
 			spawn_enemy(enemy_info.type, spawn_point)
 
+func spawn_boss(boss_level):
+	var spawn_point = choose_spawn_point()
+	var boss_instance = boss.instantiate()
+	add_child(boss_instance)
+	boss_instance.set_level(boss_level)
+	boss_instance.global_transform.origin = spawn_point.global_transform.origin
+
 func spawn_drop(scene_name, spawn_position):
 	var scene_path = "res://scenes/" + scene_name
 	var scene = load(scene_path)
@@ -37,7 +45,7 @@ func spawn_upgrade_select():
 	if scene:
 		var instance = scene.instantiate()
 		var forward_direction = %Player.global_transform.basis.z.normalized() * -1
-		var spawn_position = %Player.global_transform.origin + forward_direction * 3.0
+		var spawn_position = %Player.global_transform.origin + forward_direction * 5.0
 		instance.global_transform.origin = spawn_position
 		add_child(instance)
 
@@ -46,7 +54,7 @@ func spawn_ranged_upgrades():
 	if scene:
 		var instance = scene.instantiate()
 		var forward_direction = %Player.global_transform.basis.z.normalized() * -1
-		var spawn_position = %Player.global_transform.origin + forward_direction * 2.0
+		var spawn_position = %Player.global_transform.origin + forward_direction * 5.0
 		instance.global_transform.origin = spawn_position
 		add_child(instance)
 
