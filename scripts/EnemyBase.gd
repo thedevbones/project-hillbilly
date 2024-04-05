@@ -9,8 +9,8 @@ enum States { PATROL, COMBAT, SEARCH }
 
 var state = States.COMBAT
 var health = 5
-var speed = 1.0
-var combat_speed = 2.0
+var speed = 1.5
+var combat_speed = speed * 1.5
 var attack_distance = 2
 var sight_distance = 20
 var damage = 1

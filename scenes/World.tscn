@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=89 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -70,6 +70,22 @@ font_italic = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvmj1"]
 bg_color = Color(1, 0, 0, 0.498039)
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8j27"]
+bg_color = Color(0, 0, 0, 0.741176)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lf6jq"]
+bg_color = Color(0.768627, 0.0784314, 0, 0.705882)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
 
 [sub_resource type="Environment" id="Environment_t0ccy"]
 
@@ -152,7 +168,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkrli"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05uxd"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -187,7 +203,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_xkrli"),
+"material": SubResource("ShaderMaterial_05uxd"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -214,6 +230,16 @@ anchors_preset = 0
 offset_right = 426.0
 offset_bottom = 240.0
 script = ExtResource("2_3fj2x")
+
+[node name="BlackScreen" type="ColorRect" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="WaveCount" type="Label" parent="UI"]
 layout_mode = 1
@@ -287,6 +313,7 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxEmpty_stlu8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bvmj1")
 max_value = 15.0
+value = 11.09
 show_percentage = false
 
 [node name="UpgradePrompt" type="Label" parent="UI"]
@@ -316,25 +343,17 @@ stream = ExtResource("4_r4qik")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="BlackScreen" type="ColorRect" parent="UI"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="HealthBar" parent="UI" instance=ExtResource("57_uqs6u")]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 224.0
 offset_right = 136.0
 offset_bottom = 233.0
+theme_override_styles/background = SubResource("StyleBoxFlat_x8j27")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lf6jq")
 max_value = 10.0
 step = 1.0
-value = 10.0
+value = 5.0
 
 [node name="GunViewport" type="SubViewportContainer" parent="."]
 offset_right = 426.0
