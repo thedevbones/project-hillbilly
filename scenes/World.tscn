@@ -150,7 +150,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pnaqm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gk3jn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -185,7 +185,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_pnaqm"),
+"material": SubResource("ShaderMaterial_gk3jn"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -327,10 +327,11 @@ color = Color(0, 0, 0, 1)
 [node name="HealthBar" parent="UI" instance=ExtResource("57_uqs6u")]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 230.0
-offset_right = 37.0
+offset_top = 224.0
+offset_right = 136.0
 offset_bottom = 233.0
 max_value = 10.0
+step = 1.0
 value = 10.0
 
 [node name="GunViewport" type="SubViewportContainer" parent="."]

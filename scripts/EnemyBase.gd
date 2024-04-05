@@ -63,7 +63,7 @@ func combat_behavior(delta):
 	navigation_agent.set_target_position(player_position)
 	
 	if location.distance_to(player_position) <= attack_distance:
-		if hit_timer.get_time_left() == 0:
+		if hit_timer.get_time_left() == 0 and not player.dying:
 			attack_player()
 			hit_timer.start()
 			attack_audio.play()

@@ -25,7 +25,7 @@ func _process(delta):
 	wave_bar.value = wave_bar.max_value - $"../PrepTimer".get_time_left()
 	
 	if health_bar.value < health_bar.max_value: 
-		wave_bar.show()
+		health_bar.show()
 	else: 
 		health_bar.hide()
 	health_bar.value = player.health

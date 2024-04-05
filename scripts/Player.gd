@@ -22,6 +22,7 @@ var is_crouching = false
 var is_moving = false
 var can_sprint = true
 var falling = false
+var dying = false
 
 # Collision variables
 var push_force = 8.0
@@ -57,6 +58,8 @@ func _ready():
 
 func _input(event):	
 	# Handle weapon inputs
+	if dying:
+		return
 	if event.is_action_pressed("fire"):
 		attack()
 	if event.is_action_pressed("reload"):
@@ -93,6 +96,8 @@ func _physics_process(delta):
 		$StepAudio.play()
 		falling = false
 	# Handle jump
+	if dying:
+		return
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_crouching and stamina > 0:
 		velocity.y = JUMP_VELOCITY
 		stamina -= 1
@@ -246,4 +251,12 @@ func toggle_flashlight():
 
 func apply_damage(damage):
 	health -= damage
-	if health <= 0: print("dead")
+	if health <= 0: die()
+
+func die():
+	dying = true
+	%UI.fade_element($"../UI/BlackScreen", "modulate", Color("ffffff", 1), 3)
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position.y", position.y - 1, 3)
+	await get_tree().create_timer(3.0).timeout
+	get_tree().reload_current_scene()
