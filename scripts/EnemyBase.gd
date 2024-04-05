@@ -67,7 +67,7 @@ func combat_behavior(delta):
 	rotation.y = target_angle
 	
 	if location.distance_to(player_position) <= attack_distance:
-		if hit_timer.get_time_left() == 0 and not player.dying:
+		if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
 			attack_player()
 			hit_timer.start()
 			attack_audio.play()

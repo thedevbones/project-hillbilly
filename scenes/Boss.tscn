@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://coaycrbw3wa5r"]
+[gd_scene load_steps=27 format=3 uid="uid://coaycrbw3wa5r"]
 
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="2_1uepd"]
 [ext_resource type="Texture2D" uid="uid://c86qw1qvemt4s" path="res://assets/boss_shirt.png" id="2_c2owo"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://q1pitbiw8eey" path="res://assets/boss_Material_2.png" id="4_xj5kq"]
 [ext_resource type="Texture2D" uid="uid://dq16mha4v0l07" path="res://assets/boss_strap.png" id="5_ovqa1"]
 [ext_resource type="Texture2D" uid="uid://by42ics58woy8" path="res://assets/boss_mask.png" id="6_j1sn8"]
+[ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/Damage/bullut_hit_flesh.wav" id="7_430fl"]
+[ext_resource type="AudioStream" uid="uid://vsmhy4vx0ftj" path="res://audio/SFX/Enemy/Monster_scream.mp3" id="8_4piq8"]
+[ext_resource type="AudioStream" uid="uid://bupo5b24174mf" path="res://audio/SFX/Weapons/metal_crow bar_swing.mp3" id="9_x60gk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt74q"]
 resource_name = "Material"
@@ -557,6 +560,7 @@ node_connections = [&"output", 0, &"BlendSpace1D"]
 script = ExtResource("2_1uepd")
 
 [node name="Boss" type="Node3D" parent="."]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 1.81, 0)
 
 [node name="Armature" type="Node3D" parent="Boss"]
 transform = Transform3D(13.2592, 0, 0, 0, 13.2592, 0, 0, 0, 13.2592, 0, -23.3353, 0)
@@ -963,3 +967,28 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_fo4k7")
 anim_player = NodePath("../AnimationPlayer")
 parameters/BlendSpace1D/blend_position = 0
+
+[node name="HitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BulletHit" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.875, 0)
+stream = ExtResource("7_430fl")
+unit_size = 20.0
+bus = &"SFX"
+
+[node name="Death" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_4piq8")
+pitch_scale = 0.82
+bus = &"SFX"
+
+[node name="Swing" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(5, -1.49011e-06, -1.56462e-06, 1.34808e-06, 4.98097, -0.435777, 1.68854e-06, 0.435777, 4.98097, -0.101585, -0.961294, 0.296771)
+stream = ExtResource("9_x60gk")
+unit_size = 5.0
+pitch_scale = 0.9
+bus = &"SFX"
+
+[node name="PatrolTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true

@@ -2,6 +2,7 @@ extends Node3D
 
 var enemy_weak = preload("res://scenes/EnemyWeak.tscn")
 # var enemy_strong = preload("res://path/to/EnemyStrong.tscn")
+var boss = preload("res://scenes/Boss.tscn")
 
 var spawn_points = []
 
@@ -23,6 +24,13 @@ func spawn_wave(enemies_to_spawn):
 		for i in range(enemy_info.count):
 			var spawn_point = choose_spawn_point()
 			spawn_enemy(enemy_info.type, spawn_point)
+
+func spawn_boss(boss_level):
+	var spawn_point = choose_spawn_point()
+	var boss_instance = boss.instantiate()
+	add_child(boss_instance)
+	boss_instance.set_level(boss_level)
+	boss_instance.global_transform.origin = spawn_point.global_transform.origin
 
 func spawn_drop(scene_name, spawn_position):
 	var scene_path = "res://scenes/" + scene_name
