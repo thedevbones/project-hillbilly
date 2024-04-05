@@ -508,7 +508,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.99994, -0.0109456, -0.000203281, 0.0109456, 0.99925, 0.0371387, -0.000203377, -0.0371387, 0.99931, 9.31267e-10, 0.892431, 3.7251e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(9.31267e-10, 0.892431, 3.7251e-09)
-bones/1/rotation = Quaternion(-0.118973, -0.000550168, 0.00544608, 0.992882)
+bones/1/rotation = Quaternion(-0.157677, -0.000762538, 0.00542043, 0.987476)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
@@ -522,7 +522,7 @@ bones/3/parent = 2
 bones/3/rest = Transform3D(1, -5.04766e-08, 5.40454e-09, 5.04766e-08, 0.977332, -0.211714, 5.4046e-09, 0.211714, 0.977332, 1.13798e-14, 0.340725, -5.21541e-08)
 bones/3/enabled = true
 bones/3/position = Vector3(1.13798e-14, 0.340725, -5.21541e-08)
-bones/3/rotation = Quaternion(0.130234, 0.0315225, 0.0401117, 0.99017)
+bones/3/rotation = Quaternion(0.132024, 0.141763, 0.050545, 0.979754)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Bone.010.R"
 bones/4/parent = 1
@@ -536,14 +536,14 @@ bones/5/parent = 4
 bones/5/rest = Transform3D(0.889752, -0.456425, -0.00409378, 0.456119, 0.889422, -0.02974, 0.0172152, 0.024594, 0.999549, 1.54569e-09, 0.535, -1.86265e-09)
 bones/5/enabled = true
 bones/5/position = Vector3(1.54569e-09, 0.535, -1.86265e-09)
-bones/5/rotation = Quaternion(-0.125675, -0.105823, 0.375795, 0.912023)
+bones/5/rotation = Quaternion(0.108244, 0.101398, 0.388147, 0.909584)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "Bone.012.R"
 bones/6/parent = 5
 bones/6/rest = Transform3D(0.996455, -0.077872, -0.0318354, 0.082455, 0.979105, 0.185886, 0.0166949, -0.187852, 0.982055, 2.5695e-08, 1.60024, -5.12227e-09)
 bones/6/enabled = true
 bones/6/position = Vector3(2.5695e-08, 1.60024, -5.12227e-09)
-bones/6/rotation = Quaternion(-0.208903, -0.0180677, 0.0150573, 0.977654)
+bones/6/rotation = Quaternion(-0.0323781, 0.0363396, 0.0318773, 0.998306)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Bone.013.L"
 bones/7/parent = 1
@@ -557,14 +557,14 @@ bones/8/parent = 7
 bones/8/rest = Transform3D(0.90349, 0.427249, 0.0341072, -0.427537, 0.892748, 0.142172, 0.0302939, -0.143034, 0.989254, -4.72472e-07, 0.560782, 0)
 bones/8/enabled = true
 bones/8/position = Vector3(-4.72472e-07, 0.560782, 0)
-bones/8/rotation = Quaternion(0.0100083, -0.0729273, -0.35647, 0.931402)
+bones/8/rotation = Quaternion(-0.171159, 0.082907, -0.358035, 0.914135)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "Bone.015.L"
 bones/9/parent = 8
 bones/9/rest = Transform3D(0.99918, 0.0382144, 0.013396, -0.0402627, 0.972863, 0.22785, -0.00432533, -0.228203, 0.973604, -2.67901e-08, 1.49538, 3.72529e-09)
 bones/9/enabled = true
 bones/9/position = Vector3(-2.67901e-08, 1.49538, 3.72529e-09)
-bones/9/rotation = Quaternion(-0.120278, -0.0215567, -0.0413457, 0.991645)
+bones/9/rotation = Quaternion(-0.355316, 0.0518878, -0.019893, 0.933093)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "Bone.004.R"
 bones/10/parent = -1
@@ -578,14 +578,14 @@ bones/11/parent = 10
 bones/11/rest = Transform3D(0.995638, 0.064368, 0.0675442, -0.083328, 0.287761, 0.95407, 0.041975, -0.955537, 0.291869, -1.75515e-09, 0.462481, 5.91877e-08)
 bones/11/enabled = true
 bones/11/position = Vector3(-1.75515e-09, 0.462481, 5.91877e-08)
-bones/11/rotation = Quaternion(-0.587041, -0.0948275, -0.185085, 0.78239)
+bones/11/rotation = Quaternion(-0.587751, -0.0904543, -0.179204, 0.783743)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "Bone.006.R"
 bones/12/parent = 11
 bones/12/rest = Transform3D(0.98316, -0.182621, 0.00682397, 0.182748, 0.982436, -0.0377006, 0.00018079, 0.0383128, 0.999266, -1.04774e-09, 1.53354, 1.54905e-08)
 bones/12/enabled = true
 bones/12/position = Vector3(-1.04774e-09, 1.53354, 1.54905e-08)
-bones/12/rotation = Quaternion(0.0183416, 0.00374568, 0.232269, 0.972471)
+bones/12/rotation = Quaternion(0.0183876, 0.00364393, 0.225377, 0.974091)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "Bone.007"
 bones/13/parent = -1
@@ -599,37 +599,43 @@ bones/14/parent = 13
 bones/14/rest = Transform3D(0.991554, -0.113794, -0.0622258, 0.0974667, 0.337259, 0.936353, -0.0855656, -0.934509, 0.345501, 2.6787e-09, 0.485426, 5.91381e-08)
 bones/14/enabled = true
 bones/14/position = Vector3(2.6787e-09, 0.485426, 5.91381e-08)
-bones/14/rotation = Quaternion(-0.585091, -0.0668843, 0.193498, 0.7847)
+bones/14/rotation = Quaternion(-0.558531, 0.00609437, 0.303697, 0.771864)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "Bone.009.L"
 bones/15/parent = 14
 bones/15/rest = Transform3D(0.974028, 0.226425, 0.000850389, -0.226172, 0.973104, -0.0437626, -0.0107365, 0.0424337, 0.999042, 1.42609e-09, 1.55306, 3.55794e-08)
 bones/15/enabled = true
 bones/15/position = Vector3(1.42609e-09, 1.55306, 3.55794e-08)
-bones/15/rotation = Quaternion(0.0885726, 0.035425, -0.212589, 0.972474)
+bones/15/rotation = Quaternion(0.0597919, 0.0298526, -0.324083, 0.943665)
 bones/15/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_525ss")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cube_001" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_blpwo")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cube_002" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_1mqes")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cylinder" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_a4h6o")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_qthky")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_7626b")
 skin = SubResource("Skin_mtswc")
 
@@ -662,6 +668,7 @@ mesh = SubResource("SphereMesh_ctoxu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.2272, 0, 0, 0, 4.04399, 0, 0, 0, 2.89382, -0.0646126, 0, -0.32817)
 visible = false
+layers = 17
 mesh = SubResource("CapsuleMesh_q81t2")
 surface_material_override/0 = SubResource("StandardMaterial3D_e0iqw")
 
@@ -672,3 +679,5 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_nwi3w")
 anim_player = NodePath("../AnimationPlayer")
 parameters/BlendSpace1D/blend_position = 0
+
+[connection signal="finished" from="Death" to="." method="_on_death_finished"]
