@@ -899,11 +899,4 @@ shape = SubResource("CapsuleShape3D_d0n8m")
 [node name="HitTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(5.88235, 0, 0, 0, 5.88235, 0, 0, 0, 5.88235, -0.0403821, -3.93472, 1.56889)
-light_color = Color(1, 0, 0, 1)
-distance_fade_enabled = true
-distance_fade_begin = 20.0
-omni_range = 0.416
-
 [connection signal="finished" from="Death" to="." method="_on_death_finished"]

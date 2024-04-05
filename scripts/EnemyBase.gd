@@ -7,10 +7,11 @@ enum States { PATROL, COMBAT, SEARCH }
 @onready var spawner = get_node("/root/World/Spawner")
 
 
+var default_speed = 4.5
+var speed = 4.5
+
 var state = States.COMBAT
 var health = 5
-var speed = 1.5
-var combat_speed = speed * 1.5
 var attack_distance = 2
 var sight_distance = 20
 var damage = 1
@@ -58,7 +59,10 @@ func combat_behavior(delta):
 	var player_position = player.global_transform.origin
 	var location = global_transform.origin
 	
-	speed = combat_speed
+	if location.distance_to(player_position) > 20:
+		speed = default_speed * 2
+	else:
+		speed = default_speed
 	navigation_agent.set_target_position(player_position)
 	
 	var next_point = navigation_agent.get_next_path_position()
@@ -72,7 +76,8 @@ func combat_behavior(delta):
 			attack_player()
 			hit_timer.start()
 			attack_audio.play()
-	elif next_point != Vector3.INF:
+			speed = 0
+	elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
 		velocity = direction * speed
 		move_and_slide()
 		#if not player_heard() and not player_in_fov(direction):
@@ -87,11 +92,12 @@ func attack_player():
 	
 func apply_damage(damage):
 	health -= damage
-	if hit_audio.is_playing(): hit_audio.play()
+	if not hit_audio.playing: hit_audio.play()
 	if health <= 0: die()
 
 func die():
 	if not death_audio.is_playing(): 
+		death_audio.set_pitch_scale(randf_range(0.8,1.2))
 		death_audio.play()
 		world.add_alive_enemies(-1)
 		drop_loot()
