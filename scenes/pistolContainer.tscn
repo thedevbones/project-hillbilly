@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bufpkpm1p57v3"]
+[gd_scene load_steps=7 format=3 uid="uid://dcxveujxjwmu6"]
 
-[ext_resource type="PackedScene" uid="uid://dli5k0036wmeh" path="res://assets/pistolContainer.glb" id="1_cgfyg"]
-[ext_resource type="Script" path="res://scenes/pistolContainer.gd" id="1_vxbpy"]
-[ext_resource type="PackedScene" uid="uid://cutlybiwby807" path="res://scenes/padlock1.tscn" id="3_kl1fl"]
+[ext_resource type="PackedScene" uid="uid://dli5k0036wmeh" path="res://assets/pistolContainer.glb" id="1_bobgm"]
+[ext_resource type="Script" path="res://scenes/pistolContainer.gd" id="1_tyqqe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kmval"]
+size = Vector3(4.2688, 1.05267, 3.24945)
 
 [sub_resource type="Animation" id="Animation_ajy18"]
 length = 0.001
@@ -112,43 +114,16 @@ _data = {
 "open": SubResource("Animation_mpddp")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8378s"]
-size = Vector3(4.1745, 1.02325, 3.13037)
+[node name="pistolContainer2" type="StaticBody3D"]
+script = ExtResource("1_tyqqe")
 
-[node name="pistolContainer" type="Node3D"]
-transform = Transform3D(0.310625, 0, 0, 0, 0.310625, 0, 0, 0, 0.310625, 0.209202, 0, 0)
-script = ExtResource("1_vxbpy")
+[node name="pistolContainer2" parent="." instance=ExtResource("1_bobgm")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0262451, 0.130768, -0.0262146)
+shape = SubResource("BoxShape3D_kmval")
 
-[node name="pistolContainer" parent="StaticBody3D" instance=ExtResource("1_cgfyg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6653, 9.59431e-08, -0.492313)
-
-[node name="Cube_001" parent="StaticBody3D/pistolContainer" index="1"]
-transform = Transform3D(2.09316, 0, 0, 0, 0.102414, 0, 0, 0, 1.59352, 0, 0.513113, 0)
-
-[node name="Cube_002" parent="StaticBody3D/pistolContainer" index="2"]
-transform = Transform3D(0.188803, 0, 0, 0, 0.305201, 0, 0, 0, 0.0599566, -0.003407, 0.221226, -1.96314)
-
-[node name="Torus" parent="StaticBody3D/pistolContainer" index="3"]
-transform = Transform3D(-0.000649448, 1, 0.000326782, 5.96919e-08, 0.000326633, -1, -0.667643, -0.000972688, -4.76837e-07, -0.194503, 0.221226, 0.148094)
-
-[node name="Cube_003" parent="StaticBody3D/pistolContainer" index="4"]
-transform = Transform3D(0.188803, 0, 0, 0, 0.305201, 0, 0, 0, 0.0371293, -0.003407, 0.221226, -0.5662)
-
-[node name="ContainAnimationPlayer" type="AnimationPlayer" parent="StaticBody3D/pistolContainer"]
-root_node = NodePath("../../..")
+[node name="ContainAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_n8jun")
 }
-
-[node name="padlock1" parent="StaticBody3D" instance=ExtResource("3_kl1fl")]
-transform = Transform3D(-0.000187118, 0, -0.194932, 0, 0.194932, 0, 0.194932, 0, -0.000187118, -0.579134, -0.403491, 1.67697)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.665883, 0.110617, -0.477909)
-shape = SubResource("BoxShape3D_8378s")
-
-[editable path="StaticBody3D/pistolContainer"]
-[editable path="StaticBody3D/padlock1"]
-[editable path="StaticBody3D/padlock1/padlock1"]

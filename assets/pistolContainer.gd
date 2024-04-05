@@ -6,9 +6,11 @@ extends StaticBody3D
 
 var isOpen = false;
 var canInteract = true;
-
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+	
 func action_used():
-	$ContainAnimationPlayer.play("open")
 	#if !isLocked: 
 		#insert noise to show it is locked
 	#	if needsKey:
@@ -23,6 +25,7 @@ func action_used():
 func open_contain():
 	canInteract = false
 	#$AnimationPlayer.play("open")
+	
 	$ContainAnimationPlayer.play("open")
 	isOpen = true
 	
