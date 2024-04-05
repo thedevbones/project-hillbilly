@@ -35,7 +35,7 @@ func movement():
 func _movement():
 	if anim_name == "Attack_animation":
 		anim_name = "walk"
-		#animation_player.animation_set_next(anim_name)
+		animation_player.play(anim_name, 1.0)
 	
 #func _on_patrol_timer_timeout():
 	#is_waiting = false
