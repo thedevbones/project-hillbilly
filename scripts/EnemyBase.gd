@@ -82,12 +82,12 @@ func apply_damage(damage):
 	if health <= 0: die()
 
 func die():
-	if death_audio: 
+	if not death_audio.is_playing(): 
 		death_audio.play()
-	else: 
 		world.add_alive_enemies(-1)
 		drop_loot()
-		queue_free()
+		hide()
+		$CollisionShape3D.queue_free()
 
 func drop_loot():
 	var rng = RandomNumberGenerator.new()

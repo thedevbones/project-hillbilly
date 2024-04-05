@@ -12,8 +12,6 @@ func _ready():
 	ani_tree.set("parameters/BlendSpace1D/blend_position",speed)
 
 func _on_death_finished():
-	world.add_alive_enemies(-1)
-	drop_loot()
 	queue_free()
 	
 
