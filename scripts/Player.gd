@@ -252,6 +252,6 @@ func toggle_flashlight():
 func process_raycast():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if collider.has_method("action_use"):
-			collider.action_use()
+		if collider.has_method("action_used"):
+			collider.action_used()
 			print(collider)
