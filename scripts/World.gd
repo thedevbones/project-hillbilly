@@ -5,9 +5,11 @@ const TOTAL_WAVES = 10
 var current_state = GameState.GAME_START
 var current_wave = 0
 var enemies_alive = 0
+var demo_mode = false
 
 func _ready():
 	switch_state(GameState.GAME_START)
+	demo_mode = Graphics.demo_mode
 
 func switch_state(new_state):
 	current_state = new_state
