@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var raycast : RayCast3D = $root/World/Player/MainCamera/HitScan
+@onready var raycast : RayCast3D = $/root/World/Player/MainCamera/HitScan
 
 enum Weapons { UNARMED = 0, PIPE = 1, KNIFE = 2, PISTOL = 3, SHOTGUN = 4}
 enum Items { FLASHLIGHT = 10, KEY = 11}

@@ -19,7 +19,7 @@ func action_use():
 	#			print("Door Unlocked")
 	#			isLocked = false
 	#			open_contain()
-	if !isOpen and canInteract: 
+	if isOpen == false and canInteract == true: 
 		open_contain()
 
 func open_contain():
