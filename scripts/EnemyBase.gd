@@ -15,6 +15,7 @@ var attack_distance = 2
 var sight_distance = 20
 var damage = 1
 var hit_timer: Timer
+var damage_type = ""
 
 var patrol_points = []
 var patrol_radius = 10.0
@@ -81,7 +82,7 @@ func combat_behavior(delta):
 				#return
 
 func attack_player():
-	player.apply_damage(damage)
+	player.apply_damage(damage, damage_type)
 
 func apply_damage(damage):
 	health -= damage

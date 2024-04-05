@@ -10,6 +10,7 @@ func _ready():
 	death_audio = $Death
 	attack_audio = $Swing
 	hit_timer = $HitTimer
+	damage_type = "axe"
 	#patrol_timer = $PatrolTimer
 	ani_tree.set("parameters/BlendSpace1D/blend_position",speed)
 
