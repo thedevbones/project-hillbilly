@@ -7,7 +7,8 @@ enum States { PATROL, COMBAT, SEARCH }
 @onready var spawner = get_node("/root/World/Spawner")
 
 
-var default_speed = 4.5
+var default_speed = 2.5
+var max_speed = 4.5
 var speed = 4.5
 
 var state = States.COMBAT
@@ -47,6 +48,7 @@ func spawn():
 	navigation_agent = NavigationAgent3D.new()
 	add_child(navigation_agent)
 	world.add_alive_enemies(1)
+	default_speed = min(default_speed + ((world.current_wave-1) * 0.5), max_speed)
 	#generate_patrol_points()
 	#if patrol_points.size() > 0:
 		#navigation_agent.set_target_position(patrol_points[current_target])
