@@ -610,26 +610,32 @@ bones/15/rotation = Quaternion(0.0784889, 0.0335022, -0.252553, 0.963812)
 bones/15/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_525ss")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cube_001" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_blpwo")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cube_002" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_1mqes")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cylinder" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_a4h6o")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_qthky")
 skin = SubResource("Skin_mtswc")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+layers = 17
 mesh = SubResource("ArrayMesh_7626b")
 skin = SubResource("Skin_mtswc")
 
@@ -662,6 +668,7 @@ mesh = SubResource("SphereMesh_ctoxu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.2272, 0, 0, 0, 4.04399, 0, 0, 0, 2.89382, -0.0646126, 0, -0.32817)
 visible = false
+layers = 17
 mesh = SubResource("CapsuleMesh_q81t2")
 surface_material_override/0 = SubResource("StandardMaterial3D_e0iqw")
 
@@ -672,3 +679,5 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_nwi3w")
 anim_player = NodePath("../AnimationPlayer")
 parameters/BlendSpace1D/blend_position = 0
+
+[connection signal="finished" from="Death" to="." method="_on_death_finished"]

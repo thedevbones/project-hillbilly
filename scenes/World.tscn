@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cf23aespwj1yw" path="res://scenes/Pistol.tscn" id="2_k4yhr"]
 [ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
 [ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
-[ext_resource type="Theme" uid="uid://cj5l0sswu5jfr" path="res://fonts/gui.tres" id="3_civgt"]
+[ext_resource type="Theme" uid="uid://b0tl6tht11hby" path="res://fonts/gui.tres" id="3_civgt"]
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://scenes/PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
 [ext_resource type="AudioStream" uid="uid://cx5s1nbutei65" path="res://audio/SFX/wave.wav" id="4_r4qik"]
@@ -150,7 +150,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7n4g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbmpf"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -185,7 +185,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_h7n4g"),
+"material": SubResource("ShaderMaterial_kbmpf"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -392,8 +392,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.1516, 0.875, -8.99226)
 
 [node name="GameBounds" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7485, 4.975, 0)
-collision_layer = 16
-collision_mask = 16
+collision_layer = 17
+collision_mask = 17
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameBounds"]
