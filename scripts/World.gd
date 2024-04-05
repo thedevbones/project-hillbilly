@@ -3,7 +3,7 @@ extends Node3D
 enum GameState { GAME_START, IN_WAVE, PREPARATION, TIMEOUT, GAME_OVER }
 const TOTAL_WAVES = 10
 var current_state = GameState.GAME_START
-var current_wave = 4
+var current_wave = 0
 var enemies_alive = 0
 
 func _ready():
