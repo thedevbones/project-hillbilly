@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bi4jhnvasq0xl" path="res://assets/enemies/bad-guy1_Untitled_2.png" id="3_wx4sd"]
 [ext_resource type="Texture2D" uid="uid://clyvdlry3skwc" path="res://assets/enemies/bad-guy1_Untitled_3.png" id="4_6vl3q"]
 [ext_resource type="Texture2D" uid="uid://bxaceyrvdvenb" path="res://assets/enemies/bad-guy1_Untitled_4.png" id="5_487ks"]
+[ext_resource type="AudioStream" uid="uid://kadt1bdl7dai" path="res://audio/SFX/Player Movement/swing.wav" id="9_dun4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3vd6"]
 resource_name = "Material.003"
@@ -900,8 +901,16 @@ visible = false
 stream = ExtResource("3_ex82b")
 bus = &"SFX"
 
+[node name="Swing" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(5, -1.49011e-06, -1.56462e-06, 1.34808e-06, 4.98097, -0.435777, 1.68854e-06, 0.435777, 4.98097, -0.101585, -0.961294, 0.296771)
+stream = ExtResource("9_dun4b")
+unit_size = 5.0
+pitch_scale = 0.9
+bus = &"SFX"
+
 [node name="PatrolTimer" type="Timer" parent="."]
 one_shot = true
+autostart = true
 
 [node name="GrassInteract" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.21154, 0)

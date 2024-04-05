@@ -6,14 +6,15 @@ extends Control
 @onready var wave_bar = $WaveBar
 @onready var black_screen = $BlackScreen
 @onready var upgrade_prompt = $UpgradePrompt
+@onready var health_bar = $HealthBar
 @onready var player = get_node_or_null("/root/World/Player")
-@onready var health_bar = $Health_bar
 
 func _ready():
 	black_screen.show()
 	crosshair.modulate = Color("ffffff", 0)
 	wave_count.modulate = Color("ffffff", 0)
 	upgrade_prompt.modulate = Color("ffffff", 0)
+	health_bar.modulate = Color("ffffff", 0)
 	wave_bar.max_value = $"../PrepTimer".get_wait_time()
 	fade_element(black_screen, "modulate", Color("ffffff", 0), 1.5)
 
@@ -23,6 +24,12 @@ func _process(delta):
 	else: 
 		wave_bar.hide()
 	wave_bar.value = wave_bar.max_value - $"../PrepTimer".get_time_left()
+	
+	if health_bar.value < health_bar.max_value: 
+		fade_element(health_bar, "modulate", Color("ffffff", 1), 0.5)
+	else: 
+		fade_element(health_bar, "modulate", Color("ffffff", 0), 1.0)
+	health_bar.value = player.health
 
 func update_crosshair():
 	if not player: return

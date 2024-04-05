@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=87 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -57,6 +57,8 @@
 [ext_resource type="Texture2D" uid="uid://dhgqjcpdui70s" path="res://textures/dirt.jpg" id="25_0gkn8"]
 [ext_resource type="PackedScene" uid="uid://be0rje6u0ibik" path="res://scenes/Tree1.tscn" id="25_qwaa1"]
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="31_n5e12"]
+[ext_resource type="AudioStream" uid="uid://b2dw4rwx78sw1" path="res://audio/SFX/Damage/Player_death.mp3" id="32_vaxi1"]
+[ext_resource type="AudioStream" uid="uid://c3k7wkoiqjne7" path="res://audio/SFX/Damage/Player_pain_grunt.mp3" id="33_ct85e"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 [ext_resource type="PackedScene" uid="uid://cb0nc6t6dr5ph" path="res://health_bar.tscn" id="57_uqs6u"]
 
@@ -150,7 +152,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mmcln"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kplen"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -185,7 +187,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_mmcln"),
+"material": SubResource("ShaderMaterial_kplen"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -323,6 +325,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="HealthBar" parent="UI" instance=ExtResource("57_uqs6u")]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 224.0
+offset_right = 136.0
+offset_bottom = 233.0
+max_value = 10.0
+step = 1.0
+value = 10.0
 
 [node name="GunViewport" type="SubViewportContainer" parent="."]
 offset_right = 426.0
@@ -563,6 +575,15 @@ bus = &"SFX"
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("3_ec8lf")]
 visible = false
+
+[node name="Death" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("32_vaxi1")
+bus = &"SFX"
+
+[node name="Hurt" type="AudioStreamPlayer3D" parent="Player"]
+stream = ExtResource("33_ct85e")
+
+[node name="Impact" type="AudioStreamPlayer3D" parent="Player"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_n5e12")
@@ -1117,12 +1138,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.2891, 0.8, -17.8822)
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 66.491, 0.8, -15.699)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("57_uqs6u")]
-offset_left = 9.0
-offset_top = 230.0
-offset_right = 37.0
-offset_bottom = 233.0
 
 [connection signal="timeout" from="PrepTimer" to="." method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="BoundsTimer" to="." method="_on_bounds_timer_timeout"]
