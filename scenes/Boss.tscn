@@ -636,7 +636,7 @@ text = "B u b b a"
 horizontal_alignment = 1
 
 [node name="model" type="Node3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 3.66, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.84321, 0)
 
 [node name="Armature" type="Node3D" parent="model"]
 transform = Transform3D(13.2592, 0, 0, 0, 13.2592, 0, 0, 0, 13.2592, 0, -23.3353, 0)

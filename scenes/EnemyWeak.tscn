@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bjm4y1legptpu"]
+[gd_scene load_steps=31 format=3 uid="uid://bjm4y1legptpu"]
 
 [ext_resource type="Script" path="res://scripts/EnemyWeak.gd" id="1_1suxf"]
 [ext_resource type="Texture2D" uid="uid://b31g53jbebj2i" path="res://assets/enemies/bad-guy1_Untitled.png" id="1_04hja"]
@@ -693,10 +693,6 @@ _data = {
 "walk": SubResource("Animation_0ofd5")
 }
 
-[sub_resource type="SphereMesh" id="SphereMesh_e6mqn"]
-radius = 0.65
-height = 2.0
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ewdty"]
 height = 1.75
 
@@ -714,7 +710,7 @@ collision_mask = 65537
 script = ExtResource("1_1suxf")
 
 [node name="Armature" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.648676, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0659466, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
 bones/0/name = "Bone.Bot"
@@ -889,12 +885,6 @@ bus = &"SFX"
 one_shot = true
 autostart = true
 
-[node name="GrassInteract" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.21154, 0)
-layers = 65536
-mesh = SubResource("SphereMesh_e6mqn")
-skeleton = NodePath("../Armature")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.2272, 0, 0, 0, 4.04399, 0, 0, 0, 2.89382, -0.0646126, 0.648676, -0.32817)
 visible = false
@@ -908,5 +898,12 @@ shape = SubResource("CapsuleShape3D_d0n8m")
 
 [node name="HitTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(5.88235, 0, 0, 0, 5.88235, 0, 0, 0, 5.88235, -0.0403821, -3.93472, 1.56889)
+light_color = Color(1, 0, 0, 1)
+distance_fade_enabled = true
+distance_fade_begin = 20.0
+omni_range = 0.416
 
 [connection signal="finished" from="Death" to="." method="_on_death_finished"]
