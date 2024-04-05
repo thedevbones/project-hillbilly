@@ -36,7 +36,7 @@ func _process(delta):
 	SimpleGrass.set_player_position(global_position)
 	combat_behavior(delta)
 	#match state:
-		#States.PATROL:
+		#States.PATROL:www
 			#patrol_behavior(delta)
 		#States.COMBAT:
 			#combat_behavior(delta)
@@ -66,6 +66,7 @@ func combat_behavior(delta):
 	var next_point = navigation_agent.get_next_path_position()
 	var direction = (next_point - location).normalized()
 	var target_angle = atan2(direction.x, direction.z)
+	var animation = "walk"
 	rotation.y = target_angle
 	
 	if location.distance_to(player_position) <= attack_distance:
@@ -77,13 +78,17 @@ func combat_behavior(delta):
 		if next_point != Vector3.INF:
 			velocity = direction * speed
 			move_and_slide()
+		movement()
 			#if not player_heard() and not player_in_fov(direction):
 				#state = States.SEARCH
 				#return
 
+func movement():
+	pass
+	
 func attack_player():
 	player.apply_damage(damage, damage_type)
-
+	
 func apply_damage(damage):
 	health -= damage
 	if hit_audio.is_playing(): hit_audio.play()
@@ -114,8 +119,7 @@ func drop_loot():
 	if item_to_spawn != "":
 		spawner.spawn_drop(item_to_spawn, global_transform.origin)
 
-
-
+	
 #func patrol_behavior(delta):
 	#if patrol_points.size() <= 0 or is_waiting: return
 	#
