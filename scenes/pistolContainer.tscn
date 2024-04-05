@@ -122,6 +122,9 @@ script = ExtResource("1_tyqqe")
 [node name="Cube_001" parent="pistolContainer" index="1"]
 transform = Transform3D(2.09316, 0, 0, 0, 0.102414, 0, 0, 0, 1.59352, 0, 0.513113, 0)
 
+[node name="Cube_003" parent="pistolContainer" index="4"]
+transform = Transform3D(0.188803, 0, 0, 0, 0.305201, 0, 0, 0, 0.0371293, -0.003407, 0.221226, -0.5662)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0262451, 0.130768, -0.0262146)
 shape = SubResource("BoxShape3D_kmval")
