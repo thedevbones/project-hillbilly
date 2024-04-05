@@ -33,7 +33,6 @@ var death_audio: AudioStreamPlayer3D
 var attack_audio: AudioStreamPlayer3D
 
 func _process(delta):
-	SimpleGrass.set_player_position(global_position)
 	combat_behavior(delta)
 	#match state:
 		#States.PATROL:
@@ -44,7 +43,6 @@ func _process(delta):
 			#search_behavior(delta)
 
 func spawn():
-	SimpleGrass.set_interactive(true)
 	navigation_agent = NavigationAgent3D.new()
 	add_child(navigation_agent)
 	world.add_alive_enemies(1)
