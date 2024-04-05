@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://coaycrbw3wa5r"]
+[gd_scene load_steps=28 format=3 uid="uid://coaycrbw3wa5r"]
 
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="2_1uepd"]
 [ext_resource type="Texture2D" uid="uid://c86qw1qvemt4s" path="res://assets/boss_shirt.png" id="2_c2owo"]
@@ -556,11 +556,15 @@ nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_svnou")
 nodes/BlendSpace1D/position = Vector2(-60, 120)
 node_connections = [&"output", 0, &"BlendSpace1D"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j8ook"]
+radius = 1.3208
+height = 8.49765
+
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("2_1uepd")
 
 [node name="Boss" type="Node3D" parent="."]
-transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 1.81, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 3.66, 0)
 
 [node name="Armature" type="Node3D" parent="Boss"]
 transform = Transform3D(13.2592, 0, 0, 0, 13.2592, 0, 0, 0, 13.2592, 0, -23.3353, 0)
@@ -942,7 +946,6 @@ bones/52/rotation = Quaternion(-0.62347, 0.0555117, 0.0518253, 0.77815)
 bones/52/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Boss/Armature/Armature_001/Skeleton3D"]
-visible = false
 mesh = SubResource("ArrayMesh_0bvi3")
 skin = SubResource("Skin_74s51")
 
@@ -989,6 +992,12 @@ unit_size = 5.0
 pitch_scale = 0.9
 bus = &"SFX"
 
+[node name="Laugh" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
 [node name="PatrolTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_j8ook")
