@@ -90,7 +90,7 @@ corner_radius_bottom_left = 1024
 [sub_resource type="Environment" id="Environment_t0ccy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fhrpv"]
-size = Vector3(63.6428, 10, 86.8183)
+size = Vector3(63.6428, 10, 85.999)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -437,7 +437,7 @@ collision_mask = 16
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameBounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7286, 0, 6.97752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7286, 0, 7.38717)
 shape = SubResource("BoxShape3D_fhrpv")
 
 [node name="PrepTimer" type="Timer" parent="."]
