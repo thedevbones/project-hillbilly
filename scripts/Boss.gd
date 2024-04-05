@@ -1,6 +1,9 @@
 extends "res://scripts/EnemyBase.gd"
 
 @onready var health_bar = $BossUI/BossHealthBar
+@onready var animation_player 
+
+var anim_name = "walk"
 
 var laugh_sounds = [
 	preload("res://audio/SFX/Enemy/Boss_evil_laugh.mp3"),
@@ -23,6 +26,8 @@ func _ready():
 	adjust_ui()
 	fade_ui(Color("ffffff", 1))
 	$LaughTimer.start()
+	animation_player = $boss/AnimationPlayer
+	animation_player.play("walk")
 
 func set_level(level):
 	health = 30 * level
@@ -60,3 +65,20 @@ func _on_death_finished():
 func _on_laugh_timer_timeout():
 	laugh()
 	$LaughTimer.start(randi_range(15,30))
+	
+func attack_player():
+	call_deferred("_attack_player")
+
+func _attack_player():
+	print("attacking")
+	anim_name = "attack"
+	animation_player.play(anim_name)
+	player.apply_damage(damage, damage_type)
+
+func movement():
+	call_deferred("_movement")
+	
+func _movement():
+	if anim_name == "attack":
+		anim_name = "walk"
+		animation_player.play(anim_name, 1.0)

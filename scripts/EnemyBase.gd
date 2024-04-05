@@ -75,6 +75,7 @@ func combat_behavior(delta):
 	elif next_point != Vector3.INF:
 		velocity = direction * speed
 		move_and_slide()
+		movement()
 		#if not player_heard() and not player_in_fov(direction):
 			#state = States.SEARCH
 			#return
