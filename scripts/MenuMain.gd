@@ -143,3 +143,7 @@ func _on_demo_btn_pressed():
 	play_ui_audio(0.1)
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/World.tscn")
+
+func _input(event):
+	if event.is_action_pressed("reload"):
+		$"Main Menu/MarginContainer/VBoxContainer/StartBtn".disabled = false

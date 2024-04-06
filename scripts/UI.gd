@@ -16,6 +16,7 @@ func _ready():
 	wave_count.modulate = Color("ffffff", 0)
 	upgrade_prompt.modulate = Color("ffffff", 0)
 	health_bar.modulate = Color("ffffff", 0)
+	health_bar.max_value = player.max_health
 	wave_bar.max_value = $"../PrepTimer".get_wait_time()
 	fade_element(black_screen, "modulate", Color("ffffff", 0), 1.5)
 
