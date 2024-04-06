@@ -18,7 +18,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.2
 var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
-var health = 10
+var max_health = 10
+var health = max_health
 var is_sprinting = false
 var is_crouching = false
 var is_moving = false
@@ -71,6 +72,12 @@ func _ready():
 	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
 	items[Items.FLASHLIGHT] = $MainCamera/Flashlight
 	%UI.update_ammo_count()
+	if Graphics.demo_mode:
+		add_ammo(Weapons.SHOTGUN, 24)
+		add_ammo(Weapons.PISTOL, 32)
+		health = 20
+		max_health = 20
+		%UI.health_bar.max_value = max_health
 
 func _input(event):	
 	# Handle weapon inputs

@@ -1,13 +1,19 @@
 extends Node3D
 
 enum GameState { GAME_START, IN_WAVE, PREPARATION, TIMEOUT, GAME_OVER }
-const TOTAL_WAVES = 10
+
+var total_waves = 10
 var current_state = GameState.GAME_START
 var current_wave = 0
 var enemies_alive = 0
+var boss_wave = 5
+var wave_spawn_mult = 5
+var demo_mode = false
 
 func _ready():
 	switch_state(GameState.GAME_START)
+	demo_mode = Graphics.demo_mode
+	if demo_mode: adjust_demo_settings()
 
 func switch_state(new_state):
 	current_state = new_state
@@ -26,17 +32,17 @@ func switch_state(new_state):
 func start_wave():
 	current_wave += 1
 	%UI.update_wave_count(current_wave)
-	if current_wave % 5 == 0:
-		$Spawner.spawn_boss(current_wave/2)
+	if current_wave % boss_wave == 0:
+		$Spawner.spawn_boss(1) # change to current_wave/2 in sprint 3
 		return
-	var enemies_to_spawn = [{"type": "weak", "count": current_wave * 5}]
+	var enemies_to_spawn = [{"type": "weak", "count": current_wave * wave_spawn_mult}]
 	$Spawner.spawn_wave(enemies_to_spawn)
 	$BoundsTimer.start()
 	print("Spawned " + str(enemies_alive) + " enemies")
 
 func wave_completed():
-	if %Player.health < 10: %Player.health += 1
-	if current_wave == TOTAL_WAVES:
+	if %Player.health < 10: %Player.health = min(%Player.health + 3, 10)
+	if current_wave == total_waves:
 		victory()
 	elif current_wave % 5 == 0 or current_wave == 2:
 		switch_state(GameState.TIMEOUT)
@@ -78,3 +84,8 @@ func respawn(enemy):
 func prompt_upgrade():
 	%UI.update_upgrade_prompt()
 	$Spawner.spawn_upgrade_select()
+
+func adjust_demo_settings():
+	boss_wave = 3
+	wave_spawn_mult = 10
+	# total_waves = 4

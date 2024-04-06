@@ -3,6 +3,7 @@ extends Node
 var graphics: Environment
 var grass
 var grass_visible = true
+var demo_mode = false
 
 func update_ssao(toggle):
 	graphics.set_ssao_enabled(toggle)
@@ -22,3 +23,4 @@ func get_ssil():
 
 func get_grass():
 	return grass_visible
+

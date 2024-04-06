@@ -95,7 +95,7 @@ func attack_player():
 	
 func apply_damage(damage):
 	health -= damage
-	if not hit_audio.playing: hit_audio.play()
+	hit_audio.play()
 	if health <= 0: die()
 
 func die():
