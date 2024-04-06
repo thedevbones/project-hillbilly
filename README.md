@@ -177,6 +177,26 @@
 -	Edit buttons and menu so that they fit the theme of the game  
 -	Edit menu backgrounds so that they have the same theme as the main  
 
+### Next Steps for Sprint 3
+
+**Gage**  
+-	
+
+**Jacob:**	
+-	
+
+**Jordan:**  
+-	Add recoil to weapons
+-   Add hit FX for bullets
+-   Add bullet tracers
+-   Adjust enemy spawning from all-at-once
+-   Add more weapon upgrades
+
+**Luis:**	
+-	
+
+**Diego:**	
+-	
 
 ## Burnup Charts
 ### Sprint 1
