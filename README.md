@@ -17,7 +17,7 @@
 	- Diego Lechuga
 	- Luis Herrera
 - We are bringing you the next best Indie Survival Horror Game, for the games who enjoy a good scare!
-- We hope to inspire the next generation of game developers, by showing that a good game can be made even if you donâ€™t have the experience.
+- We hope to inspire the next generation of game developers, by showing that a good game can be made even if you don’t have the experience.
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
@@ -31,7 +31,7 @@
 
 ## Features
 
-### Sprint 1
+## Sprint 1
 
 #### Contributions 
 
@@ -178,10 +178,56 @@
 -	Edit menu backgrounds so that they have the same theme as the main  
 
 
-## Burnup Charts
+## Burnup Chart
 ### Sprint 1
 -![Sprint1_BurnupChart](Sprint1_BurnupChart.png)
 
+## Sprint 2
+
+#### Contributions 
+
+**Luis**: "Enhanced the User Interface and Expanded the Audio options"
+
+- `Jira Task: Luis - Combine Main and Settings Menu` 
+	- [FER-33](https://cs3398s24ferengi.atlassian.net/browse/FER-33),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-33-combine-main-and-settings-menu)
+
+- `Jira Task: Luis - Fix the Audio sliders in the main and in-game menu`
+	- [FER-83](https://cs3398s24ferengi.atlassian.net/browse/FER-83),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-83-fix-the-audio-sliders-in-the-main)
+	
+- `Jira Task: Luis - Create Audio Busses`
+	- [FER-93](https://cs3398s24ferengi.atlassian.net/browse/FER-93),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-93-create-audio-busses)
+	
+- `Jira Task: Luis - Add audio for enemies`
+	- [FER-92](https://cs3398s24ferengi.atlassian.net/browse/FER-92),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-92-add-audio-to-enemies)
+	
+- `Jira Task: Luis - Fix and expand In-game menu`
+	- [FER-34](https://cs3398s24ferengi.atlassian.net/browse/FER-34),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-34-fix-and-expand-in-game-menu)
+	
+- `Jira Task: Luis - Combine Tutorial scene into main and In-game menu`
+	- [FER-94](https://cs3398s24ferengi.atlassian.net/browse/FER-94),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-94-combine-tutorial-scene-into-main-)
+	
+- `Jira Task: Luis - Testing audio levels`
+	- [FER-36](https://cs3398s24ferengi.atlassian.net/browse/FER-36),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-36-testing-audio-levels)
+	
+- `Jira Task: Luis - Fix checkboxes on video settings`
+	- [FER-95](https://cs3398s24ferengi.atlassian.net/browse/FER-95),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-95-fix-checkboxes-on-video-settings)
+	
+	
+### Next Steps for Sprint 3
+
+**Luis:**	
+-	Create a Save/Load functionality.  
+-	Continue to  improve the stability of the UI.  
+-	Continue to expand on the audio options.  
+-	Create a working introduction animation.  
 
 
 <!-- Optional -->
