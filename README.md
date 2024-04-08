@@ -178,9 +178,11 @@
 -	Edit menu backgrounds so that they have the same theme as the main  
 
 
-## Burnup Chart
-### Sprint 1
--![Sprint1_BurnupChart](Sprint1_BurnupChart.png)
+## Burnup Charts
+### Sprint 1  
+![Sprint1_BurnupChart](Sprint1_BurnupChart.png)  
+### Sprint 2  
+![Sprint2_BurnupChart](s2_burnup.png)  
 
 ## Sprint 2
 
@@ -260,9 +262,6 @@
 -	Continue to improve on animations.  
 -	Change enemy behavior based on proximity to player.  
 
-## Burnup Chart
-### Sprint 1
--![Sprint2_BurnupChart](s2_burnup.png)
 
 <!-- Optional -->
 <!-- ## License -->
