@@ -260,6 +260,10 @@
 -	Continue to improve on animations.  
 -	Change enemy behavior based on proximity to player.  
 
+## Burnup Chart
+### Sprint 1
+-![Sprint2_BurnupChart](s2_burnup.png)
+
 <!-- Optional -->
 <!-- ## License -->
 <!-- This project is open source and available under the [... License](). -->
