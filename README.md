@@ -219,7 +219,32 @@
 - `Jira Task: Luis - Fix checkboxes on video settings`
 	- [FER-95](https://cs3398s24ferengi.atlassian.net/browse/FER-95),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-95-fix-checkboxes-on-video-settings)
-	
+
+**Jacob**: "Provided users animated enemy charaters"
+
+- `Jira Task: Jacob - Create weak enemy run animation` 
+	- [FER-110](https://cs3398s24ferengi.atlassian.net/browse/FER-110), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-110-Create-Enemy-Animation-Run)
+
+- `Jira Task: Jacob - Create weak enemy walk animation`
+	- [FER-109](https://cs3398s24ferengi.atlassian.net/browse/FER-109), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-109-Create-Enemy-Walk-Animation)  
+
+- `Jira Task: Jacob - Create weak enemy attack animation`
+	- [FER-108](https://cs3398s24ferengi.atlassian.net/browse/FER-108), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-108-implement-weak-enemy-attack)   
+
+- `Jira Task: Jacob - Create boss walk and attack animations`
+	- [FER-104](https://cs3398s24ferengi.atlassian.net/browse/FER-104), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-104-Create-boss-animations)  
+
+- `Jira Task: Jacob - Design weak enemy assests`
+	- [FER-85](https://cs3398s24ferengi.atlassian.net/browse/FER-85), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-85-Design-first-enemy-asset)   
+
+- `Jira Task: Jacob - Implement weak enemy attack animation settings`
+	- [FER-108](https://cs3398s24ferengi.atlassian.net/browse/FER-108), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-108-implement-weak-enemy-attack)   
 	
 ### Next Steps for Sprint 3
 
@@ -229,6 +254,15 @@
 -	Continue to expand on the audio options.  
 -	Create a working introduction animation.  
 
+**Jacob:**	
+-	Create a point tracker.  
+-	Create a leaderboard.  
+-	Continue to improve on animations.  
+-	Change enemy behavior based on proximity to player.  
+
+## Burnup Chart
+### Sprint 1
+-![Sprint2_BurnupChart](s2_burnup.png)
 
 <!-- Optional -->
 <!-- ## License -->
