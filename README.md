@@ -17,7 +17,7 @@
 	- Diego Lechuga
 	- Luis Herrera
 - We are bringing you the next best Indie Survival Horror Game, for the games who enjoy a good scare!
-- We hope to inspire the next generation of game developers, by showing that a good game can be made even if you don’t have the experience.
+- We hope to inspire the next generation of game developers, by showing that a good game can be made even if you donï¿½t have the experience.
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
@@ -247,6 +247,40 @@
 - `Jira Task: Jacob - Implement weak enemy attack animation settings`
 	- [FER-108](https://cs3398s24ferengi.atlassian.net/browse/FER-108), 
 	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-108-implement-weak-enemy-attack)   
+
+**Gage**: "Designed and created assets for enemies and created a puzzle"
+
+- `Jira Task: Gage - Create Flashlight Asset`  
+	- [FER-102](https://cs3398s24ferengi.atlassian.net/browse/FER-102), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-102-create-flashlight-asset)
+- `Jira Task: Gage - Create Key Assets`  
+	- [FER-103](https://cs3398s24ferengi.atlassian.net/browse/FER-103), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-103-create-key-assets)
+- `Jira Task: Gage - Create Ammo Assets`  
+	- [FER-106](https://cs3398s24ferengi.atlassian.net/browse/FER-106), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-106-create-ammo-assets)
+- `Jira Task: Gage - Create Shovel Asset`  
+	- [FER-112](https://cs3398s24ferengi.atlassian.net/browse/FER-112), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-112-create-shovel-asset)
+- `Jira Task: Gage - Create Hatchet Asset`  
+	- [FER-111](https://cs3398s24ferengi.atlassian.net/browse/FER-111), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-111-create-hatchet-asset)
+- `Jira Task: Gage - Create Rake Asset`  
+	- [FER-113](https://cs3398s24ferengi.atlassian.net/browse/FER-113), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-113-create-rake-asset)
+- `Jira Task: Gage - Create Padlock Assets`  
+	- [FER-105](https://cs3398s24ferengi.atlassian.net/browse/FER-105), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-105-create-padlock-assets)
+- `Jira Task: Gage - Fix colors not appearing on new assets`  
+	- [FER-123](https://cs3398s24ferengi.atlassian.net/browse/FER-123), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-123-fix-colors-not-appearing-on-new-)
+- `Jira Task: Gage - Create Boss Asset`  
+	- [FER-96](https://cs3398s24ferengi.atlassian.net/browse/FER-96), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-96-create-boss-asset)
+- `Jira Task: Gage - Design puzzle for level 1`  
+	- [FER-91](https://cs3398s24ferengi.atlassian.net/browse/FER-91), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-91-design-puzzle-for-level-1)
+
 	
 ### Next Steps for Sprint 3
 
@@ -262,6 +296,11 @@
 -	Continue to improve on animations.  
 -	Change enemy behavior based on proximity to player.  
 
+**Gage:**	
+-	Create and animate another enemy.  
+-	Design and create assets for level 1.  
+-	Implement the puzzle into level 1.  
+-	Improve some assets I made for sprint 1.  
 
 <!-- Optional -->
 <!-- ## License -->
