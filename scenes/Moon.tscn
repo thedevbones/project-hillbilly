@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://l4nn4667vpgv"]
 
-[ext_resource type="PackedScene" uid="uid://cji3ha627hbum" path="res://assets/moon.glb" id="1_tqqr5"]
+[ext_resource type="PackedScene" uid="uid://d2ey5xhmwjg2" path="res://assets/moon.glb" id="1_tqqr5"]
 
 [node name="Moon" type="Node3D"]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.200087, 0)
