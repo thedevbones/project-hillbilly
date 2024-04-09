@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://cx8sbyr8b4wlj"]
 
 [ext_resource type="Texture2D" uid="uid://5mnb7y7tfsrq" path="res://assets/knife_Material Metallic.png" id="1_f2cwq"]
-[ext_resource type="AudioStream" uid="uid://cgdcwnruvu2ij" path="res://audio/SFX/pickup.wav" id="2_1akf2"]
 [ext_resource type="Texture2D" uid="uid://c5ho7movr2l6l" path="res://assets/knife_Material.png" id="2_6saq4"]
+[ext_resource type="AudioStream" uid="uid://x4yx6rf6y0bl" path="res://audio/SFX/pickup_deep.wav" id="3_1s813"]
 
 [sub_resource type="GDScript" id="GDScript_px6ha"]
 resource_name = "PickupKnife"
@@ -139,8 +139,7 @@ omni_range = 1.0
 shape = SubResource("SphereShape3D_cd6fv")
 
 [node name="PickupSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_1akf2")
-pitch_scale = 0.2
+stream = ExtResource("3_1s813")
 
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="finished" from="PickupSound" to="." method="_on_pickup_sound_finished"]

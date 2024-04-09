@@ -130,7 +130,7 @@ func _on_sound_fx_value_changed(value):
 	AudioServer.set_bus_mute(SFX_BUS, value < .05)
 
 func play_ui_audio(pitch):
-	$UISound.set_pitch_scale(pitch)
+	$UISound.set_pitch_scale(1)
 	$UISound.play()
 
 func _on_attack_controls_pressed():

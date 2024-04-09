@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://bln5pau7s4uf1"]
 
 [ext_resource type="Material" uid="uid://deedf8qme57v4" path="res://assets/textures/upgrade.tres" id="1_n5e7b"]
-[ext_resource type="AudioStream" uid="uid://cgdcwnruvu2ij" path="res://audio/SFX/pickup.wav" id="2_7x24j"]
 [ext_resource type="Texture2D" uid="uid://5mnb7y7tfsrq" path="res://assets/knife_Material Metallic.png" id="2_quu0u"]
 [ext_resource type="Texture2D" uid="uid://c5ho7movr2l6l" path="res://assets/knife_Material.png" id="3_acjuv"]
+[ext_resource type="AudioStream" uid="uid://x4yx6rf6y0bl" path="res://audio/SFX/pickup_deep.wav" id="4_ehp82"]
 
 [sub_resource type="GDScript" id="GDScript_kagl2"]
 resource_name = "PickupUpgrade"
@@ -160,8 +160,7 @@ mesh = SubResource("ArrayMesh_amv8y")
 skeleton = NodePath("")
 
 [node name="PickupSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_7x24j")
-pitch_scale = 0.2
+stream = ExtResource("4_ehp82")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140798, -0.088, 0)
