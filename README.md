@@ -281,7 +281,51 @@
 	- [FER-91](https://cs3398s24ferengi.atlassian.net/browse/FER-91), 
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-91-design-puzzle-for-level-1)
 
-	
+**Jordan**: "Provided users with gameplay systems like inventory, enemy AI and spawning, and wave gameplay"
+
+- `Jira Task: Jordan - Implement weapon inventory system`  
+	- [FER-77](https://cs3398s24ferengi.atlassian.net/browse/FER-77), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-77-implement-weapon-inventory-system)
+- `Jira Task: Jordan - Implement ammo inventory`  
+	- [FER-78](https://cs3398s24ferengi.atlassian.net/browse/FER-78), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-78-implement-ammo-inventory)
+- `Jira Task: Jordan - Implement misc. inventory (keys, flashlight, etc.)`
+	- [FER-79](https://cs3398s24ferengi.atlassian.net/browse/FER-79), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-79-implement-misc.-inventory)
+- `Jira Task: Jordan - Implement world for "endless mode"`
+	- [FER-88](https://cs3398s24ferengi.atlassian.net/browse/FER-88), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-88-implement-world-for-endless-mode)
+- `Jira Task: Jordan - Implement weapon upgrade system for "endless mode"`
+	- [FER-89](https://cs3398s24ferengi.atlassian.net/browse/FER-89), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-89-implement-weapon-upgrade-system)
+- `Jira Task: Jordan - Implement enemy wave system for "endless mode"`
+	- [FER-90](https://cs3398s24ferengi.atlassian.net/browse/FER-90), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-90-implement-enemy-wave-system)
+- `Jira Task: Jordan - Implement boss class and system`
+	- [FER-97](https://cs3398s24ferengi.atlassian.net/browse/FER-97), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-97-implement-boss-class-and-system)
+- `Jira Task: Jordan - Implement base enemy movement`
+	- [FER-107](https://cs3398s24ferengi.atlassian.net/browse/FER-107), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature/FER-107-implement-base-enemy-movement)
+- `Jira Task: Jordan - Implement enemy combat movement`
+	- [FER-118](https://cs3398s24ferengi.atlassian.net/browse/FER-118), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature/FER-118-implement-enemy-combat-movement)
+- `Jira Task: Jordan - Refactor weapon code`
+	- [FER-119](https://cs3398s24ferengi.atlassian.net/browse/FER-119), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-119-refactor-weapon-code)
+- `Jira Task: Jordan - Implement item pickup system`
+	- [FER-120](https://cs3398s24ferengi.atlassian.net/browse/FER-120), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-120-implement-item-pickup-system)
+- `Jira Task: Jordan - Implement wave system UI`
+	- [FER-121](https://cs3398s24ferengi.atlassian.net/browse/FER-121), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-121-implement-wave-system-ui)
+- `Jira Task: Jordan - Add video settings`
+	- [FER-122](https://cs3398s24ferengi.atlassian.net/browse/FER-122), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-122-add-video-settings)
+- `Jira Task: Jordan - Create enemy attack function`
+	- [FER-124](https://cs3398s24ferengi.atlassian.net/browse/FER-124), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-124-create-enemy-attack-function)
+
 ### Next Steps for Sprint 3
 
 **Luis:**	
@@ -301,6 +345,13 @@
 -	Design and create assets for level 1.  
 -	Implement the puzzle into level 1.  
 -	Improve some assets I made for sprint 1.  
+
+**Jordan:**	
+-	Add recoil to weapons
+-   Add hit FX for bullets
+-   Add bullet tracers
+-   Adjust enemy spawning from all-at-once
+-   Add more weapon upgrades
 
 <!-- Optional -->
 <!-- ## License -->
