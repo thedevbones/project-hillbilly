@@ -27,7 +27,15 @@
 
 ## General Info
 - Cover Art  
--![Cover Art](ProjectHillBilly.png)
+-![Cover Art](images/ProjectHillBilly.png)
+
+
+## Burnup Charts
+### Sprint 1  
+![Sprint1_BurnupChart](images/Sprint1_BurnupChart.png)  
+### Sprint 2  
+![Sprint2_BurnupChart](images/s2_burnup.png)  
+
 
 ## Features
 
@@ -176,13 +184,6 @@
 -	Make sure buttons from other menus link to tutorial menus.  
 -	Edit buttons and menu so that they fit the theme of the game  
 -	Edit menu backgrounds so that they have the same theme as the main  
-
-
-## Burnup Charts
-### Sprint 1  
-![Sprint1_BurnupChart](Sprint1_BurnupChart.png)  
-### Sprint 2  
-![Sprint2_BurnupChart](s2_burnup.png)  
 
 ## Sprint 2
 
@@ -347,11 +348,11 @@
 -	Improve some assets I made for sprint 1.  
 
 **Jordan:**	
--	Add recoil to weapons
--   Add hit FX for bullets
--   Add bullet tracers
--   Adjust enemy spawning from all-at-once
--   Add more weapon upgrades
+-	Add recoil to weapons  
+-   Add hit FX for bullets  
+-   Add bullet tracers  
+-   Adjust enemy spawning from all-at-once  
+-   Add more weapon upgrades  
 
 <!-- Optional -->
 <!-- ## License -->
