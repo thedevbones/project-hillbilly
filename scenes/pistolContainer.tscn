@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcxveujxjwmu6"]
 
 [ext_resource type="PackedScene" uid="uid://dli5k0036wmeh" path="res://assets/pistolContainer.glb" id="1_bobgm"]
-[ext_resource type="Script" path="res://scenes/pistolContainer.gd" id="1_tyqqe"]
+[ext_resource type="Script" path="res://scripts/pistolContainer.gd" id="1_tyqqe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kmval"]
 size = Vector3(4.2688, 1.05267, 3.24945)

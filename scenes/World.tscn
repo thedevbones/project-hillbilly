@@ -4,63 +4,63 @@
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
 [ext_resource type="Script" path="res://scripts/GunCamera.gd" id="1_mc2is"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="2_3fj2x"]
-[ext_resource type="AudioStream" uid="uid://dl2yoro4n0lfo" path="res://audio/SFX/Player Movement/stepgravel1.mp3" id="2_f4xii"]
+[ext_resource type="AudioStream" uid="uid://cjwmbh5qh4eo5" path="res://audio/SFX/Player Movement/stepgravel1.mp3" id="2_f4xii"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="2_g6axl"]
 [ext_resource type="Script" path="res://scripts/Graphics.gd" id="2_hv1q0"]
 [ext_resource type="PackedScene" uid="uid://cf23aespwj1yw" path="res://scenes/Pistol.tscn" id="2_k4yhr"]
-[ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="2_leqiw"]
-[ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_2k5bm"]
+[ext_resource type="Texture2D" uid="uid://c3kmw14k3u1xl" path="res://textures/grass01.jpg" id="2_leqiw"]
+[ext_resource type="PackedScene" uid="uid://3y8apn1w6sr0" path="res://assets/tree01.glb" id="3_2k5bm"]
 [ext_resource type="Theme" uid="uid://b0tl6tht11hby" path="res://fonts/gui.tres" id="3_civgt"]
 [ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://scenes/PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
-[ext_resource type="AudioStream" uid="uid://cx5s1nbutei65" path="res://audio/SFX/wave.wav" id="4_r4qik"]
-[ext_resource type="PackedScene" uid="uid://dx7axtetgr1tv" path="res://assets/bush01.glb" id="5_pfnyj"]
-[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="5_qh8ss"]
-[ext_resource type="AudioStream" uid="uid://c1tj08fga2ppv" path="res://audio/SFX/Weapons/pistol_fire.wav" id="5_qsv7b"]
+[ext_resource type="AudioStream" uid="uid://duxjif8nl6uma" path="res://audio/SFX/wave.wav" id="4_r4qik"]
+[ext_resource type="PackedScene" uid="uid://t2veqg20wq81" path="res://assets/bush01.glb" id="5_pfnyj"]
+[ext_resource type="FontFile" uid="uid://bcfncrbpvdbyv" path="res://fonts/Another Danger - Demo.otf" id="5_qh8ss"]
+[ext_resource type="AudioStream" uid="uid://bxgjxmsfdu3c7" path="res://audio/SFX/Weapons/pistol_fire.wav" id="5_qsv7b"]
 [ext_resource type="PackedScene" uid="uid://d0igyvn3sdf7" path="res://scenes/Pipe.tscn" id="5_wk88o"]
-[ext_resource type="AudioStream" uid="uid://cqvig72ottu2i" path="res://audio/SFX/Ambient/ambience.mp3" id="6_2maxx"]
+[ext_resource type="AudioStream" uid="uid://d3xllghe6g63i" path="res://audio/SFX/Ambient/ambience.mp3" id="6_2maxx"]
 [ext_resource type="Script" path="res://scripts/Pipe.gd" id="6_av8cb"]
-[ext_resource type="PackedScene" uid="uid://cjg8m4f2j7j0j" path="res://assets/fence01.glb" id="6_i5dq2"]
+[ext_resource type="PackedScene" uid="uid://bst1sq40mpow5" path="res://assets/fence01.glb" id="6_i5dq2"]
 [ext_resource type="PackedScene" uid="uid://fkhmfphsj65u" path="res://scenes/Shotgun.tscn" id="6_vnudb"]
-[ext_resource type="PackedScene" uid="uid://bhn1neo41gqou" path="res://assets/fence02.glb" id="7_3wrog"]
+[ext_resource type="PackedScene" uid="uid://c6nyyc763w6kr" path="res://assets/fence02.glb" id="7_3wrog"]
 [ext_resource type="PackedScene" uid="uid://bncea5c0r6hqt" path="res://scenes/PickupPistol.tscn" id="7_avcdy"]
-[ext_resource type="AudioStream" uid="uid://xlb6fv3736ab" path="res://audio/SFX/Ambient/storm.mp3" id="7_b0214"]
-[ext_resource type="AudioStream" uid="uid://kadt1bdl7dai" path="res://audio/SFX/Player Movement/swing.wav" id="7_blicd"]
-[ext_resource type="AudioStream" uid="uid://x7jcquebmimb" path="res://audio/SFX/Other/temp_reload.wav" id="7_mt7f5"]
+[ext_resource type="AudioStream" uid="uid://cpnbconcn6mhi" path="res://audio/SFX/Ambient/storm.mp3" id="7_b0214"]
+[ext_resource type="AudioStream" uid="uid://cesisi2u6wowq" path="res://audio/SFX/Player Movement/swing.wav" id="7_blicd"]
+[ext_resource type="AudioStream" uid="uid://c0dpynckug2cb" path="res://audio/SFX/Other/temp_reload.wav" id="7_mt7f5"]
 [ext_resource type="PackedScene" uid="uid://byngu8vgbfeqe" path="res://scenes/PickupShotgun.tscn" id="8_454jr"]
 [ext_resource type="PackedScene" uid="uid://d1fvf2bvgan1x" path="res://scenes/Knife.tscn" id="8_d2t2t"]
 [ext_resource type="Script" path="res://scripts/Knife.gd" id="9_67cu2"]
-[ext_resource type="AudioStream" uid="uid://d3pocg7hckdyw" path="res://audio/SFX/flashlight.mp3" id="9_liogq"]
-[ext_resource type="AudioStream" uid="uid://tp8mnyni4uxp" path="res://audio/SFX/Other/temp_noammo.wav" id="9_q2jjc"]
+[ext_resource type="AudioStream" uid="uid://c7qmyeswwbfyf" path="res://audio/SFX/flashlight.mp3" id="9_liogq"]
+[ext_resource type="AudioStream" uid="uid://dqla0xuhumcww" path="res://audio/SFX/Other/temp_noammo.wav" id="9_q2jjc"]
 [ext_resource type="Script" path="res://scripts/Flashlight.gd" id="9_vaxnc"]
 [ext_resource type="PackedScene" uid="uid://86dl5tnkd18h" path="res://scenes/PickupPipe.tscn" id="9_xrxbx"]
-[ext_resource type="AudioStream" uid="uid://be2dh6xsph0a6" path="res://audio/SFX/Player Movement/knife_swing.wav" id="10_2ipc6"]
+[ext_resource type="AudioStream" uid="uid://bn8gwhpnsti2h" path="res://audio/SFX/Player Movement/knife_swing.wav" id="10_2ipc6"]
 [ext_resource type="PackedScene" uid="uid://cx8sbyr8b4wlj" path="res://scenes/PickupKnife.tscn" id="10_2wh4d"]
 [ext_resource type="PackedScene" uid="uid://h7cr5wiomeqw" path="res://scenes/Tree3.tscn" id="10_wbd7w"]
 [ext_resource type="Script" path="res://scripts/Shotgun.gd" id="12_62glt"]
 [ext_resource type="PackedScene" uid="uid://bu4rlc2p1onvg" path="res://scenes/AmmoPistol.tscn" id="12_go1kp"]
 [ext_resource type="PackedScene" uid="uid://cba0ny8vcuj7s" path="res://scenes/AmmoShotgun.tscn" id="13_6303c"]
-[ext_resource type="AudioStream" uid="uid://2yc4knfojp1j" path="res://audio/SFX/Weapons/shotgun_fire.wav" id="13_o0qn3"]
+[ext_resource type="AudioStream" uid="uid://dgn0uisd8v4jk" path="res://audio/SFX/Weapons/shotgun_fire.wav" id="13_o0qn3"]
 [ext_resource type="PackedScene" uid="uid://blaajlfinuwup" path="res://scenes/TreeBorderSmall.tscn" id="13_qqkrj"]
-[ext_resource type="AudioStream" uid="uid://dxsl7p5buash0" path="res://audio/SFX/Weapons/shotgun_load.wav" id="14_5b3kg"]
+[ext_resource type="AudioStream" uid="uid://bhfx35y602ruh" path="res://audio/SFX/Weapons/shotgun_load.wav" id="14_5b3kg"]
 [ext_resource type="PackedScene" uid="uid://b2o6m17okgti4" path="res://scenes/Car.tscn" id="14_gytsm"]
-[ext_resource type="AudioStream" uid="uid://b8tkrrk6ybirk" path="res://audio/SFX/Weapons/shotgun_cock.wav" id="15_1to8r"]
+[ext_resource type="AudioStream" uid="uid://b70b031qwdblk" path="res://audio/SFX/Weapons/shotgun_cock.wav" id="15_1to8r"]
 [ext_resource type="PackedScene" uid="uid://cysl3dr0v3l6b" path="res://scenes/Road.tscn" id="15_8w4p2"]
 [ext_resource type="PackedScene" uid="uid://g3xu8smwa5lo" path="res://scenes/Tree2.tscn" id="15_ntg5n"]
 [ext_resource type="PackedScene" uid="uid://l4nn4667vpgv" path="res://scenes/Moon.tscn" id="16_1rbbi"]
 [ext_resource type="PackedScene" uid="uid://u12jcpcglpnn" path="res://scenes/Lightpost.tscn" id="18_ygqwd"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="19_sl67m"]
 [ext_resource type="PackedScene" uid="uid://dhedjnvbqwndx" path="res://scenes/TreeBorder.tscn" id="19_vw42b"]
-[ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="20_2tew6"]
+[ext_resource type="Texture2D" uid="uid://dr3e802mcm2ne" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="20_2tew6"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="21_qsmwn"]
 [ext_resource type="PackedScene" uid="uid://cnhqxxcfi68xy" path="res://scenes/Box.tscn" id="22_btxxw"]
-[ext_resource type="Texture2D" uid="uid://dhgqjcpdui70s" path="res://textures/dirt.jpg" id="25_0gkn8"]
+[ext_resource type="Texture2D" uid="uid://qbjomn6jyvof" path="res://textures/dirt.jpg" id="25_0gkn8"]
 [ext_resource type="PackedScene" uid="uid://be0rje6u0ibik" path="res://scenes/Tree1.tscn" id="25_qwaa1"]
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="31_n5e12"]
-[ext_resource type="AudioStream" uid="uid://b2dw4rwx78sw1" path="res://audio/SFX/Damage/Player_death.mp3" id="32_vaxi1"]
-[ext_resource type="AudioStream" uid="uid://c3k7wkoiqjne7" path="res://audio/SFX/Damage/Player_pain_grunt.mp3" id="33_ct85e"]
+[ext_resource type="AudioStream" uid="uid://c6tdu025qwlt5" path="res://audio/SFX/Damage/Player_death.mp3" id="32_vaxi1"]
+[ext_resource type="AudioStream" uid="uid://c148i1bambu3c" path="res://audio/SFX/Damage/Player_pain_grunt.mp3" id="33_ct85e"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
-[ext_resource type="PackedScene" uid="uid://cb0nc6t6dr5ph" path="res://health_bar.tscn" id="57_uqs6u"]
+[ext_resource type="PackedScene" uid="uid://cb0nc6t6dr5ph" path="res://scenes/health_bar.tscn" id="57_uqs6u"]
 
 [sub_resource type="SystemFont" id="SystemFont_y7dk2"]
 font_names = PackedStringArray("Serif")
@@ -168,7 +168,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_47te6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7qfi"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -203,7 +203,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_47te6"),
+"material": SubResource("ShaderMaterial_f7qfi"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -464,6 +464,7 @@ target_position = Vector3(0, 0, -1)
 
 [node name="Flashlight" parent="Player/MainCamera" instance=ExtResource("48_qmcav")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.39, -0.85, -0.57)
+visible = false
 script = ExtResource("9_vaxnc")
 
 [node name="Toggle" type="AudioStreamPlayer3D" parent="Player/MainCamera/Flashlight"]

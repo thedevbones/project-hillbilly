@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2o6m17okgti4"]
 
-[ext_resource type="PackedScene" uid="uid://bdxm35vq7qxdp" path="res://assets/car.blend" id="1_e75yw"]
+[ext_resource type="PackedScene" uid="uid://bve8tek7u2y8t" path="res://scenes/CarAsset.tscn" id="1_xxuvt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8yuh1"]
 size = Vector3(22.0528, 5.56238, 9.11517)
@@ -11,5 +11,5 @@ size = Vector3(22.0528, 5.56238, 9.11517)
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("BoxShape3D_8yuh1")
 
-[node name="car" parent="CollisionShape3D" instance=ExtResource("1_e75yw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4365, -2.53205, -1.27608)
+[node name="car2" parent="CollisionShape3D" instance=ExtResource("1_xxuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.437, -2.532, -1.276)

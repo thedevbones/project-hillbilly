@@ -17,7 +17,7 @@
 	- Diego Lechuga
 	- Luis Herrera
 - We are bringing you the next best Indie Survival Horror Game, for the games who enjoy a good scare!
-- We hope to inspire the next generation of game developers, by showing that a good game can be made even if you don’t have the experience.
+- We hope to inspire the next generation of game developers, by showing that a good game can be made even if you don�t have the experience.
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
@@ -27,11 +27,19 @@
 
 ## General Info
 - Cover Art  
--![Cover Art](ProjectHillBilly.png)
+-![Cover Art](images/ProjectHillBilly.png)
+
+
+## Burnup Charts
+### Sprint 1  
+![Sprint1_BurnupChart](images/Sprint1_BurnupChart.png)  
+### Sprint 2  
+![Sprint2_BurnupChart](images/s2_burnup.png)  
+
 
 ## Features
 
-### Sprint 1
+## Sprint 1
 
 #### Contributions 
 
@@ -177,32 +185,195 @@
 -	Edit buttons and menu so that they fit the theme of the game  
 -	Edit menu backgrounds so that they have the same theme as the main  
 
+## Sprint 2
+
+#### Contributions 
+
+**Luis**: "Enhanced the User Interface and Expanded the Audio options"
+
+- `Jira Task: Luis - Combine Main and Settings Menu` 
+	- [FER-33](https://cs3398s24ferengi.atlassian.net/browse/FER-33),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-33-combine-main-and-settings-menu)
+
+- `Jira Task: Luis - Fix the Audio sliders in the main and in-game menu`
+	- [FER-83](https://cs3398s24ferengi.atlassian.net/browse/FER-83),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-83-fix-the-audio-sliders-in-the-main)
+	
+- `Jira Task: Luis - Create Audio Busses`
+	- [FER-93](https://cs3398s24ferengi.atlassian.net/browse/FER-93),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-93-create-audio-busses)
+	
+- `Jira Task: Luis - Add audio for enemies`
+	- [FER-92](https://cs3398s24ferengi.atlassian.net/browse/FER-92),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-92-add-audio-to-enemies)
+	
+- `Jira Task: Luis - Fix and expand In-game menu`
+	- [FER-34](https://cs3398s24ferengi.atlassian.net/browse/FER-34),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-34-fix-and-expand-in-game-menu)
+	
+- `Jira Task: Luis - Combine Tutorial scene into main and In-game menu`
+	- [FER-94](https://cs3398s24ferengi.atlassian.net/browse/FER-94),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-94-combine-tutorial-scene-into-main-)
+	
+- `Jira Task: Luis - Testing audio levels`
+	- [FER-36](https://cs3398s24ferengi.atlassian.net/browse/FER-36),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-36-testing-audio-levels)
+	
+- `Jira Task: Luis - Fix checkboxes on video settings`
+	- [FER-95](https://cs3398s24ferengi.atlassian.net/browse/FER-95),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-95-fix-checkboxes-on-video-settings)
+
+**Jacob**: "Provided users animated enemy charaters"
+
+- `Jira Task: Jacob - Create weak enemy run animation` 
+	- [FER-110](https://cs3398s24ferengi.atlassian.net/browse/FER-110), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-110-Create-Enemy-Animation-Run)
+
+- `Jira Task: Jacob - Create weak enemy walk animation`
+	- [FER-109](https://cs3398s24ferengi.atlassian.net/browse/FER-109), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-109-Create-Enemy-Walk-Animation)  
+
+- `Jira Task: Jacob - Create weak enemy attack animation`
+	- [FER-108](https://cs3398s24ferengi.atlassian.net/browse/FER-108), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-108-implement-weak-enemy-attack)   
+
+- `Jira Task: Jacob - Create boss walk and attack animations`
+	- [FER-104](https://cs3398s24ferengi.atlassian.net/browse/FER-104), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-104-Create-boss-animations)  
+
+- `Jira Task: Jacob - Design weak enemy assests`
+	- [FER-85](https://cs3398s24ferengi.atlassian.net/browse/FER-85), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-85-Design-first-enemy-asset)   
+
+- `Jira Task: Jacob - Implement weak enemy attack animation settings`
+	- [FER-108](https://cs3398s24ferengi.atlassian.net/browse/FER-108), 
+	[Bitbucket](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-108-implement-weak-enemy-attack)   
+
+**Gage**: "Designed and created assets for enemies and created a puzzle"
+
+- `Jira Task: Gage - Create Flashlight Asset`  
+	- [FER-102](https://cs3398s24ferengi.atlassian.net/browse/FER-102), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-102-create-flashlight-asset)
+- `Jira Task: Gage - Create Key Assets`  
+	- [FER-103](https://cs3398s24ferengi.atlassian.net/browse/FER-103), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-103-create-key-assets)
+- `Jira Task: Gage - Create Ammo Assets`  
+	- [FER-106](https://cs3398s24ferengi.atlassian.net/browse/FER-106), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-106-create-ammo-assets)
+- `Jira Task: Gage - Create Shovel Asset`  
+	- [FER-112](https://cs3398s24ferengi.atlassian.net/browse/FER-112), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-112-create-shovel-asset)
+- `Jira Task: Gage - Create Hatchet Asset`  
+	- [FER-111](https://cs3398s24ferengi.atlassian.net/browse/FER-111), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-111-create-hatchet-asset)
+- `Jira Task: Gage - Create Rake Asset`  
+	- [FER-113](https://cs3398s24ferengi.atlassian.net/browse/FER-113), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-113-create-rake-asset)
+- `Jira Task: Gage - Create Padlock Assets`  
+	- [FER-105](https://cs3398s24ferengi.atlassian.net/browse/FER-105), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-105-create-padlock-assets)
+- `Jira Task: Gage - Fix colors not appearing on new assets`  
+	- [FER-123](https://cs3398s24ferengi.atlassian.net/browse/FER-123), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-123-fix-colors-not-appearing-on-new-)
+- `Jira Task: Gage - Create Boss Asset`  
+	- [FER-96](https://cs3398s24ferengi.atlassian.net/browse/FER-96), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-96-create-boss-asset)
+- `Jira Task: Gage - Design puzzle for level 1`  
+	- [FER-91](https://cs3398s24ferengi.atlassian.net/browse/FER-91), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-91-design-puzzle-for-level-1)
+
+**Jordan**: "Provided users with gameplay systems like inventory, enemy AI and spawning, and wave gameplay"
+
+- `Jira Task: Jordan - Implement weapon inventory system`  
+	- [FER-77](https://cs3398s24ferengi.atlassian.net/browse/FER-77), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-77-implement-weapon-inventory-system)
+- `Jira Task: Jordan - Implement ammo inventory`  
+	- [FER-78](https://cs3398s24ferengi.atlassian.net/browse/FER-78), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-78-implement-ammo-inventory)
+- `Jira Task: Jordan - Implement misc. inventory (keys, flashlight, etc.)`
+	- [FER-79](https://cs3398s24ferengi.atlassian.net/browse/FER-79), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-79-implement-misc.-inventory)
+- `Jira Task: Jordan - Implement world for "endless mode"`
+	- [FER-88](https://cs3398s24ferengi.atlassian.net/browse/FER-88), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-88-implement-world-for-endless-mode)
+- `Jira Task: Jordan - Implement weapon upgrade system for "endless mode"`
+	- [FER-89](https://cs3398s24ferengi.atlassian.net/browse/FER-89), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-89-implement-weapon-upgrade-system)
+- `Jira Task: Jordan - Implement enemy wave system for "endless mode"`
+	- [FER-90](https://cs3398s24ferengi.atlassian.net/browse/FER-90), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-90-implement-enemy-wave-system)
+- `Jira Task: Jordan - Implement boss class and system`
+	- [FER-97](https://cs3398s24ferengi.atlassian.net/browse/FER-97), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-97-implement-boss-class-and-system)
+- `Jira Task: Jordan - Implement base enemy movement`
+	- [FER-107](https://cs3398s24ferengi.atlassian.net/browse/FER-107), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature/FER-107-implement-base-enemy-movement)
+- `Jira Task: Jordan - Implement enemy combat movement`
+	- [FER-118](https://cs3398s24ferengi.atlassian.net/browse/FER-118), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/feature/FER-118-implement-enemy-combat-movement)
+- `Jira Task: Jordan - Refactor weapon code`
+	- [FER-119](https://cs3398s24ferengi.atlassian.net/browse/FER-119), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-119-refactor-weapon-code)
+- `Jira Task: Jordan - Implement item pickup system`
+	- [FER-120](https://cs3398s24ferengi.atlassian.net/browse/FER-120), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-120-implement-item-pickup-system)
+- `Jira Task: Jordan - Implement wave system UI`
+	- [FER-121](https://cs3398s24ferengi.atlassian.net/browse/FER-121), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-121-implement-wave-system-ui)
+- `Jira Task: Jordan - Add video settings`
+	- [FER-122](https://cs3398s24ferengi.atlassian.net/browse/FER-122), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-122-add-video-settings)
+- `Jira Task: Jordan - Create enemy attack function`
+	- [FER-124](https://cs3398s24ferengi.atlassian.net/browse/FER-124), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-124-create-enemy-attack-function)
+
+**Diego**: "Enhanced User Interfaces, Tutorial Menus, and created adaptive Health Bar"
+
+- `Jira Task: Diego - Fix Tutorial Menu graphics to match game theme`  
+	- [FER-114](https://cs3398s24ferengi.atlassian.net/browse/FER-114), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-114-fix-tutorial-menu-graphics-to-match-game-theme)
+- `Jira Task: Diego - fix tutorial image blurriness`  
+	- [FER-115](https://cs3398s24ferengi.atlassian.net/browse/FER-115), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-115-fix-tutorial-image-blurriness)
+- `Jira Task: Diego - create health bar ui`  
+	- [FER-116](https://cs3398s24ferengi.atlassian.net/browse/FER-116), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-116-create-health-bar-ui)
+- `Jira Task: Diego - implement dynamic health bar functionality`  
+	- [FER-117](https://cs3398s24ferengi.atlassian.net/browse/FER-117), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-117-implement-dynamic-health-bar-fun)
+
 ### Next Steps for Sprint 3
 
-**Gage**  
--	
+**Luis:**	
+-	Create a Save/Load functionality.  
+-	Continue to  improve the stability of the UI.  
+-	Continue to expand on the audio options.  
+-	Create a working introduction animation.  
 
 **Jacob:**	
--	
+-	Create a point tracker.  
+-	Create a leaderboard.  
+-	Continue to improve on animations.  
+-	Change enemy behavior based on proximity to player.  
 
-**Jordan:**  
--	Add recoil to weapons
--   Add hit FX for bullets
--   Add bullet tracers
--   Adjust enemy spawning from all-at-once
--   Add more weapon upgrades
+**Gage:**	
+-	Create and animate another enemy.  
+-	Design and create assets for level 1.  
+-	Implement the puzzle into level 1.  
+-	Improve some assets I made for sprint 1.  
 
-**Luis:**	
--	
+**Jordan:**	
+-	Add recoil to weapons.  
+-   Add hit FX for bullets.  
+-   Add bullet tracers.  
+-   Adjust enemy spawning from all-at-once.  
+-   Add more weapon upgrades.  
 
 **Diego:**	
--	
-
-## Burnup Charts
-### Sprint 1
--![Sprint1_BurnupChart](Sprint1_BurnupChart.png)
-
-
+-	Make sure Health Bar updates as the player's health changes.  
+-   Add Health Bar to enemies.  
+-   Further improve Menu UI.  
+-   Create more adaptive animations to help the player such as point tracking.  
 
 <!-- Optional -->
 <!-- ## License -->

@@ -1,9 +1,9 @@
 [gd_scene load_steps=55 format=3 uid="uid://dn6qvrgmyyeud"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_hpt1c"]
-[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="2_5b21v"]
+[ext_resource type="FontFile" uid="uid://bcfncrbpvdbyv" path="res://fonts/Another Danger - Demo.otf" id="2_5b21v"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_oomun"]
-[ext_resource type="AudioStream" uid="uid://baviiqms2hka5" path="res://audio/SFX/ui.wav" id="4_bt1dt"]
+[ext_resource type="AudioStream" path="res://audio/SFX/ui.wav" id="4_bt1dt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gc10"]
 
