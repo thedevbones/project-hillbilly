@@ -326,6 +326,21 @@
 	- [FER-124](https://cs3398s24ferengi.atlassian.net/browse/FER-124), 
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-124-create-enemy-attack-function)
 
+**Diego**: "Enhanced User Interfaces, Tutorial Menus, and created adaptive Health Bar"
+
+- `Jira Task: Diego - Fix Tutorial Menu graphics to match game theme`  
+	- [FER-114](https://cs3398s24ferengi.atlassian.net/browse/FER-114), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-114-fix-tutorial-menu-graphics-to-match-game-theme)
+- `Jira Task: Diego - fix tutorial image blurriness`  
+	- [FER-115](https://cs3398s24ferengi.atlassian.net/browse/FER-115), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-115-fix-tutorial-image-blurriness)
+- `Jira Task: Diego - create health bar ui`  
+	- [FER-116](https://cs3398s24ferengi.atlassian.net/browse/FER-116), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-116-create-health-bar-ui)
+- `Jira Task: Diego - implement dynamic health bar functionality`  
+	- [FER-117](https://cs3398s24ferengi.atlassian.net/browse/FER-117), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-117-implement-dynamic-health-bar-fun)
+
 ### Next Steps for Sprint 3
 
 **Luis:**	
@@ -352,6 +367,12 @@
 -   Add bullet tracers
 -   Adjust enemy spawning from all-at-once
 -   Add more weapon upgrades
+
+**Diego:**	
+-	Make sure Health Bar updates as the player's health changes
+-   Add Health Bar to enemies
+-   Further improve Menu UI
+-   Create more adaptive animations to help the player such as point tracking
 
 <!-- Optional -->
 <!-- ## License -->
