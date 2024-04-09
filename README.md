@@ -362,17 +362,17 @@
 -	Improve some assets I made for sprint 1.  
 
 **Jordan:**	
--	Add recoil to weapons
--   Add hit FX for bullets
--   Add bullet tracers
--   Adjust enemy spawning from all-at-once
--   Add more weapon upgrades
+-	Add recoil to weapons.  
+-   Add hit FX for bullets.  
+-   Add bullet tracers.  
+-   Adjust enemy spawning from all-at-once.  
+-   Add more weapon upgrades.  
 
 **Diego:**	
--	Make sure Health Bar updates as the player's health changes
--   Add Health Bar to enemies
--   Further improve Menu UI
--   Create more adaptive animations to help the player such as point tracking
+-	Make sure Health Bar updates as the player's health changes.  
+-   Add Health Bar to enemies.  
+-   Further improve Menu UI.  
+-   Create more adaptive animations to help the player such as point tracking.  
 
 <!-- Optional -->
 <!-- ## License -->
