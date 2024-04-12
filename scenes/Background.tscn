@@ -30,7 +30,7 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dudsw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldi0u"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_jmhoe")
@@ -65,7 +65,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_dudsw"),
+"material": SubResource("ShaderMaterial_ldi0u"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -126,22 +126,22 @@ light_indirect_energy = 5.82
 light_volumetric_fog_energy = 10.293
 light_size = 0.626
 light_specular = 13.068
-spot_range = 5.13546
+spot_range = 3.99051
 spot_attenuation = 0.933033
-spot_angle = 15.9829
+spot_angle = 23.8756
 spot_angle_attenuation = 1.07177
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="car2"]
-transform = Transform3D(1.09823, -0.233564, 1.86151, -1.57304, 1.06085, 1.06115, -1.63302, -3.00767, 0.586056, -7.29978, 3.03761, 2.91886)
+transform = Transform3D(1.18421, -0.193548, 1.81276, -1.37362, 1.32651, 1.03896, -1.91448, -2.73344, 0.958812, -9.56695, 3.51382, 3.2639)
 light_color = Color(1, 0.796078, 0.0901961, 1)
 light_energy = 16.89
 light_indirect_energy = 5.82
 light_volumetric_fog_energy = 10.293
 light_size = 0.626
 light_specular = 13.068
-spot_range = 5.13546
+spot_range = 3.91651
 spot_attenuation = 0.933033
-spot_angle = 15.9829
+spot_angle = 21.4364
 spot_angle_attenuation = 1.07177
 
 [node name="Trees" type="Node3D" parent="."]
