@@ -1,11 +1,11 @@
 [gd_scene load_steps=58 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
-[ext_resource type="Theme" uid="uid://cn1n58xwwo8jf" path="res://scenes/Default2.tres" id="3_nhp40"]
-[ext_resource type="FontFile" uid="uid://bcfncrbpvdbyv" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
-[ext_resource type="AudioStream" uid="uid://b5pspiq5ttggv" path="res://audio/Music/menu.mp3" id="4_24813"]
+[ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
+[ext_resource type="FontFile" uid="uid://c1170ryp7n3mn" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
+[ext_resource type="AudioStream" uid="uid://dt8adjn18hp1j" path="res://audio/Music/menu.mp3" id="4_24813"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="4_wtf1n"]
-[ext_resource type="AudioStream" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
+[ext_resource type="AudioStream" uid="uid://d348cigel1o16" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -1041,6 +1041,7 @@ pitch_scale = 0.2
 bus = &"SFX"
 
 [node name="main" parent="." instance=ExtResource("4_wtf1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500945, -2.9777, 0.423937)
 
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/DemoBtn" to="." method="_on_demo_btn_pressed"]
