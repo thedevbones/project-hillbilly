@@ -104,7 +104,7 @@ func _on_back_btn_2_pressed():
 	settings.visible = true
 
 func play_ui_audio(pitch):
-	$UISound.set_pitch_scale(pitch)
+	$UISound.set_pitch_scale(1)
 	$UISound.play()
 
 func _on_main_menu_pressed():

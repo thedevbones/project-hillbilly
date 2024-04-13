@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://86dl5tnkd18h"]
 
 [ext_resource type="Texture2D" uid="uid://d20fp22ss3264" path="res://assets/pipe_Material.png" id="1_wvhl2"]
-[ext_resource type="AudioStream" uid="uid://cgdcwnruvu2ij" path="res://audio/SFX/pickup.wav" id="2_qq54j"]
+[ext_resource type="AudioStream" uid="uid://x4yx6rf6y0bl" path="res://audio/SFX/pickup_deep.wav" id="2_f7rqc"]
 
 [sub_resource type="GDScript" id="GDScript_reowc"]
 resource_name = "PickupPipe"
@@ -86,8 +86,7 @@ omni_range = 1.0
 shape = SubResource("SphereShape3D_4onx0")
 
 [node name="PickupSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_qq54j")
-pitch_scale = 0.2
+stream = ExtResource("2_f7rqc")
 
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="finished" from="PickupSound" to="." method="_on_pickup_sound_finished"]

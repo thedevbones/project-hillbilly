@@ -1,14 +1,14 @@
 [gd_scene load_steps=16 format=3 uid="uid://6drj3uyglv1o"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_i1cr5"]
-[ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="1_ptttf"]
-[ext_resource type="PackedScene" uid="uid://bdxm35vq7qxdp" path="res://assets/car.blend" id="2_ji46b"]
-[ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="3_01j0b"]
-[ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="4_bn4uh"]
-[ext_resource type="PackedScene" uid="uid://b0b6sysj5cdfp" path="res://assets/tree03.glb" id="5_y75wk"]
-[ext_resource type="PackedScene" uid="uid://cc3oxpn86wugc" path="res://assets/road.glb" id="6_kptrq"]
+[ext_resource type="Texture2D" uid="uid://c3kmw14k3u1xl" path="res://textures/grass01.jpg" id="1_ptttf"]
+[ext_resource type="PackedScene" uid="uid://3y8apn1w6sr0" path="res://assets/tree01.glb" id="3_01j0b"]
+[ext_resource type="PackedScene" uid="uid://bve8tek7u2y8t" path="res://scenes/CarAsset.tscn" id="3_ur2cg"]
+[ext_resource type="PackedScene" uid="uid://sci20d4sc6y" path="res://assets/tree02.glb" id="4_bn4uh"]
+[ext_resource type="PackedScene" uid="uid://bkt66hm221g1j" path="res://assets/tree03.glb" id="5_y75wk"]
+[ext_resource type="PackedScene" uid="uid://bmisunog1p26y" path="res://assets/road.glb" id="6_kptrq"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="7_jmhoe"]
-[ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="8_w07dk"]
+[ext_resource type="Texture2D" uid="uid://dr3e802mcm2ne" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="8_w07dk"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="9_algee"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
@@ -29,7 +29,7 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6j4w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jheuk"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_jmhoe")
@@ -64,7 +64,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_c6j4w"),
+"material": SubResource("ShaderMaterial_jheuk"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -110,8 +110,8 @@ material = SubResource("StandardMaterial3D_rqfxr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.958, 0)
 fov = 60.0
 
-[node name="car" parent="." instance=ExtResource("2_ji46b")]
-transform = Transform3D(0.234394, 0, 0.24822, 0, 0.46, 0, -0.395802, 0, 0.146996, 4.49869, 0, -7.42962)
+[node name="car2" parent="." instance=ExtResource("3_ur2cg")]
+transform = Transform3D(0.234159, 0, 0.247894, 0, 0.46, 0, -0.395941, 0, 0.146604, 4.499, 0, -7.43)
 
 [node name="Trees" type="Node3D" parent="."]
 
