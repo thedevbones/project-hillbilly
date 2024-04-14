@@ -87,10 +87,10 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 5, 12, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.264032, 2.16646, -30.7131), Vector3(5.264, 14.166, -4.713)]
+"values": [Vector3(0.264032, 2.16646, -30.7131), Vector3(5.264, 14.166, -4.713), Vector3(5.264, 14.166, -4.713), Vector3(3.264, 2.166, -2.713)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -99,10 +99,10 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 5, 12, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(4.77763e-16, 0.492828, -1.22669e-16), Vector3(-1.05243, 1.14145, 3.48787e-16)]
+"values": [Vector3(4.77763e-16, 0.492828, -1.22669e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-0.139626, 0.158825, 3.48787e-16)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -163,7 +163,7 @@ _data = {
 }
 
 [node name="main" type="Node3D"]
-transform = Transform3D(0.347459, 0, 0.937695, 0, 1, 0, -0.937695, 0, 0.347459, -15.1208, 7.136, 8.30549)
+transform = Transform3D(0.347459, 0, 0.937695, 0, 1, 0, -0.937695, 0, 0.347459, 5.30647, 10.7954, 8.30549)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_e6knx")
@@ -328,10 +328,10 @@ transform = Transform3D(0.00495624, 0, 0.199939, 0, 0.2, 0, -0.199939, 0, 0.0049
 transform = Transform3D(0.00495623, 0, 0.199939, 0, 0.2, 0, -0.199939, 0, 0.00495623, 0.428664, 0, -17.2927)
 
 [node name="road3" parent="Roads" instance=ExtResource("8_oclv4")]
-transform = Transform3D(0.00495623, 0, 0.199939, 0, 0.2, 0, -0.199939, 0, 0.00495623, 0.734316, 0, -29.623)
+transform = Transform3D(0.00495624, 0, 0.199939, 0, 0.2, 0, -0.199939, 0, 0.00495625, 0.87393, 0.0282793, -40.7055)
 
 [node name="road4" parent="Roads" instance=ExtResource("8_oclv4")]
-transform = Transform3D(0.00495623, 0, 0.199939, 0, 0.2, 0, -0.199939, 0, 0.00495623, 0.734316, 0, -29.623)
+transform = Transform3D(0.00292159, 0, 0.199979, 0, 0.2, 0, -0.199979, 0, 0.00292161, 0.706594, 0.0827446, -29.2517)
 
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
 multimesh = SubResource("MultiMesh_kxmfa")
