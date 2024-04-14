@@ -66,11 +66,11 @@ func _ready():
 	$StepTimer.start()
 	# Initialize weapons 
 	weapons[Weapons.UNARMED] = null
-	weapons[Weapons.PIPE] = $MainCamera/Pipe
-	weapons[Weapons.KNIFE] = $MainCamera/Knife
-	weapons[Weapons.PISTOL] = $MainCamera/Pistol
-	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
-	items[Items.FLASHLIGHT] = $MainCamera/Flashlight
+	weapons[Weapons.PIPE] = $Head/MainCamera/Pipe
+	weapons[Weapons.KNIFE] = $Head/MainCamera/Knife
+	weapons[Weapons.PISTOL] = $Head/MainCamera/Pistol
+	weapons[Weapons.SHOTGUN] = $Head/MainCamera/Shotgun
+	items[Items.FLASHLIGHT] = $Head/MainCamera/Flashlight
 	%UI.update_ammo_count()
 	if Graphics.demo_mode:
 		add_ammo(Weapons.SHOTGUN, 24)
@@ -108,9 +108,9 @@ func _input(event):
 	# Handle mouse input
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		$MainCamera.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+		$Head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		# Clamp the camera's vertical rotation
-		$MainCamera.rotation.x = clamp($MainCamera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		$Head.rotation.x = clamp($Head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 
 
@@ -145,7 +145,7 @@ func _physics_process(delta):
 		$StepAudio.set_max_db(-4)
 		speed = NORMAL_SPEED * SPRINT_MULTIPLIER
 		stamina -= delta
-		$MainCamera.fov = lerp($MainCamera.fov, SPRINT_FOV, 0.1)
+		$Head/MainCamera.fov = lerp($Head/MainCamera.fov, SPRINT_FOV, 0.1)
 		if stamina <= 0.0:
 			stamina = 0.0  # Clamp stamina to zero
 			is_sprinting = false
@@ -153,7 +153,7 @@ func _physics_process(delta):
 	elif is_crouching:
 		$StepTimer.wait_time = 1.2 
 		$StepAudio.set_max_db(-10)
-		$MainCamera.global_transform.origin.y = lerp($MainCamera.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
+		$Head/MainCamera.global_transform.origin.y = lerp($Head/MainCamera.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
 		speed = NORMAL_SPEED * CROUCH_MULTIPLIER
 		can_sprint = false
 		stamina += delta / 2
@@ -161,8 +161,8 @@ func _physics_process(delta):
 	else:
 		$StepTimer.wait_time = 0.6 
 		$StepAudio.set_max_db(-7)
-		$MainCamera.global_transform.origin.y = lerp($MainCamera.global_transform.origin.y, global_transform.origin.y, delta * 10)
-		$MainCamera.fov = lerp($MainCamera.fov, NORMAL_FOV, 0.1)
+		$Head/MainCamera.global_transform.origin.y = lerp($Head/MainCamera.global_transform.origin.y, global_transform.origin.y, delta * 10)
+		$Head/MainCamera.fov = lerp($Head/MainCamera.fov, NORMAL_FOV, 0.1)
 		speed = NORMAL_SPEED
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA)  # Clamp stamina to its maximum value
@@ -226,7 +226,7 @@ func update_weapon_visibility():
 
 func update_hitscan():
 	var weapon = get_current_weapon()
-	if weapon: $MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
+	if weapon: $Head/MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
 
 func get_current_weapon():
 	return weapons[current_weapon_index]
@@ -274,7 +274,7 @@ func get_ammo(weapon_type):
 func toggle_flashlight():
 	if not has_item(Items.FLASHLIGHT): return
 	var flashlight = items[Items.FLASHLIGHT]
-	if flashlight: $MainCamera/Flashlight.toggle()
+	if flashlight: $Head/MainCamera/Flashlight.toggle()
 
 func apply_damage(damage, damage_type):
 	health -= damage

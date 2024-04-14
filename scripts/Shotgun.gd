@@ -31,7 +31,7 @@ func _ready():
 	reload_sound = $ShotgunLoad
 	pump_original_pos = $Cube_004.position.x
 	pump_target_pos = $Cube_004.position.x - 0.4
-	camera = $".."
+	weapon_recoil = 10.0
 
 func shoot():
 	if is_reloading and ammo > 0:
@@ -43,6 +43,7 @@ func shoot():
 		player.can_switch = false
 		can_shoot = false
 		position.z += 0.2
+		camera.recoil(weapon_recoil)
 		ammo -= 1
 		
 		muzzle_flash()
