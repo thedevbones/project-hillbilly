@@ -12,7 +12,6 @@ var pump_original_pos: float
 var can_shoot: bool = true
 var pump_animating: bool = false
 var pumping_back: bool = true
-var camera: Camera3D
 
 func _ready():
 	weapon_type = player.Weapons.SHOTGUN
@@ -32,7 +31,7 @@ func _ready():
 	reload_sound = $ShotgunLoad
 	pump_original_pos = $Cube_004.position.x
 	pump_target_pos = $Cube_004.position.x - 0.4
-	camera = $".."
+	weapon_recoil = 5.0
 
 func shoot():
 	if is_reloading and ammo > 0:
@@ -44,6 +43,7 @@ func shoot():
 		player.can_switch = false
 		can_shoot = false
 		position.z += 0.2
+		camera.recoil(weapon_recoil)
 		ammo -= 1
 		
 		muzzle_flash()
@@ -158,9 +158,9 @@ func _process(delta):
 		bob_up = true
 
 	var bob_speed
-	if not $"../..".is_moving or $"../..".is_crouching:
+	if not $"../../..".is_moving or $"../../..".is_crouching:
 		bob_speed = BOB_SPEED * 0.25
-	elif $"../..".is_sprinting:
+	elif $"../../..".is_sprinting:
 		bob_speed = BOB_SPEED * 1.5
 	else:
 		bob_speed = BOB_SPEED 

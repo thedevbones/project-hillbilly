@@ -17,10 +17,12 @@ var is_swinging = false
 var swing_duration = 0.4
 var swing_timer = 0.0
 var bob_up = true
+var weapon_recoil = 2.0
 
 # Weapon references
-@onready var player = $"../.."
+@onready var player = $"../../.."
 @onready var raycast = $"../HitScan"
+@onready var camera = $".."
 @onready var bob_max = position.y + 0.02
 @onready var bob_min = position.y - 0.02
 var fire_sound: AudioStreamPlayer3D
@@ -50,6 +52,7 @@ func shoot():
 	if ammo > 0 and not is_reloading:
 		player.can_switch = false
 		position.z += 0.2
+		camera.recoil(weapon_recoil)
 		fire_sound.play()
 		muzzle_flash()
 		hitscan()
