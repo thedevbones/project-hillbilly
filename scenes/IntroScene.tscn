@@ -79,7 +79,7 @@ buffer = PackedFloat32Array(0.537053, 0, 0.843549, -3.23644, 0, 1, 0, 5.96046e-0
 
 [sub_resource type="Animation" id="Animation_g6qmg"]
 resource_name = "Intro Animation"
-length = 10.0
+length = 15.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -163,7 +163,7 @@ _data = {
 }
 
 [node name="main" type="Node3D"]
-transform = Transform3D(0.347459, 0, 0.937695, 0, 1, 0, -0.937695, 0, 0.347459, -5.65794, 7.136, 8.30549)
+transform = Transform3D(0.347459, 0, 0.937695, 0, 1, 0, -0.937695, 0, 0.347459, -15.1208, 7.136, 8.30549)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_e6knx")
@@ -202,29 +202,29 @@ omni_range = 9.645
 omni_attenuation = 0.450625
 
 [node name="SpotLight3D" type="SpotLight3D" parent="car2"]
-transform = Transform3D(1.09823, -0.233564, 1.86151, -1.57304, 1.06085, 1.06115, -1.63302, -3.00767, 0.586056, -9.42106, 3.53139, -0.761009)
+transform = Transform3D(1.09823, -0.233565, 1.86151, -1.57304, 1.06085, 1.06114, -1.63302, -3.00767, 0.58605, -9.42107, 3.53139, -0.761009)
 light_color = Color(1, 0.796078, 0.0901961, 1)
 light_energy = 16.89
 light_indirect_energy = 5.82
 light_volumetric_fog_energy = 10.293
 light_size = 0.626
 light_specular = 13.068
-spot_range = 3.99051
+spot_range = 4.57619
 spot_attenuation = 0.933033
-spot_angle = 23.8756
+spot_angle = 24.7323
 spot_angle_attenuation = 1.07177
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="car2"]
-transform = Transform3D(0.873208, -0.0283473, 1.99063, -1.70592, 1.10989, 0.764123, -1.63919, -2.98524, 0.676532, -9.98553, 3.33686, 2.29657)
+transform = Transform3D(0.287342, -0.953807, 1.93225, -1.78673, 0.984208, 0.751533, -1.92391, -2.69522, -1.04433, -9.7013, 2.95362, 1.97267)
 light_color = Color(1, 0.796078, 0.0901961, 1)
 light_energy = 16.89
 light_indirect_energy = 5.82
 light_volumetric_fog_energy = 10.293
 light_size = 0.626
 light_specular = 13.068
-spot_range = 3.30423
+spot_range = 4.25765
 spot_attenuation = 0.933033
-spot_angle = 21.4364
+spot_angle = 24.6826
 spot_angle_attenuation = 1.07177
 
 [node name="Trees" type="Node3D" parent="."]
