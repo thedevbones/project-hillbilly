@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxpy1kgi8qlud"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5k1w"]
+emission_shape = 1
+emission_sphere_radius = 0.02
+direction = Vector3(0, 0, -1)
+spread = 5.0
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -2.5, 0)
+scale_min = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxdur"]
+albedo_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3fb3j"]
+material = SubResource("StandardMaterial3D_bxdur")
+size = Vector3(0.04, 0.04, 0.04)
+
+[sub_resource type="GDScript" id="GDScript_5vuo7"]
+resource_name = "ObjectHit"
+script/source = "extends GPUParticles3D
+
+func _ready():
+	emitting = true
+
+func _on_finished():
+	queue_free()
+"
+
+[node name="ObjectHitParticles" type="GPUParticles3D"]
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_e5k1w")
+draw_pass_1 = SubResource("BoxMesh_3fb3j")
+script = SubResource("GDScript_5vuo7")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

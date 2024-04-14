@@ -8,8 +8,10 @@ albedo_texture = ExtResource("1_t7ty5")
 
 [sub_resource type="QuadMesh" id="QuadMesh_8syx8"]
 material = SubResource("StandardMaterial3D_xidv2")
+size = Vector2(0.25, 0.25)
 
 [node name="BulletDecal" type="Node3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.012)
