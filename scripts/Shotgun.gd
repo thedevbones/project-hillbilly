@@ -31,7 +31,7 @@ func _ready():
 	reload_sound = $ShotgunLoad
 	pump_original_pos = $Cube_004.position.x
 	pump_target_pos = $Cube_004.position.x - 0.4
-	weapon_recoil = 10.0
+	weapon_recoil = 5.0
 
 func shoot():
 	if is_reloading and ammo > 0:
