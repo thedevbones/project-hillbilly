@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://gerd3xptepvi"]
+[gd_scene load_steps=23 format=3 uid="uid://gerd3xptepvi"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
 [ext_resource type="Texture2D" uid="uid://duglfm0f1lxy" path="res://textures/grass01.jpg" id="2_lghjx"]
@@ -10,6 +10,10 @@
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="9_b52rc"]
 [ext_resource type="Texture2D" uid="uid://b32s17pnqgvw3" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="10_aujr6"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="11_e4mmx"]
+[ext_resource type="AudioStream" uid="uid://ctt87spm26vp8" path="res://audio/SFX/Ambient/running car.mp3" id="11_f2jot"]
+[ext_resource type="AudioStream" uid="uid://bhu1yq7ig4x" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
+[ext_resource type="AudioStream" uid="uid://dswpne8o7kkoq" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
+[ext_resource type="AudioStream" uid="uid://d34yoikif5wek" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
 resource_name = "WorldEnviroment"
@@ -352,3 +356,20 @@ libraries = {
 "": SubResource("AnimationLibrary_44grx")
 }
 autoplay = "Intro Animation"
+
+[node name="RunningCar" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 1.29246e-08, 0, 1, 0, 2.10209e-08, 0, 1, 0, 0, 0)
+stream = ExtResource("11_f2jot")
+bus = &"SFX"
+
+[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_3a1pc")
+bus = &"SFX"
+
+[node name="Storm" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_evan4")
+bus = &"SFX"
+
+[node name="stall car" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_y8by3")
+bus = &"SFX"
