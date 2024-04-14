@@ -1,14 +1,14 @@
 [gd_scene load_steps=31 format=3 uid="uid://bjm4y1legptpu"]
 
 [ext_resource type="Script" path="res://scripts/EnemyWeak.gd" id="1_1suxf"]
-[ext_resource type="Texture2D" uid="uid://43golb15u2xc" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled.png" id="1_04hja"]
-[ext_resource type="Texture2D" uid="uid://bx7ol6c3wn63t" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_1.png" id="2_2et11"]
-[ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/Damage/bullut_hit_flesh.wav" id="2_mro40"]
-[ext_resource type="AudioStream" uid="uid://5pnojxj8pl22" path="res://audio/SFX/Enemy/enemy_death.wav" id="3_ex82b"]
-[ext_resource type="Texture2D" uid="uid://b7hh2vxop4kh7" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_2.png" id="3_wx4sd"]
-[ext_resource type="Texture2D" uid="uid://boou6p3najck1" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_3.png" id="4_6vl3q"]
-[ext_resource type="Texture2D" uid="uid://dn4d5ui7vfl7l" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_4.png" id="5_487ks"]
-[ext_resource type="AudioStream" uid="uid://kadt1bdl7dai" path="res://audio/SFX/Player Movement/swing.wav" id="9_dun4b"]
+[ext_resource type="Texture2D" uid="uid://55nohc7xb1us" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled.png" id="1_04hja"]
+[ext_resource type="Texture2D" uid="uid://dpgtb40kpd5hg" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_1.png" id="2_2et11"]
+[ext_resource type="AudioStream" uid="uid://cb6tjd385yvs0" path="res://audio/SFX/Damage/bullut_hit_flesh.wav" id="2_mro40"]
+[ext_resource type="AudioStream" uid="uid://dnbxyji3jbxio" path="res://audio/SFX/Enemy/enemy_death.wav" id="3_ex82b"]
+[ext_resource type="Texture2D" uid="uid://ngmr4gdq2wkr" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_2.png" id="3_wx4sd"]
+[ext_resource type="Texture2D" uid="uid://l0eu6hgtxsuv" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_3.png" id="4_6vl3q"]
+[ext_resource type="Texture2D" uid="uid://uacwl4lhhqtx" path="res://assets/enemies/weak_enemy/bad-guy1_Untitled_4.png" id="5_487ks"]
+[ext_resource type="AudioStream" uid="uid://dusu01a53b7af" path="res://audio/SFX/Player Movement/swing.wav" id="9_dun4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3vd6"]
 resource_name = "Material.003"
