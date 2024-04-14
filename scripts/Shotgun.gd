@@ -112,9 +112,26 @@ func hitscan():
 		var result = get_world_3d().direct_space_state.intersect_ray(ray_query)
 		if result.size() != 0:  # If collision
 			var collider = result.collider
-			if collider and collider.has_method("apply_damage"):
-				collider.apply_damage(damage)
-				# Implement other FX here
+			if collider:
+				if collider.has_method("apply_damage"): collider.apply_damage(damage)
+				var collision_point = result.position
+				var collision_normal = result.normal
+				var hit_particle = object_particle.instantiate()
+				var hit_damage = bullet_decal.instantiate()
+				
+				if collider is CharacterBody3D: 
+					pass
+					#hit_particle = object_particle.instantiate()
+					#hit_damage = bullet_decal.instantiate()
+				
+				hit_particle.global_position = collision_point
+				get_tree().current_scene.add_child(hit_particle)
+				hit_particle.look_at(collision_point + collision_normal, Vector3.UP)
+				hit_particle.look_at(collision_point + collision_normal, Vector3.RIGHT)
+				
+				collider.add_child(hit_damage)
+				hit_damage.global_position = collision_point
+				hit_damage.look_at(collision_point + collision_normal, Vector3.UP)
 
 func pump():
 	$ShotgunPump.play()
