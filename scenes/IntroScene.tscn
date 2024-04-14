@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://gerd3xptepvi"]
+[gd_scene load_steps=19 format=3 uid="uid://gerd3xptepvi"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
 [ext_resource type="Texture2D" uid="uid://duglfm0f1lxy" path="res://textures/grass01.jpg" id="2_lghjx"]
@@ -80,14 +80,66 @@ buffer = PackedFloat32Array(0.537053, 0, 0.843549, -3.23644, 0, 1, 0, 5.96046e-0
 [sub_resource type="Animation" id="Animation_cnlh0"]
 resource_name = "IntroAnimation"
 length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("car2/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-18.8815, 4.25652, -0.313536), Vector3(-69.882, 34.257, 22.686)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("car2/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.21618, 0), Vector3(-1.19381, -0.66148, 3.48787e-16)]
+}
+
+[sub_resource type="Animation" id="Animation_quhu8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("car2/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-18.8815, 4.25652, -0.313536)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("car2/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.21618, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x5o7a"]
 _data = {
-"IntroAnimation": SubResource("Animation_cnlh0")
+"IntroAnimation": SubResource("Animation_cnlh0"),
+"RESET": SubResource("Animation_quhu8")
 }
 
 [node name="main" type="Node3D"]
-transform = Transform3D(0.347459, 0, 0.937695, 0, 1, 0, -0.937695, 0, 0.347459, -5.65794, 7.136, 8.30549)
+transform = Transform3D(0.347459, 0, 0.937695, 0, 1, 0, -0.937695, 0, 0.347459, -23.279, 7.136, 8.30549)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_e6knx")
@@ -110,7 +162,7 @@ material = SubResource("StandardMaterial3D_rqfxr")
 transform = Transform3D(0.0189661, 1.53691e-16, 0.287756, 1.60442e-16, 0.460001, -1.00451e-16, -0.459609, 1.66921e-16, 0.0118744, 0.712363, 0.208457, -39.3875)
 
 [node name="Camera3D" type="Camera3D" parent="car2"]
-transform = Transform3D(1.10661, 0, -1.87118, 0, 2.17391, 0, 2.98868, 0, 1.7675, -18.8815, 4.25652, -0.313536)
+transform = Transform3D(1.10661, 0, -2.41383, 0, 2.17391, 0, 2.98868, 0, 0.893761, -18.8815, 4.25652, -0.313536)
 current = true
 fov = 60.0
 
@@ -163,7 +215,7 @@ transform = Transform3D(1, 0, -1.50209e-08, 0, 1, 0, 4.17311e-08, 0, 1, -12.4755
 transform = Transform3D(0.198803, 0, -0.980039, 0, 1, 0, 0.980039, 0, 0.198803, -22.206, 0, -23.8)
 
 [node name="tree08" parent="Trees" instance=ExtResource("5_3bave")]
-transform = Transform3D(0.198803, 0, -0.980039, 0, 1, 0, 0.980039, 0, 0.198803, 12.1883, 0, -11.6291)
+transform = Transform3D(0.999875, 0, 0.0158464, 0, 1, 0, -0.0158464, 0, 0.999875, 13.6261, 0, -7.74887)
 
 [node name="tree02" parent="Trees" instance=ExtResource("5_3bave")]
 transform = Transform3D(0.989571, 0, 0.144045, 0, 1, 0, -0.144045, 0, 0.989571, 17.5217, 0, -39.0829)
