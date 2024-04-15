@@ -15,7 +15,8 @@ func _ready():
 	#patrol_timer = $PatrolTimer
 	animation_player = $AnimationPlayer
 	animation_player.play("walk")
-	
+	$Armature/Skeleton3D.physical_bones_start_simulation()
+	$Armature/Skeleton3D.physical_bones_stop_simulation()
 
 func _on_death_finished():
 	queue_free()
