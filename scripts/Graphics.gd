@@ -4,6 +4,7 @@ var graphics: Environment
 var grass
 var grass_visible = true
 var demo_mode = false
+var bobbing = true
 
 func update_ssao(toggle):
 	graphics.set_ssao_enabled(toggle)
