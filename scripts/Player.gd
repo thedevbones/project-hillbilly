@@ -1,8 +1,9 @@
 extends CharacterBody3D
 
-@onready var raycast : RayCast3D = $/root/World/Player/MainCamera/HitScan
-@onready var camera : Camera3D = $Head/MainCamera
-@onready var head : Node3D = $Head
+@onready var raycast : RayCast3D = $/root/World/Player/Neck/Head/MainCamera/HitScan
+@onready var camera : Camera3D = $Neck/Head/MainCamera
+@onready var head : Node3D = $Neck/Head
+@onready var neck : Node3D = $Neck
 
 enum Weapons { UNARMED = 0, PIPE = 1, KNIFE = 2, PISTOL = 3, SHOTGUN = 4}
 enum Items { FLASHLIGHT = 10, KEY = 11}
@@ -71,11 +72,11 @@ func _ready():
 	$StepTimer.start()
 	# Initialize weapons 
 	weapons[Weapons.UNARMED] = null
-	weapons[Weapons.PIPE] = $Head/MainCamera/Pipe
-	weapons[Weapons.KNIFE] = $Head/MainCamera/Knife
-	weapons[Weapons.PISTOL] = $Head/MainCamera/Pistol
-	weapons[Weapons.SHOTGUN] = $Head/MainCamera/Shotgun
-	items[Items.FLASHLIGHT] = $Head/MainCamera/Flashlight
+	weapons[Weapons.PIPE] = $Neck/Head/MainCamera/Pipe
+	weapons[Weapons.KNIFE] = $Neck/Head/MainCamera/Knife
+	weapons[Weapons.PISTOL] = $Neck/Head/MainCamera/Pistol
+	weapons[Weapons.SHOTGUN] = $Neck/Head/MainCamera/Shotgun
+	items[Items.FLASHLIGHT] = $Neck/Head/MainCamera/Flashlight
 	%UI.update_ammo_count()
 	if Graphics.demo_mode:
 		add_ammo(Weapons.SHOTGUN, 24)
@@ -203,9 +204,10 @@ func bob_head(delta):
 	camera.transform.origin = pos
 
 func sway_head(delta, direction):
+	if not Graphics.swaying: return
 	var sway_angle = 2.5
 	head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(sway_angle * float(-direction.x)), 0.05)
-	head.rotation.x = lerp_angle(head.rotation.x, deg_to_rad(sway_angle * 2 * float(direction.y)), 0.05)
+	neck.rotation.x = lerp_angle(neck.rotation.x, deg_to_rad(sway_angle / 2 * float(direction.y)), 0.05)
 
 func _on_step_timer_timeout():
 	if is_moving and is_on_floor():
@@ -246,7 +248,7 @@ func update_weapon_visibility():
 
 func update_hitscan():
 	var weapon = get_current_weapon()
-	if weapon: $Head/MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
+	if weapon: raycast.set_scale(weapons[current_weapon_index].range)
 
 func get_current_weapon():
 	return weapons[current_weapon_index]
