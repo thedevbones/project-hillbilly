@@ -28,6 +28,8 @@ func _ready():
 	$LaughTimer.start()
 	animation_player = $boss/AnimationPlayer
 	animation_player.play("walk")
+	$boss/Armature/Armature_001/Skeleton3D.physical_bones_start_simulation()
+	$boss/Armature/Armature_001/Skeleton3D.physical_bones_stop_simulation()
 
 func set_level(level):
 	health = 30 * level

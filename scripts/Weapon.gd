@@ -109,15 +109,22 @@ func hitscan():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		if collider:
-			if collider.has_method("apply_damage"): collider.apply_damage(damage)
 			var collision_point = raycast.get_collision_point()
 			var collision_normal = raycast.get_collision_normal()
 			var hit_particle = object_particle.instantiate()
 			var hit_damage = bullet_decal.instantiate()
 			
-			if collider is CharacterBody3D: 
+			if collider is PhysicalBone3D: 
 				hit_particle = enemy_particle.instantiate()
 				hit_damage = blood_decal.instantiate()
+				var enemy = collider
+				while enemy and not enemy.has_method("apply_damage"):
+					enemy = enemy.get_parent()
+				if enemy and enemy.has_method("apply_damage"):
+					var damage_multiplier = 1.0
+					if collider.name == "Head":
+						damage_multiplier = randf_range(1.25, 2.5)
+					enemy.apply_damage(damage * damage_multiplier)
 			
 			hit_particle.global_position = collision_point
 			get_tree().current_scene.add_child(hit_particle)

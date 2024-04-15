@@ -105,7 +105,7 @@ func hitscan():
 		var ray_query = PhysicsRayQueryParameters3D.new()
 		ray_query.from = camera.global_transform.origin
 		ray_query.to = ray_query.from + pellet_direction * range.z
-		ray_query.collision_mask = 0xFFFFFFFF
+		ray_query.collision_mask = 0x0004 # Layer 3
 		ray_query.collide_with_areas = true
 		ray_query.collide_with_bodies = true
 		# Perform raycast
@@ -113,15 +113,22 @@ func hitscan():
 		if result.size() != 0:  # If collision
 			var collider = result.collider
 			if collider:
-				if collider.has_method("apply_damage"): collider.apply_damage(damage)
 				var collision_point = result.position
 				var collision_normal = result.normal
 				var hit_particle = object_particle.instantiate()
 				var hit_damage = bullet_decal.instantiate()
 				
-				if collider is CharacterBody3D: 
+				if collider is PhysicalBone3D: 
 					hit_particle = enemy_particle.instantiate()
 					hit_damage = blood_decal.instantiate()
+					var enemy = collider
+					while enemy and not enemy.has_method("apply_damage"):
+						enemy = enemy.get_parent()
+					if enemy and enemy.has_method("apply_damage"):
+						var damage_multiplier = 1.0
+						if collider.name == "Head":
+							damage_multiplier = randf_range(1.25, 2.5)
+						enemy.apply_damage(damage * damage_multiplier)
 				
 				hit_particle.global_position = collision_point
 				get_tree().current_scene.add_child(hit_particle)
