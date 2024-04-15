@@ -828,31 +828,37 @@ bones/15/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
+transparency = 0.75
 mesh = SubResource("ArrayMesh_omwum")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cube_001" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
+transparency = 0.75
 mesh = SubResource("ArrayMesh_x4cg3")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cube_002" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
+transparency = 0.75
 mesh = SubResource("ArrayMesh_8u4h3")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cylinder" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
+transparency = 0.75
 mesh = SubResource("ArrayMesh_fw1wf")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
+transparency = 0.75
 mesh = SubResource("ArrayMesh_dhkf2")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
+transparency = 0.75
 mesh = SubResource("ArrayMesh_3s7q4")
 skin = SubResource("Skin_v5voc")
 
