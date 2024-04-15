@@ -113,7 +113,6 @@ func hitscan():
 		if result.size() != 0:  # If collision
 			var collider = result.collider
 			if collider:
-				if collider.has_method("apply_damage"): collider.apply_damage(damage)
 				var collision_point = result.position
 				var collision_normal = result.normal
 				var hit_particle = object_particle.instantiate()
@@ -122,6 +121,11 @@ func hitscan():
 				if collider is PhysicalBone3D: 
 					hit_particle = enemy_particle.instantiate()
 					hit_damage = blood_decal.instantiate()
+					var enemy = collider
+					while enemy and not enemy.has_method("apply_damage"):
+						enemy = enemy.get_parent()
+					if enemy and enemy.has_method("apply_damage"):
+						enemy.apply_damage(damage)
 				
 				hit_particle.global_position = collision_point
 				get_tree().current_scene.add_child(hit_particle)
