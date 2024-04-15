@@ -121,7 +121,7 @@ func hitscan():
 				
 				if collider is CharacterBody3D: 
 					hit_particle = enemy_particle.instantiate()
-					#hit_damage = bullet_decal.instantiate()
+					hit_damage = blood_decal.instantiate()
 				
 				hit_particle.global_position = collision_point
 				get_tree().current_scene.add_child(hit_particle)
