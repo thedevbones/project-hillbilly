@@ -42,9 +42,9 @@ func _process(delta):
 		bob_up = true
 	
 	var bob_speed
-	if not $"../../..".is_moving or $"../../..".is_crouching:
+	if not %Player.is_moving or %Player.is_crouching:
 		bob_speed = BOB_SPEED * 0.25
-	elif $"../../..".is_sprinting:
+	elif %Player.is_sprinting:
 		bob_speed = BOB_SPEED * 2
 	else:
 		bob_speed = BOB_SPEED 

@@ -20,7 +20,7 @@ var bob_up = true
 var weapon_recoil = 2.0
 
 # Weapon references
-@onready var player = $"../../.."
+@onready var player = %Player
 @onready var raycast = $"../HitScan"
 @onready var camera = $".."
 @onready var bob_max = position.y + 0.02

@@ -85,7 +85,7 @@ func _ready():
 		max_health = 20
 		%UI.health_bar.max_value = max_health
 
-func _input(event):	
+func _input(event):
 	# Handle weapon inputs
 	if dying:
 		return
@@ -116,9 +116,7 @@ func _input(event):
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		# Clamp the camera's vertical rotation
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-
-
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
 	# Gravity logic
