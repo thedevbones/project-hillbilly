@@ -182,6 +182,7 @@ func _physics_process(delta):
 		is_moving = false
 	move_and_slide()
 	bob_head(delta)
+	sway_head(delta, input_dir)
 	# Getting slide collision
 	for i in get_slide_collision_count():
 		var c_object = get_slide_collision(i)
@@ -198,6 +199,11 @@ func bob_head(delta):
 	pos.y = sin(bob_time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.5
 	pos.x = cos(bob_time * BOB_FREQUENCY / 2) * (BOB_AMPLITUDE / 2)
 	$Head/MainCamera.transform.origin = pos
+
+func sway_head(delta, direction):
+	var sway_angle = 2.5
+	$Head.rotation.z = lerp_angle($Head.rotation.z, deg_to_rad(sway_angle * float(-direction.x)), 0.05)
+	# $Head.rotation.x = lerp_angle($Head.rotation.x, deg_to_rad(sway_angle * float(-direction.y)), 0.05)
 
 func _on_step_timer_timeout():
 	if is_moving and is_on_floor():
