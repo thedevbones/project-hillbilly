@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=93 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -60,6 +60,7 @@
 [ext_resource type="PackedScene" path="res://scenes/fence.tscn" id="46_kuxwn"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 [ext_resource type="PackedScene" uid="uid://cb0nc6t6dr5ph" path="res://scenes/health_bar.tscn" id="57_uqs6u"]
+[ext_resource type="Script" path="res://scenes/AnimationPlayer.gd" id="61_h4jnn"]
 
 [sub_resource type="SystemFont" id="SystemFont_y7dk2"]
 font_names = PackedStringArray("Serif")
@@ -1269,6 +1270,7 @@ libraries = {
 "": SubResource("AnimationLibrary_8atss")
 }
 autoplay = "DeathAnimation"
+script = ExtResource("61_h4jnn")
 
 [node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
 anchors_preset = 15
@@ -1373,3 +1375,6 @@ text = "Quit
 [connection signal="visibility_changed" from="Player/Neck/Head/MainCamera/Pistol" to="Player/Neck/Head/MainCamera/Pistol" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Player/Neck/Head/MainCamera/Shotgun" to="Player/Neck/Head/MainCamera/Shotgun" method="_on_visibility_changed"]
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
+[connection signal="pressed" from="AnimationPlayer/ColorRect/Button" to="AnimationPlayer" method="_on_button_pressed"]
+[connection signal="pressed" from="AnimationPlayer/ColorRect/Button2" to="AnimationPlayer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="AnimationPlayer/ColorRect/Button3" to="AnimationPlayer" method="_on_button_3_pressed"]
