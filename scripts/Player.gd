@@ -196,6 +196,7 @@ func bob_head(delta):
 	bob_time += velocity.length() * float(is_on_floor()) * delta
 	var pos = Vector3.ZERO
 	pos.y = sin(bob_time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.5
+	pos.x = cos(bob_time * BOB_FREQUENCY / 2) * (BOB_AMPLITUDE / 2)
 	$Head/MainCamera.transform.origin = pos
 
 func _on_step_timer_timeout():
