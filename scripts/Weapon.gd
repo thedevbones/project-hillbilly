@@ -115,7 +115,7 @@ func hitscan():
 			var hit_particle = object_particle.instantiate()
 			var hit_damage = bullet_decal.instantiate()
 			
-			if collider is CharacterBody3D: 
+			if collider is PhysicalBone3D: 
 				hit_particle = enemy_particle.instantiate()
 				hit_damage = blood_decal.instantiate()
 			
