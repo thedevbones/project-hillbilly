@@ -13,9 +13,12 @@ const JUMP_VELOCITY = 4.5
 const MAX_STAMINA = 10
 const SPRINT_MULTIPLIER = 1.5
 const CROUCH_MULTIPLIER = 0.75
+const BOB_FREQUENCY = 2.0
+const BOB_AMPLITUDE = 0.08
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.2
+var bob_time = 0.0
 var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
 var max_health = 10
@@ -178,6 +181,7 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, speed)
 		is_moving = false
 	move_and_slide()
+	bob_head(delta)
 	# Getting slide collision
 	for i in get_slide_collision_count():
 		var c_object = get_slide_collision(i)
@@ -186,6 +190,13 @@ func _physics_process(delta):
 			is_sprinting = false
 			can_sprint = false
 			break
+
+func bob_head(delta):
+	if not Graphics.bobbing: return
+	bob_time += velocity.length() * float(is_on_floor()) * delta
+	var pos = Vector3.ZERO
+	pos.y = sin(bob_time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.5
+	$Head/MainCamera.transform.origin = pos
 
 func _on_step_timer_timeout():
 	if is_moving and is_on_floor():
