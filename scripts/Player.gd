@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 @onready var raycast : RayCast3D = $/root/World/Player/MainCamera/HitScan
+@onready var camera : Camera3D = $Head/MainCamera
+@onready var head : Node3D = $Head
 
 enum Weapons { UNARMED = 0, PIPE = 1, KNIFE = 2, PISTOL = 3, SHOTGUN = 4}
 enum Items { FLASHLIGHT = 10, KEY = 11}
@@ -111,9 +113,9 @@ func _input(event):
 	# Handle mouse input
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		$Head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		# Clamp the camera's vertical rotation
-		$Head.rotation.x = clamp($Head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 
 
@@ -148,7 +150,7 @@ func _physics_process(delta):
 		$StepAudio.set_max_db(-4)
 		speed = NORMAL_SPEED * SPRINT_MULTIPLIER
 		stamina -= delta
-		$Head/MainCamera.fov = lerp($Head/MainCamera.fov, SPRINT_FOV, 0.1)
+		camera.fov = lerp(camera.fov, SPRINT_FOV, 0.1)
 		if stamina <= 0.0:
 			stamina = 0.0  # Clamp stamina to zero
 			is_sprinting = false
@@ -156,7 +158,7 @@ func _physics_process(delta):
 	elif is_crouching:
 		$StepTimer.wait_time = 1.2 
 		$StepAudio.set_max_db(-10)
-		$Head/MainCamera.global_transform.origin.y = lerp($Head/MainCamera.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
+		camera.global_transform.origin.y = lerp(camera.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
 		speed = NORMAL_SPEED * CROUCH_MULTIPLIER
 		can_sprint = false
 		stamina += delta / 2
@@ -164,8 +166,8 @@ func _physics_process(delta):
 	else:
 		$StepTimer.wait_time = 0.6 
 		$StepAudio.set_max_db(-7)
-		$Head/MainCamera.global_transform.origin.y = lerp($Head/MainCamera.global_transform.origin.y, global_transform.origin.y, delta * 10)
-		$Head/MainCamera.fov = lerp($Head/MainCamera.fov, NORMAL_FOV, 0.1)
+		camera.global_transform.origin.y = lerp(camera.global_transform.origin.y, global_transform.origin.y, delta * 10)
+		camera.fov = lerp(camera.fov, NORMAL_FOV, 0.1)
 		speed = NORMAL_SPEED
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA)  # Clamp stamina to its maximum value
@@ -198,12 +200,12 @@ func bob_head(delta):
 	var pos = Vector3.ZERO
 	pos.y = sin(bob_time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.5
 	pos.x = cos(bob_time * BOB_FREQUENCY / 2) * (BOB_AMPLITUDE / 2)
-	$Head/MainCamera.transform.origin = pos
+	camera.transform.origin = pos
 
 func sway_head(delta, direction):
 	var sway_angle = 2.5
-	$Head.rotation.z = lerp_angle($Head.rotation.z, deg_to_rad(sway_angle * float(-direction.x)), 0.05)
-	# $Head.rotation.x = lerp_angle($Head.rotation.x, deg_to_rad(sway_angle * float(-direction.y)), 0.05)
+	head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(sway_angle * float(-direction.x)), 0.05)
+	head.rotation.x = lerp_angle(head.rotation.x, deg_to_rad(sway_angle * 2 * float(direction.y)), 0.05)
 
 func _on_step_timer_timeout():
 	if is_moving and is_on_floor():
