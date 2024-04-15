@@ -55,8 +55,8 @@
 [ext_resource type="Texture2D" uid="uid://dfv0kbllvr52i" path="res://textures/dirt.jpg" id="25_0gkn8"]
 [ext_resource type="PackedScene" uid="uid://be0rje6u0ibik" path="res://scenes/Tree1.tscn" id="25_qwaa1"]
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="31_n5e12"]
-[ext_resource type="AudioStream" uid="uid://63tp8koghjus" path="res://audio/SFX/Damage/Player_death.mp3" id="32_vaxi1"]
-[ext_resource type="AudioStream" uid="uid://edeeqfskasig" path="res://audio/SFX/Damage/Player_pain_grunt.mp3" id="33_ct85e"]
+[ext_resource type="AudioStream" uid="uid://frlrpsvjg8jl" path="res://audio/SFX/Damage/Player_death.mp3" id="32_vaxi1"]
+[ext_resource type="AudioStream" uid="uid://c2efyk0eq5r3m" path="res://audio/SFX/Damage/Player_pain_grunt.mp3" id="33_ct85e"]
 [ext_resource type="PackedScene" path="res://scenes/fence.tscn" id="46_kuxwn"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 [ext_resource type="PackedScene" uid="uid://cb0nc6t6dr5ph" path="res://scenes/health_bar.tscn" id="57_uqs6u"]
@@ -160,7 +160,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0n62m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w3gcj"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -195,7 +195,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_0n62m"),
+"material": SubResource("ShaderMaterial_w3gcj"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
