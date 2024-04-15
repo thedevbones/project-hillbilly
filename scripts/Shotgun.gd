@@ -120,8 +120,7 @@ func hitscan():
 				var hit_damage = bullet_decal.instantiate()
 				
 				if collider is CharacterBody3D: 
-					pass
-					#hit_particle = object_particle.instantiate()
+					hit_particle = enemy_particle.instantiate()
 					#hit_damage = bullet_decal.instantiate()
 				
 				hit_particle.global_position = collision_point

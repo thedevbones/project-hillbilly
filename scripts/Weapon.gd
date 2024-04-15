@@ -34,6 +34,7 @@ var original_rot: Vector3
 var weapon_type
 var bullet_decal = preload("res://scenes/BulletDecal.tscn")
 var object_particle = preload("res://scenes/ParticlesObjectHit.tscn")
+var enemy_particle = preload("res://scenes/ParticlesEnemyHit.tscn")
 
 func _ready():
 	pass
@@ -111,8 +112,7 @@ func hitscan():
 			var hit_damage = bullet_decal.instantiate()
 			
 			if collider is CharacterBody3D: 
-				pass
-				#hit_particle = object_particle.instantiate()
+				hit_particle = enemy_particle.instantiate()
 				#hit_damage = bullet_decal.instantiate()
 			
 			hit_particle.global_position = collision_point
