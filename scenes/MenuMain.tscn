@@ -143,19 +143,19 @@ height = 30
 fill_from = Vector2(0.0128866, 0.0128866)
 fill_to = Vector2(0.0128866, 0.0128866)
 
-[sub_resource type="Gradient" id="Gradient_q81dj"]
+[sub_resource type="Gradient" id="Gradient_bp1ty"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ft4no"]
-gradient = SubResource("Gradient_q81dj")
+gradient = SubResource("Gradient_bp1ty")
 width = 30
 height = 30
 fill_from = Vector2(0, 0.00257732)
 fill_to = Vector2(0.00773196, 0.0180412)
 
-[sub_resource type="Gradient" id="Gradient_e0y1v"]
+[sub_resource type="Gradient" id="Gradient_f240f"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_isqim"]
-gradient = SubResource("Gradient_e0y1v")
+gradient = SubResource("Gradient_f240f")
 width = 30
 height = 30
 fill_from = Vector2(0.0180412, 0)
