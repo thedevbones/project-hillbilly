@@ -1,6 +1,9 @@
 extends CharacterBody3D
 
-@onready var raycast : RayCast3D = $/root/World/Player/MainCamera/HitScan
+@onready var raycast : RayCast3D = $/root/World/Player/Neck/Head/MainCamera/HitScan
+@onready var camera : Camera3D = $Neck/Head/MainCamera
+@onready var head : Node3D = $Neck/Head
+@onready var neck : Node3D = $Neck
 
 enum Weapons { UNARMED = 0, PIPE = 1, KNIFE = 2, PISTOL = 3, SHOTGUN = 4}
 enum Items { FLASHLIGHT = 10, KEY = 11}
@@ -13,9 +16,12 @@ const JUMP_VELOCITY = 4.5
 const MAX_STAMINA = 10
 const SPRINT_MULTIPLIER = 1.5
 const CROUCH_MULTIPLIER = 0.75
+const BOB_FREQUENCY = 2.0
+const BOB_AMPLITUDE = 0.08
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.2
+var bob_time = 0.0
 var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
 var max_health = 10
@@ -66,11 +72,11 @@ func _ready():
 	$StepTimer.start()
 	# Initialize weapons 
 	weapons[Weapons.UNARMED] = null
-	weapons[Weapons.PIPE] = $Head/MainCamera/Pipe
-	weapons[Weapons.KNIFE] = $Head/MainCamera/Knife
-	weapons[Weapons.PISTOL] = $Head/MainCamera/Pistol
-	weapons[Weapons.SHOTGUN] = $Head/MainCamera/Shotgun
-	items[Items.FLASHLIGHT] = $Head/MainCamera/Flashlight
+	weapons[Weapons.PIPE] = $Neck/Head/MainCamera/Pipe
+	weapons[Weapons.KNIFE] = $Neck/Head/MainCamera/Knife
+	weapons[Weapons.PISTOL] = $Neck/Head/MainCamera/Pistol
+	weapons[Weapons.SHOTGUN] = $Neck/Head/MainCamera/Shotgun
+	items[Items.FLASHLIGHT] = $Neck/Head/MainCamera/Flashlight
 	%UI.update_ammo_count()
 	if Graphics.demo_mode:
 		add_ammo(Weapons.SHOTGUN, 24)
@@ -79,7 +85,7 @@ func _ready():
 		max_health = 20
 		%UI.health_bar.max_value = max_health
 
-func _input(event):	
+func _input(event):
 	# Handle weapon inputs
 	if dying:
 		return
@@ -108,11 +114,9 @@ func _input(event):
 	# Handle mouse input
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		$Head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		# Clamp the camera's vertical rotation
-		$Head.rotation.x = clamp($Head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-
-
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
 	# Gravity logic
@@ -145,7 +149,7 @@ func _physics_process(delta):
 		$StepAudio.set_max_db(-4)
 		speed = NORMAL_SPEED * SPRINT_MULTIPLIER
 		stamina -= delta
-		$Head/MainCamera.fov = lerp($Head/MainCamera.fov, SPRINT_FOV, 0.1)
+		camera.fov = lerp(camera.fov, SPRINT_FOV, 0.1)
 		if stamina <= 0.0:
 			stamina = 0.0  # Clamp stamina to zero
 			is_sprinting = false
@@ -153,7 +157,7 @@ func _physics_process(delta):
 	elif is_crouching:
 		$StepTimer.wait_time = 1.2 
 		$StepAudio.set_max_db(-10)
-		$Head/MainCamera.global_transform.origin.y = lerp($Head/MainCamera.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
+		camera.global_transform.origin.y = lerp(camera.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
 		speed = NORMAL_SPEED * CROUCH_MULTIPLIER
 		can_sprint = false
 		stamina += delta / 2
@@ -161,8 +165,8 @@ func _physics_process(delta):
 	else:
 		$StepTimer.wait_time = 0.6 
 		$StepAudio.set_max_db(-7)
-		$Head/MainCamera.global_transform.origin.y = lerp($Head/MainCamera.global_transform.origin.y, global_transform.origin.y, delta * 10)
-		$Head/MainCamera.fov = lerp($Head/MainCamera.fov, NORMAL_FOV, 0.1)
+		camera.global_transform.origin.y = lerp(camera.global_transform.origin.y, global_transform.origin.y, delta * 10)
+		camera.fov = lerp(camera.fov, NORMAL_FOV, 0.1)
 		speed = NORMAL_SPEED
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA)  # Clamp stamina to its maximum value
@@ -178,6 +182,8 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, speed)
 		is_moving = false
 	move_and_slide()
+	bob_head(delta)
+	sway_head(delta, input_dir)
 	# Getting slide collision
 	for i in get_slide_collision_count():
 		var c_object = get_slide_collision(i)
@@ -186,6 +192,20 @@ func _physics_process(delta):
 			is_sprinting = false
 			can_sprint = false
 			break
+
+func bob_head(delta):
+	if not Graphics.bobbing: return
+	bob_time += velocity.length() * float(is_on_floor()) * delta
+	var pos = Vector3.ZERO
+	pos.y = sin(bob_time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.5
+	pos.x = cos(bob_time * BOB_FREQUENCY / 2) * (BOB_AMPLITUDE / 2)
+	camera.transform.origin = pos
+
+func sway_head(delta, direction):
+	if not Graphics.swaying: return
+	var sway_angle = 2.5
+	head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(sway_angle * float(-direction.x)), 0.05)
+	neck.rotation.x = lerp_angle(neck.rotation.x, deg_to_rad(sway_angle / 2 * float(direction.y)), 0.05)
 
 func _on_step_timer_timeout():
 	if is_moving and is_on_floor():
@@ -226,7 +246,7 @@ func update_weapon_visibility():
 
 func update_hitscan():
 	var weapon = get_current_weapon()
-	if weapon: $Head/MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
+	if weapon: raycast.set_scale(weapons[current_weapon_index].range)
 
 func get_current_weapon():
 	return weapons[current_weapon_index]

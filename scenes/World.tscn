@@ -160,7 +160,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8q3xe"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwveq"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -195,7 +195,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_8q3xe"),
+"material": SubResource("ShaderMaterial_vwveq"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -446,59 +446,60 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_1ouke")
 
-[node name="Head" type="Node3D" parent="Player"]
+[node name="Neck" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="MainCamera" type="Camera3D" parent="Player/Head"]
+[node name="Head" type="Node3D" parent="Player/Neck"]
+
+[node name="MainCamera" type="Camera3D" parent="Player/Neck/Head"]
 cull_mask = 982017
 current = true
 script = ExtResource("11_cn647")
 
-[node name="HitScan" type="RayCast3D" parent="Player/Head/MainCamera"]
-visible = false
+[node name="HitScan" type="RayCast3D" parent="Player/Neck/Head/MainCamera"]
 target_position = Vector3(0, 0, -1)
 collision_mask = 4
 
-[node name="Flashlight" parent="Player/Head/MainCamera" instance=ExtResource("48_qmcav")]
+[node name="Flashlight" parent="Player/Neck/Head/MainCamera" instance=ExtResource("48_qmcav")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.39, -0.85, -0.57)
 visible = false
 script = ExtResource("9_vaxnc")
 
-[node name="Toggle" type="AudioStreamPlayer3D" parent="Player/Head/MainCamera/Flashlight"]
+[node name="Toggle" type="AudioStreamPlayer3D" parent="Player/Neck/Head/MainCamera/Flashlight"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.158539, 0.156603, 0.0115719)
 stream = ExtResource("9_liogq")
 bus = &"SFX"
 
-[node name="Pipe" parent="Player/Head/MainCamera" instance=ExtResource("5_wk88o")]
+[node name="Pipe" parent="Player/Neck/Head/MainCamera" instance=ExtResource("5_wk88o")]
 transform = Transform3D(0.5, 0, 0, 0, 0.498097, 0.0435779, 0, -0.0435779, 0.498097, 0.489, 0.289, -0.848)
 visible = false
 script = ExtResource("6_av8cb")
 
-[node name="Swing" type="AudioStreamPlayer3D" parent="Player/Head/MainCamera/Pipe"]
+[node name="Swing" type="AudioStreamPlayer3D" parent="Player/Neck/Head/MainCamera/Pipe"]
 transform = Transform3D(2, -5.96045e-07, -6.25847e-07, 5.39231e-07, 1.99239, -0.174311, 6.75415e-07, 0.174311, 1.99239, -0.101585, -0.961294, 0.296771)
 stream = ExtResource("7_blicd")
 unit_size = 5.0
 pitch_scale = 0.9
 bus = &"SFX"
 
-[node name="Knife" parent="Player/Head/MainCamera" instance=ExtResource("8_d2t2t")]
+[node name="Knife" parent="Player/Neck/Head/MainCamera" instance=ExtResource("8_d2t2t")]
 transform = Transform3D(-0.1, -4.2547e-09, -7.86489e-09, -8.56213e-09, 0.0201967, 0.0979392, -2.57857e-09, 0.0979392, -0.0201967, 0.450645, -0.234221, -0.540555)
 visible = false
 script = ExtResource("9_67cu2")
 
-[node name="Swing" type="AudioStreamPlayer3D" parent="Player/Head/MainCamera/Knife"]
+[node name="Swing" type="AudioStreamPlayer3D" parent="Player/Neck/Head/MainCamera/Knife"]
 transform = Transform3D(-10, 2.12401e-06, 3.3058e-06, 3.66666e-06, 2.01966, 9.79392, 1.41258e-06, 9.79392, -2.01966, 0.124374, -1.03727, 0.799327)
 stream = ExtResource("10_2ipc6")
 volume_db = -4.0
 unit_size = 5.0
 bus = &"SFX"
 
-[node name="Pistol" parent="Player/Head/MainCamera" instance=ExtResource("2_k4yhr")]
+[node name="Pistol" parent="Player/Neck/Head/MainCamera" instance=ExtResource("2_k4yhr")]
 transform = Transform3D(0.496202, -0.043412, -0.0435779, 0.0435779, 0.498097, 0, 0.043412, -0.00379806, 0.498097, 0.482, -0.4, -1.058)
 visible = false
 script = ExtResource("4_q73kt")
 
-[node name="MuzzleLight" type="OmniLight3D" parent="Player/Head/MainCamera/Pistol"]
+[node name="MuzzleLight" type="OmniLight3D" parent="Player/Neck/Head/MainCamera/Pistol"]
 transform = Transform3D(0.992404, 0.0871559, 0.0868241, -0.0868242, 0.996195, -0.00759613, -0.0871557, -6.51926e-09, 0.996195, -0.0496864, 0.34069, -0.953045)
 visible = false
 layers = 3
@@ -512,7 +513,7 @@ shadow_enabled = true
 shadow_blur = 0.596
 omni_attenuation = 0.435275
 
-[node name="ExtraLight" type="OmniLight3D" parent="Player/Head/MainCamera/Pistol/MuzzleLight"]
+[node name="ExtraLight" type="OmniLight3D" parent="Player/Neck/Head/MainCamera/Pistol/MuzzleLight"]
 transform = Transform3D(1, 5.7284e-14, 0, -2.21004e-15, 1, 1.11022e-16, 0, 5.55112e-17, 1, 0, 0, 1.04624)
 light_color = Color(0.768627, 0.705882, 0.466667, 1)
 light_indirect_energy = 0.0
@@ -523,23 +524,23 @@ light_cull_mask = 4294966275
 shadow_blur = 0.596
 omni_attenuation = 0.435275
 
-[node name="PistolFire" type="AudioStreamPlayer3D" parent="Player/Head/MainCamera/Pistol"]
+[node name="PistolFire" type="AudioStreamPlayer3D" parent="Player/Neck/Head/MainCamera/Pistol"]
 transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151922, -0.174311, 4.7957e-08, 1.99239, -0.19503, -0.165255, -1.05115)
 stream = ExtResource("5_qsv7b")
 unit_size = 50.0
 bus = &"SFX"
 
-[node name="PistolReload" type="AudioStreamPlayer3D" parent="Player/Head/MainCamera/Pistol"]
+[node name="PistolReload" type="AudioStreamPlayer3D" parent="Player/Neck/Head/MainCamera/Pistol"]
 transform = Transform3D(1.98481, 0.174311, 0.173648, -0.173648, 1.99239, -0.0151922, -0.174311, 4.74084e-08, 1.99239, 0.0201492, -0.18408, 0.266028)
 stream = ExtResource("7_mt7f5")
 bus = &"SFX"
 
-[node name="Shotgun" parent="Player/Head/MainCamera" instance=ExtResource("6_vnudb")]
+[node name="Shotgun" parent="Player/Neck/Head/MainCamera" instance=ExtResource("6_vnudb")]
 transform = Transform3D(0.0347296, 0, 0.196962, 0, 0.2, 0, -0.196962, 0, 0.0347296, 0.285, -0.25, -0.315)
 visible = false
 script = ExtResource("12_62glt")
 
-[node name="MuzzleLight" type="OmniLight3D" parent="Player/Head/MainCamera/Shotgun"]
+[node name="MuzzleLight" type="OmniLight3D" parent="Player/Neck/Head/MainCamera/Shotgun"]
 transform = Transform3D(0.992404, 0.0871558, 0.086824, -0.0868242, 0.996195, -0.00759613, -0.0871556, 1.07102e-08, 0.996195, 8.43092, 0.749911, 0.103912)
 visible = false
 layers = 3
@@ -553,7 +554,7 @@ shadow_enabled = true
 shadow_blur = 0.596
 omni_attenuation = 0.435275
 
-[node name="ExtraLight" type="OmniLight3D" parent="Player/Head/MainCamera/Shotgun/MuzzleLight"]
+[node name="ExtraLight" type="OmniLight3D" parent="Player/Neck/Head/MainCamera/Shotgun/MuzzleLight"]
 transform = Transform3D(1, -7.45058e-09, 0, 7.45058e-09, 1, -9.31323e-10, -7.45058e-09, -4.65661e-10, 1, -1.54235, 5.96046e-08, -1.90735e-06)
 light_color = Color(0.768627, 0.705882, 0.466667, 1)
 light_indirect_energy = 0.0
@@ -564,18 +565,18 @@ light_cull_mask = 4294966275
 shadow_blur = 0.596
 omni_attenuation = 0.435275
 
-[node name="ShotgunFire" type="AudioStreamPlayer3D" parent="Player/Head/MainCamera/Shotgun"]
+[node name="ShotgunFire" type="AudioStreamPlayer3D" parent="Player/Neck/Head/MainCamera/Shotgun"]
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434118, 4.98097, -0.0379805, -0.435776, 2.5332e-07, 4.98096, 4.956, 0.635898, 0.0807266)
 stream = ExtResource("13_o0qn3")
 unit_size = 50.0
 bus = &"SFX"
 
-[node name="ShotgunLoad" type="AudioStreamPlayer3D" parent="Player/Head/MainCamera/Shotgun"]
+[node name="ShotgunLoad" type="AudioStreamPlayer3D" parent="Player/Neck/Head/MainCamera/Shotgun"]
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434119, 4.98097, -0.0379805, -0.435776, 2.38419e-07, 4.98096, 1.85349, 0.331798, -0.198746)
 stream = ExtResource("14_5b3kg")
 bus = &"SFX"
 
-[node name="ShotgunPump" type="AudioStreamPlayer3D" parent="Player/Head/MainCamera/Shotgun"]
+[node name="ShotgunPump" type="AudioStreamPlayer3D" parent="Player/Neck/Head/MainCamera/Shotgun"]
 transform = Transform3D(4.96201, 0.435776, 0.434118, -0.434118, 4.98097, -0.0379805, -0.435776, 2.75671e-07, 4.98096, 4.01608, 0.424915, -0.121834)
 stream = ExtResource("15_1to8r")
 bus = &"SFX"
@@ -1220,6 +1221,6 @@ transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 6.8559
 
 [connection signal="timeout" from="PrepTimer" to="." method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="BoundsTimer" to="." method="_on_bounds_timer_timeout"]
-[connection signal="visibility_changed" from="Player/Head/MainCamera/Pistol" to="Player/Head/MainCamera/Pistol" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="Player/Head/MainCamera/Shotgun" to="Player/Head/MainCamera/Shotgun" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Player/Neck/Head/MainCamera/Pistol" to="Player/Neck/Head/MainCamera/Pistol" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Player/Neck/Head/MainCamera/Shotgun" to="Player/Neck/Head/MainCamera/Shotgun" method="_on_visibility_changed"]
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
