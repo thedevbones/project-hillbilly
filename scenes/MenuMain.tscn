@@ -1110,6 +1110,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ResolutionOptionButton" type="OptionButton" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.75
+alignment = 1
+icon_alignment = 1
 
 [node name="BrightSlider" type="HSlider" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
@@ -1172,4 +1176,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500945, -2.9777, 0.423937)
 [connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/SSAOCheckBox" to="." method="_on_ssao_check_box_toggled"]
 [connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/SSILCheckBox" to="." method="_on_ssil_check_box_2_toggled"]
 [connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/GrassCheckBox" to="." method="_on_grass_check_box_toggled"]
+[connection signal="toggled" from="Video/MarginContainer/HBoxContainer/Checks/BobCheckBox" to="." method="_on_bob_check_box_toggled"]
 [connection signal="pressed" from="Video/MarginContainer/BackBtn2" to="." method="_on_back_btn_2_pressed"]
+[connection signal="item_selected" from="Video/MarginContainer2/HBoxContainer/Sliders/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
+[connection signal="value_changed" from="Video/MarginContainer2/HBoxContainer/Sliders/BrightSlider" to="." method="_on_bright_slider_value_changed"]
+[connection signal="value_changed" from="Video/MarginContainer2/HBoxContainer/Sliders/MaxEnemiesSlider" to="." method="_on_max_enemies_slider_value_changed"]
+[connection signal="value_changed" from="Video/MarginContainer2/HBoxContainer/Sliders/MaxDecalsSlider" to="." method="_on_max_decals_slider_value_changed"]
+[connection signal="toggled" from="Video/MarginContainer2/HBoxContainer/Sliders/SwayCheckBox" to="." method="_on_sway_check_box_toggled"]

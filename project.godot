@@ -29,13 +29,11 @@ Graphics="*res://scripts/Graphics.gd"
 
 window/size/viewport_width=426
 window/size/viewport_height=240
-window/size/mode=2
 window/size/resizable=false
 window/size/always_on_top=true
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
 [editor_plugins]
