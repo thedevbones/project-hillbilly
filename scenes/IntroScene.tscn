@@ -84,7 +84,7 @@ buffer = PackedFloat32Array(0.537053, 0, 0.843549, -3.23644, 0, 1, 0, 5.96046e-0
 
 [sub_resource type="Animation" id="Animation_g6qmg"]
 resource_name = "Intro Animation"
-length = 25.0
+length = 23.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -124,11 +124,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/3/path = NodePath("Running car:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 6.8),
+"times": PackedFloat32Array(-0.4, 6.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -153,6 +153,18 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(-1.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Ambience:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -199,7 +211,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/3/path = NodePath("Running car:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -231,6 +243,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Ambience:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_44grx"]
@@ -434,11 +458,12 @@ autoplay = "Intro Animation"
 
 [node name="Ambience" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_3a1pc")
+volume_db = 3.503
 bus = &"SFX"
 
 [node name="Storm" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("13_evan4")
-volume_db = 6.068
+volume_db = 7.866
 unit_size = 12.3
 bus = &"SFX"
 
@@ -447,9 +472,9 @@ stream = ExtResource("14_y8by3")
 volume_db = -10.526
 bus = &"SFX"
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="Running car" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("11_f2jot")
-volume_db = 11.728
+volume_db = 29.92
 bus = &"SFX"
 
 [node name="BlackScreen" type="ColorRect" parent="."]
