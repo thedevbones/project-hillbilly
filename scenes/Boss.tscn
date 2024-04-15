@@ -1,16 +1,16 @@
 [gd_scene load_steps=26 format=3 uid="uid://coaycrbw3wa5r"]
 
 [ext_resource type="Script" path="res://scripts/Boss.gd" id="2_1uepd"]
-[ext_resource type="AudioStream" uid="uid://0dc76c5uye2" path="res://audio/SFX/Damage/bullut_hit_flesh.wav" id="7_430fl"]
+[ext_resource type="AudioStream" uid="uid://cse23gatqgf0k" path="res://audio/SFX/Damage/bullut_hit_flesh.wav" id="7_430fl"]
 [ext_resource type="Texture2D" uid="uid://dxgsvixxx1ljq" path="res://assets/enemies/boss/boss_shirt.png" id="7_m6w1h"]
-[ext_resource type="AudioStream" uid="uid://vsmhy4vx0ftj" path="res://audio/SFX/Enemy/Monster_scream.mp3" id="8_4piq8"]
+[ext_resource type="AudioStream" uid="uid://dncm6waj40j0u" path="res://audio/SFX/Enemy/Monster_scream.mp3" id="8_4piq8"]
 [ext_resource type="Texture2D" uid="uid://incmkcv7adi6" path="res://assets/enemies/boss/boss_Material.png" id="8_dpodj"]
 [ext_resource type="Texture2D" uid="uid://c8j02vhh0y2sp" path="res://assets/enemies/boss/boss_Material_2.png" id="9_ln83e"]
-[ext_resource type="AudioStream" uid="uid://bupo5b24174mf" path="res://audio/SFX/Weapons/metal_crow bar_swing.mp3" id="9_x60gk"]
+[ext_resource type="AudioStream" uid="uid://c2bqh3bb6lhme" path="res://audio/SFX/Weapons/metal_crow bar_swing.mp3" id="9_x60gk"]
 [ext_resource type="Theme" uid="uid://b0tl6tht11hby" path="res://fonts/gui.tres" id="10_ovvhp"]
 [ext_resource type="Texture2D" uid="uid://dw2l64ayppbfb" path="res://assets/enemies/boss/boss_strap.png" id="10_vvl6v"]
 [ext_resource type="Texture2D" uid="uid://bhehvqsv8jvdg" path="res://assets/enemies/boss/boss_mask.png" id="11_ltxm8"]
-[ext_resource type="FontFile" uid="uid://dhcubomh0v2j6" path="res://fonts/Another Danger - Demo.otf" id="11_y1rru"]
+[ext_resource type="FontFile" uid="uid://cwlkvoiysjgic" path="res://fonts/Another Danger - Demo.otf" id="11_y1rru"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2whxv"]
 bg_color = Color(0, 0, 0, 1)
@@ -1026,6 +1026,7 @@ bones/52/rotation = Quaternion(-0.62347, 0.0555116, 0.0518253, 0.77815)
 bones/52/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="boss/Armature/Armature_001/Skeleton3D"]
+transparency = 0.75
 mesh = SubResource("ArrayMesh_u1mg1")
 skin = SubResource("Skin_qd55m")
 
