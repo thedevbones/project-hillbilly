@@ -121,7 +121,9 @@ func hitscan():
 				while enemy and not enemy.has_method("apply_damage"):
 					enemy = enemy.get_parent()
 				if enemy and enemy.has_method("apply_damage"):
-					enemy.apply_damage(damage)
+					if collider.name == "Head": 
+						enemy.apply_damage(damage * randf_range(1.25, 2.5))
+					else: enemy.apply_damage(damage)
 			
 			hit_particle.global_position = collision_point
 			get_tree().current_scene.add_child(hit_particle)
