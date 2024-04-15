@@ -190,22 +190,17 @@ func _on_resolution_option_button_item_selected(index):
 	]
 	DisplayServer.window_set_size(resolution_sizes[index], window_id)
 
-
 func _on_bright_slider_value_changed(value):
-	pass # Replace with function body.
-
+	Graphics.set_brightness(value)
 
 func _on_max_enemies_slider_value_changed(value):
-	pass # Replace with function body.
-
+	Graphics.set_max_enemies(value)
 
 func _on_max_decals_slider_value_changed(value):
-	pass # Replace with function body.
-
+	Graphics.set_max_decals(value)
 
 func _on_sway_check_box_toggled(toggled_on):
-	pass # Replace with function body.
-
+	Graphics.update_swaying(toggled_on)
 
 func _on_bob_check_box_toggled(toggled_on):
-	pass # Replace with function body.
+	Graphics.update_bobbing(toggled_on)
