@@ -136,7 +136,6 @@ func _on_grass_check_box_toggled(toggled_on):
 
 func _on_demo_btn_pressed():
 	Graphics.demo_mode = true
-
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property($AudioStreamPlayer, "volume_db", -20, 0.5)
 	play_ui_audio(0.1)
