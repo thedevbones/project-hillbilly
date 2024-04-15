@@ -1,19 +1,20 @@
-[gd_scene load_steps=23 format=3 uid="uid://gerd3xptepvi"]
+[gd_scene load_steps=24 format=3 uid="uid://gerd3xptepvi"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
-[ext_resource type="Texture2D" uid="uid://duglfm0f1lxy" path="res://textures/grass01.jpg" id="2_lghjx"]
+[ext_resource type="Script" path="res://scenes/IntroScene.gd" id="1_wmn4v"]
+[ext_resource type="Texture2D" uid="uid://bibfekwwjber8" path="res://textures/grass01.jpg" id="2_lghjx"]
 [ext_resource type="PackedScene" uid="uid://bve8tek7u2y8t" path="res://scenes/CarAsset.tscn" id="3_hujll"]
-[ext_resource type="PackedScene" uid="uid://d12k27gio40dh" path="res://assets/tree01.glb" id="5_3bave"]
-[ext_resource type="PackedScene" uid="uid://dk0kg5tajxdk4" path="res://assets/tree02.glb" id="6_hm1sl"]
-[ext_resource type="PackedScene" uid="uid://b6uh001547dyx" path="res://assets/tree03.glb" id="7_uo1f7"]
-[ext_resource type="PackedScene" uid="uid://ctxej6jrnxbd0" path="res://assets/road.glb" id="8_oclv4"]
+[ext_resource type="PackedScene" uid="uid://deh5spswt8hsn" path="res://assets/tree01.glb" id="5_3bave"]
+[ext_resource type="PackedScene" uid="uid://dm27ld8bqy5pu" path="res://assets/tree02.glb" id="6_hm1sl"]
+[ext_resource type="PackedScene" uid="uid://dkoel0ibrcvjb" path="res://assets/tree03.glb" id="7_uo1f7"]
+[ext_resource type="PackedScene" uid="uid://cuktqoooe7in" path="res://assets/road.glb" id="8_oclv4"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="9_b52rc"]
-[ext_resource type="Texture2D" uid="uid://b32s17pnqgvw3" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="10_aujr6"]
+[ext_resource type="Texture2D" uid="uid://chfqgbjkii5pn" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="10_aujr6"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="11_e4mmx"]
-[ext_resource type="AudioStream" uid="uid://ctt87spm26vp8" path="res://audio/SFX/Ambient/running car.mp3" id="11_f2jot"]
-[ext_resource type="AudioStream" uid="uid://bhu1yq7ig4x" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
-[ext_resource type="AudioStream" uid="uid://dswpne8o7kkoq" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
-[ext_resource type="AudioStream" uid="uid://d34yoikif5wek" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
+[ext_resource type="AudioStream" uid="uid://d2dff6rgqqo1i" path="res://audio/SFX/Ambient/running car.mp3" id="11_f2jot"]
+[ext_resource type="AudioStream" uid="uid://cs5c6ms7ya86b" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
+[ext_resource type="AudioStream" uid="uid://wqw5f6payfdo" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
+[ext_resource type="AudioStream" uid="uid://dd01jsuy7jecj" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
 resource_name = "WorldEnviroment"
@@ -33,7 +34,7 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_plo1c"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uuska"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_b52rc")
@@ -68,7 +69,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_plo1c"),
+"material": SubResource("ShaderMaterial_uuska"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -83,7 +84,7 @@ buffer = PackedFloat32Array(0.537053, 0, 0.843549, -3.23644, 0, 1, 0, 5.96046e-0
 
 [sub_resource type="Animation" id="Animation_g6qmg"]
 resource_name = "Intro Animation"
-length = 30.0
+length = 25.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -240,6 +241,7 @@ _data = {
 
 [node name="main" type="Node3D"]
 transform = Transform3D(0.347459, 0, 0.937695, 0, 1, 0, -0.937695, 0, 0.347459, 5.30647, 10.7954, 12.6065)
+script = ExtResource("1_wmn4v")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_e6knx")
@@ -449,3 +451,15 @@ bus = &"SFX"
 stream = ExtResource("11_f2jot")
 volume_db = 11.728
 bus = &"SFX"
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
