@@ -853,37 +853,31 @@ bones/15/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
-transparency = 0.75
 mesh = SubResource("ArrayMesh_omwum")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cube_001" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
-transparency = 0.75
 mesh = SubResource("ArrayMesh_x4cg3")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cube_002" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
-transparency = 0.75
 mesh = SubResource("ArrayMesh_8u4h3")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cylinder" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
-transparency = 0.75
 mesh = SubResource("ArrayMesh_fw1wf")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
-transparency = 0.75
 mesh = SubResource("ArrayMesh_dhkf2")
 skin = SubResource("Skin_v5voc")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 layers = 17
-transparency = 0.75
 mesh = SubResource("ArrayMesh_3s7q4")
 skin = SubResource("Skin_v5voc")
 
@@ -960,12 +954,12 @@ transform = Transform3D(0.857391, 0.0625993, 0.510845, -0.476475, -0.278669, 0.8
 shape = SubResource("CapsuleShape3D_1x0iy")
 
 [node name="LegR" type="PhysicalBone3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(-0.00181064, 1.00006, 0.00453689, 0.584655, -0.00264009, 0.812835, 0.811472, 0.00411758, -0.585337, 0.446998, -0.918996, 0.448397)
+transform = Transform3D(-0.00181064, 1.00006, 0.00453689, 0.584655, -0.00267216, 0.812835, 0.811472, 0.00412158, -0.585337, 0.446998, -0.918996, 0.448397)
 collision_layer = 4
 collision_mask = 4
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00019085, -3.57386e-06, 0.765784)
-body_offset = Transform3D(0.979857, 0.000862122, -0.200552, -0.200478, -0.000435177, -0.981386, -0.000944845, 1.00007, -0.000273049, 0.153766, 0.751492, 0.000212491)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000190853, -3.57386e-06, 0.765784)
+body_offset = Transform3D(0.979857, 0.000852617, -0.200552, -0.200478, -0.000404294, -0.981386, -0.000944845, 1.00007, -0.000273049, 0.153766, 0.751492, 0.000212491)
 bone_name = "Bone.005.R"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
