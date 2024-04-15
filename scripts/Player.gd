@@ -319,7 +319,8 @@ func die():
 		speed = 0
 		var tween = get_tree().create_tween()
 		await get_tree().create_timer(3.0).timeout
-		get_tree().reload_current_scene()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
 
 func process_raycast():
 	if raycast.is_colliding():
@@ -327,3 +328,4 @@ func process_raycast():
 		if collider.has_method("action_used"):
 			collider.action_used()
 			print(collider)
+
