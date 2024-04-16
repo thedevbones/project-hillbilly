@@ -47,6 +47,7 @@ func spawn_upgrade_select():
 		var forward_direction = %Player.global_transform.basis.z.normalized() * -1
 		var spawn_position = %Player.global_transform.origin + forward_direction * 5.0
 		instance.global_transform.origin = spawn_position
+		instance.look_at(spawn_position - forward_direction, Vector3.UP)
 		add_child(instance)
 
 func spawn_ranged_upgrades():
@@ -65,6 +66,7 @@ func spawn_melee_upgrades():
 		var forward_direction = %Player.global_transform.basis.z.normalized() * -1
 		var spawn_position = %Player.global_transform.origin + forward_direction * 2.0
 		instance.global_transform.origin = spawn_position
+		instance.look_at(spawn_position - forward_direction, Vector3.UP)
 		add_child(instance)
 
 func choose_spawn_point():
