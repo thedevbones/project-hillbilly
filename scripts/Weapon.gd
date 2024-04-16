@@ -17,10 +17,12 @@ var is_swinging = false
 var swing_duration = 0.4
 var swing_timer = 0.0
 var bob_up = true
+var weapon_recoil = 2.0
 
 # Weapon references
-@onready var player = $"../.."
+@onready var player = %Player
 @onready var raycast = $"../HitScan"
+@onready var camera = $".."
 @onready var bob_max = position.y + 0.02
 @onready var bob_min = position.y - 0.02
 var fire_sound: AudioStreamPlayer3D
@@ -32,6 +34,10 @@ var ads_rot: Vector3
 var original_pos: Vector3
 var original_rot: Vector3
 var weapon_type
+var bullet_decal = preload("res://scenes/BulletDecal.tscn")
+var blood_decal = preload("res://scenes/BloodDecal.tscn")
+var object_particle = preload("res://scenes/ParticlesObjectHit.tscn")
+var enemy_particle = preload("res://scenes/ParticlesEnemyHit.tscn")
 
 func _ready():
 	pass
@@ -50,6 +56,7 @@ func shoot():
 	if ammo > 0 and not is_reloading:
 		player.can_switch = false
 		position.z += 0.2
+		camera.recoil(weapon_recoil)
 		fire_sound.play()
 		muzzle_flash()
 		hitscan()
@@ -101,13 +108,34 @@ func hitscan():
 	raycast.force_raycast_update()  # Updates the raycast immediately
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if collider and collider.has_method("apply_damage"):
-			collider.apply_damage(damage)
-			# NOTE: followig code is unused atm but will be used for FX
-			# var collision_point = raycast.get_collision_point()
-			# var collision_normal = raycast.get_collision_normal()
-			# Call a function to create FX
-			# emit_signal("shot_fired", collision_point, collision_normal)
+		if collider:
+			var collision_point = raycast.get_collision_point()
+			var collision_normal = raycast.get_collision_normal()
+			var hit_particle = object_particle.instantiate()
+			var hit_damage = bullet_decal.instantiate()
+			
+			if collider is PhysicalBone3D: 
+				hit_particle = enemy_particle.instantiate()
+				hit_damage = blood_decal.instantiate()
+				var enemy = collider
+				while enemy and not enemy.has_method("apply_damage"):
+					enemy = enemy.get_parent()
+				if enemy and enemy.has_method("apply_damage"):
+					var damage_multiplier = 1.0
+					if collider.name == "Head":
+						damage_multiplier = randf_range(1.25, 2.5)
+					enemy.apply_damage(damage * damage_multiplier)
+			
+			hit_particle.global_position = collision_point
+			get_tree().current_scene.add_child(hit_particle)
+			hit_particle.look_at(collision_point + collision_normal, Vector3.UP)
+			hit_particle.look_at(collision_point + collision_normal, Vector3.RIGHT)
+			
+			collider.add_child(hit_damage)
+			hit_damage.global_position = collision_point
+			hit_damage.look_at(collision_point + collision_normal, Vector3.UP)
+			hit_damage.look_at(collision_point + collision_normal, Vector3.RIGHT)
+			
 
 func muzzle_flash():
 	$MuzzleLight.show()
