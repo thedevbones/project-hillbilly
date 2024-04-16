@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgnjdfrbrmmi6"]
+[gd_scene load_steps=14 format=3 uid="uid://cgnjdfrbrmmi6"]
 
 [ext_resource type="Material" uid="uid://deedf8qme57v4" path="res://assets/textures/upgrade.tres" id="1_kswjk"]
-[ext_resource type="PackedScene" uid="uid://dyb3sxd2eroif" path="res://assets/9mmMag.glb" id="2_ami80"]
-[ext_resource type="AudioStream" uid="uid://i5fbeo553c6q" path="res://audio/SFX/pickup_deep.wav" id="2_hlact"]
+[ext_resource type="PackedScene" uid="uid://dawv0p8ummjgv" path="res://assets/9mmMag.glb" id="2_ami80"]
+[ext_resource type="AudioStream" uid="uid://x4yx6rf6y0bl" path="res://audio/SFX/pickup_deep.wav" id="2_hlact"]
+[ext_resource type="Material" uid="uid://cpffjgsj6ko7c" path="res://assets/textures/upgrade_blue.tres" id="4_pcg6f"]
+[ext_resource type="Material" uid="uid://cwii1uu8tx4rq" path="res://assets/textures/shell.material" id="5_odetc"]
 
 [sub_resource type="GDScript" id="GDScript_kagl2"]
 resource_name = "PickupUpgrade"
@@ -11,85 +13,222 @@ script/source = "extends \"res://scripts/Pickup.gd\"
 @onready var gui = get_node_or_null(\"/root/World/UI\")
 @onready var spawner = get_node_or_null(\"/root/World/Spawner\")
 
-func _on_pickup_area_body_entered(body):
+func _ready():
+	$RespawnTimer.start()
+
+func _process(delta):
+	$MagSize.rotation_degrees.y += 50 * delta
+	$MagSpeed.rotation_degrees.y += 50 * delta
+	$MagDamage.rotation_degrees.y += 50 * delta
+
+func _on_respawn_timer_timeout():
+	if world.current_state != world.GameState.TIMEOUT: return
+	spawner.spawn_upgrade_select()
+	queue_free()
+
+
+func _on_size_pickup_area_body_entered(body):
 	if body == player: 
-		$PickupSound.play()
+		$MagSize/PickupSound.play()
 		var weapon = player.weapon_to_upgrade
 		weapon.max_ammo += int(weapon.max_ammo * 0.25)
 		gui.update_ammo_count()
 		hide()
 		world.switch_state(world.GameState.PREPARATION)
 
-func _ready():
-	$RespawnTimer.start()
 
-func _on_respawn_timer_timeout():
-	if world.current_state != world.GameState.TIMEOUT: return
-	spawner.spawn_upgrade_select()
-	queue_free()
+func _on_speed_pickup_area_body_entered(body):
+	if body == player: 
+		$MagSpeed/PickupSound.play()
+		var weapon = player.weapon_to_upgrade
+		weapon.reload_time -= weapon.reload_time * 0.25
+		hide()
+		world.switch_state(world.GameState.PREPARATION)
+
+
+func _on_damage_pickup_area_body_entered(body):
+	if body == player: 
+		$MagDamage/PickupSound.play()
+		var weapon = player.weapon_to_upgrade
+		weapon.damage += weapon.damage * 0.25
+		hide()
+		world.switch_state(world.GameState.PREPARATION)
 "
+
+[sub_resource type="TorusMesh" id="TorusMesh_v73pi"]
+material = ExtResource("4_pcg6f")
+inner_radius = 0.113
+outer_radius = 0.058
+rings = 12
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tx5yx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wveu1"]
 material = ExtResource("1_kswjk")
 size = Vector3(0.1, 0.25, 0.225)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3xkg"]
+albedo_color = Color(0, 0.34902, 0, 1)
+
 [sub_resource type="PrismMesh" id="PrismMesh_y33vt"]
-material = ExtResource("1_kswjk")
+material = SubResource("StandardMaterial3D_q3xkg")
 size = Vector3(0.35, 0.25, 0.1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_tx5yx"]
+[sub_resource type="BoxMesh" id="BoxMesh_ud4od"]
+material = ExtResource("5_odetc")
+size = Vector3(0.1, 0.25, 0.225)
+
+[sub_resource type="PrismMesh" id="PrismMesh_cqd54"]
+material = ExtResource("5_odetc")
+size = Vector3(0.35, 0.25, 0.1)
 
 [node name="PickupUpgrade" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.29697e-05, 0.00110491, 0.00111359)
 script = SubResource("GDScript_kagl2")
 
-[node name="Node3D3" type="Node3D" parent="."]
+[node name="MagSize" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.3, 0)
 
-[node name="Arrow" type="Node3D" parent="Node3D3"]
+[node name="Arrow" type="Node3D" parent="MagSize"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.035, 0.035, 0.056)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D3/Arrow"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MagSize/Arrow"]
+transform = Transform3D(-5.15794e-08, 1.18, -5.15794e-08, 0, -5.15794e-08, -1.18, -1.18, -5.15794e-08, 2.25461e-15, 0.142819, -0.247844, 0.0159163)
+mesh = SubResource("TorusMesh_v73pi")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MagSize/Arrow"]
+transform = Transform3D(-5.15794e-08, 1.18, -5.15794e-08, 0, -5.15794e-08, -1.18, -1.18, -5.15794e-08, 2.25461e-15, 0.142819, 0.0638457, 0.0159163)
+mesh = SubResource("TorusMesh_v73pi")
+
+[node name="Mag" type="Node3D" parent="MagSize"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="9mmMag" parent="MagSize/Mag" instance=ExtResource("2_ami80")]
+transform = Transform3D(0.403312, 0, 0, 0, 0.403312, 0, 0, 0, 0.403312, -0.00418924, -0.678536, -0.00141739)
+
+[node name="PickupSound" type="AudioStreamPlayer3D" parent="MagSize"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.15, 0)
+stream = ExtResource("2_hlact")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MagSize"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.070399, 0.106, 0)
+layers = 7
+light_energy = 0.56
+light_volumetric_fog_energy = 0.5
+omni_range = 1.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="MagSize"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.073369, 0.106174, 0)
+layers = 7
+light_energy = 0.56
+light_volumetric_fog_energy = 0.5
+omni_range = 1.0
+
+[node name="SizePickupArea" type="Area3D" parent="MagSize"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.15, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MagSize/SizePickupArea"]
+shape = SubResource("SphereShape3D_tx5yx")
+
+[node name="MagSpeed" type="Node3D" parent="."]
+transform = Transform3D(1.61986, 0, -1.17306, 0, 2, 0, 1.17306, 0, 1.61986, -0.350649, -0.3, 1.34997)
+
+[node name="Arrow" type="Node3D" parent="MagSpeed"]
+transform = Transform3D(0.25, -3.55271e-15, 0, 0, -0.25, 2.18557e-08, 0, -2.18557e-08, -0.25, -0.035, 0.00705874, 0.056)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MagSpeed/Arrow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136584, -0.165398, 0)
 mesh = SubResource("BoxMesh_wveu1")
 skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D3/Arrow"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MagSpeed/Arrow"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.136584, 0.0846021, 0)
 mesh = SubResource("PrismMesh_y33vt")
 skeleton = NodePath("../../..")
 
-[node name="Mag" type="Node3D" parent="Node3D3"]
+[node name="Mag" type="Node3D" parent="MagSpeed"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="9mmMag" parent="Node3D3/Mag" instance=ExtResource("2_ami80")]
+[node name="9mmMag" parent="MagSpeed/Mag" instance=ExtResource("2_ami80")]
 transform = Transform3D(0.403312, 0, 0, 0, 0.403312, 0, 0, 0, 0.403312, -0.00418924, -0.678536, -0.00141739)
 
-[node name="PickupSound" type="AudioStreamPlayer3D" parent="."]
+[node name="PickupSound" type="AudioStreamPlayer3D" parent="MagSpeed"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.15, 0)
 stream = ExtResource("2_hlact")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140798, -0.088, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="MagSpeed"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.070399, 0.106, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.146738, -0.0876529, 0)
+[node name="OmniLight3D2" type="OmniLight3D" parent="MagSpeed"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.073369, 0.106174, 0)
 layers = 7
 light_energy = 0.56
 light_volumetric_fog_energy = 0.5
 omni_range = 1.0
 
-[node name="PickupArea" type="Area3D" parent="."]
+[node name="SpeedPickupArea" type="Area3D" parent="MagSpeed"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.15, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MagSpeed/SpeedPickupArea"]
+shape = SubResource("SphereShape3D_tx5yx")
+
+[node name="MagDamage" type="Node3D" parent="."]
+transform = Transform3D(1.62008, 0, 1.17274, 0, 2, 0, -1.17274, 0, 1.62008, -0.351, -0.3, -1.35)
+
+[node name="Arrow" type="Node3D" parent="MagDamage"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.035, 0.035, 0.056)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MagDamage/Arrow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136584, -0.165398, 0)
+mesh = SubResource("BoxMesh_ud4od")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MagDamage/Arrow"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.136584, 0.0846021, 0)
+mesh = SubResource("PrismMesh_cqd54")
+skeleton = NodePath("../../..")
+
+[node name="Mag" type="Node3D" parent="MagDamage"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="9mmMag" parent="MagDamage/Mag" instance=ExtResource("2_ami80")]
+transform = Transform3D(0.403312, 0, 0, 0, 0.403312, 0, 0, 0, 0.403312, -0.00418924, -0.678536, -0.00141739)
+
+[node name="PickupSound" type="AudioStreamPlayer3D" parent="MagDamage"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.15, 0)
+stream = ExtResource("2_hlact")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MagDamage"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.070399, 0.106, 0)
+layers = 7
+light_energy = 0.56
+light_volumetric_fog_energy = 0.5
+omni_range = 1.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="MagDamage"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.073369, 0.106174, 0)
+layers = 7
+light_energy = 0.56
+light_volumetric_fog_energy = 0.5
+omni_range = 1.0
+
+[node name="DamagePickupArea" type="Area3D" parent="MagDamage"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.15, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MagDamage/DamagePickupArea"]
 shape = SubResource("SphereShape3D_tx5yx")
 
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 15.0
 
-[connection signal="finished" from="PickupSound" to="." method="_on_pickup_sound_finished"]
-[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="finished" from="MagSize/PickupSound" to="." method="_on_pickup_sound_finished"]
+[connection signal="body_entered" from="MagSize/SizePickupArea" to="." method="_on_size_pickup_area_body_entered"]
+[connection signal="finished" from="MagSpeed/PickupSound" to="." method="_on_pickup_sound_finished"]
+[connection signal="body_entered" from="MagSpeed/SpeedPickupArea" to="." method="_on_speed_pickup_area_body_entered"]
+[connection signal="finished" from="MagDamage/PickupSound" to="." method="_on_pickup_sound_finished"]
+[connection signal="body_entered" from="MagDamage/DamagePickupArea" to="." method="_on_damage_pickup_area_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
