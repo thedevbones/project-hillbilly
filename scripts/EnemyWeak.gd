@@ -25,43 +25,33 @@ func combat_behavior(_delta):
 
 	var player_position = player.global_transform.origin
 	var location = global_transform.origin
-	var animation = "walk"
 	
-	if location.distance_to(player_position) < 20:
+	if location.distance_to(player_position) < 30:
 		speed = default_speed * 2
 		navigation_agent.set_target_position(player_position)
-		var next_point = navigation_agent.get_next_path_position()
-		var direction = (next_point - location).normalized()
-		var target_angle = atan2(direction.x, direction.z)
-		rotation.y = target_angle
-		if location.distance_to(player_position) <= attack_distance:
-			if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
-				attack_player()
-				hit_timer.start()
-				attack_audio.play()
-				speed = 0
-			elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
-				velocity = direction * speed
-				move_and_slide()
-				movement()
 	else:
 		speed = default_speed
-		if patrol_points.size() <= 0 or is_waiting: return
+		generate_patrol_points()
 		var target_location = patrol_points[current_target]
-		if location.distance_to(target_location) <= arrived_distance:
-			is_waiting = true
-			patrol_timer.start()
-#
-		var next_point = navigation_agent.get_next_path_position()
+		navigation_agent.set_target_position(target_location)
 	
-		if next_point != Vector3.INF:
-			var direction = (next_point - location).normalized()
-			velocity = direction * speed
-			move_and_slide()
+	var next_point = navigation_agent.get_next_path_position()
+	var direction = (next_point - location).normalized()
+	var target_angle = atan2(direction.x, direction.z)
+	anim_name = "walk"
+	rotation.y = target_angle
+	
+	if location.distance_to(player_position) <= attack_distance:
+		if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
+			attack_player()
+			hit_timer.start()
+			attack_audio.play()
+			speed = 0
+	elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
+		velocity = direction * speed
+		move_and_slide()
+		movement()
 		
-		
-		current_target = (current_target + 1) % patrol_points.size()
-		navigation_agent.set_target_position(patrol_points[current_target])
 
 
 func _on_death_finished():
