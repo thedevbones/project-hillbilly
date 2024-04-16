@@ -1,6 +1,7 @@
 extends Node3D
 
 var enemy_weak = preload("res://scenes/EnemyWeak.tscn")
+var enemy_weak_alt = preload("res://scenes/EnemyWeak2.tscn")
 # var enemy_strong = preload("res://path/to/EnemyStrong.tscn")
 var boss = preload("res://scenes/Boss.tscn")
 
@@ -10,12 +11,17 @@ func _ready():
 	spawn_points = get_children()
 
 func spawn_enemy(enemy_type, spawn_point):
-	var enemy_scene
-	match enemy_type:
-		"weak": enemy_scene = enemy_weak
+	var enemy_instance
+	#match enemy_type:
+	#	"weak": enemy_scene1 = enemy_weak
+	#	"weak": enemy_scene2 = enemy_weak_alt
 		# "strong": enemy_scene = enemy_strong
-	
-	var enemy_instance = enemy_scene.instantiate()
+	var random_number = randi_range(0, 1)
+	print(random_number)
+	if random_number == 1:
+		enemy_instance = enemy_weak.instantiate()
+	else: 
+		enemy_instance = enemy_weak_alt.instantiate()
 	add_child(enemy_instance) 
 	enemy_instance.global_transform.origin = spawn_point.global_transform.origin
 
