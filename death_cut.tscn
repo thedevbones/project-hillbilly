@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://p3k21cy70ism"]
+[gd_scene load_steps=16 format=3 uid="uid://p3k21cy70ism"]
 
 [ext_resource type="Script" path="res://death_cut.gd" id="1_7kx87"]
 [ext_resource type="FontFile" uid="uid://dn7s2e62gci47" path="res://fonts/Another Danger - Demo.otf" id="2_qmqio"]
+[ext_resource type="AudioStream" uid="uid://dlenfi7ut21t6" path="res://audio/Music/DeathCutScene.mp3" id="3_4vhet"]
 
 [sub_resource type="Animation" id="Animation_15qd1"]
 resource_name = "Death"
@@ -19,6 +20,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0.00392157, 0.0117647, 0.0156863, 1), Color(0.00392157, 0.0117647, 0.0156863, 1), Color(0.670645, 0.0136971, 0.0205456, 1), Color(0.670645, 0.0136971, 0.0205456, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.4, 26.5, 30.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, true]
+}
 
 [sub_resource type="Animation" id="Animation_vppp5"]
 length = 0.001
@@ -33,6 +46,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.670645, 0.0136971, 0.0205456, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_611vv"]
@@ -174,6 +199,9 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_s2t04")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0yp6m")
 text = "Quit
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4vhet")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/Restart" to="." method="_on_restart_pressed"]
