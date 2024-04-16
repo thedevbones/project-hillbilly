@@ -1,5 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://cmtgecgqh2ful"]
+[gd_scene load_steps=32 format=3 uid="uid://cmtgecgqh2ful"]
 
+[ext_resource type="Script" path="res://scripts/EnemyWeak.gd" id="1_rxba8"]
 [ext_resource type="Texture2D" uid="uid://r3o1uuodah6r" path="res://assets/enemies/weak_enemy/bad-guy2_Untitled.png" id="1_wd3qc"]
 [ext_resource type="Texture2D" uid="uid://cg7u0iuht27i0" path="res://assets/enemies/weak_enemy/bad-guy2_Untitled_1.png" id="2_42j4b"]
 [ext_resource type="Texture2D" uid="uid://dspa4s3lsij2o" path="res://assets/enemies/weak_enemy/bad-guy2_Untitled_2.png" id="3_675sm"]
@@ -819,6 +820,10 @@ radius = 1.3208
 height = 8.49765
 
 [node name="bad-guy2" type="CharacterBody3D"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+collision_layer = 17
+collision_mask = 17
+script = ExtResource("1_rxba8")
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.648676, 0)
