@@ -3,6 +3,7 @@ extends Node3D
 var enemy_weak = preload("res://scenes/EnemyWeak.tscn")
 # var enemy_strong = preload("res://path/to/EnemyStrong.tscn")
 var boss = preload("res://scenes/Boss.tscn")
+@onready var world = get_parent()
 
 var spawn_points = []
 
@@ -20,8 +21,13 @@ func spawn_enemy(enemy_type, spawn_point):
 	enemy_instance.global_transform.origin = spawn_point.global_transform.origin
 
 func spawn_wave(enemies_to_spawn):
+	var max_enemies = Graphics.get_max_enemies()
 	for enemy_info in enemies_to_spawn:
 		for i in range(enemy_info.count):
+			if world.enemies_alive >= max_enemies:
+				print("Reached max of ", max_enemies, " enemies")
+				world.enemies_in_queue = enemy_info.count - world.enemies_alive
+				return
 			var spawn_point = choose_spawn_point()
 			spawn_enemy(enemy_info.type, spawn_point)
 
