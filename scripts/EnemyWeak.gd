@@ -41,3 +41,7 @@ func _movement():
 	#is_waiting = false
 	#current_target = (current_target + 1) % patrol_points.size()
 	#navigation_agent.set_target_position(patrol_points[current_target])
+
+
+func _on_bullet_hit_finished():
+	pass # Replace with function body.
