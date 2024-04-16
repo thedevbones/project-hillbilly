@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://p3k21cy70ism"]
 
-[ext_resource type="Script" path="res://death_cut.gd" id="1_7kx87"]
-[ext_resource type="FontFile" uid="uid://dn7s2e62gci47" path="res://fonts/Another Danger - Demo.otf" id="2_qmqio"]
-[ext_resource type="AudioStream" uid="uid://dlenfi7ut21t6" path="res://audio/Music/DeathCutScene.mp3" id="3_4vhet"]
+[ext_resource type="Script" path="res://scripts/death_cut.gd" id="1_1x83r"]
+[ext_resource type="FontFile" uid="uid://dn7s2e62gci47" path="res://fonts/Another Danger - Demo.otf" id="2_jcebm"]
+[ext_resource type="AudioStream" uid="uid://dlenfi7ut21t6" path="res://audio/Music/DeathCutScene.mp3" id="3_6m2d1"]
 
 [sub_resource type="Animation" id="Animation_15qd1"]
 resource_name = "Death"
@@ -85,7 +85,7 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yp6m"]
 
 [node name="DeathCut" type="Node2D"]
-script = ExtResource("1_7kx87")
+script = ExtResource("1_1x83r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -117,7 +117,7 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_qmqio")
+theme_override_fonts/font = ExtResource("2_jcebm")
 theme_override_font_sizes/font_size = 45
 text = "GAME OVER
 "
@@ -201,7 +201,8 @@ text = "Quit
 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_4vhet")
+stream = ExtResource("3_6m2d1")
+bus = &"Music"
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/Restart" to="." method="_on_restart_pressed"]
