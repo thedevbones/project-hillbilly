@@ -17,7 +17,6 @@ func spawn_enemy(enemy_type, spawn_point):
 	#	"weak": enemy_scene2 = enemy_weak_alt
 		# "strong": enemy_scene = enemy_strong
 	var random_number = randi_range(0, 1)
-	print(random_number)
 	if random_number == 1:
 		enemy_instance = enemy_weak.instantiate()
 	else: 
