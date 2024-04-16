@@ -6,6 +6,7 @@ var total_waves = 10
 var current_state = GameState.GAME_START
 var current_wave = 0
 var enemies_alive = 0
+var enemies_in_queue = 0
 var boss_wave = 5
 var wave_spawn_mult = 5
 var demo_mode = false
@@ -59,6 +60,11 @@ func add_alive_enemies(amount):
 	enemies_alive += amount
 	if enemies_alive <= 0:
 		wave_completed()
+		enemies_alive = 0
+	if amount < 0 and enemies_in_queue > 0:
+		var enemies_to_spawn = [{"type": "weak", "count": 1}]
+		$Spawner.spawn_wave(enemies_to_spawn)
+		enemies_in_queue -= 1
 
 func get_alive_enemies():
 	return enemies_alive
