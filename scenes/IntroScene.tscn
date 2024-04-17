@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://gerd3xptepvi"]
+[gd_scene load_steps=28 format=3 uid="uid://gerd3xptepvi"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
 [ext_resource type="Script" path="res://scripts/IntroScene.gd" id="1_wmn4v"]
@@ -15,6 +15,10 @@
 [ext_resource type="AudioStream" uid="uid://cs5c6ms7ya86b" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
 [ext_resource type="AudioStream" uid="uid://wqw5f6payfdo" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
 [ext_resource type="AudioStream" uid="uid://dd01jsuy7jecj" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
+[ext_resource type="AudioStream" uid="uid://dlenfi7ut21t6" path="res://audio/Music/DeathCutScene.mp3" id="16_ay844"]
+[ext_resource type="FontFile" uid="uid://dn7s2e62gci47" path="res://fonts/Another Danger - Demo.otf" id="16_bl4lb"]
+[ext_resource type="AudioStream" uid="uid://bt6np2tiwnn4p" path="res://audio/SFX/Other/door_open.mp3" id="17_0gw8e"]
+[ext_resource type="AudioStream" uid="uid://c7u5u1vdt3lmk" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
 resource_name = "WorldEnviroment"
@@ -84,7 +88,7 @@ buffer = PackedFloat32Array(0.537053, 0, 0.843549, -3.23644, 0, 1, 0, 5.96046e-0
 
 [sub_resource type="Animation" id="Animation_g6qmg"]
 resource_name = "Intro Animation"
-length = 23.0
+length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -92,7 +96,7 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 18, 22),
+"times": PackedFloat32Array(0, 5, 22, 27.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.264032, 2.16646, -30.7131), Vector3(5.264, 14.166, -4.713), Vector3(5.264, 14.166, -4.713), Vector3(3.264, 2.166, -2.713)]
@@ -104,7 +108,7 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5, 18, 22),
+"times": PackedFloat32Array(0, 5, 22, 27.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(4.77763e-16, 0.492828, -1.22669e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-0.139626, 0.158825, 3.48787e-16)]
@@ -140,10 +144,10 @@ tracks/4/path = NodePath("stall car:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
-"times": PackedFloat32Array(9.1, 13.9, 16.7),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(13.2, 15.1, 15.8, 18.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false]
+"values": [true, false, true, false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -176,7 +180,7 @@ tracks/7/path = NodePath("BlackScreen:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 23),
+"times": PackedFloat32Array(0, 27.6),
 "transitions": PackedFloat32Array(1, 0.757858),
 "update": 1,
 "values": [false, true]
@@ -248,7 +252,7 @@ tracks/13/path = NodePath("Team intro:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 11, 13),
+"times": PackedFloat32Array(0, 11, 13.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -260,10 +264,58 @@ tracks/14/path = NodePath("Team intro2:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 11, 13),
+"times": PackedFloat32Array(0, 11, 13.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Game Tittle:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 14.5, 18),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Background Music:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Door open:playing")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(28),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Door close:playing")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(29.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_gxv5i"]
@@ -443,6 +495,54 @@ tracks/14/path = NodePath("Team intro2:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Game Tittle:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Background Music:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Door open:playing")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Door close:playing")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -650,23 +750,39 @@ autoplay = "Intro Animation"
 
 [node name="Ambience" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_3a1pc")
-volume_db = 3.503
+volume_db = 0.187
 bus = &"SFX"
 
 [node name="Storm" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("13_evan4")
-volume_db = 7.866
+volume_db = 19.472
 unit_size = 12.3
 bus = &"SFX"
 
 [node name="stall car" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("14_y8by3")
-volume_db = -10.526
+volume_db = 1.909
 bus = &"SFX"
 
 [node name="Running car" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("11_f2jot")
-volume_db = 29.92
+volume_db = 45.671
+max_db = 6.0
+bus = &"SFX"
+
+[node name="Background Music" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("16_ay844")
+volume_db = 11.038
+bus = &"SFX"
+
+[node name="Door open" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_0gw8e")
+volume_db = 11.038
+bus = &"SFX"
+
+[node name="Door close" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("18_srcnl")
+volume_db = 11.038
 bus = &"SFX"
 
 [node name="BlackScreen" type="ColorRect" parent="."]
@@ -800,5 +916,24 @@ theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 text = "Present:
 
 "
+
+[node name="Game Tittle" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -179.0
+offset_right = 117.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_bl4lb")
+theme_override_font_sizes/font_size = 32
+text = "PROJECT HILLBILLY"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
