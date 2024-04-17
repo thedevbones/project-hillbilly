@@ -13,7 +13,9 @@ func _ready():
 	attack_audio = $Swing
 	hit_timer = $HitTimer
 	damage_type = "axe"
-	#patrol_timer = $PatrolTimer
+	patrol_timer = $PatrolTimer
+	var anim : Animation= $AnimationPlayer.get_animation(anim_name)
+	anim.loop_mode =(Animation.LOOP_LINEAR)
 	animation_player = $AnimationPlayer
 	animation_player.play("walk")
 	$Armature/Skeleton3D.physical_bones_start_simulation()
@@ -27,10 +29,10 @@ func combat_behavior(_delta):
 	var location = global_transform.origin
 	
 	if location.distance_to(player_position) < 30:
-		speed = default_speed * 2
+		speed = default_speed
 		navigation_agent.set_target_position(player_position)
 	else:
-		speed = default_speed
+		speed = default_speed * 2
 		generate_patrol_points()
 		var target_location = patrol_points[current_target]
 		navigation_agent.set_target_position(target_location)
@@ -47,6 +49,7 @@ func combat_behavior(_delta):
 			hit_timer.start()
 			attack_audio.play()
 			speed = 0
+		movement()
 	elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
 		velocity = direction * speed
 		move_and_slide()

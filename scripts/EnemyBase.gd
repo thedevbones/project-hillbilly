@@ -79,6 +79,7 @@ func combat_behavior(delta):
 			hit_timer.start()
 			attack_audio.play()
 			speed = 0
+			
 	elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
 		velocity = direction * speed
 		move_and_slide()
