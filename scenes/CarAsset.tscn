@@ -1,8 +1,17 @@
 [gd_scene load_steps=2 format=3 uid="uid://bve8tek7u2y8t"]
 
-[ext_resource type="PackedScene" uid="uid://cm8bpop37v2mg" path="res://assets/car.blend" id="1_qa67a"]
+[ext_resource type="PackedScene" uid="uid://dia176m6w0y01" path="res://assets/car.glb" id="1_wwabt"]
 
-[node name="car" instance=ExtResource("1_qa67a")]
+[node name="car" instance=ExtResource("1_wwabt")]
 
-[node name="Light" parent="." index="0"]
+[node name="Light" type="OmniLight3D" parent="." index="12"]
+transform = Transform3D(-0.290865, -0.771101, 0.566393, -0.055189, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, 0.0234389, 5.90386, 2.55753)
 visible = false
+light_energy = 54351.4
+omni_range = 4096.0
+
+[node name="Camera" type="Camera3D" parent="." index="13"]
+transform = Transform3D(0.685921, -0.324013, 0.651558, -1.49012e-08, 0.895396, 0.445271, -0.727676, -0.305421, 0.61417, 7.35889, 4.95831, 6.92579)
+fov = 22.8952
+near = 0.1
+far = 100.0
