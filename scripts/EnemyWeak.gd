@@ -8,6 +8,7 @@ var anim_name = "walk"
 
 func _ready():
 	spawn()
+	generate_patrol_points()
 	hit_audio = $BulletHit
 	death_audio = $Death
 	attack_audio = $Swing
@@ -27,21 +28,50 @@ func combat_behavior(_delta):
 
 	var player_position = player.global_transform.origin
 	var location = global_transform.origin
+	var direction
 	
-	if location.distance_to(player_position) < 30:
+	if location.distance_to(player_position) < 10:
 		speed = default_speed
 		navigation_agent.set_target_position(player_position)
+		
+		var next_point = navigation_agent.get_next_path_position()
+		direction = (next_point - location).normalized()
+		var target_angle = atan2(direction.x, direction.z)
+		var animation = "walk"
+		rotation.y = target_angle
+		
+		if location.distance_to(player_position) <= attack_distance:
+			if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
+				attack_player()
+				hit_timer.start()
+				attack_audio.play()
+				speed = 0
+				
+		elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
+			velocity = direction * speed
+			move_and_slide()
+			movement()
 	else:
-		speed = default_speed * 2
-		generate_patrol_points()
-		var target_location = patrol_points[current_target]
-		navigation_agent.set_target_position(target_location)
+		speed = default_speed / 1.5
+		if patrol_points.size() > 0:
+			var target_location = patrol_points[current_target]
+			navigation_agent.set_target_position(target_location)
 	
-	var next_point = navigation_agent.get_next_path_position()
-	var direction = (next_point - location).normalized()
-	var target_angle = atan2(direction.x, direction.z)
-	anim_name = "walk"
-	rotation.y = target_angle
+			var next_point = navigation_agent.get_next_path_position()
+			if next_point != Vector3.INF:
+				direction = (next_point - location).normalized()
+				var target_angle = atan2(direction.x, direction.z)
+				anim_name = "walk"
+				rotation.y = target_angle
+			
+			if location.distance_to(target_location) < 1:
+				current_target = (current_target + 1) % patrol_points.size()
+				
+			if next_point != Vector3.INF and hit_timer.get_time_left() == 0:
+				velocity = direction * speed
+				move_and_slide()
+				movement()
+				
 	
 	if location.distance_to(player_position) <= attack_distance:
 		if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
@@ -49,12 +79,7 @@ func combat_behavior(_delta):
 			hit_timer.start()
 			attack_audio.play()
 			speed = 0
-		movement()
-	elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
-		velocity = direction * speed
-		move_and_slide()
-		movement()
-		
+	
 
 
 func _on_death_finished():
