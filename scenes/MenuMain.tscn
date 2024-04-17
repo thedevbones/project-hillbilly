@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
-[ext_resource type="FontFile" uid="uid://eusi2472nhr" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
-[ext_resource type="AudioStream" uid="uid://l8rnpurap27o" path="res://audio/Music/menu.mp3" id="4_24813"]
+[ext_resource type="FontFile" uid="uid://dn7s2e62gci47" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
+[ext_resource type="AudioStream" uid="uid://caabe16774jhq" path="res://audio/Music/menu.mp3" id="4_24813"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="4_wtf1n"]
-[ext_resource type="AudioStream" uid="uid://chbnla8wyehi0" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
+[ext_resource type="AudioStream" uid="uid://bdpfds8ws5fuw" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
