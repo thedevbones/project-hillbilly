@@ -30,8 +30,8 @@ func combat_behavior(_delta):
 	var location = global_transform.origin
 	var direction
 	
-	if location.distance_to(player_position) < 10:
-		speed = default_speed
+	if location.distance_to(player_position) < 18:
+		speed = default_speed + 2
 		navigation_agent.set_target_position(player_position)
 		
 		var next_point = navigation_agent.get_next_path_position()
