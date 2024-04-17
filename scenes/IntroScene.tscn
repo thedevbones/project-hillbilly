@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://gerd3xptepvi"]
+[gd_scene load_steps=29 format=3 uid="uid://gerd3xptepvi"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
 [ext_resource type="Script" path="res://scripts/IntroScene.gd" id="1_wmn4v"]
@@ -19,6 +19,7 @@
 [ext_resource type="FontFile" uid="uid://dn7s2e62gci47" path="res://fonts/Another Danger - Demo.otf" id="16_bl4lb"]
 [ext_resource type="AudioStream" uid="uid://bt6np2tiwnn4p" path="res://audio/SFX/Other/door_open.mp3" id="17_0gw8e"]
 [ext_resource type="AudioStream" uid="uid://c7u5u1vdt3lmk" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
+[ext_resource type="AudioStream" uid="uid://8m0k5qh4x2h1" path="res://audio/SFX/Other/inceptionbutton.mp3" id="19_ttubg"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
 resource_name = "WorldEnviroment"
@@ -88,7 +89,7 @@ buffer = PackedFloat32Array(0.537053, 0, 0.843549, -3.23644, 0, 1, 0, 5.96046e-0
 
 [sub_resource type="Animation" id="Animation_g6qmg"]
 resource_name = "Intro Animation"
-length = 30.0
+length = 35.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,7 +97,7 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 22, 27.5),
+"times": PackedFloat32Array(0, 5, 25.5, 31),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.264032, 2.16646, -30.7131), Vector3(5.264, 14.166, -4.713), Vector3(5.264, 14.166, -4.713), Vector3(3.264, 2.166, -2.713)]
@@ -108,7 +109,7 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5, 22, 27.5),
+"times": PackedFloat32Array(0, 5, 25.5, 31),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(4.77763e-16, 0.492828, -1.22669e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-0.139626, 0.158825, 3.48787e-16)]
@@ -144,7 +145,7 @@ tracks/4/path = NodePath("stall car:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
-"times": PackedFloat32Array(13.2, 15.1, 15.8, 18.2),
+"times": PackedFloat32Array(13.6, 15.2, 15.8, 18),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false]
@@ -180,7 +181,7 @@ tracks/7/path = NodePath("BlackScreen:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 27.6),
+"times": PackedFloat32Array(0, 31.5),
 "transitions": PackedFloat32Array(1, 0.757858),
 "update": 1,
 "values": [false, true]
@@ -192,7 +193,7 @@ tracks/8/path = NodePath("Name1:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1, 2),
+"times": PackedFloat32Array(0, 1, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -204,7 +205,7 @@ tracks/9/path = NodePath("Name2:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 3, 4),
+"times": PackedFloat32Array(0, 3.5, 5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -216,7 +217,7 @@ tracks/10/path = NodePath("Name3:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 5, 6),
+"times": PackedFloat32Array(0, 6, 7.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -228,7 +229,7 @@ tracks/11/path = NodePath("Name4:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 7, 8),
+"times": PackedFloat32Array(0, 8.5, 10),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -240,7 +241,7 @@ tracks/12/path = NodePath("Name5:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 9, 10),
+"times": PackedFloat32Array(0, 11, 12.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -252,7 +253,7 @@ tracks/13/path = NodePath("Team intro:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 11, 13.5),
+"times": PackedFloat32Array(0, 13.5, 16.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -264,7 +265,7 @@ tracks/14/path = NodePath("Team intro2:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 11, 13.5),
+"times": PackedFloat32Array(0, 13.5, 16.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -276,7 +277,7 @@ tracks/15/path = NodePath("Game Tittle:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 14.5, 18),
+"times": PackedFloat32Array(0, 19, 24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -288,7 +289,7 @@ tracks/16/path = NodePath("Background Music:playing")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(2.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -300,7 +301,7 @@ tracks/17/path = NodePath("Door open:playing")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(28),
+"times": PackedFloat32Array(32),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -312,7 +313,19 @@ tracks/18/path = NodePath("Door close:playing")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(29.5),
+"times": PackedFloat32Array(34.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("inception horn:playing")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(19),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -548,6 +561,18 @@ tracks/18/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("inception horn:playing")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_44grx"]
 _data = {
@@ -773,7 +798,7 @@ bus = &"SFX"
 [node name="Background Music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("16_ay844")
 volume_db = 11.038
-bus = &"SFX"
+bus = &"Music"
 
 [node name="Door open" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("17_0gw8e")
@@ -783,6 +808,12 @@ bus = &"SFX"
 [node name="Door close" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("18_srcnl")
 volume_db = 11.038
+bus = &"SFX"
+
+[node name="inception horn" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("19_ttubg")
+volume_db = 16.981
+pitch_scale = 0.7
 bus = &"SFX"
 
 [node name="BlackScreen" type="ColorRect" parent="."]
