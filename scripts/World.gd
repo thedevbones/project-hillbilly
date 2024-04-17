@@ -65,11 +65,15 @@ func add_alive_enemies(amount):
 		var enemies_to_spawn = [{"type": "weak", "count": 1}]
 		$Spawner.spawn_wave(enemies_to_spawn)
 		enemies_in_queue -= 1
+		check_for_out_of_bounds()
 
 func get_alive_enemies():
 	return enemies_alive
 
 func _on_bounds_timer_timeout():
+	check_for_out_of_bounds()
+
+func check_for_out_of_bounds():
 	print("Checking for out-of-bounds")
 	for child in $Spawner.get_children():
 		if child is CharacterBody3D and is_out_of_bounds(child):
