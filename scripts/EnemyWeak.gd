@@ -4,6 +4,7 @@ extends "res://scripts/EnemyBase.gd"
 @onready var animation_player 
 const LERP = 1.5
 var anim_name = "walk"
+var knockback_force = 25
 
 
 func _ready():
@@ -21,6 +22,19 @@ func _ready():
 	animation_player.play("walk")
 	$Armature/Skeleton3D.physical_bones_start_simulation()
 	$Armature/Skeleton3D.physical_bones_stop_simulation()
+
+
+func apply_damage(damage):
+	health -= damage
+	hit_audio.play()
+	anim_name = "idle2"
+	animation_player.play(anim_name)
+	if health <= 0: die()
+		# Calculate knockback direction
+	var knockback_direction = -(player.global_transform.origin - global_transform.origin).normalized()
+	# Apply knockback force to enemy
+	knockback(knockback_direction)
+	
 
 
 func combat_behavior(_delta):
@@ -84,7 +98,12 @@ func combat_behavior(_delta):
 
 func _on_death_finished():
 	queue_free()
-	
+
+
+func knockback(direction: Vector3):
+	velocity = direction * knockback_force
+	move_and_slide()
+
 	
 func attack_player():
 	call_deferred("_attack_player")
@@ -101,7 +120,7 @@ func movement():
 
 	
 func _movement():
-	if anim_name == "Attack_animation":
+	if anim_name != "walk":
 		anim_name = "walk"
 		animation_player.play(anim_name, 1.0)
 
