@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bve8tek7u2y8t"]
 
-[ext_resource type="PackedScene" uid="uid://cm8bpop37v2mg" path="res://assets/car.blend" id="1_qa67a"]
+[ext_resource type="PackedScene" uid="uid://cw8x6lw75ymbd" path="res://assets/car.blend" id="1_qa67a"]
 
 [node name="car" instance=ExtResource("1_qa67a")]
 
