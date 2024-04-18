@@ -178,24 +178,18 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -5.0
-offset_right = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_754t5")
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
 z_as_relative = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_top = -14.905
-offset_right = 422.0
-offset_bottom = 579.095
-grow_horizontal = 2
+offset_right = 671.0
 grow_vertical = 2
-scale = Vector2(0.315, 0.315)
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
@@ -211,11 +205,11 @@ theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
 theme_override_fonts/font = ExtResource("3_wugvk")
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 80
 text = "Project HillBilly"
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 150)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
 [node name="StartBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
@@ -226,7 +220,7 @@ theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.003846
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.447059, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -243,7 +237,7 @@ theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -259,7 +253,7 @@ theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -276,7 +270,7 @@ theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -292,7 +286,7 @@ theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -317,15 +311,12 @@ theme = SubResource("Theme_w04i1")
 [node name="MarginContainer" type="MarginContainer" parent="SettingsControl"]
 z_as_relative = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
 anchor_bottom = 1.0
-offset_top = -6.0
-offset_right = 422.0
-offset_bottom = 515.0
-grow_horizontal = 2
+offset_left = -2.0
+offset_top = -57.0
+offset_right = 670.0
 grow_vertical = 2
-scale = Vector2(0.315, 0.315)
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
@@ -341,29 +332,32 @@ theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
 theme_override_fonts/font = ExtResource("3_wugvk")
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 80
 text = "Project HillBilly"
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsControl/MarginContainer/SettingsDisplay"]
-custom_minimum_size = Vector2(2.08165e-12, 150)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="SettingsBanner" type="Label" parent="SettingsControl/MarginContainer/SettingsDisplay/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 60
 text = "Settings "
+horizontal_alignment = 1
 
 [node name="AudioSettingBtn" type="Button" parent="SettingsControl/MarginContainer/SettingsDisplay"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m42nc")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_jkswo")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_v7tvk")
@@ -375,11 +369,12 @@ text = "Audio
 [node name="VideoSettingBtn" type="Button" parent="SettingsControl/MarginContainer/SettingsDisplay"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m42nc")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_jkswo")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_v7tvk")
@@ -391,11 +386,12 @@ text = "Video
 [node name="MainMenuBtn" type="Button" parent="SettingsControl/MarginContainer/SettingsDisplay"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_l0gnl")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_xynpk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w6ai4")
@@ -408,7 +404,6 @@ text = "Main Menu
 visible = false
 texture_filter = 1
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -860,10 +855,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 56.0
-offset_right = 4.0
-offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -873,12 +864,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -6.0
-offset_right = 563.0
-offset_bottom = 373.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.315, 0.315)
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
@@ -899,7 +886,7 @@ layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Master"
 
 [node name="Music" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
@@ -907,7 +894,7 @@ layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Music"
 
 [node name="Sound FX" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
@@ -915,7 +902,7 @@ layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Sound FX"
 
 [node name="Sliders" type="VBoxContainer" parent="Audio/MarginContainer/AudioDisplay"]
@@ -951,7 +938,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="Video" type="Control" parent="."]
@@ -960,24 +947,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 6.0
-offset_right = 424.0
-offset_bottom = 527.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.315, 0.315)
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Video"]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = -0.029
-anchor_right = 0.652
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_top = 0.0690002
-offset_right = 0.223877
-offset_bottom = -22.0
-grow_horizontal = 2
+offset_left = 16.0
+offset_right = 360.0
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Video/MarginContainer"]
@@ -993,35 +972,35 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Fullscreen"
 
 [node name="SSAO" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "SSAO"
 
 [node name="SSIL" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "SSIL"
 
 [node name="Grass" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Grass"
 
 [node name="Bob" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Camera Bob"
 
 [node name="Checks" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
@@ -1080,20 +1059,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Video"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.029
-anchor_right = 0.652
+anchor_left = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 518.69
-offset_top = 0.0690002
-offset_right = 518.912
-offset_bottom = -22.0
-grow_horizontal = 2
+offset_left = -611.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Video/MarginContainer2"]
@@ -1109,14 +1085,14 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Resolution"
 
 [node name="Bright" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Brightness
 "
 
@@ -1124,28 +1100,28 @@ text = "Brightness
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Max Enemies  "
 
 [node name="MaxDecals" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Decal Time"
 
 [node name="Sway" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Camera Sway"
 
 [node name="Sliders" type="VBoxContainer" parent="Video/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_constants/separation = 60
+theme_override_constants/separation = 26
 script = SubResource("GDScript_gd73m")
 metadata/_edit_use_anchors_ = true
 
