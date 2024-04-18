@@ -1,11 +1,12 @@
-[gd_scene load_steps=58 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=59 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
-[ext_resource type="FontFile" uid="uid://dn7s2e62gci47" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
-[ext_resource type="AudioStream" uid="uid://caabe16774jhq" path="res://audio/Music/menu.mp3" id="4_24813"]
+[ext_resource type="FontFile" uid="uid://ci2qj8thyby6n" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
+[ext_resource type="FontFile" uid="uid://cyxhikcl2u68a" path="res://fonts/Scary House.ttf" id="4_8gyms"]
+[ext_resource type="AudioStream" uid="uid://dml7wyi6ctr12" path="res://audio/Music/menu.mp3" id="4_24813"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="4_wtf1n"]
-[ext_resource type="AudioStream" uid="uid://bdpfds8ws5fuw" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
+[ext_resource type="AudioStream" uid="uid://4jics50lquoh" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -967,30 +968,35 @@ size_flags_vertical = 4
 [node name="Fullscreen" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "Fullscreen"
 
 [node name="SSAO" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "SSAO"
 
 [node name="SSIL" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "SSIL"
 
 [node name="Grass" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "Grass"
 
 [node name="Bob" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "Camera Bob"
 
@@ -1049,6 +1055,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "Back"
 
@@ -1077,12 +1084,14 @@ size_flags_vertical = 4
 [node name="Resolution" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "Resolution"
 
 [node name="Bright" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "Brightness
 "
@@ -1090,18 +1099,21 @@ text = "Brightness
 [node name="MaxEnemies" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "Max Enemies  "
 
 [node name="MaxDecals" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "Decal Time"
 
 [node name="Sway" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
 theme_override_font_sizes/font_size = 50
 text = "Camera Sway"
 
@@ -1177,8 +1189,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500945, -2.9777, 0.423937)
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="Video/MarginContainer/HBoxContainer/Checks" method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/AttackControls" to="." method="_on_attack_controls_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Tutorial_Attack/MainControls" to="." method="_on_main_controls_pressed"]
