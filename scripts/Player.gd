@@ -298,6 +298,12 @@ func toggle_flashlight():
 
 func apply_damage(damage, damage_type):
 	health -= damage
+	
+	# Kickback effect
+	var kickback_direction = -head.transform.basis.z.normalized()  # Kickback direction opposite to the camera's forward direction
+	var kickback_force = 10.0
+	velocity += kickback_direction * kickback_force
+	
 	if not $Impact.is_playing():
 		match damage_type:
 			"axe": $Impact.set_stream(impact_sounds[0])
