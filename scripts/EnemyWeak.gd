@@ -30,7 +30,7 @@ func apply_damage(damage):
 	anim_name = "idle2"
 	animation_player.play(anim_name)
 	if health <= 0: die()
-		# Calculate knockback direction
+	# Calculate knockback direction
 	var knockback_direction = -(player.global_transform.origin - global_transform.origin).normalized()
 	# Apply knockback force to enemy
 	knockback(knockback_direction)
