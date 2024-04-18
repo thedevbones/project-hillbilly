@@ -319,7 +319,7 @@ func die():
 		speed = 0
 		var tween = get_tree().create_tween()
 		await get_tree().create_timer(3.0).timeout
-		get_tree().change_scene_to_file("res://death_cut.tscn")
+		get_tree().change_scene_to_file("res://scenes/death_cut.tscn")
 		
 
 func process_raycast():
