@@ -887,12 +887,12 @@ mesh = SubResource("ArrayMesh_3s7q4")
 skin = SubResource("Skin_v5voc")
 
 [node name="Torso" type="PhysicalBone3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(-0.968991, 0.241226, -0.0302915, 0.0251176, -0.02433, -0.999635, -0.241831, -0.969445, 0.0175457, 0.0535941, 0.607072, -0.192209)
+transform = Transform3D(-0.968991, 0.241226, -0.0302915, 0.0251176, -0.02433, -0.999635, -0.241831, -0.969445, 0.0175457, 0.0535941, 0.607072, -0.192366)
 collision_layer = 4
 collision_mask = 4
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0086068, -0.202572, -0.119221)
-body_offset = Transform3D(0.968991, -0.241226, 0.0302915, 0.0251176, -0.02433, -0.999635, 0.241831, 0.969445, -0.0175457, -0.0535941, -0.124322, 0.192209)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00856865, -0.202725, -0.119218)
+body_offset = Transform3D(0.968991, -0.241226, 0.0302915, 0.0251176, -0.02433, -0.999635, 0.241831, 0.969445, -0.0175457, -0.0535941, -0.124322, 0.192366)
 bone_name = "Bone.001.Top"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -903,12 +903,12 @@ transform = Transform3D(1, -1.01446e-09, -5.96046e-08, 3.8743e-07, 1.37829e-09, 
 shape = SubResource("CapsuleShape3D_jc1mm")
 
 [node name="Head" type="PhysicalBone3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(-0.972917, 0.241392, 0.0345967, 0.0251379, 0.240671, -0.970662, -0.241819, -0.940098, -0.239665, 0.0860924, 2.03603, -0.172919)
+transform = Transform3D(-0.973547, 0.241549, 0.0345967, 0.0251379, 0.240671, -0.970662, -0.241819, -0.940098, -0.239665, 0.0860924, 2.03603, -0.172919)
 collision_layer = 4
 collision_mask = 4
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0363671, -0.231623, 0.150356)
-body_offset = Transform3D(0.972917, -0.241392, -0.0345967, -0.0396846, -0.0164188, -0.999488, 0.239862, 0.970277, -0.0254684, -0.0860924, 0.147919, 0.219845)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0363097, -0.231609, 0.150358)
+body_offset = Transform3D(0.973547, -0.241549, -0.0345967, -0.0396846, -0.0164188, -0.999488, 0.239862, 0.970277, -0.0254684, -0.0860924, 0.147919, 0.219845)
 bone_name = "Bone.002"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
