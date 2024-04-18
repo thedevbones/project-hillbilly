@@ -1,7 +1,8 @@
-[gd_scene load_steps=55 format=3 uid="uid://dn6qvrgmyyeud"]
+[gd_scene load_steps=54 format=3 uid="uid://dn6qvrgmyyeud"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_hpt1c"]
 [ext_resource type="FontFile" uid="uid://ci2qj8thyby6n" path="res://fonts/Another Danger - Demo.otf" id="2_5b21v"]
+[ext_resource type="FontFile" uid="uid://cyxhikcl2u68a" path="res://fonts/Scary House.ttf" id="3_8vun5"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_oomun"]
 [ext_resource type="AudioStream" uid="uid://4jics50lquoh" path="res://audio/SFX/ui.wav" id="4_bt1dt"]
 
@@ -16,12 +17,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xftaa"]
 
 [sub_resource type="Theme" id="Theme_j5uos"]
-
-[sub_resource type="SystemFont" id="SystemFont_gonmc"]
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_7w42e"]
-subpixel_positioning = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idv7t"]
 
@@ -211,6 +206,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
@@ -226,6 +222,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
@@ -242,6 +239,7 @@ size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
@@ -258,6 +256,7 @@ size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
@@ -272,6 +271,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2gc10")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_t0xrk")
@@ -332,7 +332,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_gonmc")
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 75
 text = "Settings "
 
@@ -342,7 +342,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
-theme_override_fonts/font = SubResource("SystemFont_7w42e")
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_idv7t")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_21xpk")
@@ -358,7 +358,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
-theme_override_fonts/font = SubResource("SystemFont_7w42e")
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_idv7t")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_21xpk")
@@ -374,6 +374,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qd8u8")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_qk1fl")
@@ -414,6 +415,7 @@ offset_left = 30.0
 offset_top = 58.0
 offset_right = 139.0
 offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 18
 text = "Main Controls"
 
@@ -427,6 +429,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2w2wi")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_uclkc")
@@ -444,6 +447,7 @@ offset_right = 232.0
 offset_bottom = 147.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Walk"
 
@@ -511,6 +515,7 @@ offset_right = 383.0
 offset_bottom = 173.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Run (press and hold)"
 
@@ -537,6 +542,7 @@ offset_right = 224.0
 offset_bottom = 197.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Jump"
 
@@ -562,6 +568,7 @@ offset_right = 204.0
 offset_bottom = 225.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Croutch"
 
@@ -589,6 +596,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2w2wi")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_uclkc")
@@ -632,6 +640,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_i6mvb")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kfmj1")
@@ -647,6 +656,7 @@ offset_left = 165.0
 offset_top = 59.0
 offset_right = 299.0
 offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 18
 text = "Attack Controls"
 
@@ -658,6 +668,7 @@ offset_right = 509.0
 offset_bottom = 125.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Select Weapon with number keys:"
 
@@ -669,6 +680,7 @@ offset_right = 235.0
 offset_bottom = 148.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Hide Weapon"
 
@@ -694,6 +706,7 @@ offset_right = 228.0
 offset_bottom = 170.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Pipe"
 
@@ -719,6 +732,7 @@ offset_right = 176.0
 offset_bottom = 192.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Knife"
 
@@ -744,6 +758,7 @@ offset_right = 269.0
 offset_bottom = 148.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Pistol"
 
@@ -769,6 +784,7 @@ offset_right = 286.0
 offset_bottom = 170.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Shotgun"
 
@@ -794,6 +810,7 @@ offset_right = 369.0
 offset_bottom = 214.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 29
 text = "Attack/Shoot - Left Click"
 
@@ -807,6 +824,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6k27j")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_fg60x")
@@ -860,6 +878,7 @@ size_flags_stretch_ratio = 0.0
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 text = "Master"
 
@@ -867,6 +886,7 @@ text = "Master"
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 text = "Music"
 
@@ -874,6 +894,7 @@ text = "Music"
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 text = "Sound FX"
 
@@ -909,10 +930,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 text = "Back"
 
 [node name="PausedVideo" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -948,6 +971,7 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 text = "Fullscreen"
 
@@ -955,6 +979,7 @@ text = "Fullscreen"
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 text = "SSAO"
 
@@ -962,6 +987,7 @@ text = "SSAO"
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 text = "SSIL"
 
@@ -969,6 +995,7 @@ text = "SSIL"
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 text = "Grass"
 
@@ -1017,6 +1044,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8vun5")
 theme_override_font_sizes/font_size = 50
 text = "Back"
 
