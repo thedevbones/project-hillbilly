@@ -147,6 +147,10 @@ interact={
 ]
 }
 
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+
 [shader_globals]
 
 sgt_player_position={

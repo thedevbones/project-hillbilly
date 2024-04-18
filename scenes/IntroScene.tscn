@@ -2,24 +2,24 @@
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
 [ext_resource type="Script" path="res://scripts/IntroScene.gd" id="1_wmn4v"]
-[ext_resource type="Texture2D" uid="uid://bibfekwwjber8" path="res://textures/grass01.jpg" id="2_lghjx"]
+[ext_resource type="Texture2D" uid="uid://b6hxhyxxw13yb" path="res://textures/grass01.jpg" id="2_lghjx"]
 [ext_resource type="PackedScene" uid="uid://bve8tek7u2y8t" path="res://scenes/CarAsset.tscn" id="3_hujll"]
-[ext_resource type="PackedScene" uid="uid://deh5spswt8hsn" path="res://assets/tree01.glb" id="5_3bave"]
-[ext_resource type="PackedScene" uid="uid://dm27ld8bqy5pu" path="res://assets/tree02.glb" id="6_hm1sl"]
-[ext_resource type="PackedScene" uid="uid://dkoel0ibrcvjb" path="res://assets/tree03.glb" id="7_uo1f7"]
-[ext_resource type="PackedScene" uid="uid://cuktqoooe7in" path="res://assets/road.glb" id="8_oclv4"]
+[ext_resource type="PackedScene" uid="uid://f1vm3rbw4j77" path="res://assets/tree01.glb" id="5_3bave"]
+[ext_resource type="PackedScene" uid="uid://dqgyv1wl4p11f" path="res://assets/tree02.glb" id="6_hm1sl"]
+[ext_resource type="PackedScene" uid="uid://pg5y5x6lmgsd" path="res://assets/tree03.glb" id="7_uo1f7"]
+[ext_resource type="PackedScene" uid="uid://deuk53jvu8l84" path="res://assets/road.glb" id="8_oclv4"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="9_b52rc"]
-[ext_resource type="Texture2D" uid="uid://chfqgbjkii5pn" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="10_aujr6"]
+[ext_resource type="Texture2D" uid="uid://b8ecxrxhpi2hf" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="10_aujr6"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="11_e4mmx"]
-[ext_resource type="AudioStream" uid="uid://d2dff6rgqqo1i" path="res://audio/SFX/Ambient/running car.mp3" id="11_f2jot"]
-[ext_resource type="AudioStream" uid="uid://cs5c6ms7ya86b" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
-[ext_resource type="AudioStream" uid="uid://wqw5f6payfdo" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
-[ext_resource type="AudioStream" uid="uid://dd01jsuy7jecj" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
-[ext_resource type="AudioStream" uid="uid://dlenfi7ut21t6" path="res://audio/Music/DeathCutScene.mp3" id="16_ay844"]
-[ext_resource type="FontFile" uid="uid://dn7s2e62gci47" path="res://fonts/Another Danger - Demo.otf" id="16_bl4lb"]
-[ext_resource type="AudioStream" uid="uid://bt6np2tiwnn4p" path="res://audio/SFX/Other/door_open.mp3" id="17_0gw8e"]
-[ext_resource type="AudioStream" uid="uid://c7u5u1vdt3lmk" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
-[ext_resource type="AudioStream" uid="uid://8m0k5qh4x2h1" path="res://audio/SFX/Other/inceptionbutton.mp3" id="19_ttubg"]
+[ext_resource type="AudioStream" uid="uid://bj003hbht5sad" path="res://audio/SFX/Ambient/running car.mp3" id="11_f2jot"]
+[ext_resource type="AudioStream" uid="uid://doitdtlgoteuu" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
+[ext_resource type="AudioStream" uid="uid://2ryskhy54pml" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
+[ext_resource type="AudioStream" uid="uid://cnakjjooareu2" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
+[ext_resource type="AudioStream" uid="uid://dholik7c6ecnd" path="res://audio/Music/DeathCutScene.mp3" id="16_ay844"]
+[ext_resource type="FontFile" uid="uid://cwlkvoiysjgic" path="res://fonts/Another Danger - Demo.otf" id="16_bl4lb"]
+[ext_resource type="AudioStream" uid="uid://bjx0uk2j24k3g" path="res://audio/SFX/Other/door_open.mp3" id="17_0gw8e"]
+[ext_resource type="AudioStream" uid="uid://dhcacyxyihgdq" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
+[ext_resource type="AudioStream" uid="uid://ca4l0il8wbehv" path="res://audio/SFX/Other/inceptionbutton.mp3" id="19_ttubg"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
 resource_name = "WorldEnviroment"
@@ -39,7 +39,7 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6hj8g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81lft"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_b52rc")
@@ -74,7 +74,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_6hj8g"),
+"material": SubResource("ShaderMaterial_81lft"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
