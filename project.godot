@@ -27,8 +27,8 @@ Graphics="*res://scripts/Graphics.gd"
 
 [display]
 
-window/size/viewport_width=426
-window/size/viewport_height=240
+window/size/viewport_width=960
+window/size/viewport_height=540
 window/size/resizable=false
 window/size/always_on_top=true
 window/size/window_width_override=1280
