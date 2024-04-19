@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://gerd3xptepvi"]
+[gd_scene load_steps=30 format=3 uid="uid://gerd3xptepvi"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
 [ext_resource type="Script" path="res://scripts/IntroScene.gd" id="1_wmn4v"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bjx0uk2j24k3g" path="res://audio/SFX/Other/door_open.mp3" id="17_0gw8e"]
 [ext_resource type="AudioStream" uid="uid://dhcacyxyihgdq" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
 [ext_resource type="AudioStream" uid="uid://ca4l0il8wbehv" path="res://audio/SFX/Other/inceptionbutton.mp3" id="19_ttubg"]
+[ext_resource type="FontFile" uid="uid://dvtl6pl8tja3t" path="res://fonts/Scary House.ttf" id="20_qt64e"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
 resource_name = "WorldEnviroment"
@@ -170,7 +171,7 @@ tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(10.556),
 "update": 1,
 "values": [true]
 }
@@ -193,8 +194,8 @@ tracks/8/path = NodePath("Name1:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.7, 2.5),
+"transitions": PackedFloat32Array(1, 0.239876, 1),
 "update": 1,
 "values": [false, true, false]
 }
@@ -205,7 +206,7 @@ tracks/9/path = NodePath("Name2:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 3.5, 5),
+"times": PackedFloat32Array(0, 3.2, 5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -217,8 +218,8 @@ tracks/10/path = NodePath("Name3:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 6, 7.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 5.7, 7.5),
+"transitions": PackedFloat32Array(1, 0.153893, 1),
 "update": 1,
 "values": [false, true, false]
 }
@@ -229,7 +230,7 @@ tracks/11/path = NodePath("Name4:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 8.5, 10),
+"times": PackedFloat32Array(0, 8.2, 10),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -241,7 +242,7 @@ tracks/12/path = NodePath("Name5:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 11, 12.5),
+"times": PackedFloat32Array(0, 10.7, 12.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -253,7 +254,7 @@ tracks/13/path = NodePath("Team intro:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 13.5, 16.5),
+"times": PackedFloat32Array(0, 13.2, 16.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -265,7 +266,7 @@ tracks/14/path = NodePath("Team intro2:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 13.5, 16.5),
+"times": PackedFloat32Array(0, 13.2, 16.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -329,6 +330,102 @@ tracks/19/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Name1:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0.7, 1, 2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Name2:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(3.2, 3.5, 4.7, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Name3:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(5.7, 6, 7.2, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Name4:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(8.2, 8.5, 9.7, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Name5:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(10.7, 11, 12.2, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Team intro:modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(13.2, 13.5, 16.2, 16.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Team intro2:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(13.2, 13.5, 16.2, 16.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Game Tittle:modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(19, 23.7, 24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gxv5i"]
@@ -572,6 +669,102 @@ tracks/19/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Name1:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Name2:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Name3:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Name4:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Name5:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Team intro:modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Team intro2:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Game Tittle:modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_44grx"]
@@ -826,87 +1019,97 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Name1" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -237.0
+offset_top = -70.0
+offset_right = -42.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_qt64e")
+theme_override_font_sizes/font_size = 30
 text = "Jordan Flores"
 
 [node name="Name2" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -237.0
+offset_top = -70.0
+offset_right = -59.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_qt64e")
+theme_override_font_sizes/font_size = 30
 text = "Jacob Doney"
 
 [node name="Name3" type="Label" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -237.0
+offset_top = -70.0
+offset_right = -44.0
+offset_bottom = -28.0003
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
-text = "Gage Buckley
-"
+theme_override_fonts/font = ExtResource("20_qt64e")
+theme_override_font_sizes/font_size = 30
+text = "Gage Buckley"
 
 [node name="Name4" type="Label" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -237.0
+offset_top = -70.0
+offset_right = -27.0
+offset_bottom = 17.0002
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
-text = "Diego Lechuga
-
-"
+theme_override_fonts/font = ExtResource("20_qt64e")
+theme_override_font_sizes/font_size = 30
+text = "Diego Lechuga"
 
 [node name="Name5" type="Label" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -237.0
+offset_top = -70.0
+offset_right = -58.0
+offset_bottom = 17.0002
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
-text = "Luis Herrera
-
-"
+theme_override_fonts/font = ExtResource("20_qt64e")
+theme_override_font_sizes/font_size = 30
+text = "Luis Herrera"
 
 [node name="Team intro" type="Label" parent="."]
 visible = false
@@ -915,14 +1118,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = 25.0
-offset_right = 180.0
-offset_bottom = 126.0
+offset_left = -332.0
+offset_top = -66.0
+offset_right = 332.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_qt64e")
+theme_override_font_sizes/font_size = 30
 text = "Team Ferengi in Association with Lehr Studios
 
 
@@ -931,40 +1136,42 @@ horizontal_alignment = 1
 
 [node name="Team intro2" type="Label" parent="."]
 visible = false
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = -69.0
-offset_right = 33.0
-offset_bottom = -20.0
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = 77.0
+offset_right = 59.5
+offset_bottom = 43.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_qt64e")
+theme_override_font_sizes/font_size = 30
 text = "Present:
 
 "
 
 [node name="Game Tittle" type="Label" parent="."]
 visible = false
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -112.0
-offset_top = -179.0
-offset_right = 117.0
-offset_bottom = -64.0
+anchor_bottom = 0.5
+offset_left = -283.5
+offset_top = -69.0
+offset_right = 283.5
+offset_bottom = 69.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 theme_override_fonts/font = ExtResource("16_bl4lb")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 80
 text = "PROJECT HILLBILLY"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

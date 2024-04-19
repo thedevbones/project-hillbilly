@@ -190,7 +190,7 @@ func _on_resolution_option_button_item_selected(index):
 	DisplayServer.window_set_size(resolution_sizes[index])
 
 func _on_bright_slider_value_changed(value):
-	Graphics.set_brightness(value)
+	Graphics.set_brightness(value*2)
 
 func _on_max_enemies_slider_value_changed(value):
 	Graphics.set_max_enemies(value)
