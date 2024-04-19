@@ -34,6 +34,8 @@ var hit_audio: AudioStreamPlayer3D
 var death_audio: AudioStreamPlayer3D
 var attack_audio: AudioStreamPlayer3D
 
+
+
 func _process(delta):
 	combat_behavior(delta)
 	#match state:
