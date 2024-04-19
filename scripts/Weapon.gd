@@ -39,7 +39,6 @@ var blood_decal = preload("res://scenes/BloodDecal.tscn")
 var object_particle = preload("res://scenes/ParticlesObjectHit.tscn")
 var enemy_particle = preload("res://scenes/ParticlesEnemyHit.tscn")
 
-signal box_hit(collision_point, collision_normal)
 
 func _ready():
 	pass
