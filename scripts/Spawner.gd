@@ -101,7 +101,7 @@ func spawn_melee_upgrades():
 
 func choose_spawn_point():
 	var spawn_point = spawn_points[randi() % spawn_points.size()]
-	var max_offset = 5
+	var max_offset = 4
 	spawn_point.global_transform.origin.x += randi_range(-max_offset, max_offset)
 	spawn_point.global_transform.origin.z += randi_range(-max_offset, max_offset)
 	return spawn_point
