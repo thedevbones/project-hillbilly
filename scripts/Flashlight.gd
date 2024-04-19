@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var player = %Player
+
 const BOB_SPEED = 0.025
 const BOB_OFFSET = 0.01
 
@@ -42,9 +44,9 @@ func handle_bobbing(delta):
 	if not visible: return
 	
 	var bob_speed
-	if not $"../..".is_moving or $"../..".is_crouching:
+	if not player.is_moving or player.is_crouching:
 		bob_speed = BOB_SPEED * 0.25
-	elif $"../..".is_sprinting:
+	elif player.is_sprinting:
 		bob_speed = BOB_SPEED * 2
 	else:
 		bob_speed = BOB_SPEED 
