@@ -6,7 +6,6 @@ enum States { PATROL, COMBAT, SEARCH }
 @onready var world = get_node("/root/World")
 @onready var spawner = get_node("/root/World/Spawner")
 
-
 var default_speed = 2.5
 var max_speed = 4.5
 var speed = 4.5
@@ -33,6 +32,7 @@ var is_waiting = false
 var hit_audio: AudioStreamPlayer3D
 var death_audio: AudioStreamPlayer3D
 var attack_audio: AudioStreamPlayer3D
+
 
 func _process(delta):
 	combat_behavior(delta)
@@ -107,8 +107,11 @@ func die():
 		drop_loot()
 		hide()
 		$CollisionShape3D.queue_free()
+		
+
 
 func drop_loot():
+	spawner.spawn_particle("sparks.tscn", global_transform.origin)
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var drop_chance = rng.randf() 

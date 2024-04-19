@@ -1,25 +1,27 @@
-[gd_scene load_steps=29 format=3 uid="uid://gerd3xptepvi"]
+[gd_scene load_steps=31 format=3 uid="uid://gerd3xptepvi"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
 [ext_resource type="Script" path="res://scripts/IntroScene.gd" id="1_wmn4v"]
-[ext_resource type="Texture2D" uid="uid://b6hxhyxxw13yb" path="res://textures/grass01.jpg" id="2_lghjx"]
+[ext_resource type="Texture2D" uid="uid://lswv2id7l0qv" path="res://textures/grass01.jpg" id="2_lghjx"]
 [ext_resource type="PackedScene" uid="uid://bve8tek7u2y8t" path="res://scenes/CarAsset.tscn" id="3_hujll"]
-[ext_resource type="PackedScene" uid="uid://f1vm3rbw4j77" path="res://assets/tree01.glb" id="5_3bave"]
-[ext_resource type="PackedScene" uid="uid://dqgyv1wl4p11f" path="res://assets/tree02.glb" id="6_hm1sl"]
-[ext_resource type="PackedScene" uid="uid://pg5y5x6lmgsd" path="res://assets/tree03.glb" id="7_uo1f7"]
-[ext_resource type="PackedScene" uid="uid://deuk53jvu8l84" path="res://assets/road.glb" id="8_oclv4"]
+[ext_resource type="PackedScene" uid="uid://dvdyvbv1yjf73" path="res://assets/tree01.glb" id="5_3bave"]
+[ext_resource type="PackedScene" uid="uid://22n4v4ydrg1r" path="res://assets/tree02.glb" id="6_hm1sl"]
+[ext_resource type="PackedScene" uid="uid://bu2jcn4yjygct" path="res://assets/tree03.glb" id="7_uo1f7"]
+[ext_resource type="PackedScene" uid="uid://caj4fewngrsa5" path="res://assets/road.glb" id="8_oclv4"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="9_b52rc"]
-[ext_resource type="Texture2D" uid="uid://b8ecxrxhpi2hf" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="10_aujr6"]
+[ext_resource type="Texture2D" uid="uid://brvhl4eptgr57" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="10_aujr6"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="11_e4mmx"]
-[ext_resource type="AudioStream" uid="uid://bj003hbht5sad" path="res://audio/SFX/Ambient/running car.mp3" id="11_f2jot"]
-[ext_resource type="AudioStream" uid="uid://doitdtlgoteuu" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
-[ext_resource type="AudioStream" uid="uid://2ryskhy54pml" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
-[ext_resource type="AudioStream" uid="uid://cnakjjooareu2" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
-[ext_resource type="AudioStream" uid="uid://dholik7c6ecnd" path="res://audio/Music/DeathCutScene.mp3" id="16_ay844"]
-[ext_resource type="FontFile" uid="uid://cwlkvoiysjgic" path="res://fonts/Another Danger - Demo.otf" id="16_bl4lb"]
-[ext_resource type="AudioStream" uid="uid://bjx0uk2j24k3g" path="res://audio/SFX/Other/door_open.mp3" id="17_0gw8e"]
-[ext_resource type="AudioStream" uid="uid://dhcacyxyihgdq" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
-[ext_resource type="AudioStream" uid="uid://ca4l0il8wbehv" path="res://audio/SFX/Other/inceptionbutton.mp3" id="19_ttubg"]
+[ext_resource type="AudioStream" uid="uid://d1l3whu75ny5f" path="res://audio/SFX/Ambient/running car.mp3" id="11_f2jot"]
+[ext_resource type="AudioStream" uid="uid://ddtc05q0gd7e6" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
+[ext_resource type="AudioStream" uid="uid://dhmpu2ggtmgmg" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
+[ext_resource type="AudioStream" uid="uid://dgatmbnfmgl17" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
+[ext_resource type="AudioStream" uid="uid://brswvh58k8fpv" path="res://audio/Music/DeathCutScene.mp3" id="16_ay844"]
+[ext_resource type="FontFile" uid="uid://bk6wtt18617ra" path="res://fonts/Another Danger - Demo.otf" id="16_bl4lb"]
+[ext_resource type="AudioStream" uid="uid://ycrcgngpfcg" path="res://audio/SFX/Other/door_open.mp3" id="17_0gw8e"]
+[ext_resource type="AudioStream" uid="uid://uf2y14mfo10" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
+[ext_resource type="AudioStream" uid="uid://dlhx46df8t2ft" path="res://audio/SFX/Other/inceptionbutton.mp3" id="19_ttubg"]
+[ext_resource type="AudioStream" uid="uid://r5vfdpexylpq" path="res://audio/SFX/Other/Car failure.mp3" id="20_tagv8"]
+[ext_resource type="FontFile" uid="uid://douqnhjmajht6" path="res://fonts/Scary House.ttf" id="21_165hv"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
 resource_name = "WorldEnviroment"
@@ -39,7 +41,7 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_81lft"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4o7n"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_b52rc")
@@ -74,7 +76,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_81lft"),
+"material": SubResource("ShaderMaterial_f4o7n"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -97,7 +99,7 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 25.5, 31),
+"times": PackedFloat32Array(0, 5.5, 25.5, 29.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.264032, 2.16646, -30.7131), Vector3(5.264, 14.166, -4.713), Vector3(5.264, 14.166, -4.713), Vector3(3.264, 2.166, -2.713)]
@@ -109,7 +111,7 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5, 25.5, 31),
+"times": PackedFloat32Array(0, 5.5, 25.5, 29.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(4.77763e-16, 0.492828, -1.22669e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-0.139626, 0.158825, 3.48787e-16)]
@@ -121,7 +123,7 @@ tracks/2/path = NodePath("car2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 8),
+"times": PackedFloat32Array(0, 7.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.712363, 0.208457, -39.3875), Vector3(0.712, 0.208, -5.388)]
@@ -133,7 +135,7 @@ tracks/3/path = NodePath("Running car:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(-0.4, 6.8),
+"times": PackedFloat32Array(-0.4, 4.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -145,7 +147,7 @@ tracks/4/path = NodePath("stall car:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
-"times": PackedFloat32Array(13.6, 15.2, 15.8, 18),
+"times": PackedFloat32Array(11.9, 13.6, 14.4, 16.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false]
@@ -253,7 +255,7 @@ tracks/13/path = NodePath("Team intro:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 13.5, 16.5),
+"times": PackedFloat32Array(0, 13.5, 17),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -265,7 +267,7 @@ tracks/14/path = NodePath("Team intro2:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 13.5, 16.5),
+"times": PackedFloat32Array(0, 13.5, 17),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -329,6 +331,18 @@ tracks/19/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("car fail:playing")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(1.7, 7.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_gxv5i"]
@@ -573,6 +587,18 @@ tracks/19/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("car fail:playing")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_44grx"]
 _data = {
@@ -791,7 +817,7 @@ bus = &"SFX"
 
 [node name="Running car" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("11_f2jot")
-volume_db = 45.671
+volume_db = 51.963
 max_db = 6.0
 bus = &"SFX"
 
@@ -802,17 +828,23 @@ bus = &"Music"
 
 [node name="Door open" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("17_0gw8e")
-volume_db = 11.038
+volume_db = 20.181
 bus = &"SFX"
 
 [node name="Door close" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("18_srcnl")
-volume_db = 11.038
+volume_db = 20.181
 bus = &"SFX"
 
 [node name="inception horn" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("19_ttubg")
 volume_db = 16.981
+pitch_scale = 0.7
+bus = &"SFX"
+
+[node name="car fail" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("20_tagv8")
+volume_db = 2.933
 pitch_scale = 0.7
 bus = &"SFX"
 
@@ -838,6 +870,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Jordan Flores"
 
 [node name="Name2" type="Label" parent="."]
@@ -853,6 +886,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Jacob Doney"
 
 [node name="Name3" type="Label" parent="."]
@@ -869,6 +903,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Gage Buckley
 "
 
@@ -886,6 +921,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Diego Lechuga
 
 "
@@ -904,6 +940,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Luis Herrera
 
 "
@@ -923,6 +960,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Team Ferengi in Association with Lehr Studios
 
 
@@ -944,6 +982,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Present:
 
 "

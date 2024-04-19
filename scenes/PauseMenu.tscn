@@ -1,10 +1,10 @@
 [gd_scene load_steps=54 format=3 uid="uid://dn6qvrgmyyeud"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_hpt1c"]
-[ext_resource type="FontFile" uid="uid://ci2qj8thyby6n" path="res://fonts/Another Danger - Demo.otf" id="2_5b21v"]
-[ext_resource type="FontFile" uid="uid://cyxhikcl2u68a" path="res://fonts/Scary House.ttf" id="3_8vun5"]
+[ext_resource type="FontFile" uid="uid://bk6wtt18617ra" path="res://fonts/Another Danger - Demo.otf" id="2_5b21v"]
+[ext_resource type="FontFile" uid="uid://douqnhjmajht6" path="res://fonts/Scary House.ttf" id="3_8vun5"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_oomun"]
-[ext_resource type="AudioStream" uid="uid://4jics50lquoh" path="res://audio/SFX/ui.wav" id="4_bt1dt"]
+[ext_resource type="AudioStream" uid="uid://bjj7onwu10pfq" path="res://audio/SFX/ui.wav" id="4_bt1dt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gc10"]
 
