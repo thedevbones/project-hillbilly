@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://p3k21cy70ism"]
 
 [ext_resource type="Script" path="res://scripts/death_cut.gd" id="1_1x83r"]
-[ext_resource type="FontFile" uid="uid://eusi2472nhr" path="res://fonts/Another Danger - Demo.otf" id="2_jcebm"]
-[ext_resource type="AudioStream" uid="uid://w3xt7w6yr520" path="res://audio/Music/DeathCutScene.mp3" id="3_6m2d1"]
+[ext_resource type="FontFile" uid="uid://bk6wtt18617ra" path="res://fonts/Another Danger - Demo.otf" id="2_jcebm"]
+[ext_resource type="AudioStream" uid="uid://brswvh58k8fpv" path="res://audio/Music/DeathCutScene.mp3" id="3_6m2d1"]
 
 [sub_resource type="Animation" id="Animation_15qd1"]
 resource_name = "Death"
