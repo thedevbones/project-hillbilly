@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3cs2rgq1o00x"]
+
+[ext_resource type="PackedScene" uid="uid://cudoqcngso1st" path="res://assets/enemies/dog.glb" id="1_kuj85"]
+
+[node name="Dog" type="Node3D"]
+
+[node name="dog" parent="." instance=ExtResource("1_kuj85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18881, 1.19209e-07, -1.47919)
+
+[node name="Skeleton3D" parent="dog/Armature" index="0"]
+bones/2/position = Vector3(-2.08375e-10, 0.999691, -0.0179507)
+bones/2/rotation = Quaternion(0.0788778, 2.8767e-08, 2.57001e-09, 0.996884)
+bones/6/position = Vector3(1.30187e-09, 1.29415, 0.0660598)
+bones/8/rotation = Quaternion(-0.297104, -4.02437e-08, -1.2522e-08, 0.954845)
+bones/9/position = Vector3(0.303019, 1.29767, -2.01079)
+bones/9/rotation = Quaternion(-0.823687, -0.00799525, -0.00550352, 0.566962)
+bones/12/position = Vector3(-0.323272, 1.30076, -2.01184)
+bones/12/rotation = Quaternion(-0.823614, 0.00799448, 0.00550444, 0.567068)
+bones/16/position = Vector3(0.295443, 0.403998, -0.909867)
+bones/16/rotation = Quaternion(0.940925, 0.00228148, 0.000821117, -0.338606)
+bones/19/position = Vector3(-0.315697, 0.414921, -0.900927)
+bones/19/rotation = Quaternion(0.942201, -0.00228457, -0.000812466, -0.335039)
+
+[editable path="dog"]
