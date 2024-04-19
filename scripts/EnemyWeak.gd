@@ -34,9 +34,6 @@ func apply_damage(damage):
 	var knockback_direction = -(player.global_transform.origin - global_transform.origin).normalized()
 	# Apply knockback force to enemy
 	knockback(knockback_direction)
-	anim_name = "idle2"
-	animation_player.play(anim_name)
-	movement()
 	
 
 
@@ -105,6 +102,8 @@ func _on_death_finished():
 
 func knockback(direction: Vector3):
 	velocity = direction * knockback_force
+	anim_name = "idle2"
+	animation_player.play(anim_name)
 	move_and_slide()
 
 	
