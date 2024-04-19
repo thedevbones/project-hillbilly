@@ -106,7 +106,8 @@ func die():
 		world.add_alive_enemies(-1)
 		drop_loot()
 		hide()
-		$CollisionShape3D.queue_free()
+		if $CollisionShape3D:
+			$CollisionShape3D.queue_free()
 		
 
 

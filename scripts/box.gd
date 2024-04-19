@@ -6,7 +6,6 @@ func apply_damage(collision_point, collision_normal, force_magnitude):
 
 func move_box(collision_point, collision_normal, force_magnitude):
 	var force_direction = -collision_normal.normalized()
-	print(force_direction)
 	apply_central_force(force_direction * force_magnitude)
 
 	# Option 2: Set the box's position or translation directly

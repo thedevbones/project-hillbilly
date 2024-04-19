@@ -94,6 +94,7 @@ func respawn(enemy):
 func prompt_upgrade():
 	%UI.update_upgrade_prompt()
 	$Spawner.spawn_upgrade_select()
+	switch_state(GameState.PREPARATION)
 
 func adjust_demo_settings():
 	boss_wave = 3

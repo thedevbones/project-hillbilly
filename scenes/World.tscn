@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=93 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -93,7 +93,16 @@ corner_radius_bottom_left = 1024
 [sub_resource type="Environment" id="Environment_t0ccy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fhrpv"]
-size = Vector3(63.6428, 10, 85.999)
+size = Vector3(90.0591, 16.5275, 77.4003)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jd6ag"]
+size = Vector3(48.4336, 22.7759, 56.3179)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqqee"]
+size = Vector3(10.7167, 15.7569, 60.9149)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p82h0"]
+size = Vector3(10.5508, 18.3637, 82.0918)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -164,7 +173,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sus7p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5y3c"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -199,7 +208,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_sus7p"),
+"material": SubResource("ShaderMaterial_e5y3c"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -427,14 +436,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.07, 0.875, -33.3315)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2897, 0.875, 47.338)
 
 [node name="GameBounds" type="Area3D" parent="."]
-transform = Transform3D(1.344, 0, 0, 0, 1.332, 0, 0, 0, 1, 28.7485, 4.975, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7485, 4.975, 0)
 collision_layer = 16
 collision_mask = 16
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameBounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7286, 0, 7.38717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6516, 3.26373, 11.6032)
 shape = SubResource("BoxShape3D_fhrpv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="GameBounds"]
+transform = Transform3D(0.818902, 0, 0.573934, 0, 1, 0, -0.573934, 0, 0.818902, -106.504, 4.0563, 53.5814)
+shape = SubResource("BoxShape3D_jd6ag")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="GameBounds"]
+transform = Transform3D(0.00811564, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00811564, -16.2484, 0.151947, 53.3025)
+shape = SubResource("BoxShape3D_kqqee")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="GameBounds"]
+transform = Transform3D(0.963673, 0, -0.267087, 0, 1, 0, 0.267087, 0, 0.963673, -99.9505, 4.13541, -7.80598)
+shape = SubResource("BoxShape3D_p82h0")
 
 [node name="PrepTimer" type="Timer" parent="."]
 one_shot = true
@@ -1084,7 +1105,7 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="house3" parent="NavMesh" instance=ExtResource("62_r23w0")]
-transform = Transform3D(-0.0349778, 0, 0.00124774, 0, 0.035, 0, -0.00124774, 0, -0.0349778, 7.64806, 0.289669, -23.5881)
+transform = Transform3D(-0.0349778, 0, 0.00124774, 0, 0.035, 0, -0.00124774, 0, -0.0349778, 7.64806, -0.108914, -23.5881)
 
 [node name="house4" parent="NavMesh" instance=ExtResource("63_5tur1")]
 transform = Transform3D(0.179472, 0, -0.0882604, 0, 0.2, 0, 0.0882604, 0, 0.179472, -54.3387, 0, -14.9962)
