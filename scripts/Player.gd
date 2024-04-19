@@ -298,6 +298,13 @@ func toggle_flashlight():
 
 func apply_damage(damage, damage_type):
 	health -= damage
+	
+	# Kickback effect
+	# Kickback direction opposite to the camera's forward direction
+	var kickback_direction = -head.transform.basis.z.normalized()  
+	var kickback_force = 10.0
+	velocity += kickback_direction * kickback_force
+	
 	if not $Impact.is_playing():
 		match damage_type:
 			"axe": $Impact.set_stream(impact_sounds[0])
@@ -319,7 +326,7 @@ func die():
 		speed = 0
 		var tween = get_tree().create_tween()
 		await get_tree().create_timer(3.0).timeout
-		get_tree().change_scene_to_file("res://death_cut.tscn")
+		get_tree().change_scene_to_file("res://scenes/death_cut.tscn")
 		
 
 func process_raycast():
