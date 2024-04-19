@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=58 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cpaqn0wa050j1" path="res://audio/Music/menu.mp3" id="4_24813"]
 [ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="4_wtf1n"]
 [ext_resource type="AudioStream" uid="uid://baviiqms2hka5" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
+[ext_resource type="Script" path="res://addons/SliderLabel/SliderLabel.gd" id="5_ywy6p"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -80,9 +81,10 @@ func _on_video_setting_btn_pressed():
 	$SSAOCheckBox.button_pressed = Graphics.get_ssao()
 	$SSILCheckBox.button_pressed = Graphics.get_ssil()
 	$GrassCheckBox.button_pressed = Graphics.get_grass()
-	$\"../../../MarginContainer2/HBoxContainer/Sliders/SwayCheckBox\".button_pressed = Graphics.swaying
 	$BobCheckBox.button_pressed = Graphics.bobbing
-	$\"../../../MarginContainer2/HBoxContainer/Sliders/BrightSlider\".value = Graphics.get_brightness()
+	$Fullscreen.button_pressed = DisplayServer.window_get_mode() == 3
+	$\"../../../MarginContainer2/HBoxContainer/Sliders/SwayCheckBox\".button_pressed = Graphics.swaying
+	$\"../../../MarginContainer2/HBoxContainer/Sliders/BrightSlider\".value = Graphics.get_brightness() / 2
 	$\"../../../MarginContainer2/HBoxContainer/Sliders/MaxEnemiesSlider\".value = Graphics.get_max_enemies()
 	$\"../../../MarginContainer2/HBoxContainer/Sliders/MaxDecalsSlider\".value = Graphics.get_max_decals()
 "
@@ -942,7 +944,6 @@ theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="Video" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1120,7 +1121,6 @@ text = "Camera Sway"
 [node name="Sliders" type="VBoxContainer" parent="Video/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
 theme_override_constants/separation = 26
 script = SubResource("GDScript_gd73m")
 metadata/_edit_use_anchors_ = true
@@ -1135,10 +1135,23 @@ icon_alignment = 1
 [node name="BrightSlider" type="HSlider" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
 size_flags_vertical = 1
-min_value = 0.1
-max_value = 2.0
-step = 0.1
+max_value = 1.0
+step = 0.05
 value = 1.0
+tick_count = 21
+ticks_on_borders = true
+
+[node name="SliderLabel" type="Label" parent="Video/MarginContainer2/HBoxContainer/Sliders/BrightSlider"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ywy6p")
+visibility_rule = 0
+metadata/_edit_initialized_ = true
 
 [node name="MaxEnemiesSlider" type="HSlider" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
@@ -1147,12 +1160,40 @@ min_value = 10.0
 max_value = 50.0
 step = 5.0
 value = 20.0
+tick_count = 9
+ticks_on_borders = true
+
+[node name="SliderLabel" type="Label" parent="Video/MarginContainer2/HBoxContainer/Sliders/MaxEnemiesSlider"]
+offset_right = 28.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ywy6p")
+visibility_rule = 0
+metadata/_edit_initialized_ = true
 
 [node name="MaxDecalsSlider" type="HSlider" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
 size_flags_vertical = 1
 max_value = 60.0
+step = 5.0
 value = 30.0
+tick_count = 13
+ticks_on_borders = true
+
+[node name="SliderLabel" type="Label" parent="Video/MarginContainer2/HBoxContainer/Sliders/MaxDecalsSlider"]
+offset_right = 28.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ywy6p")
+visibility_rule = 0
+custom_format = "%ss"
+metadata/_edit_initialized_ = true
 
 [node name="SwayCheckBox" type="CheckBox" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
