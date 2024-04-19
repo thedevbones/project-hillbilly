@@ -4,7 +4,7 @@ extends "res://scripts/EnemyBase.gd"
 @onready var animation_player 
 const LERP = 1.5
 var anim_name = "walk"
-var knockback_force = 25
+var knockback_force = 20
 
 
 func _ready():
@@ -34,6 +34,9 @@ func apply_damage(damage):
 	var knockback_direction = -(player.global_transform.origin - global_transform.origin).normalized()
 	# Apply knockback force to enemy
 	knockback(knockback_direction)
+	anim_name = "idle2"
+	animation_player.play(anim_name)
+	movement()
 	
 
 
