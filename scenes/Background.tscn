@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://6drj3uyglv1o"]
+[gd_scene load_steps=20 format=3 uid="uid://6drj3uyglv1o"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_i1cr5"]
 [ext_resource type="Texture2D" uid="uid://lswv2id7l0qv" path="res://textures/grass01.jpg" id="1_ptttf"]
@@ -30,7 +30,7 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqb8m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bt8ft"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_jmhoe")
@@ -65,7 +65,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_gqb8m"),
+"material": SubResource("ShaderMaterial_bt8ft"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -80,15 +80,68 @@ buffer = PackedFloat32Array(0.537053, 0, 0.843549, -3.23644, 0, 1, 0, 5.96046e-0
 
 [sub_resource type="Animation" id="Animation_f20oe"]
 resource_name = "mainMenu"
-length = 40.0
+length = 35.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("car2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.712, 0.208, -35.388), Vector3(-0.3, 0.208, -1.388)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("car2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.48787e-16, 1.52955, 3.48787e-16), Vector3(3.48787e-16, 1.63014, 3.48787e-16)]
+}
+
+[sub_resource type="Animation" id="Animation_ladgv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("car2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.712, 0.208, -35.388)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("car2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.48787e-16, 1.52955, 3.48787e-16)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_77ij4"]
 _data = {
+"RESET": SubResource("Animation_ladgv"),
 "mainMenu": SubResource("Animation_f20oe")
 }
 
 [node name="main" type="Node3D"]
-transform = Transform3D(0.347459, 0, 0.937695, 0, 1, 0, -0.937695, 0, 0.347459, -5.65794, 7.136, 8.30549)
+transform = Transform3D(0.347459, 0, 0.937695, 0, 1, 0, -0.937695, 0, 0.347459, 10.6013, 10.3587, -1.96064)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_i1cr5")
@@ -108,7 +161,7 @@ size = Vector3(51.8276, 0.5, 84.7751)
 material = SubResource("StandardMaterial3D_rqfxr")
 
 [node name="car2" parent="." instance=ExtResource("3_ur2cg")]
-transform = Transform3D(0.0189661, 1.53691e-16, 0.287756, 1.60442e-16, 0.460001, -1.00451e-16, -0.459609, 1.66921e-16, 0.0118744, 0.712363, 0.208457, -39.3875)
+transform = Transform3D(0.0189661, 1.53691e-16, 0.287756, 1.60442e-16, 0.460001, -1.00451e-16, -0.459609, 1.66921e-16, 0.0118745, 0.712, 0.208, -35.388)
 script = ExtResource("4_24hqo")
 
 [node name="Camera3D" type="Camera3D" parent="car2"]
@@ -242,6 +295,9 @@ transform = Transform3D(0.501148, 0, -0.865362, 0, 1, 0, 0.865362, 0, 0.501148, 
 [node name="tree06" parent="Trees" instance=ExtResource("5_y75wk")]
 transform = Transform3D(0.501148, 0, -0.865361, 0, 1, 0, 0.865361, 0, 0.501148, 8.03867, -4.76837e-07, -38.9356)
 
+[node name="tree30" parent="Trees" instance=ExtResource("5_y75wk")]
+transform = Transform3D(0.501148, 0, -0.865362, 0, 1, 0, 0.865362, 0, 0.501148, -8.87687, 0, -44.2388)
+
 [node name="Roads" type="Node3D" parent="."]
 
 [node name="road" parent="Roads" instance=ExtResource("6_kptrq")]
@@ -277,3 +333,4 @@ metadata/SimpleGrassTextured = "2.0.3"
 libraries = {
 "": SubResource("AnimationLibrary_77ij4")
 }
+autoplay = "mainMenu"
