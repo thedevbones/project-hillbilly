@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://b2o6m17okgti4"]
+[gd_scene load_steps=44 format=3 uid="uid://b2o6m17okgti4"]
 
 [ext_resource type="Texture2D" uid="uid://dtxwcmjfk1sst" path="res://assets/textures/Plane Base Color.001.png" id="1_ldsad"]
+[ext_resource type="Script" path="res://scripts/Car.gd" id="1_lrhuu"]
 [ext_resource type="Texture2D" uid="uid://fo5v2xg1k74b" path="res://assets/textures/Cylinder.003 Base Color.png" id="2_xn2nr"]
 [ext_resource type="Texture2D" uid="uid://pfrravj245e7" path="res://assets/textures/backlight base Color.png" id="3_5xn2v"]
 [ext_resource type="Texture2D" uid="uid://bbyg5lbj63r8m" path="res://assets/textures/Front light Base Color.png" id="4_2ussr"]
@@ -595,6 +596,7 @@ points = PackedVector3Array(5.98848, 1.89222, 0.614131, 6.10176, 1.65728, 1.2559
 collision_layer = 5
 collision_mask = 5
 mass = 1000.0
+script = ExtResource("1_lrhuu")
 
 [node name="Plane_004" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.180244, 0.0866728, 0, -0.0866728, 0.180244, 0, 0, 0, 0.698333, 0.929216, 0.37507, -0.123296)

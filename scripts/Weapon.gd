@@ -39,6 +39,7 @@ var blood_decal = preload("res://scenes/BloodDecal.tscn")
 var object_particle = preload("res://scenes/ParticlesObjectHit.tscn")
 var enemy_particle = preload("res://scenes/ParticlesEnemyHit.tscn")
 
+
 func _ready():
 	pass
 
@@ -135,6 +136,9 @@ func hitscan():
 			hit_damage.global_position = collision_point
 			hit_damage.look_at(collision_point + collision_normal, Vector3.UP)
 			hit_damage.look_at(collision_point + collision_normal, Vector3.RIGHT)
+			
+			if collider is RigidBody3D:
+				collider.apply_damage(collision_point, collision_normal, 10000) 
 			
 
 func muzzle_flash():
