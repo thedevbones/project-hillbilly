@@ -375,6 +375,39 @@
 -   Further improve Menu UI.  
 -   Create more adaptive animations to help the player such as point tracking.  
 
+## Sprint 3
+
+#### Contributions 
+
+**Luis**: "Create an engaging and visualty pleasing animations and cinematics"
+
+- `Jira Task: Luis - Implement a moving car in main menu` 
+	- [FER-76](https://cs3398s24ferengi.atlassian.net/browse/FER-76),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-76-implement-a-moving-car-in-main-me)
+- `Jira Task: Luis - Created a moving car animation` 
+	- [FER-55](https://cs3398s24ferengi.atlassian.net/browse/FER-55),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-55-created-a-moving-car-animation)
+- `Jira Task: Luis - Added music to end game cut scene` 
+	- [FER-81](https://cs3398s24ferengi.atlassian.net/browse/FER-81),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-81-added-music-to-end-game-cut-scene)
+- `Jira Task: Luis - Create missing Audio and add to intro cinematic` 
+	- [FER-84](https://cs3398s24ferengi.atlassian.net/browse/FER-84),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-84-create-missing-audio-and-add-to-i)
+- `Jira Task: Luis - Create a basic death cut scene` 
+	- [FER-99](https://cs3398s24ferengi.atlassian.net/browse/FER-99),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-99-create-a-basic-death-cut-scene)
+- `Jira Task: Luis - Connected intro cutscene to Menu` 
+	- [FER-54](https://cs3398s24ferengi.atlassian.net/browse/FER-54),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-54-connected-intro-cutscene-to-menu)
+- `Jira Task: Luis - Add a pop up tittle to intro cinematic` 
+	- [FER-82](https://cs3398s24ferengi.atlassian.net/browse/FER-82),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-82-add-a-pop-up-tittle-to-intro-cine)
+- `Jira Task: Luis - Upgrade Main Menu cinematic` 
+	- [FER-80](https://cs3398s24ferengi.atlassian.net/browse/FER-80),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-80-upgrade-main-menu-cinematic)
+
+
+
 <!-- Optional -->
 <!-- ## License -->
 <!-- This project is open source and available under the [... License](). -->
