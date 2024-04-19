@@ -129,3 +129,4 @@ func _movement():
 
 func _on_bullet_hit_finished():
 	pass # Replace with function body.
+	
