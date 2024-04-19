@@ -406,6 +406,7 @@ text = "Main Menu
 visible = false
 texture_filter = 1
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -1164,6 +1165,7 @@ tick_count = 9
 ticks_on_borders = true
 
 [node name="SliderLabel" type="Label" parent="Video/MarginContainer2/HBoxContainer/Sliders/MaxEnemiesSlider"]
+layout_mode = 0
 offset_right = 28.0
 offset_bottom = 23.0
 size_flags_horizontal = 4
@@ -1184,6 +1186,7 @@ tick_count = 13
 ticks_on_borders = true
 
 [node name="SliderLabel" type="Label" parent="Video/MarginContainer2/HBoxContainer/Sliders/MaxDecalsSlider"]
+layout_mode = 0
 offset_right = 28.0
 offset_bottom = 23.0
 size_flags_horizontal = 4
@@ -1230,8 +1233,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500945, -2.9777, 0.423937)
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="Video/MarginContainer/HBoxContainer/Checks" method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/AttackControls" to="." method="_on_attack_controls_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Tutorial_Attack/MainControls" to="." method="_on_main_controls_pressed"]
