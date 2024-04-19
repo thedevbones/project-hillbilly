@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://gerd3xptepvi"]
+[gd_scene load_steps=31 format=3 uid="uid://gerd3xptepvi"]
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
 [ext_resource type="Script" path="res://scripts/IntroScene.gd" id="1_wmn4v"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://uf2y14mfo10" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
 [ext_resource type="AudioStream" uid="uid://dlhx46df8t2ft" path="res://audio/SFX/Other/inceptionbutton.mp3" id="19_ttubg"]
 [ext_resource type="AudioStream" uid="uid://r5vfdpexylpq" path="res://audio/SFX/Other/Car failure.mp3" id="20_tagv8"]
+[ext_resource type="FontFile" uid="uid://douqnhjmajht6" path="res://fonts/Scary House.ttf" id="21_165hv"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
 resource_name = "WorldEnviroment"
@@ -98,7 +99,7 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.5, 25.5, 31),
+"times": PackedFloat32Array(0, 5.5, 25.5, 29.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.264032, 2.16646, -30.7131), Vector3(5.264, 14.166, -4.713), Vector3(5.264, 14.166, -4.713), Vector3(3.264, 2.166, -2.713)]
@@ -110,7 +111,7 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5.5, 25.5, 31),
+"times": PackedFloat32Array(0, 5.5, 25.5, 29.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(4.77763e-16, 0.492828, -1.22669e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-0.139626, 0.158825, 3.48787e-16)]
@@ -827,12 +828,12 @@ bus = &"Music"
 
 [node name="Door open" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("17_0gw8e")
-volume_db = 11.038
+volume_db = 20.181
 bus = &"SFX"
 
 [node name="Door close" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("18_srcnl")
-volume_db = 11.038
+volume_db = 20.181
 bus = &"SFX"
 
 [node name="inception horn" type="AudioStreamPlayer3D" parent="."]
@@ -869,6 +870,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Jordan Flores"
 
 [node name="Name2" type="Label" parent="."]
@@ -884,6 +886,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Jacob Doney"
 
 [node name="Name3" type="Label" parent="."]
@@ -900,6 +903,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Gage Buckley
 "
 
@@ -917,6 +921,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Diego Lechuga
 
 "
@@ -935,6 +940,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Luis Herrera
 
 "
@@ -954,6 +960,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Team Ferengi in Association with Lehr Studios
 
 
@@ -975,6 +982,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_165hv")
 text = "Present:
 
 "

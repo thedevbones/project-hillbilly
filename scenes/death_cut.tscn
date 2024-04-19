@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://p3k21cy70ism"]
+[gd_scene load_steps=17 format=3 uid="uid://p3k21cy70ism"]
 
 [ext_resource type="Script" path="res://scripts/death_cut.gd" id="1_1x83r"]
 [ext_resource type="FontFile" uid="uid://bk6wtt18617ra" path="res://fonts/Another Danger - Demo.otf" id="2_jcebm"]
 [ext_resource type="AudioStream" uid="uid://brswvh58k8fpv" path="res://audio/Music/DeathCutScene.mp3" id="3_6m2d1"]
+[ext_resource type="FontFile" uid="uid://douqnhjmajht6" path="res://fonts/Scary House.ttf" id="3_bd2cf"]
 
 [sub_resource type="Animation" id="Animation_15qd1"]
 resource_name = "Death"
@@ -141,6 +142,8 @@ grow_vertical = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bd2cf")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tlayk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nn8yn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_k1uq1")
@@ -165,6 +168,8 @@ grow_vertical = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bd2cf")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tlayk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nn8yn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_k1uq1")
@@ -189,6 +194,8 @@ grow_vertical = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.996078, 0.996078, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bd2cf")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tlayk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nn8yn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_k1uq1")
