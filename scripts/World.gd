@@ -10,8 +10,11 @@ var enemies_in_queue = 0
 var boss_wave = 5
 var wave_spawn_mult = 5
 var demo_mode = false
+var menu_scene = preload("res://scenes/MenuMain.tscn")
 
 func _ready():
+	var menu = menu_scene.instantiate()
+	add_child(menu)
 	switch_state(GameState.GAME_START)
 	demo_mode = Graphics.demo_mode
 	if demo_mode: adjust_demo_settings()
