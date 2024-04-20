@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bk38rh6a8nyoo"]
 
-[ext_resource type="PackedScene" uid="uid://ciychnake87xn" path="res://assets/flashlight.blend" id="1_a385h"]
-[ext_resource type="PackedScene" uid="uid://by0yupplakjo" path="res://assets/flashlight.glb" id="2_jsc76"]
+[ext_resource type="PackedScene" uid="uid://ey6jl3b4k6ok" path="res://assets/flashlight.blend" id="1_a385h"]
+[ext_resource type="PackedScene" uid="uid://bp3vrkylwgcvq" path="res://assets/flashlight.glb" id="2_jsc76"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cy0h"]
 albedo_color = Color(0.831373, 0.831373, 0.831373, 1)
@@ -12,6 +12,15 @@ roughness = 0.4
 
 [node name="flashlight" parent="." index="0" instance=ExtResource("2_jsc76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9529, -0.230695, 0.12947)
+
+[node name="Cylinder" parent="flashlight" index="0"]
+layers = 2
+
+[node name="Sphere" parent="flashlight" index="1"]
+layers = 2
+
+[node name="Plane" parent="flashlight" index="2"]
+layers = 2
 
 [node name="Light" parent="." index="1"]
 transform = Transform3D(-0.290865, -0.771101, 0.566393, -0.0551891, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, 0.00763772, 0.453161, 0.410994)
@@ -45,3 +54,5 @@ layers = 2
 transform = Transform3D(1.61017e-07, -6.22739e-05, 0.0675345, 0.0675348, 0.00042658, 0, -0.000270886, 0.106349, 3.95452e-05, 0, 0, 0)
 visible = false
 layers = 2
+
+[editable path="flashlight"]

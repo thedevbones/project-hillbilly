@@ -1,10 +1,10 @@
 [gd_scene load_steps=54 format=3 uid="uid://dn6qvrgmyyeud"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_hpt1c"]
-[ext_resource type="FontFile" uid="uid://ci2qj8thyby6n" path="res://fonts/Another Danger - Demo.otf" id="2_5b21v"]
-[ext_resource type="FontFile" uid="uid://cyxhikcl2u68a" path="res://fonts/Scary House.ttf" id="3_8vun5"]
+[ext_resource type="FontFile" uid="uid://cwlkvoiysjgic" path="res://fonts/Another Danger - Demo.otf" id="2_5b21v"]
+[ext_resource type="FontFile" uid="uid://dvtl6pl8tja3t" path="res://fonts/Scary House.ttf" id="3_8vun5"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_oomun"]
-[ext_resource type="AudioStream" uid="uid://4jics50lquoh" path="res://audio/SFX/ui.wav" id="4_bt1dt"]
+[ext_resource type="AudioStream" uid="uid://baviiqms2hka5" path="res://audio/SFX/ui.wav" id="4_bt1dt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gc10"]
 
@@ -1060,8 +1060,8 @@ bus = &"Music"
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InVideoSettingBtn" to="." method="_on_in_video_setting_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/InVideoSettingBtn" to="PausedVideo/MarginContainer/HBoxContainer/Checks" method="_on_in_video_setting_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="." method="_on_back_pause_btn_pressed"]
-[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="PauseSetting/MarginContainer/SettingsDisplay/BackPauseBtn" to="PauseSetting" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/AttackControls" to="." method="_on_attack_controls_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/Return_Menu" to="." method="_on_return_menu_pressed"]
 [connection signal="pressed" from="Tutorial_Attack/MainControls" to="." method="_on_main_controls_pressed"]

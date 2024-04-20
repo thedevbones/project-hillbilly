@@ -84,6 +84,7 @@ func _ready():
 		health = 20
 		max_health = 20
 		%UI.health_bar.max_value = max_health
+		unlock_item(Items.FLASHLIGHT)
 
 func _input(event):
 	# Handle weapon inputs
@@ -294,7 +295,7 @@ func get_ammo(weapon_type):
 func toggle_flashlight():
 	if not has_item(Items.FLASHLIGHT): return
 	var flashlight = items[Items.FLASHLIGHT]
-	if flashlight: $Head/MainCamera/Flashlight.toggle()
+	if flashlight: $Neck/Head/MainCamera/Flashlight.toggle()
 
 func apply_damage(damage, damage_type):
 	health -= damage

@@ -19,7 +19,7 @@ func _ready():
 	hit_timer = $HitTimer
 	laugh()
 	damage_type = "rake"
-	health = 30
+	health = 60
 	damage = 2
 	default_speed = 5
 	$BossUI.modulate = Color("ffffff", 0)
