@@ -16,8 +16,8 @@ var background_scene = preload("res://scenes/Background.tscn")
 
 func _on_start_btn_pressed():
 	Graphics.in_game = true
-	var tween1 = get_tree().create_tween()
-	tween1.tween_property($BlackScreen, "modulate", Color("ffffff", 1), 0.5)
+	# var tween1 = get_tree().create_tween()
+	# tween1.tween_property($BlackScreen, "modulate", Color("ffffff", 1), 0.5)
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property($AudioStreamPlayer, "volume_db", -20, 0.5)
 	play_ui_audio(0.1)
@@ -31,22 +31,27 @@ func _on_quit_btn_pressed():
 	get_tree().quit()
 
 func _ready():
+	main.visible = !Graphics.in_game
 	settings.visible = false
 	audio.visible = false
 	video.visible = false
 	tutorialMove.visible = false
 	turotialAtk.visible = false
 	init_resolutions()
+	adjust_buttons()
 	if not Graphics.in_game:
-		main.visible = true
 		$BlackScreen.show()
 		var tween = get_tree().create_tween()
 		tween.tween_property($BlackScreen, "modulate", Color("ffffff", 0), 1.0)
 		var background = background_scene.instantiate()
 		add_child(background)
 		$AudioStreamPlayer.play()
-		return
-	main.visible = false
+
+func adjust_buttons():
+	$"Main Menu/MarginContainer/VBoxContainer/StartBtn".visible = !Graphics.in_game
+	$"Main Menu/MarginContainer/VBoxContainer/DemoBtn".visible = !Graphics.in_game
+	$"Main Menu/MarginContainer/VBoxContainer/Resume".visible = Graphics.in_game
+	$"Main Menu/MarginContainer/VBoxContainer/ReturnMainMenuBtn".visible = Graphics.in_game
 
 func _on_settings_btn_pressed():
 	play_ui_audio(0.2)
