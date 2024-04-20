@@ -1,11 +1,10 @@
-[gd_scene load_steps=58 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=57 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
 [ext_resource type="FontFile" uid="uid://cwlkvoiysjgic" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
 [ext_resource type="FontFile" uid="uid://dvtl6pl8tja3t" path="res://fonts/Scary House.ttf" id="4_8gyms"]
 [ext_resource type="AudioStream" uid="uid://cpaqn0wa050j1" path="res://audio/Music/menu.mp3" id="4_24813"]
-[ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="4_wtf1n"]
 [ext_resource type="AudioStream" uid="uid://baviiqms2hka5" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
 [ext_resource type="Script" path="res://addons/SliderLabel/SliderLabel.gd" id="5_ywy6p"]
 
@@ -160,13 +159,20 @@ height = 30
 fill_from = Vector2(0.0180412, 0)
 fill_to = Vector2(0.0180412, 0)
 
-[node name="Main Menu2" type="CanvasLayer"]
+[node name="Menu" type="Control"]
 process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_qtm8j")
 
 [node name="BlackScreen" type="ColorRect" parent="."]
 visible = false
 z_index = 1
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -176,7 +182,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Main Menu" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -299,7 +305,7 @@ text = "Quit
 
 [node name="SettingsControl" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -405,7 +411,7 @@ text = "Main Menu
 [node name="Tutorial_Movement" type="Control" parent="."]
 visible = false
 texture_filter = 1
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -626,7 +632,7 @@ text = "Main Menu
 
 [node name="Tutorial_Attack" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -854,7 +860,7 @@ text = "Main Menu
 
 [node name="Audio" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -945,7 +951,7 @@ theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="Video" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1209,7 +1215,6 @@ button_pressed = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_24813")
-autoplay = true
 bus = &"Music"
 
 [node name="UISound" type="AudioStreamPlayer" parent="."]
@@ -1217,24 +1222,21 @@ stream = ExtResource("5_rqbi7")
 pitch_scale = 0.2
 bus = &"SFX"
 
-[node name="main" parent="." instance=ExtResource("4_wtf1n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500945, -2.9777, 0.423937)
-
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/DemoBtn" to="." method="_on_demo_btn_pressed"]
-[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="Main Menu" method="_on_tutorial_btn_pressed"]
-[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/SettingsBtn" to="Main Menu" method="_on_settings_btn_pressed"]
-[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/QuitBtn" to="Main Menu" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="." method="_on_audio_setting_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="SettingsControl" method="_on_audio_setting_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="." method="_on_audio_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="Video/MarginContainer/HBoxContainer/Checks" method="_on_video_setting_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/AttackControls" to="." method="_on_attack_controls_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Tutorial_Attack/MainControls" to="." method="_on_main_controls_pressed"]
