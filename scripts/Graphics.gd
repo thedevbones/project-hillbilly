@@ -8,6 +8,7 @@ var bobbing = true
 var swaying = true
 var max_enemies = 20
 var max_decals = 30
+var in_game = false
 
 func update_ssao(toggle):
 	graphics.set_ssao_enabled(toggle)
