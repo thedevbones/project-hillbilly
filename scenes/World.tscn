@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=92 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cf23aespwj1yw" path="res://scenes/Pistol.tscn" id="2_k4yhr"]
 [ext_resource type="Texture2D" uid="uid://b6hxhyxxw13yb" path="res://textures/grass01.jpg" id="2_leqiw"]
 [ext_resource type="Theme" uid="uid://b0tl6tht11hby" path="res://fonts/gui.tres" id="3_civgt"]
-[ext_resource type="PackedScene" uid="uid://dn6qvrgmyyeud" path="res://scenes/PauseMenu.tscn" id="3_ec8lf"]
 [ext_resource type="Script" path="res://scripts/Pistol.gd" id="4_q73kt"]
 [ext_resource type="AudioStream" uid="uid://ws7g6vxplb6u" path="res://audio/SFX/wave.wav" id="4_r4qik"]
 [ext_resource type="PackedScene" uid="uid://cv607wm2il1ob" path="res://assets/bush01.glb" id="5_pfnyj"]
@@ -173,7 +172,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lyw03"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6hpka"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -208,7 +207,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_lyw03"),
+"material": SubResource("ShaderMaterial_6hpka"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -633,9 +632,6 @@ bus = &"SFX"
 [node name="NoAmmo" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("9_q2jjc")
 bus = &"SFX"
-
-[node name="PauseMenu" parent="Player" instance=ExtResource("3_ec8lf")]
-visible = false
 
 [node name="Death" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("32_vaxi1")
