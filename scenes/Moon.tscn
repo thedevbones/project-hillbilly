@@ -1,7 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://l4nn4667vpgv"]
+[gd_scene load_steps=9 format=3 uid="uid://l4nn4667vpgv"]
 
 [ext_resource type="Texture2D" uid="uid://cbkb2d6wsvlvg" path="res://assets/moon_Untitled.png" id="1_jq5q3"]
 [ext_resource type="Texture2D" uid="uid://chh8mtdssvfir" path="res://images/TotallyUnimportantPicture.jpg" id="2_8fwko"]
+[ext_resource type="AudioStream" uid="uid://csuxjh0vc8w7x" path="res://audio/SFX/Other/reveal.mp3" id="3_ohlqr"]
+
+[sub_resource type="GDScript" id="GDScript_kdp5d"]
+resource_name = "Moon"
+script/source = "extends StaticBody3D
+
+func _ready():
+	$Decal.emission_energy = 0
+
+func reveal():
+	if $Decal.emission_energy > 0: return
+	$\"../../RevealSound\".play()
+	var tween = get_tree().create_tween()
+	tween.tween_property($Decal, \"emission_energy\", 1, 5)
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_clfo4"]
+radius = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8hxg"]
 resource_name = "Material.001"
@@ -54,9 +72,27 @@ transform = Transform3D(-8.17246, 1.14865, 5.64725, 5.60502, 3.86219, 7.32578, -
 [node name="moon" type="Node3D" parent="."]
 transform = Transform3D(-0.382246, -0.245709, 0.890793, 0.731922, 0.507945, 0.454181, -0.564071, 0.825602, -0.0143204, -1.66224, -1.19209e-07, -2.73816)
 
-[node name="Sphere" type="MeshInstance3D" parent="moon"]
+[node name="Moon" type="StaticBody3D" parent="moon"]
+transform = Transform3D(1, -2.98023e-08, 1.95578e-08, -2.98023e-08, 1, -8.3819e-09, -3.81842e-08, -1.67638e-08, 1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 4
+script = SubResource("GDScript_kdp5d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="moon/Moon"]
+transform = Transform3D(-0.382248, 0.731924, -0.564072, -0.245709, 0.507946, 0.825602, 0.890795, 0.454181, -0.0143201, 0, 0, 0)
+shape = SubResource("SphereShape3D_clfo4")
+
+[node name="Sphere" type="MeshInstance3D" parent="moon/Moon"]
+transform = Transform3D(1, 8.9407e-08, -4.19095e-08, 2.98023e-08, 1, 3.63216e-08, 2.14204e-08, 2.79397e-08, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_c2v5c")
 skeleton = NodePath("")
+
+[node name="Decal" type="Decal" parent="moon/Moon"]
+transform = Transform3D(-0.382247, -0.847943, 0.36726, -0.245709, -0.289867, -0.924988, 0.890794, -0.443813, -0.0975469, -0.507378, -0.0756539, -0.36325)
+size = Vector3(2.435, 1.42, 1.525)
+texture_emission = ExtResource("2_8fwko")
+upper_fade = 0.257093
+lower_fade = 19.2002
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.828885, 0.139303, 0.541797, 0.240103, 0.786169, -0.569463, -0.505272, 0.602107, 0.618197, -0.505017, -0.0757578, -2.10052)
@@ -66,9 +102,8 @@ light_energy = 0.177
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 3.424
 
-[node name="Decal" type="Decal" parent="."]
-transform = Transform3D(0.999999, 0, 0, 0, -0.969436, -0.245341, 0, 0.245341, -0.969436, -1.77329, -0.57477, -2.50922)
-size = Vector3(2.435, 1.42, 1.525)
-texture_emission = ExtResource("2_8fwko")
-upper_fade = 0.257093
-lower_fade = 19.2002
+[node name="RevealSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ohlqr")
+volume_db = -2.0
+pitch_scale = 1.2
+bus = &"SFX"
