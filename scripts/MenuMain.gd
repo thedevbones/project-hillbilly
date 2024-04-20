@@ -31,9 +31,13 @@ func _on_quit_btn_pressed():
 	get_tree().quit()
 
 func _ready():
-	print("menu ready")
+	settings.visible = false
+	audio.visible = false
+	video.visible = false
+	tutorialMove.visible = false
+	turotialAtk.visible = false
+	init_resolutions()
 	if not Graphics.in_game:
-		print("not world scene, starting game")
 		main.visible = true
 		$BlackScreen.show()
 		var tween = get_tree().create_tween()
@@ -41,12 +45,8 @@ func _ready():
 		var background = background_scene.instantiate()
 		add_child(background)
 		$AudioStreamPlayer.play()
-	settings.visible = false
-	audio.visible = false
-	video.visible = false
-	tutorialMove.visible = false
-	turotialAtk.visible = false
-	init_resolutions()
+		return
+	main.visible = false
 
 func _on_settings_btn_pressed():
 	play_ui_audio(0.2)
@@ -236,3 +236,13 @@ func pause_game():
 	video.visible = false
 	tutorialMove.visible = false
 	turotialAtk.visible = false
+
+
+func _on_resume_pressed():
+	unpause_game()
+
+func _on_return_main_menu_btn_pressed():
+	unpause_game()
+	Graphics.in_game = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file("res://scenes/MenuMain.tscn")
