@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 @onready var main = $"Main Menu"
 @onready var settings = $SettingsControl
@@ -11,30 +11,41 @@ extends CanvasLayer
 @onready var MUSIC_BUS = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS = AudioServer.get_bus_index("SFX")
 
+var is_paused = false
+var background_scene = preload("res://scenes/Background.tscn")
+
 func _on_start_btn_pressed():
+	Graphics.in_game = true
 	var tween1 = get_tree().create_tween()
 	tween1.tween_property($BlackScreen, "modulate", Color("ffffff", 1), 0.5)
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property($AudioStreamPlayer, "volume_db", -20, 0.5)
 	play_ui_audio(0.1)
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/World.tscn")
+	get_tree().change_scene_to_file("res://scenes/IntroScene.tscn")
 
 func _on_quit_btn_pressed():
+	Graphics.in_game = false
 	play_ui_audio(0.2)
 	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()
 
 func _ready():
-	main.visible = true
+	print("menu ready")
+	if not Graphics.in_game:
+		print("not world scene, starting game")
+		main.visible = true
+		$BlackScreen.show()
+		var tween = get_tree().create_tween()
+		tween.tween_property($BlackScreen, "modulate", Color("ffffff", 0), 1.0)
+		var background = background_scene.instantiate()
+		add_child(background)
+		$AudioStreamPlayer.play()
 	settings.visible = false
 	audio.visible = false
 	video.visible = false
 	tutorialMove.visible = false
 	turotialAtk.visible = false
-	$BlackScreen.show()
-	var tween = get_tree().create_tween()
-	tween.tween_property($BlackScreen, "modulate", Color("ffffff", 0), 1.0)
 	init_resolutions()
 
 func _on_settings_btn_pressed():
@@ -138,15 +149,13 @@ func _on_grass_check_box_toggled(toggled_on):
 
 func _on_demo_btn_pressed():
 	Graphics.demo_mode = true
-	var tween2 = get_tree().create_tween()
-	tween2.tween_property($AudioStreamPlayer, "volume_db", -20, 0.5)
-	play_ui_audio(0.1)
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/IntroScene.tscn")
+	_on_start_btn_pressed()
 
 func _input(event):
 	if event.is_action_pressed("reload"):
 		$"Main Menu/MarginContainer/VBoxContainer/StartBtn".disabled = false
+	if event.is_action_pressed("ui_cancel") and Graphics.in_game:
+		toggle_pause()
 
 func init_resolutions():
 	var resolutions = [
@@ -203,3 +212,27 @@ func _on_sway_check_box_toggled(toggled_on):
 
 func _on_bob_check_box_toggled(toggled_on):
 	Graphics.update_bobbing(toggled_on)
+
+func toggle_pause():
+	if is_paused:
+		unpause_game()
+	else:
+		pause_game()
+
+func unpause_game():
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	hide()
+	is_paused = false
+	
+func pause_game():
+	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	show()
+	is_paused = true
+	main.visible = true
+	settings.visible = false
+	audio.visible = false
+	video.visible = false
+	tutorialMove.visible = false
+	turotialAtk.visible = false
