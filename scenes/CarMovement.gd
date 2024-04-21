@@ -7,5 +7,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	position.z += 1 * delta
+#func _process(delta):
+	#position.z += 1 * delta
