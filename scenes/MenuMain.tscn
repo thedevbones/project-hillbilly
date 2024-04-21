@@ -233,24 +233,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
-disabled = true
 text = "Start Game
-"
-
-[node name="DemoBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
-theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
-theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
-text = "Start Demo
 "
 
 [node name="Resume" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
@@ -1254,7 +1237,6 @@ pitch_scale = 0.2
 bus = &"SFX"
 
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
-[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/DemoBtn" to="." method="_on_demo_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="Main Menu" method="_on_tutorial_btn_pressed"]

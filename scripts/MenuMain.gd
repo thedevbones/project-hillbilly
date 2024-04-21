@@ -49,7 +49,7 @@ func _ready():
 
 func adjust_buttons():
 	$"Main Menu/MarginContainer/VBoxContainer/StartBtn".visible = !Graphics.in_game
-	$"Main Menu/MarginContainer/VBoxContainer/DemoBtn".visible = !Graphics.in_game
+	#$"Main Menu/MarginContainer/VBoxContainer/DemoBtn".visible = !Graphics.in_game
 	$"Main Menu/MarginContainer/VBoxContainer/Resume".visible = Graphics.in_game
 	$"Main Menu/MarginContainer/VBoxContainer/ReturnMainMenuBtn".visible = Graphics.in_game
 
@@ -152,9 +152,9 @@ func _on_ssil_check_box_2_toggled(toggled_on):
 func _on_grass_check_box_toggled(toggled_on):
 	Graphics.update_grass(toggled_on)
 
-func _on_demo_btn_pressed():
-	Graphics.demo_mode = true
-	_on_start_btn_pressed()
+#func _on_demo_btn_pressed():
+	#Graphics.demo_mode = true
+	#_on_start_btn_pressed()
 
 func _input(event):
 	if event.is_action_pressed("reload"):
