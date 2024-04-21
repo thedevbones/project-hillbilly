@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcxveujxjwmu6"]
+[gd_scene load_steps=8 format=3 uid="uid://dcxveujxjwmu6"]
 
-[ext_resource type="PackedScene" uid="uid://dli5k0036wmeh" path="res://assets/pistolContainer.glb" id="1_bobgm"]
+[ext_resource type="PackedScene" uid="uid://cr4ivvngatodi" path="res://assets/pistolContainer.glb" id="1_bobgm"]
 [ext_resource type="Script" path="res://scripts/pistolContainer.gd" id="1_tyqqe"]
+[ext_resource type="PackedScene" uid="uid://d6mb6q7nrptd" path="res://assets/dope.glb" id="3_ogm7t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kmval"]
 size = Vector3(4.2688, 1.05267, 3.24945)
@@ -133,5 +134,8 @@ shape = SubResource("BoxShape3D_kmval")
 libraries = {
 "": SubResource("AnimationLibrary_n8jun")
 }
+
+[node name="dope" parent="." instance=ExtResource("3_ogm7t")]
+transform = Transform3D(-1.35399e-06, -0.000218523, -0.126471, 0.126468, -0.000783603, -4.69117e-12, -0.000783601, -0.126468, 0.000218524, -0.103178, -0.288131, 0.00510073)
 
 [editable path="pistolContainer"]
