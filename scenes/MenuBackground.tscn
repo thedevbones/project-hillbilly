@@ -1,13 +1,13 @@
 [gd_scene load_steps=17 format=3 uid="uid://b1fl2kisgxai"]
 
-[ext_resource type="Texture2D" uid="uid://djn7c4a8n13q5" path="res://textures/grass01.jpg" id="4_xi02c"]
-[ext_resource type="PackedScene" uid="uid://lfy5yl3iyvqq" path="res://assets/tree01.glb" id="5_gout0"]
-[ext_resource type="PackedScene" uid="uid://bdxm35vq7qxdp" path="res://assets/car.blend" id="6_buqan"]
-[ext_resource type="PackedScene" uid="uid://cc3oxpn86wugc" path="res://assets/road.glb" id="7_kmyrq"]
-[ext_resource type="PackedScene" uid="uid://hrqk8kt7yb8i" path="res://assets/tree02.glb" id="8_072ty"]
-[ext_resource type="PackedScene" uid="uid://b0b6sysj5cdfp" path="res://assets/tree03.glb" id="9_v6ygg"]
+[ext_resource type="Texture2D" uid="uid://dy8tq5xtxx6n1" path="res://textures/grass01.jpg" id="4_xi02c"]
+[ext_resource type="PackedScene" uid="uid://b75n3d5dc7r5w" path="res://assets/tree01.glb" id="5_gout0"]
+[ext_resource type="PackedScene" uid="uid://tpwp2etehqvr" path="res://assets/car.blend" id="6_buqan"]
+[ext_resource type="PackedScene" uid="uid://bcvecvfjy1h8a" path="res://assets/road.glb" id="7_kmyrq"]
+[ext_resource type="PackedScene" uid="uid://dky2hsm128rja" path="res://assets/tree02.glb" id="8_072ty"]
+[ext_resource type="PackedScene" uid="uid://opmaxh13td1m" path="res://assets/tree03.glb" id="9_v6ygg"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="10_8wfp5"]
-[ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="11_8iugw"]
+[ext_resource type="Texture2D" uid="uid://rm4mvjjwsc4h" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="11_8iugw"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="12_moka1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uxuk3"]
@@ -44,33 +44,10 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jgu0b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8x5w"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("10_8wfp5")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_frames = Vector2(1, 1)
-shader_parameter/light_mode = 1
-shader_parameter/alpha_scissor_threshold = 0.5
-shader_parameter/normal_scale = 1.0
-shader_parameter/metallic = 0.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/roughness = 1.0
-shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/specular = 0.5
-shader_parameter/scale_h = 1.0
-shader_parameter/scale_w = 1.0
-shader_parameter/scale_var = -0.25
-shader_parameter/grass_strength = 0.55
-shader_parameter/optimization_by_distance = false
-shader_parameter/optimization_level = 7.0
-shader_parameter/optimization_dist_min = 10.0
-shader_parameter/optimization_dist_max = 50.0
-shader_parameter/grass_size_y = 1.0
-shader_parameter/interactive_mode = true
-shader_parameter/interactive_level_xz = 3.0
-shader_parameter/interactive_level_y = 0.3
-shader_parameter/texture_albedo = ExtResource("11_8iugw")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6yafr"]
 _surfaces = [{
@@ -79,7 +56,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_jgu0b"),
+"material": SubResource("ShaderMaterial_l8x5w"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
