@@ -405,6 +405,9 @@
 - `Jira Task: Luis - Upgrade Main Menu cinematic` 
 	- [FER-80](https://cs3398s24ferengi.atlassian.net/browse/FER-80),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-80-upgrade-main-menu-cinematic)
+- `Jira Task: Luis - Fix animations` 
+	- [FER-86](https://cs3398s24ferengi.atlassian.net/browse/FER-86),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/src/FER-86-fix-animations)
 	
 	
 
