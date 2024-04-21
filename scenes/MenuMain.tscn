@@ -2,17 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
-<<<<<<< Updated upstream
-[ext_resource type="FontFile" uid="uid://bk6wtt18617ra" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
-[ext_resource type="FontFile" uid="uid://douqnhjmajht6" path="res://fonts/Scary House.ttf" id="4_8gyms"]
-[ext_resource type="AudioStream" uid="uid://cnhrlmpkl2p82" path="res://audio/Music/menu.mp3" id="4_24813"]
-[ext_resource type="AudioStream" uid="uid://bjj7onwu10pfq" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
-=======
 [ext_resource type="FontFile" uid="uid://ci2qj8thyby6n" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
 [ext_resource type="FontFile" uid="uid://cyxhikcl2u68a" path="res://fonts/Scary House.ttf" id="4_8gyms"]
 [ext_resource type="AudioStream" uid="uid://dml7wyi6ctr12" path="res://audio/Music/menu.mp3" id="4_24813"]
 [ext_resource type="AudioStream" uid="uid://4jics50lquoh" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
->>>>>>> Stashed changes
 [ext_resource type="Script" path="res://addons/SliderLabel/SliderLabel.gd" id="5_ywy6p"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
@@ -241,7 +234,24 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
+disabled = true
 text = "Start Game
+"
+
+[node name="DemoBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
+text = "Start Demo
 "
 
 [node name="Resume" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
@@ -430,6 +440,7 @@ text = "Main Menu
 "
 
 [node name="Tutorial_Movement" type="Control" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -632,9 +643,9 @@ vertical_alignment = 1
 
 [node name="Main Menu" type="Button" parent="Tutorial_Movement"]
 layout_mode = 2
-offset_left = 197.0
+offset_left = 150.0
 offset_top = 480.0
-offset_right = 333.0
+offset_right = 286.0
 offset_bottom = 517.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
@@ -651,7 +662,6 @@ text = "Main Menu
 "
 
 [node name="Tutorial_Attack" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -660,32 +670,31 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameTitle" type="Label" parent="Tutorial_Attack"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 5.0
-offset_right = 227.0
-offset_bottom = 52.0
+offset_left = 248.0
+offset_top = 43.0
+offset_right = 727.0
+offset_bottom = 164.0
 pivot_offset = Vector2(413.1, 52.8)
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
 theme_override_fonts/font = ExtResource("3_wugvk")
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 70
 text = "Project HillBilly"
 
 [node name="MainControls" type="Button" parent="Tutorial_Attack"]
 layout_mode = 2
-offset_left = 30.0
-offset_top = 58.0
-offset_right = 152.0
-offset_bottom = 84.0
+offset_left = 200.0
+offset_top = 168.0
+offset_right = 453.0
+offset_bottom = 220.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qngds")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ic7vk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_n0ggr")
@@ -696,180 +705,180 @@ text = "Main Controls
 
 [node name="Attack_Cont" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 165.0
-offset_top = 59.0
-offset_right = 299.0
-offset_bottom = 85.0
+offset_left = 471.0
+offset_top = 168.0
+offset_right = 760.0
+offset_bottom = 220.0
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 38
 text = "Attack Controls"
 
 [node name="Select Weapon" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 85.0
-offset_right = 509.0
-offset_bottom = 125.0
+offset_left = 200.0
+offset_top = 243.0
+offset_right = 988.0
+offset_bottom = 311.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Select Weapon with number keys:"
 
 [node name="Hide Weapon" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 108.0
-offset_right = 235.0
-offset_bottom = 148.0
+offset_left = 228.0
+offset_top = 294.0
+offset_right = 511.0
+offset_bottom = 362.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Hide Weapon"
 
 [node name="1" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 108.0
-offset_right = 47.0
-offset_bottom = 125.0
+offset_left = 200.0
+offset_top = 294.0
+offset_right = 229.0
+offset_bottom = 363.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Pipe" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 130.0
-offset_right = 228.0
-offset_bottom = 170.0
+offset_left = 228.0
+offset_top = 336.0
+offset_right = 409.0
+offset_bottom = 404.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Pipe"
 
 [node name="2" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 131.0
-offset_right = 52.0
-offset_bottom = 171.0
+offset_left = 200.0
+offset_top = 336.0
+offset_right = 229.0
+offset_bottom = 405.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Knife" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 152.0
-offset_right = 176.0
-offset_bottom = 192.0
+offset_left = 228.0
+offset_top = 378.0
+offset_right = 357.0
+offset_bottom = 446.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Knife"
 
 [node name="3" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 153.0
-offset_right = 52.0
-offset_bottom = 193.0
+offset_left = 200.0
+offset_top = 378.0
+offset_right = 229.0
+offset_bottom = 447.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Pistol" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 108.0
-offset_right = 269.0
-offset_bottom = 148.0
+offset_left = 443.0
+offset_top = 294.0
+offset_right = 580.0
+offset_bottom = 362.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Pistol"
 
 [node name="4" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 108.0
-offset_right = 173.0
-offset_bottom = 148.0
+offset_left = 415.0
+offset_top = 294.0
+offset_right = 444.0
+offset_bottom = 363.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Shotgun" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 130.0
-offset_right = 286.0
-offset_bottom = 170.0
+offset_left = 443.0
+offset_top = 336.0
+offset_right = 629.0
+offset_bottom = 404.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Shotgun"
 
 [node name="5" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 131.0
-offset_right = 173.0
-offset_bottom = 171.0
+offset_left = 415.0
+offset_top = 336.0
+offset_right = 444.0
+offset_bottom = 405.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Attack_Shoot" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 174.0
-offset_right = 369.0
-offset_bottom = 214.0
+offset_left = 200.0
+offset_top = 424.0
+offset_right = 805.0
+offset_bottom = 492.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Attack/Shoot - Left Click"
 
 [node name="Main Menu" type="Button" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 216.0
-offset_right = 102.0
-offset_bottom = 238.0
+offset_left = 150.0
+offset_top = 480.0
+offset_right = 300.0
+offset_bottom = 521.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cb476")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cecaf")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_gmybr")
@@ -1244,6 +1253,7 @@ pitch_scale = 0.2
 bus = &"SFX"
 
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/DemoBtn" to="." method="_on_demo_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="Main Menu" method="_on_tutorial_btn_pressed"]
@@ -1257,13 +1267,8 @@ bus = &"SFX"
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="Video/MarginContainer/HBoxContainer/Checks" method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
-<<<<<<< Updated upstream
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
-=======
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
->>>>>>> Stashed changes
 [connection signal="pressed" from="Tutorial_Movement/AttackControls" to="." method="_on_attack_controls_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Tutorial_Attack/MainControls" to="." method="_on_main_controls_pressed"]
