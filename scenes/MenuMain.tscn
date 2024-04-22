@@ -1,11 +1,11 @@
 [gd_scene load_steps=57 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
-[ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
-[ext_resource type="FontFile" uid="uid://ci2qj8thyby6n" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
-[ext_resource type="FontFile" uid="uid://cyxhikcl2u68a" path="res://fonts/Scary House.ttf" id="4_8gyms"]
-[ext_resource type="AudioStream" uid="uid://dml7wyi6ctr12" path="res://audio/Music/menu.mp3" id="4_24813"]
-[ext_resource type="AudioStream" uid="uid://4jics50lquoh" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
+[ext_resource type="Theme" uid="uid://cn1n58xwwo8jf" path="res://scenes/Default2.tres" id="3_nhp40"]
+[ext_resource type="FontFile" uid="uid://cwlkvoiysjgic" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
+[ext_resource type="FontFile" uid="uid://dvtl6pl8tja3t" path="res://fonts/Scary House.ttf" id="4_8gyms"]
+[ext_resource type="AudioStream" uid="uid://cpaqn0wa050j1" path="res://audio/Music/menu.mp3" id="4_24813"]
+[ext_resource type="AudioStream" uid="uid://baviiqms2hka5" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
 [ext_resource type="Script" path="res://addons/SliderLabel/SliderLabel.gd" id="5_ywy6p"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
