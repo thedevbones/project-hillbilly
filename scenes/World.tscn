@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=99 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -66,9 +66,10 @@
 [ext_resource type="PackedScene" uid="uid://c5cqe3ihw6rfw" path="res://assets/sidewalkSlab.glb" id="64_mmk23"]
 [ext_resource type="PackedScene" uid="uid://dcxveujxjwmu6" path="res://scenes/pistolContainer.tscn" id="65_a66ak"]
 [ext_resource type="PackedScene" uid="uid://cutlybiwby807" path="res://scenes/padlock1.tscn" id="66_2ikw0"]
-[ext_resource type="PackedScene" uid="uid://c572363imq8" path="res://scenes/key1.tscn" id="67_wk6e8"]
 [ext_resource type="PackedScene" uid="uid://1e0eyy2rsm4f" path="res://scenes/Gas.tscn" id="68_nf6d7"]
 [ext_resource type="PackedScene" uid="uid://ig0ofact6m2n" path="res://scenes/Door.tscn" id="69_lvm4o"]
+[ext_resource type="PackedScene" uid="uid://c7fcqt1unp5ih" path="res://scenes/PickupKey.tscn" id="70_6vqml"]
+[ext_resource type="PackedScene" uid="uid://dku02dakpxr1d" path="res://scenes/Lightbulb.tscn" id="70_au4gp"]
 
 [sub_resource type="SystemFont" id="SystemFont_y7dk2"]
 font_names = PackedStringArray("Serif")
@@ -178,7 +179,7 @@ size = Vector3(1.39, 4.868, 80)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p247b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fvbpt"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -213,7 +214,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_p247b"),
+"material": SubResource("ShaderMaterial_fvbpt"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -663,9 +664,6 @@ material = SubResource("FogMaterial_6527e")
 
 [node name="lightpost" parent="Lighting" instance=ExtResource("18_ygqwd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9396, 0, 4.90454)
-
-[node name="lightpost2" parent="Lighting/lightpost" instance=ExtResource("18_ygqwd")]
-transform = Transform3D(-0.215892, 0, -0.355555, 0, 0.415968, 0, 0.355555, 0, -0.215892, 34.3298, 0.160499, -17.1573)
 
 [node name="lightpost2" parent="Lighting" instance=ExtResource("18_ygqwd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9912, 4.76837e-07, 23.6796)
@@ -1200,25 +1198,31 @@ transform = Transform3D(0.489791, 0, -0.0804175, 0, 0.5, 0, 0.100522, 0, 0.39183
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.4, -28.0631, 0, -12.4869)
 
 [node name="Shed" parent="." instance=ExtResource("64_2hiqg")]
-transform = Transform3D(-0.0642164, 0, -0.0910697, 0, 0.111434, 0, 0.0910697, 0, -0.0642164, 8.92098, 0.0082581, -12.4441)
+transform = Transform3D(-0.0642164, 0, -0.0910697, 0, 0.111434, 0, 0.0910697, 0, -0.0642164, 8.09798, -0.00121487, -13.0019)
 
-[node name="pistolContainer" parent="." node_paths=PackedStringArray("neededkey") instance=ExtResource("65_a66ak")]
-transform = Transform3D(-0.0810709, 0, -0.0843599, 0, 0.117, 0, 0.0843599, 0, -0.0810709, 8.91712, 0.670626, -11.4108)
-neededkey = NodePath("../key2")
+[node name="pistolContainer" parent="." instance=ExtResource("65_a66ak")]
+transform = Transform3D(-0.0810709, 0, -0.0843599, 0, 0.117, 0, 0.0843599, 0, -0.0810709, 8.09412, 0.661153, -11.9686)
+isLocked = true
+needsKey = true
 
 [node name="padlock1" parent="." instance=ExtResource("66_2ikw0")]
-transform = Transform3D(0.0167935, 0, -0.0159246, 0, 0.0231433, 0, 0.0159246, 0, 0.0167934, 8.82205, 0.623084, -11.5172)
-
-[node name="key2" parent="." instance=ExtResource("67_wk6e8")]
-transform = Transform3D(1.14947, 0, 0, 0, 1.14947, 0, 0, 0, 1.14947, 5.73147, 0.537063, -14.6453)
+transform = Transform3D(0.0167935, 0, -0.0159246, 0, 0.0231433, 0, 0.0159246, 0, 0.0167934, 7.99905, 0.613611, -12.075)
 
 [node name="Gas" parent="." instance=ExtResource("68_nf6d7")]
-transform = Transform3D(0.467183, 0, -0.2401, 0, 0.525269, 0, 0.2401, 0, 0.467183, 9.47016, 0.622545, -12.1247)
+transform = Transform3D(0.467183, 0, -0.2401, 0, 0.525269, 0, 0.2401, 0, 0.467183, 8.64716, 0.613072, -12.6825)
 
 [node name="Door" parent="." instance=ExtResource("69_lvm4o")]
-transform = Transform3D(-0.371506, 0, 0.285314, 0, 0.468424, 0, -0.285314, 0, -0.371506, 7.89723, -0.05055, -13.3006)
+transform = Transform3D(-0.371506, 0, 0.285314, 0, 0.468424, 0, -0.285314, 0, -0.371506, 7.07423, -0.060023, -13.8584)
 collision_layer = 5
 collision_mask = 5
+isLocked = true
+needsKey = true
+
+[node name="Lightbulb" parent="." instance=ExtResource("70_au4gp")]
+transform = Transform3D(0.100905, 0, 0, 0, 0.100905, 0, 0, 0, 0.100905, 8.34262, 2.72184, -13.177)
+
+[node name="PickupKey" parent="." instance=ExtResource("70_6vqml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54768, 0.96813, -15.2998)
 
 [connection signal="timeout" from="PrepTimer" to="." method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="BoundsTimer" to="." method="_on_bounds_timer_timeout"]
