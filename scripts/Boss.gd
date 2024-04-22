@@ -32,8 +32,9 @@ func _ready():
 	$boss/Armature/Armature_001/Skeleton3D.physical_bones_stop_simulation()
 
 func set_level(level):
-	health = 30 * level
-	damage = 2 * level
+	health = 60 * level
+	damage = 5 * level
+	adjust_ui()
 	print(level)
 
 func laugh():

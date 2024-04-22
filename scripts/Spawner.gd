@@ -110,6 +110,4 @@ func choose_spawn_point():
 		
 		var spawn_point_position = spawn_point.global_transform.origin
 		if spawn_point_position.distance_to(player.global_transform.origin) >= 10:
-			print("Far from player")
 			return spawn_point
-		print("Too close to player")
