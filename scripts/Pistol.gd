@@ -10,7 +10,7 @@ func _ready():
 	max_ammo = 8
 	ammo = max_ammo
 	reload_time = 1.5
-	range = Vector3(1.0, 1.0, 100)
+	range = Vector3(1.0, 1.0, 300)
 	ranged = true
 	original_pos = position
 	original_rot = rotation
