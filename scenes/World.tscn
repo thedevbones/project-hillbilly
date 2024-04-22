@@ -245,7 +245,7 @@ font_size = 11
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0r0oa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwmxv"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -280,7 +280,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_0r0oa"),
+"material": SubResource("ShaderMaterial_fwmxv"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -1461,24 +1461,28 @@ transform = Transform3D(1, -5.19756e-17, 0, 0, -4.37114e-08, 1, 1.06581e-14, -1,
 transform = Transform3D(0.86858, 0, 0.49555, 0, 1, 0, -0.49555, 0, 0.86858, -26.6113, 0.574045, 60.1693)
 
 [node name="Shed" parent="." instance=ExtResource("64_2hiqg")]
-transform = Transform3D(-0.0642164, 0, -0.0910697, 0, 0.111434, 0, 0.0910697, 0, -0.0642164, 8.09798, -0.00121487, -13.0019)
+transform = Transform3D(-0.0642164, 0, -0.0910697, 0, 0.111434, 0, 0.0910697, 0, -0.0642164, 11.3011, -0.00121487, -12.2141)
+
+[node name="shed" parent="Shed" index="1"]
+transform = Transform3D(1, 0, -8.29819e-09, 0, 1, 0, -4.74506e-09, 0, 1, -1.19154, 0, 1.36103)
 
 [node name="pistolContainer" parent="." node_paths=PackedStringArray("neededkey") instance=ExtResource("65_a66ak")]
-transform = Transform3D(-0.0810709, 0, -0.0843599, 0, 0.117, 0, 0.0843599, 0, -0.0810709, 8.09412, 0.661153, -11.9686)
+transform = Transform3D(-0.0810709, 0, -0.0843599, 0, 0.117, 0, 0.0843599, 0, -0.0810709, 11.2973, 0.661153, -11.1808)
 isLocked = true
 needsKey = true
 neededkey = NodePath("../Key2")
 
 [node name="padlock1" parent="." instance=ExtResource("66_2ikw0")]
-transform = Transform3D(0.0167935, 0, -0.0159246, 0, 0.0231433, 0, 0.0159246, 0, 0.0167934, 7.99905, 0.613611, -12.075)
+transform = Transform3D(0.0167935, 0, -0.0159246, 0, 0.0231433, 0, 0.0159246, 0, 0.0167934, 11.2022, 0.613611, -11.2872)
 
 [node name="Gas" parent="." instance=ExtResource("68_nf6d7")]
-transform = Transform3D(0.467183, 0, -0.2401, 0, 0.525269, 0, 0.2401, 0, 0.467183, 8.64716, 0.613072, -12.6825)
+transform = Transform3D(0.467183, 0, -0.2401, 0, 0.525269, 0, 0.2401, 0, 0.467183, 11.8503, 0.613072, -11.8947)
 collision_layer = 5
 collision_mask = 5
 
 [node name="Door" parent="." node_paths=PackedStringArray("neededkey") instance=ExtResource("69_lvm4o")]
-transform = Transform3D(-0.371506, 0, 0.285314, 0, 0.468424, 0, -0.285314, 0, -0.371506, 7.07423, -0.060023, -13.8584)
+transform = Transform3D(-0.371506, 0, 0.285314, 0, 0.468424, 0, -0.285314, 0, -0.371506, 10.2774, -0.060023, -13.0706)
+visible = false
 collision_layer = 5
 collision_mask = 5
 isLocked = true
@@ -1486,10 +1490,10 @@ needsKey = true
 neededkey = NodePath("../PickupKey")
 
 [node name="Lightbulb" parent="." instance=ExtResource("70_au4gp")]
-transform = Transform3D(0.100905, 0, 0, 0, 0.100905, 0, 0, 0, 0.100905, 8.34262, 2.72184, -13.177)
+transform = Transform3D(0.100905, 0, 0, 0, 0.100905, 0, 0, 0, 0.100905, 11.4298, 2.72184, -12.3553)
 
 [node name="PickupKey" parent="." instance=ExtResource("70_6vqml")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4472, 1.01678, -22.8963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4472, 1.01678, -21.1964)
 collision_layer = 5
 collision_mask = 5
 
@@ -1511,3 +1515,5 @@ collision_mask = 5
 [editable path="NavMesh/Grave4"]
 [editable path="NavMesh/Grave5"]
 [editable path="NavMesh/Grave6"]
+[editable path="Shed"]
+[editable path="Shed/shed"]
