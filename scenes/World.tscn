@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=101 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -58,6 +58,7 @@
 [ext_resource type="AudioStream" uid="uid://bfpx8asrtqrhy" path="res://audio/SFX/Damage/Player_pain_grunt.mp3" id="33_ct85e"]
 [ext_resource type="PackedScene" uid="uid://eb7ko1m7wx7x" path="res://scenes/fence.tscn" id="46_kuxwn"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
+[ext_resource type="PackedScene" uid="uid://51utbd5yt5wk" path="res://scripts/CarDoor.tscn" id="52_nfw6r"]
 [ext_resource type="PackedScene" path="res://scenes/health_bar.tscn" id="57_uqs6u"]
 [ext_resource type="PackedScene" uid="uid://dpcxawtw7u1jb" path="res://scenes/house_1.tscn" id="61_klq15"]
 [ext_resource type="PackedScene" uid="uid://18c2i8penbfy" path="res://scenes/house_3.tscn" id="62_r23w0"]
@@ -1126,6 +1127,12 @@ transform = Transform3D(0.0555601, 0, 0.998455, 0, 1, 0, -0.998455, 0, 0.0555601
 axis_lock_linear_x = true
 physics_material_override = SubResource("PhysicsMaterial_xlcod")
 lock_rotation = true
+
+[node name="CarDoor" parent="." node_paths=PackedStringArray("neededkey") instance=ExtResource("52_nfw6r")]
+transform = Transform3D(0.583829, 0, 7.78696e-10, 0, 0.748612, 0, 1.7021e-08, 0, 1, -24.0646, 0, 11.7816)
+isLocked = true
+needsKey = true
+neededkey = NodePath("../Gas")
 
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2maxx")
