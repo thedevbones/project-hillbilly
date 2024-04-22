@@ -102,6 +102,13 @@ func show_tooltip(action):
 			await player.pickup
 			fade_element(tooltip, "modulate", Color("ffffff", 0), 0.5)
 			await get_tree().create_timer(0.5).timeout
+			show_tooltip("select")
+		"select":
+			tooltip.text = "Select the weapon with\nnum keys or scroll wheel"
+			fade_element(tooltip, "modulate", Color("ffffff", 1), 1)
+			await player.selecting
+			fade_element(tooltip, "modulate", Color("ffffff", 0), 0.5)
+			await get_tree().create_timer(0.5).timeout
 			show_tooltip("attack")
 		"attack": 
 			tooltip.text = "Left click to attack\nRight click to aim/block"

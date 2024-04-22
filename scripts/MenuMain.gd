@@ -255,3 +255,7 @@ func _on_return_main_menu_btn_pressed():
 	Graphics.in_game = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file("res://scenes/MenuMain.tscn")
+
+
+func _on_sensitivity_value_changed(value):
+	Graphics.set_sensitivity(value)

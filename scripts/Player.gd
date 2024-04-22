@@ -9,6 +9,7 @@ signal moving
 signal looking
 signal sprinting
 signal pickup
+signal selecting
 signal attacking
 signal aiming
 
@@ -27,7 +28,7 @@ const BOB_FREQUENCY = 2.0
 const BOB_AMPLITUDE = 0.08
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var mouse_sensitivity = 0.2
+var mouse_sensitivity = Graphics.sensitivity
 var bob_time = 0.0
 var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
@@ -75,6 +76,7 @@ var impact_sounds = {
 
 func _ready():
 	# Capture the mouse
+	Graphics.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera.fov = NORMAL_FOV
 	$StepTimer.wait_time = 0.6 
@@ -247,6 +249,7 @@ func aim():
 	if weapon and weapon.ranged: weapon.aim()
 
 func switch_weapon_by_index(index):
+	emit_signal("selecting")
 	if not can_switch: return
 	
 	if index in weapons and inventory[weapons.keys()[index]]["is_unlocked"]:

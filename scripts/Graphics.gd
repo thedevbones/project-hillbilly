@@ -2,6 +2,7 @@ extends Node
 
 var graphics: Environment
 var grass
+var player : CharacterBody3D 
 var grass_visible = true
 var demo_mode = false
 var bobbing = true
@@ -10,6 +11,7 @@ var max_enemies = 20
 var max_decals = 30
 var in_game = false
 var tutorials = true
+var sensitivity = 0.2
 
 func update_ssao(toggle):
 	graphics.set_ssao_enabled(toggle)
@@ -36,6 +38,10 @@ func set_max_enemies(value):
 func set_max_decals(value):
 	max_decals = value
 
+func set_sensitivity(value):
+	sensitivity = value
+	if player: player.mouse_sensitivity = value
+
 func get_ssao():
 	return graphics.is_ssao_enabled()
 
@@ -53,3 +59,6 @@ func get_max_enemies():
 
 func get_max_decals():
 	return max_decals
+
+func get_sensitivity():
+	return sensitivity

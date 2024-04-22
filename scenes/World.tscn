@@ -241,7 +241,7 @@ font_size = 11
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0epo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swfkg"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -276,7 +276,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_b0epo"),
+"material": SubResource("ShaderMaterial_swfkg"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -611,7 +611,7 @@ transform = Transform3D(0.963673, 0, -0.267087, 0, 1, 0, 0.267087, 0, 0.963673, 
 shape = SubResource("BoxShape3D_p82h0")
 
 [node name="PrepTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="BoundsTimer" type="Timer" parent="."]
