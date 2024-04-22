@@ -8,7 +8,10 @@ extends Control
 @onready var upgrade_prompt = $UpgradePrompt
 @onready var health_bar = $HealthBar
 @onready var boss_bar = $BossHealthBar
+@onready var tooltip = $Tooltip
 @onready var player = get_node_or_null("/root/World/Player")
+
+var pickups_enabled = false
 
 func _ready():
 	black_screen.show()
@@ -16,6 +19,7 @@ func _ready():
 	wave_count.modulate = Color("ffffff", 0)
 	upgrade_prompt.modulate = Color("ffffff", 0)
 	health_bar.modulate = Color("ffffff", 0)
+	tooltip.modulate = Color("ffffff", 0)
 	health_bar.max_value = player.max_health
 	wave_bar.max_value = $"../PrepTimer".get_wait_time()
 	fade_element(black_screen, "modulate", Color("ffffff", 0), 1.5)
@@ -65,3 +69,59 @@ func update_upgrade_prompt():
 func fade_element(object, property, final_val, duration):
 	var tween = get_tree().create_tween()
 	tween.tween_property(object, property, final_val, duration)
+
+func show_tooltip(action):
+	if not Graphics.tutorials: return
+	match action:
+		"look": 
+			tooltip.text = "Use the mouse to\nlook around"
+			fade_element(tooltip, "modulate", Color("ffffff", 1), 1)
+			await player.looking
+			fade_element(tooltip, "modulate", Color("ffffff", 0), 0.5)
+			await get_tree().create_timer(0.5).timeout
+			show_tooltip("move")
+			player.disabled = false
+		"move":
+			tooltip.text = "Use the WASD keys\nto move around"
+			fade_element(tooltip, "modulate", Color("ffffff", 1), 1)
+			await player.moving
+			fade_element(tooltip, "modulate", Color("ffffff", 0), 0.5)
+			await get_tree().create_timer(0.5).timeout
+			show_tooltip("sprint")
+		"sprint": 
+			tooltip.text = "Hold shift to \nto sprint"
+			fade_element(tooltip, "modulate", Color("ffffff", 1), 1)
+			await player.sprinting
+			fade_element(tooltip, "modulate", Color("ffffff", 0), 0.5)
+			await get_tree().create_timer(0.5).timeout
+			show_tooltip("pickup")
+		"pickup":
+			tooltip.text = "Walk into a weapon\nto pick it up"
+			fade_element(tooltip, "modulate", Color("ffffff", 1), 1)
+			pickups_enabled = true
+			await player.pickup
+			fade_element(tooltip, "modulate", Color("ffffff", 0), 0.5)
+			await get_tree().create_timer(0.5).timeout
+			show_tooltip("attack")
+		"attack": 
+			tooltip.text = "Left click to attack\nRight click to aim/block"
+			fade_element(tooltip, "modulate", Color("ffffff", 1), 1)
+			await player.attacking or player.aiming
+			fade_element(tooltip, "modulate", Color("ffffff", 0), 0.5)
+			await get_tree().create_timer(0.5).timeout
+			show_tooltip("reload")
+		"reload":
+			tooltip.text = "To reload, press R\n"
+			fade_element(tooltip, "modulate", Color("ffffff", 1), 1)
+			await get_tree().create_timer(3).timeout
+			fade_element(tooltip, "modulate", Color("ffffff", 0), 0.5)
+			await get_tree().create_timer(0.5).timeout
+			show_tooltip("game")
+		"game":
+			tooltip.text = "Survive as long as you can\nGood luck!"
+			fade_element(tooltip, "modulate", Color("ffffff", 1), 1)
+			await get_tree().create_timer(4).timeout
+			fade_element(tooltip, "modulate", Color("ffffff", 0), 0.5)
+			Graphics.tutorials = false
+			get_parent().switch_state(get_parent().GameState.PREPARATION)
+	

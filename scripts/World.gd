@@ -4,7 +4,7 @@ enum GameState { GAME_START, IN_WAVE, PREPARATION, TIMEOUT, GAME_OVER }
 
 var total_waves = 10
 var current_state = GameState.GAME_START
-var current_wave = 0
+var current_wave = 4
 var enemies_alive = 0
 var enemies_in_queue = 0
 var boss_wave = 5

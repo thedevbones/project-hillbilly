@@ -5,6 +5,13 @@ extends CharacterBody3D
 @onready var head : Node3D = $Neck/Head
 @onready var neck : Node3D = $Neck
 
+signal moving
+signal looking
+signal sprinting
+signal pickup
+signal attacking
+signal aiming
+
 enum Weapons { UNARMED = 0, PIPE = 1, KNIFE = 2, PISTOL = 3, SHOTGUN = 4}
 enum Items { FLASHLIGHT = 10, KEY = 11}
 
@@ -32,6 +39,7 @@ var is_moving = false
 var can_sprint = true
 var falling = false
 var dying = false
+var disabled = Graphics.tutorials
 
 # Collision variables
 var push_force = 8.0
@@ -68,6 +76,7 @@ var impact_sounds = {
 func _ready():
 	# Capture the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	camera.fov = NORMAL_FOV
 	$StepTimer.wait_time = 0.6 
 	$StepTimer.start()
 	# Initialize weapons 
@@ -85,11 +94,20 @@ func _ready():
 		max_health = 20
 		%UI.health_bar.max_value = max_health
 		unlock_item(Items.FLASHLIGHT)
+	await get_tree().create_timer(0.5).timeout
+	%UI.show_tooltip("look")
+	dying = false
 
 func _input(event):
 	# Handle weapon inputs
-	if dying:
-		return
+	if dying: return
+	if event is InputEventMouseMotion:
+		emit_signal("looking")
+		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
+		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+		# Clamp the camera's vertical rotation
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-88), deg_to_rad(88))
+	if disabled: return
 	if event.is_action_pressed("fire"):
 		attack()
 	if event.is_action_pressed("reload"):
@@ -113,11 +131,6 @@ func _input(event):
 	if event.is_action_pressed("interact"):
 		process_raycast()
 	# Handle mouse input
-	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
-		# Clamp the camera's vertical rotation
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-88), deg_to_rad(88))
 
 func _physics_process(delta):
 	# Gravity logic
@@ -128,8 +141,7 @@ func _physics_process(delta):
 		$StepAudio.play()
 		falling = false
 	# Handle jump
-	if dying:
-		return
+	if dying or disabled: return
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_crouching and stamina > 0:
 		velocity.y = JUMP_VELOCITY
 		stamina -= 1
@@ -138,6 +150,7 @@ func _physics_process(delta):
 		can_sprint = true
 	if Input.is_action_pressed("sprint") and can_sprint and get_velocity().length() > 0:
 		is_sprinting = true
+		emit_signal("sprinting")
 	else:
 		is_sprinting = false
 	if Input.is_action_pressed("crouch"):
@@ -178,6 +191,7 @@ func _physics_process(delta):
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		is_moving = true
+		emit_signal("moving")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
@@ -214,6 +228,7 @@ func _on_step_timer_timeout():
 		$StepAudio.play()
 
 func attack():
+	emit_signal("attacking")
 	var weapon = get_current_weapon()
 	if not weapon: return
 	if weapon.ranged:
@@ -227,6 +242,7 @@ func reload():
 	if weapon and weapon.ranged: weapon.reload()
 
 func aim():
+	emit_signal("aiming")
 	var weapon = get_current_weapon()
 	if weapon and weapon.ranged: weapon.aim()
 
@@ -274,7 +290,9 @@ func unlock_item(item_type):
 	if item_type in weapons and weapons[item_type]: is_weapon = true
 	if not inventory[item_type]["is_unlocked"]:
 		inventory[item_type]["is_unlocked"] = true 
-		if is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
+		if is_weapon: 
+			add_ammo(item_type, weapons[item_type].max_ammo)
+			emit_signal("pickup")
 	elif is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
 	%UI.update_ammo_count()
 
