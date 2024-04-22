@@ -1,4 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://u12jcpcglpnn"]
+[gd_scene load_steps=14 format=3 uid="uid://u12jcpcglpnn"]
+
+[ext_resource type="AudioStream" uid="uid://b8swc22xmwr1q" path="res://audio/SFX/Damage/glass_break.mp3" id="1_m4rr0"]
+[ext_resource type="AudioStream" uid="uid://c1hydx1bai0dj" path="res://audio/SFX/Damage/glass_fall.mp3" id="2_ar4i7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpurn"]
 resource_name = "Material.001"
@@ -57,6 +60,8 @@ script/source = "extends StaticBody3D
 func destroy():
 	$SpotLight3D.hide()
 	$Icosphere.hide()
+	$Break.play()
+	$Fall.play()
 "
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s2vwy"]
@@ -151,5 +156,16 @@ transform = Transform3D(0.795846, 0, 0, 0, 0.795846, 0, 0, 0, 0.795846, 1.62003,
 mesh = SubResource("ArrayMesh_klv26")
 skeleton = NodePath("")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Light"]
+[node name="Break" type="AudioStreamPlayer3D" parent="Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49642, 5.27789, 0)
+stream = ExtResource("1_m4rr0")
+volume_db = 8.0
+unit_size = 20.0
+max_db = 6.0
+bus = &"SFX"
+
+[node name="Fall" type="AudioStreamPlayer3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62634, 0, 0)
+stream = ExtResource("2_ar4i7")
+max_db = -3.13
+bus = &"SFX"
