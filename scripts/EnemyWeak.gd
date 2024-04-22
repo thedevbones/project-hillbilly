@@ -9,7 +9,6 @@ var knockback_force = 20
 
 func _ready():
 	spawn()
-	generate_patrol_points()
 	hit_audio = $BulletHit
 	death_audio = $Death
 	attack_audio = $Swing

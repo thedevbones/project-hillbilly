@@ -130,7 +130,14 @@ func drop_loot():
 	if item_to_spawn != "":
 		spawner.spawn_drop(item_to_spawn, global_transform.origin)
 
-	
+func generate_patrol_points():
+	var rng = RandomNumberGenerator.new()
+	for i in range(number_of_patrol_points):
+		var random_direction = Vector3(rng.randf_range(-1, 1), 0, rng.randf_range(-1, 1)).normalized()
+		var random_distance = rng.randf_range(0, patrol_radius)
+		var patrol_point = global_position + random_direction * random_distance
+		patrol_points.append(patrol_point)
+
 #func patrol_behavior(delta):
 	#if patrol_points.size() <= 0 or is_waiting: return
 	#
@@ -188,11 +195,3 @@ func drop_loot():
 	#ray_query.to = %Player.global_transform.origin
 	#var result = space_state.intersect_ray(ray_query)
 	#return result and result.collider != %Player
-
-func generate_patrol_points():
-	var rng = RandomNumberGenerator.new()
-	for i in range(number_of_patrol_points):
-		var random_direction = Vector3(rng.randf_range(-1, 1), 0, rng.randf_range(-1, 1)).normalized()
-		var random_distance = rng.randf_range(0, patrol_radius)
-		var patrol_point = global_transform.origin + random_direction * random_distance
-		patrol_points.append(patrol_point)
