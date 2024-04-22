@@ -38,13 +38,12 @@ func apply_damage(damage):
 
 func combat_behavior(_delta):
 	if player == null: return 
-
 	var player_position = player.global_transform.origin
 	var location = global_transform.origin
 	var direction
 	
 	if location.distance_to(player_position) < 18:
-		speed = default_speed + 2
+		if hit_timer.get_time_left() == 0: speed = default_speed + 2
 		navigation_agent.set_target_position(player_position)
 		
 		var next_point = navigation_agent.get_next_path_position()
@@ -53,17 +52,22 @@ func combat_behavior(_delta):
 		var animation = "walk"
 		rotation.y = target_angle
 		
-		if location.distance_to(player_position) <= attack_distance:
+		if global_transform.origin.distance_to(player_position) <= attack_distance:
 			if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
-				attack_player()
+				speed = default_speed
 				hit_timer.start()
 				attack_audio.play()
-				speed = 0
-				
-		elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
+				anim_name = "Attack_animation"
+				animation_player.play(anim_name)
+				await get_tree().create_timer(0.5).timeout # Pad for when weapon is near player
+				if global_transform.origin.distance_to(player.global_transform.origin) <= attack_distance:  # If player still close
+					attack_player()
+				else:
+					movement()
+		if next_point != Vector3.INF:
 			velocity = direction * speed
 			move_and_slide()
-			movement()
+			if hit_timer.get_time_left() == 0: movement()
 	else:
 		speed = default_speed / 1.5
 		if patrol_points.size() > 0:
@@ -84,15 +88,6 @@ func combat_behavior(_delta):
 				velocity = direction * speed
 				move_and_slide()
 				movement()
-				
-	
-	if location.distance_to(player_position) <= attack_distance:
-		if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
-			attack_player()
-			hit_timer.start()
-			attack_audio.play()
-			speed = 0
-	
 
 
 func _on_death_finished():
@@ -111,8 +106,6 @@ func attack_player():
 
 
 func _attack_player():
-	anim_name = "Attack_animation"
-	animation_player.play(anim_name)
 	player.apply_damage(damage, damage_type)
 
 

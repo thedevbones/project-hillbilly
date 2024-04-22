@@ -50,6 +50,7 @@ func spawn():
 	world.add_alive_enemies(1)
 	default_speed = min(default_speed + ((world.current_wave-3) * 0.25), max_speed)
 	default_speed = max(2.5, default_speed)
+	speed = default_speed
 	#generate_patrol_points()
 	#if patrol_points.size() > 0:
 		#navigation_agent.set_target_position(patrol_points[current_target])
