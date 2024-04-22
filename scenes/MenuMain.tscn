@@ -1378,3 +1378,4 @@ bus = &"SFX"
 [connection signal="value_changed" from="Video/MarginContainer2/HBoxContainer/Sliders/MaxEnemiesSlider" to="." method="_on_max_enemies_slider_value_changed"]
 [connection signal="value_changed" from="Video/MarginContainer2/HBoxContainer/Sliders/MaxDecalsSlider" to="." method="_on_max_decals_slider_value_changed"]
 [connection signal="toggled" from="Video/MarginContainer2/HBoxContainer/Sliders/SwayCheckBox" to="." method="_on_sway_check_box_toggled"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

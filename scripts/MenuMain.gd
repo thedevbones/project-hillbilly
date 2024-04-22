@@ -259,3 +259,7 @@ func _on_return_main_menu_btn_pressed():
 
 func _on_sensitivity_value_changed(value):
 	Graphics.set_sensitivity(value)
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()

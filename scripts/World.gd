@@ -103,3 +103,10 @@ func adjust_demo_settings():
 	boss_wave = 3
 	wave_spawn_mult = 10
 	# total_waves = 4
+
+
+func _on_ambience_finished():
+	$ambience.play()
+
+func _on_storm_finished():
+	$storm.play()
