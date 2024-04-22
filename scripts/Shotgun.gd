@@ -56,7 +56,7 @@ func shoot():
 		player.can_switch = true
 
 func reload():
-	if is_reloading or ammo >= MAX_AMMO: return
+	if is_reloading or ammo >= max_ammo: return
 
 	var total_ammo = player.get_ammo(weapon_type)
 	if total_ammo == 0: return
@@ -68,9 +68,9 @@ func reload():
 		was_aiming = true
 		aim()
 
-	while ammo < MAX_AMMO and total_ammo > 0 and is_reloading:
+	while ammo < max_ammo and total_ammo > 0 and is_reloading:
 		$ShotgunLoad.play()
-		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
+		await get_tree().create_timer(reload_time).timeout
 		ammo += 1
 		player.add_ammo(weapon_type, -1)
 		%UI.update_ammo_count()

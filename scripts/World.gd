@@ -37,7 +37,7 @@ func start_wave():
 	current_wave += 1
 	%UI.update_wave_count(current_wave)
 	if current_wave % boss_wave == 0:
-		$Spawner.spawn_boss(1) # change to current_wave/2 in sprint 3
+		$Spawner.spawn_boss(int(current_wave/boss_wave)) # change to current_wave/2 in sprint 3
 		return
 	var enemies_to_spawn = [{"type": "weak", "count": current_wave * wave_spawn_mult}]
 	$Spawner.spawn_wave(enemies_to_spawn)
@@ -48,7 +48,7 @@ func wave_completed():
 	if %Player.health < 10: %Player.health = min(%Player.health + 3, 10)
 	if current_wave == total_waves:
 		victory()
-	elif current_wave % 5 == 0 or current_wave == 2:
+	elif current_wave % boss_wave == 0 or current_wave == 2:
 		switch_state(GameState.TIMEOUT)
 	else:
 		switch_state(GameState.PREPARATION)
@@ -97,7 +97,7 @@ func respawn(enemy):
 func prompt_upgrade():
 	%UI.update_upgrade_prompt()
 	$Spawner.spawn_upgrade_select()
-	switch_state(GameState.PREPARATION)
+	# switch_state(GameState.PREPARATION)
 
 func adjust_demo_settings():
 	boss_wave = 3

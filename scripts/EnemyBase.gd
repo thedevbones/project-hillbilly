@@ -8,7 +8,7 @@ enum States { PATROL, COMBAT, SEARCH }
 
 var default_speed = 2.5
 var max_speed = 4.5
-var speed = 4.5
+var speed = default_speed
 
 var state = States.COMBAT
 var health = 5
@@ -48,7 +48,8 @@ func spawn():
 	navigation_agent = NavigationAgent3D.new()
 	add_child(navigation_agent)
 	world.add_alive_enemies(1)
-	default_speed = min(default_speed + ((world.current_wave-1) * 0.5), max_speed)
+	default_speed = min(default_speed + ((world.current_wave-3) * 0.25), max_speed)
+	default_speed = max(2.5, default_speed)
 	#generate_patrol_points()
 	#if patrol_points.size() > 0:
 		#navigation_agent.set_target_position(patrol_points[current_target])
@@ -122,9 +123,9 @@ func drop_loot():
 	
 	var item_to_spawn = ""
 	if drop_chance < weapon_drop_chance:
-		item_to_spawn = "PickupPistol.tscn" if rng.randf() < 0.5 else "PickupShotgun.tscn"
+		item_to_spawn = "PickupPistol.tscn" if rng.randf() < 0.7 else "PickupShotgun.tscn"
 	elif drop_chance < weapon_drop_chance + ammo_drop_chance:
-		item_to_spawn = "AmmoPistol.tscn" if rng.randf() < 0.5 else "AmmoShotgun.tscn"
+		item_to_spawn = "AmmoPistol.tscn" if rng.randf() < 0.7 else "AmmoShotgun.tscn"
 	
 	if item_to_spawn != "":
 		spawner.spawn_drop(item_to_spawn, global_transform.origin)
