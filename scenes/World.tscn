@@ -60,12 +60,23 @@
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 [ext_resource type="PackedScene" uid="uid://p6d4niymomrc" path="res://scenes/Grave.tscn" id="52_c0cv6"]
 [ext_resource type="PackedScene" uid="uid://cb0nc6t6dr5ph" path="res://scenes/health_bar.tscn" id="57_uqs6u"]
+[ext_resource type="PackedScene" uid="uid://51utbd5yt5wk" path="res://scripts/CarDoor.tscn" id="52_nfw6r"]
+[ext_resource type="PackedScene" path="res://scenes/health_bar.tscn" id="57_uqs6u"]
 [ext_resource type="PackedScene" uid="uid://dpcxawtw7u1jb" path="res://scenes/house_1.tscn" id="61_klq15"]
 [ext_resource type="PackedScene" uid="uid://18c2i8penbfy" path="res://scenes/house_3.tscn" id="62_r23w0"]
 [ext_resource type="PackedScene" uid="uid://cd0hylv3kk7dn" path="res://scenes/house_4.tscn" id="63_5tur1"]
 [ext_resource type="PackedScene" uid="uid://bwx2csl2s7q8" path="res://assets/sidewalkSlab.glb" id="64_mmk23"]
 [ext_resource type="Texture2D" uid="uid://bas2ux5y7gica" path="res://images/ferengi.jpg" id="66_3hoh8"]
 [ext_resource type="AudioStream" uid="uid://d4g5rlgamr2hg" path="res://audio/SFX/Other/reveal.mp3" id="67_n1sh8"]
+[ext_resource type="PackedScene" uid="uid://bofsyusvemdck" path="res://scenes/shed.tscn" id="64_2hiqg"]
+[ext_resource type="PackedScene" uid="uid://c5cqe3ihw6rfw" path="res://assets/sidewalkSlab.glb" id="64_mmk23"]
+[ext_resource type="PackedScene" uid="uid://dcxveujxjwmu6" path="res://scenes/pistolContainer.tscn" id="65_a66ak"]
+[ext_resource type="PackedScene" uid="uid://cutlybiwby807" path="res://scenes/padlock1.tscn" id="66_2ikw0"]
+[ext_resource type="PackedScene" uid="uid://bppo68oh5xfql" path="res://scenes/Gas.tscn" id="68_nf6d7"]
+[ext_resource type="PackedScene" uid="uid://ig0ofact6m2n" path="res://scenes/Door.tscn" id="69_lvm4o"]
+[ext_resource type="PackedScene" uid="uid://dljbmrncce5du" path="res://scenes/PickupKey.tscn" id="70_6vqml"]
+[ext_resource type="PackedScene" uid="uid://dku02dakpxr1d" path="res://scenes/Lightbulb.tscn" id="70_au4gp"]
+[ext_resource type="PackedScene" uid="uid://brwe7dn3wv7fy" path="res://scenes/key2.tscn" id="71_wtdg7"]
 
 [sub_resource type="SystemFont" id="SystemFont_y7dk2"]
 font_names = PackedStringArray("Serif")
@@ -601,6 +612,7 @@ script = ExtResource("11_cn647")
 [node name="HitScan" type="RayCast3D" parent="Player/Neck/Head/MainCamera"]
 target_position = Vector3(0, 0, -1)
 collision_mask = 4
+collide_with_areas = true
 
 [node name="Flashlight" parent="Player/Neck/Head/MainCamera" instance=ExtResource("48_qmcav")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.39, -0.85, -0.57)
@@ -1315,6 +1327,12 @@ axis_lock_linear_x = true
 physics_material_override = SubResource("PhysicsMaterial_xlcod")
 lock_rotation = true
 
+[node name="CarDoor" parent="." node_paths=PackedStringArray("neededkey") instance=ExtResource("52_nfw6r")]
+transform = Transform3D(0.583829, 0, 7.78696e-10, 0, 0.748612, 0, 1.7021e-08, 0, 1, -24.0646, 0, 11.7816)
+isLocked = true
+needsKey = true
+neededkey = NodePath("../Gas")
+
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2maxx")
 volume_db = -25.171
@@ -1441,6 +1459,42 @@ transform = Transform3D(1, -5.19756e-17, 0, 0, -4.37114e-08, 1, 1.06581e-14, -1,
 
 [node name="box" parent="." instance=ExtResource("22_btxxw")]
 transform = Transform3D(0.86858, 0, 0.49555, 0, 1, 0, -0.49555, 0, 0.86858, -26.6113, 0.574045, 60.1693)
+
+[node name="Shed" parent="." instance=ExtResource("64_2hiqg")]
+transform = Transform3D(-0.0642164, 0, -0.0910697, 0, 0.111434, 0, 0.0910697, 0, -0.0642164, 8.09798, -0.00121487, -13.0019)
+
+[node name="pistolContainer" parent="." node_paths=PackedStringArray("neededkey") instance=ExtResource("65_a66ak")]
+transform = Transform3D(-0.0810709, 0, -0.0843599, 0, 0.117, 0, 0.0843599, 0, -0.0810709, 8.09412, 0.661153, -11.9686)
+isLocked = true
+needsKey = true
+neededkey = NodePath("../Key2")
+
+[node name="padlock1" parent="." instance=ExtResource("66_2ikw0")]
+transform = Transform3D(0.0167935, 0, -0.0159246, 0, 0.0231433, 0, 0.0159246, 0, 0.0167934, 7.99905, 0.613611, -12.075)
+
+[node name="Gas" parent="." instance=ExtResource("68_nf6d7")]
+transform = Transform3D(0.467183, 0, -0.2401, 0, 0.525269, 0, 0.2401, 0, 0.467183, 8.64716, 0.613072, -12.6825)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Door" parent="." node_paths=PackedStringArray("neededkey") instance=ExtResource("69_lvm4o")]
+transform = Transform3D(-0.371506, 0, 0.285314, 0, 0.468424, 0, -0.285314, 0, -0.371506, 7.07423, -0.060023, -13.8584)
+collision_layer = 5
+collision_mask = 5
+isLocked = true
+needsKey = true
+neededkey = NodePath("../PickupKey")
+
+[node name="Lightbulb" parent="." instance=ExtResource("70_au4gp")]
+transform = Transform3D(0.100905, 0, 0, 0, 0.100905, 0, 0, 0, 0.100905, 8.34262, 2.72184, -13.177)
+
+[node name="PickupKey" parent="." instance=ExtResource("70_6vqml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4472, 1.01678, -23.4218)
+collision_layer = 5
+collision_mask = 5
+
+[node name="Key2" parent="." instance=ExtResource("71_wtdg7")]
+transform = Transform3D(0.107795, 0, 0, 0, 0.107795, 0, 0, 0, 0.107795, 14.0001, 0.558634, -10.8865)
 
 [connection signal="timeout" from="PrepTimer" to="." method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="BoundsTimer" to="." method="_on_bounds_timer_timeout"]

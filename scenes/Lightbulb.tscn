@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dku02dakpxr1d"]
+
+[ext_resource type="PackedScene" uid="uid://c4owa14mrpcg7" path="res://assets/lightbulb.glb" id="1_soko2"]
+
+[node name="Lightbulb" type="Node3D"]
+
+[node name="lightbulb" parent="." instance=ExtResource("1_soko2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.870151, -1.00965, -0.0151083)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.00609116, 0.999981, 0, -0.999981, 0.00609116, -0.899908, 1.0755, 0)
+light_color = Color(0.939438, 0.853421, 0.575453, 1)
+light_energy = 7.0
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 23.3837
+spot_angle = 29.8865

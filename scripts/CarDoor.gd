@@ -14,7 +14,7 @@ func action_used():
 	if isLocked: 
 		#insert noise to show it is locked
 		if needsKey:
-			print("Needs a key")
+			print("Needs gas")
 			if !is_instance_valid(neededkey):
 				print("Door Unlocked")
 				isLocked = false
@@ -24,9 +24,5 @@ func action_used():
 
 func open_contain():
 	canInteract = false
-	var animPlayer = $/root/World/padlock1/AnimationPlayer
-	animPlayer.play("open")
-	animPlayer = $/root/World/pistolContainer/ContainAnimationPlayer
-	animPlayer.play("open")
 	isOpen = true
 	
