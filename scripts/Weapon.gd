@@ -118,7 +118,8 @@ func hitscan():
 			if collider.name == "Moon":
 				collider.reveal()
 				return
-			
+			elif collider.name == "Light":
+				collider.destroy()
 			if collider is PhysicalBone3D: 
 				hit_particle = enemy_particle.instantiate()
 				hit_damage = blood_decal.instantiate()
