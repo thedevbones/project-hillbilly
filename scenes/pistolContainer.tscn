@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dcxveujxjwmu6"]
 
-[ext_resource type="PackedScene" uid="uid://cr4ivvngatodi" path="res://assets/pistolContainer.glb" id="1_bobgm"]
+[ext_resource type="PackedScene" uid="uid://do3u3vp027nls" path="res://assets/pistolContainer.glb" id="1_bobgm"]
 [ext_resource type="Script" path="res://scripts/pistolContainer.gd" id="1_tyqqe"]
 [ext_resource type="PackedScene" uid="uid://d6mb6q7nrptd" path="res://assets/dope.glb" id="3_ogm7t"]
 
@@ -116,6 +116,8 @@ _data = {
 }
 
 [node name="pistolContainer" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_tyqqe")
 
 [node name="pistolContainer" parent="." instance=ExtResource("1_bobgm")]
