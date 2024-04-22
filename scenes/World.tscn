@@ -1439,6 +1439,9 @@ transform = Transform3D(1, -4.15808e-17, 0, 0, -4.37114e-08, 1, 7.10543e-15, -1,
 [node name="AmmoShotgun4" parent="EasterEgg/Drops" instance=ExtResource("13_6303c")]
 transform = Transform3D(1, -5.19756e-17, 0, 0, -4.37114e-08, 1, 1.06581e-14, -1, -4.37114e-08, -0.469948, -0.858446, -0.13586)
 
+[node name="box" parent="." instance=ExtResource("22_btxxw")]
+transform = Transform3D(0.86858, 0, 0.49555, 0, 1, 0, -0.49555, 0, 0.86858, -26.6113, 0.574045, 60.1693)
+
 [connection signal="timeout" from="PrepTimer" to="." method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="BoundsTimer" to="." method="_on_bounds_timer_timeout"]
 [connection signal="visibility_changed" from="Player/Neck/Head/MainCamera/Pistol" to="Player/Neck/Head/MainCamera/Pistol" method="_on_visibility_changed"]
