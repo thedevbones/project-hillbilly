@@ -96,8 +96,8 @@ func _ready():
 	if Graphics.demo_mode:
 		add_ammo(Weapons.SHOTGUN, 24)
 		add_ammo(Weapons.PISTOL, 32)
-		health = 20
-		max_health = 20
+		health = 50
+		max_health = 50
 		%UI.health_bar.max_value = max_health
 		unlock_item(Items.FLASHLIGHT)
 	await get_tree().create_timer(0.5).timeout
@@ -168,7 +168,7 @@ func _physics_process(delta):
 	# Sprinting/Crouching logic
 	if is_sprinting:
 		$StepTimer.wait_time = 0.3
-		$StepAudio.set_max_db(-4)
+		$StepAudio.set_max_db(-9)
 		speed = NORMAL_SPEED * SPRINT_MULTIPLIER
 		stamina -= delta
 		camera.fov = lerp(camera.fov, SPRINT_FOV, 0.1)
@@ -178,16 +178,16 @@ func _physics_process(delta):
 			can_sprint = false
 	elif is_crouching:
 		$StepTimer.wait_time = 1.2 
-		$StepAudio.set_max_db(-10)
-		camera.global_transform.origin.y = lerp(camera.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
+		$StepAudio.set_max_db(-15)
+		neck.global_transform.origin.y = lerp(neck.global_transform.origin.y, global_transform.origin.y+ 0.25, delta * 10)
 		speed = NORMAL_SPEED * CROUCH_MULTIPLIER
 		can_sprint = false
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA) 
 	else:
 		$StepTimer.wait_time = 0.6 
-		$StepAudio.set_max_db(-7)
-		camera.global_transform.origin.y = lerp(camera.global_transform.origin.y, global_transform.origin.y, delta * 10)
+		$StepAudio.set_max_db(-11)
+		neck.global_transform.origin.y = lerp(neck.global_transform.origin.y, global_transform.origin.y + 0.5, delta * 10)
 		camera.fov = lerp(camera.fov, NORMAL_FOV, 0.1)
 		speed = NORMAL_SPEED
 		stamina += delta / 2

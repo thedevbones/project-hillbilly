@@ -23,7 +23,9 @@ func _ready():
 	swing_duration = 0.4
 
 func _process(delta):
-	if not visible: return
+	if not visible: 
+		is_blocking = false
+		return
 	
 	if is_swinging:
 		if swing_timer > swing_duration / 2:

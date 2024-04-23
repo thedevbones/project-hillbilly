@@ -109,5 +109,5 @@ func choose_spawn_point():
 		spawn_point.global_transform.origin.z += randi_range(-max_offset, max_offset)
 		
 		var spawn_point_position = spawn_point.global_transform.origin
-		if spawn_point_position.distance_to(player.global_transform.origin) >= 10:
+		if spawn_point_position.distance_to(player.global_transform.origin) >= 20:
 			return spawn_point

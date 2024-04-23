@@ -23,7 +23,9 @@ func _ready():
 	bob_min = position.y - BOB_OFFSET
 
 func _process(delta):
-	if not visible: pass
+	if not visible: 
+		is_blocking = false
+		pass
 	
 	if is_swinging:
 		if swing_timer > swing_duration / 2:

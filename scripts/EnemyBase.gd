@@ -147,8 +147,9 @@ func generate_patrol_points():
 	for i in range(number_of_patrol_points):
 		var random_direction = Vector3(rng.randf_range(-1, 1), 0, rng.randf_range(-1, 1)).normalized()
 		var random_distance = rng.randf_range(0, patrol_radius)
-		var patrol_point = global_position + random_direction * random_distance
+		var patrol_point = position + random_direction * random_distance
 		patrol_points.append(patrol_point)
+
 
 #func patrol_behavior(delta):
 	#if patrol_points.size() <= 0 or is_waiting: return

@@ -3,10 +3,11 @@ extends "res://scripts/EnemyBase.gd"
 ##@onready var ani_tree = $AnimationTree
 const LERP = 1.5
 var knockback_force = 20
-
+@onready var force_combat_timer = get_node("/root/World/CombatTimer")
 
 func _ready():
 	spawn()
+	
 	hit_audio = $BulletHit
 	death_audio = $Death
 	attack_audio = $Swing
@@ -41,7 +42,7 @@ func combat_behavior(_delta):
 	var location = global_transform.origin
 	var direction
 	
-	if location.distance_to(player_position) < 18:
+	if location.distance_to(player_position) < 18 or force_combat_timer.get_time_left() == 0:
 		if hit_timer.get_time_left() == 0: speed = default_speed + 2
 		navigation_agent.set_target_position(player_position)
 		
@@ -69,6 +70,8 @@ func combat_behavior(_delta):
 			if hit_timer.get_time_left() == 0: movement()
 	else:
 		speed = default_speed / 1.5
+		#if velocity.x < 0.001 or velocity.z < 0.001:
+			#world.respawn(self)
 		if patrol_points.size() > 0:
 			var target_location = patrol_points[current_target]
 			navigation_agent.set_target_position(target_location)

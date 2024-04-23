@@ -4,13 +4,13 @@ var graphics: Environment
 var grass
 var player : CharacterBody3D 
 var grass_visible = true
-var demo_mode = false
+var demo_mode = true
 var bobbing = true
 var swaying = true
 var max_enemies = 20
 var max_decals = 30
 var in_game = false
-var tutorials = false
+var tutorials = true
 var blood = true
 var sensitivity = 0.2
 

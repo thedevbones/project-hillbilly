@@ -36,6 +36,7 @@ func switch_state(new_state):
 func start_wave():
 	current_wave += 1
 	%UI.update_wave_count(current_wave)
+	$CombatTimer.start()
 	if current_wave % boss_wave == 0:
 		$Spawner.spawn_boss(int(current_wave/boss_wave)) # change to current_wave/2 in sprint 3
 		$BoundsTimer.start()
@@ -93,6 +94,7 @@ func is_out_of_bounds(child):
 func respawn(enemy):
 	var spawn_point = $Spawner.choose_spawn_point()
 	enemy.global_transform.origin = spawn_point.global_transform.origin
+	enemy.generate_patrol_points()
 	$BoundsTimer.start()
 
 func prompt_upgrade():
