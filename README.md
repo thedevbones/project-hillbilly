@@ -469,7 +469,47 @@
 	- [FER-137](https://cs3398s24ferengi.atlassian.net/browse/FER-137),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-137-create-4-assets-of-buildings)	
 
+**Jordan**: "Update and expand on current game graphics, gameplay, interface and audio"
 
+- `Jira Task: Jordan - Add recoil mechanic`  
+	- [FER-129](https://cs3398s24ferengi.atlassian.net/browse/FER-129), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-129-add-recoil-mechanic)
+- `Jira Task: Jordan - Create hit FX`  
+	- [FER-131](https://cs3398s24ferengi.atlassian.net/browse/FER-131), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-131-create-hit-fx-bullets-swings-blo)
+- `Jira Task: Jordan - Adjust enemy wave spawn`  
+	- [FER-136](https://cs3398s24ferengi.atlassian.net/browse/FER-136), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-136-adjust-enemy-wave-spawn)
+- `Jira Task: Jordan - Add more weapon upgrades`  
+	- [FER-141](https://cs3398s24ferengi.atlassian.net/browse/FER-141), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-141-add-more-weapon-upgrades)
+- `Jira Task: Jordan - Implement camera kinematics`  
+	- [FER-147](https://cs3398s24ferengi.atlassian.net/browse/FER-147), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-147-implement-camera-kinematics)
+- `Jira Task: Jordan - Adjust enemy collision`  
+	- [FER-148](https://cs3398s24ferengi.atlassian.net/browse/FER-148), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-148-adjust-enemy-collision)
+- `Jira Task: Jordan - Adjust object collision`  
+	- [FER-149](https://cs3398s24ferengi.atlassian.net/browse/FER-149), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-149-adjust-object-collision)
+- `Jira Task: Jordan - Expand game settings`
+	- [FER-150](https://cs3398s24ferengi.atlassian.net/browse/FER-150), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-150-expand-game-settings)
+- `Jira Task: Jordan - Upgrade to Jolt physics engine`
+	- [FER-151](https://cs3398s24ferengi.atlassian.net/browse/FER-151), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-151-upgrade-to-jolt-physics-engine)
+- `Jira Task: Jordan - Add easter eggs`
+	- [FER-152](https://cs3398s24ferengi.atlassian.net/browse/FER-152), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-152-add-easter-eggs)
+- `Jira Task: Jordan - Update resolution and fix scaling`
+	- [FER-153](https://cs3398s24ferengi.atlassian.net/browse/FER-153), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-153-update-resolution-and-fix-scaling)
+- `Jira Task: Jordan - Combine menus`
+	- [FER-157](https://cs3398s24ferengi.atlassian.net/browse/FER-157), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-157-combine-menus)
+- `Jira Task: Jordan - Final touches`
+	- [FER-158](https://cs3398s24ferengi.atlassian.net/browse/FER-158), 
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-158-final-touches)
 <!-- Optional -->
 <!-- ## License -->
 <!-- This project is open source and available under the [... License](). -->
