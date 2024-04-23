@@ -7,7 +7,6 @@
 resource_name = "PickupUpgrade"
 script/source = "extends \"res://scripts/Pickup.gd\"
 
-@onready var gui = get_node_or_null(\"/root/World/UI\")
 @onready var spawner = get_node_or_null(\"/root/World/Spawner\")
 
 func _on_pickup_area_body_entered(body):

@@ -1,9 +1,6 @@
 extends "res://scripts/EnemyBase.gd"
 
 @onready var health_bar = $BossUI/BossHealthBar
-@onready var animation_player 
-
-var anim_name = "walk"
 
 var laugh_sounds = [
 	preload("res://audio/SFX/Enemy/Boss_evil_laugh.mp3"),
@@ -28,13 +25,14 @@ func _ready():
 	$LaughTimer.start()
 	animation_player = $boss/AnimationPlayer
 	animation_player.play("walk")
+	anim_name = "walk"
 	$boss/Armature/Armature_001/Skeleton3D.physical_bones_start_simulation()
 	$boss/Armature/Armature_001/Skeleton3D.physical_bones_stop_simulation()
 
 func set_level(level):
-	health = 30 * level
-	damage = 2 * level
-	print(level)
+	health = 60 * level
+	damage = 5 * level
+	adjust_ui()
 
 func laugh():
 	if $Laugh.playing: return
@@ -75,9 +73,6 @@ func attack_player():
 	call_deferred("_attack_player")
 
 func _attack_player():
-	print("attacking")
-	anim_name = "attack"
-	animation_player.play(anim_name)
 	player.apply_damage(damage, damage_type)
 
 func movement():

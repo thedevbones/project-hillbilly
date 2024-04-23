@@ -1,25 +1,24 @@
 extends "res://scripts/EnemyBase.gd"
 
 ##@onready var ani_tree = $AnimationTree
-@onready var animation_player 
 const LERP = 1.5
-var anim_name = "walk"
 var knockback_force = 20
-
+@onready var force_combat_timer = get_node("/root/World/CombatTimer")
 
 func _ready():
 	spawn()
-	generate_patrol_points()
+	
 	hit_audio = $BulletHit
 	death_audio = $Death
 	attack_audio = $Swing
 	hit_timer = $HitTimer
 	damage_type = "axe"
 	patrol_timer = $PatrolTimer
-	var anim : Animation= $AnimationPlayer.get_animation(anim_name)
-	anim.loop_mode =(Animation.LOOP_LINEAR)
 	animation_player = $AnimationPlayer
 	animation_player.play("walk")
+	anim_name = "walk"
+	var anim : Animation = animation_player.get_animation(anim_name)
+	anim.loop_mode =(Animation.LOOP_LINEAR)
 	$Armature/Skeleton3D.physical_bones_start_simulation()
 	$Armature/Skeleton3D.physical_bones_stop_simulation()
 
@@ -39,13 +38,12 @@ func apply_damage(damage):
 
 func combat_behavior(_delta):
 	if player == null: return 
-
 	var player_position = player.global_transform.origin
 	var location = global_transform.origin
 	var direction
 	
-	if location.distance_to(player_position) < 18:
-		speed = default_speed + 2
+	if location.distance_to(player_position) < 18 or force_combat_timer.get_time_left() == 0:
+		if hit_timer.get_time_left() == 0: speed = default_speed + 2
 		navigation_agent.set_target_position(player_position)
 		
 		var next_point = navigation_agent.get_next_path_position()
@@ -54,19 +52,26 @@ func combat_behavior(_delta):
 		var animation = "walk"
 		rotation.y = target_angle
 		
-		if location.distance_to(player_position) <= attack_distance:
+		if global_transform.origin.distance_to(player_position) <= attack_distance:
 			if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
-				attack_player()
+				speed = default_speed
 				hit_timer.start()
 				attack_audio.play()
-				speed = 0
-				
-		elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
+				anim_name = "Attack_animation"
+				animation_player.play(anim_name)
+				await get_tree().create_timer(0.5).timeout # Pad for when weapon is near player
+				if global_transform.origin.distance_to(player.global_transform.origin) <= attack_distance:  # If player still close
+					attack_player()
+				else:
+					movement()
+		if next_point != Vector3.INF:
 			velocity = direction * speed
 			move_and_slide()
-			movement()
+			if hit_timer.get_time_left() == 0: movement()
 	else:
 		speed = default_speed / 1.5
+		#if velocity.x < 0.001 or velocity.z < 0.001:
+			#world.respawn(self)
 		if patrol_points.size() > 0:
 			var target_location = patrol_points[current_target]
 			navigation_agent.set_target_position(target_location)
@@ -85,15 +90,6 @@ func combat_behavior(_delta):
 				velocity = direction * speed
 				move_and_slide()
 				movement()
-				
-	
-	if location.distance_to(player_position) <= attack_distance:
-		if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
-			attack_player()
-			hit_timer.start()
-			attack_audio.play()
-			speed = 0
-	
 
 
 func _on_death_finished():
@@ -112,8 +108,6 @@ func attack_player():
 
 
 func _attack_player():
-	anim_name = "Attack_animation"
-	animation_player.play(anim_name)
 	player.apply_damage(damage, damage_type)
 
 

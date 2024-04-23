@@ -12,6 +12,7 @@ var reload_time = 1
 var range = Vector3.ZERO
 var is_reloading = false
 var is_aiming = false
+var is_blocking = false
 var ranged = true
 var is_swinging = false
 var swing_duration = 0.4
@@ -31,6 +32,8 @@ var target_pos: Vector3
 var target_rot: Vector3
 var ads_pos: Vector3
 var ads_rot: Vector3
+var block_pos: Vector3
+var block_rot: Vector3
 var original_pos: Vector3
 var original_rot: Vector3
 var weapon_type
@@ -44,7 +47,7 @@ func _ready():
 	pass
 
 func swing():
-	if is_swinging: return 
+	if is_swinging or is_blocking: return 
 	
 	is_swinging = true
 	player.can_switch = false
@@ -103,6 +106,24 @@ func aim():
 		target_rot = original_rot
 	%UI.update_crosshair()
 
+func block():
+	if player.block_hits <= 0:
+		is_blocking = false
+		player.blocking = false
+		target_pos = original_pos
+		target_rot = original_rot
+		return
+	if not is_blocking:
+		is_blocking = true
+		player.blocking = true
+		target_pos = block_pos
+		target_rot = block_rot
+	else:
+		is_blocking = false
+		player.blocking = false
+		target_pos = original_pos
+		target_rot = original_rot
+
 func hitscan():
 	if not raycast.is_enabled():
 		return
@@ -118,10 +139,9 @@ func hitscan():
 			if collider.name == "Moon":
 				collider.reveal()
 				return
-			
+			elif collider.name == "Light":
+				collider.destroy()
 			if collider is PhysicalBone3D: 
-				hit_particle = enemy_particle.instantiate()
-				hit_damage = blood_decal.instantiate()
 				var enemy = collider
 				while enemy and not enemy.has_method("apply_damage"):
 					enemy = enemy.get_parent()
@@ -130,6 +150,9 @@ func hitscan():
 					if collider.name == "Head":
 						damage_multiplier = randf_range(1.25, 2.5)
 					enemy.apply_damage(damage * damage_multiplier)
+				if Graphics.blood:
+					hit_particle = enemy_particle.instantiate()
+					hit_damage = blood_decal.instantiate()
 			hit_particle.global_position = collision_point
 			get_tree().current_scene.add_child(hit_particle)
 			hit_particle.look_at(collision_point + collision_normal, Vector3.UP)

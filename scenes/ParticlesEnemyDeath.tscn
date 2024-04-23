@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhtqfjsrq2xvw"]
+[gd_scene load_steps=5 format=3 uid="uid://c838ub2vymbij"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5k1w"]
 emission_shape = 1
-emission_sphere_radius = 0.02
-direction = Vector3(0, 0, -1)
+emission_sphere_radius = 0.5
+direction = Vector3(0, 5, 0)
 spread = 5.0
-initial_velocity_min = 1.0
-initial_velocity_max = 2.0
-gravity = Vector3(0, -2.5, 0)
-scale_min = 0.5
+initial_velocity_min = 0.5
+initial_velocity_max = 5.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.0
+scale_max = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2cjr"]
 albedo_color = Color(0.552941, 0, 0, 1)
@@ -17,6 +18,8 @@ albedo_color = Color(0.552941, 0, 0, 1)
 material = SubResource("StandardMaterial3D_u2cjr")
 radius = 0.04
 height = 0.08
+radial_segments = 4
+rings = 1
 
 [sub_resource type="GDScript" id="GDScript_5vuo7"]
 resource_name = "ObjectHit"
@@ -31,11 +34,12 @@ func _on_finished():
 
 [node name="ObjectHitParticles" type="GPUParticles3D"]
 emitting = false
-amount = 16
-lifetime = 0.5
+amount = 64
+lifetime = 2.0
 one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
+randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_e5k1w")
 draw_pass_1 = SubResource("SphereMesh_0rxm1")
 script = SubResource("GDScript_5vuo7")

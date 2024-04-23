@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cba0ny8vcuj7s"]
 
-[ext_resource type="PackedScene" uid="uid://h3ynh3v6w87o" path="res://assets/boxofshells.glb" id="1_nywfi"]
-[ext_resource type="AudioStream" uid="uid://i5fbeo553c6q" path="res://audio/SFX/pickup_deep.wav" id="2_ysbe3"]
+[ext_resource type="PackedScene" uid="uid://ikp7mg166t4v" path="res://assets/boxofshells.glb" id="1_nywfi"]
+[ext_resource type="AudioStream" uid="uid://x4yx6rf6y0bl" path="res://audio/SFX/pickup_deep.wav" id="2_ysbe3"]
 
 [sub_resource type="GDScript" id="GDScript_hm30m"]
 resource_name = "PickupAmmoShotgun"
@@ -10,8 +10,9 @@ script/source = "extends \"res://scripts/Pickup.gd\"
 func _on_pickup_area_body_entered(body):
 	if body == player: 
 		var weapon = player.Weapons.SHOTGUN
+		var max_ammo = player.weapons[weapon].max_ammo
 		$PickupSound.play()
-		player.add_ammo(weapon, 8)
+		player.add_ammo(weapon, max_ammo * 1.5 + randi_range(-(max_ammo/2),max_ammo/2))
 		hide()
 "
 

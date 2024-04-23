@@ -5,6 +5,7 @@ var enemy_weak_alt = preload("res://scenes/EnemyWeak2.tscn")
 # var enemy_strong = preload("res://path/to/EnemyStrong.tscn")
 var boss = preload("res://scenes/Boss.tscn")
 @onready var world = get_parent()
+@onready var player = %Player
 
 var spawn_points = []
 
@@ -24,6 +25,7 @@ func spawn_enemy(enemy_type, spawn_point):
 		enemy_instance = enemy_weak_alt.instantiate()
 	add_child(enemy_instance) 
 	enemy_instance.global_transform.origin = spawn_point.global_transform.origin
+	enemy_instance.generate_patrol_points()
 
 func spawn_wave(enemies_to_spawn):
 	var max_enemies = Graphics.get_max_enemies()
@@ -52,7 +54,7 @@ func spawn_particle(scene_name, spawn_position):
 		add_child(instance)
 		
 		var timer = Timer.new()
-		timer.wait_time = 0.3
+		timer.wait_time = 2
 		timer.one_shot = true
 		add_child(timer)
 		timer.timeout.connect(remove_instance.bind(instance))
@@ -100,8 +102,12 @@ func spawn_melee_upgrades():
 		add_child(instance)
 
 func choose_spawn_point():
-	var spawn_point = spawn_points[randi() % spawn_points.size()]
-	var max_offset = 4
-	spawn_point.global_transform.origin.x += randi_range(-max_offset, max_offset)
-	spawn_point.global_transform.origin.z += randi_range(-max_offset, max_offset)
-	return spawn_point
+	while true:
+		var spawn_point = spawn_points[randi() % spawn_points.size()]
+		var max_offset = 4
+		spawn_point.global_transform.origin.x += randi_range(-max_offset, max_offset)
+		spawn_point.global_transform.origin.z += randi_range(-max_offset, max_offset)
+		
+		var spawn_point_position = spawn_point.global_transform.origin
+		if spawn_point_position.distance_to(player.global_transform.origin) >= 20:
+			return spawn_point

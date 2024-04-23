@@ -29,7 +29,6 @@ Graphics="*res://scripts/Graphics.gd"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
-window/size/always_on_top=true
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 

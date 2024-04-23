@@ -12,6 +12,7 @@ var pump_original_pos: float
 var can_shoot: bool = true
 var pump_animating: bool = false
 var pumping_back: bool = true
+var aim_spread_modifier: int = 3
 
 func _ready():
 	weapon_type = player.Weapons.SHOTGUN
@@ -56,7 +57,7 @@ func shoot():
 		player.can_switch = true
 
 func reload():
-	if is_reloading or ammo >= MAX_AMMO: return
+	if is_reloading or ammo >= max_ammo: return
 
 	var total_ammo = player.get_ammo(weapon_type)
 	if total_ammo == 0: return
@@ -68,9 +69,9 @@ func reload():
 		was_aiming = true
 		aim()
 
-	while ammo < MAX_AMMO and total_ammo > 0 and is_reloading:
+	while ammo < max_ammo and total_ammo > 0 and is_reloading:
 		$ShotgunLoad.play()
-		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
+		await get_tree().create_timer(reload_time).timeout
 		ammo += 1
 		player.add_ammo(weapon_type, -1)
 		%UI.update_ammo_count()
@@ -89,7 +90,7 @@ func hitscan():
 		return
 	
 	var num_pellets = 6
-	var spread_angle = 10
+	var spread_angle = 5 * aim_spread_modifier
 	
 	for i in range(num_pellets):
 		# Calculate direction with random spread
@@ -119,8 +120,6 @@ func hitscan():
 				var hit_damage = bullet_decal.instantiate()
 				
 				if collider is PhysicalBone3D: 
-					hit_particle = enemy_particle.instantiate()
-					hit_damage = blood_decal.instantiate()
 					var enemy = collider
 					while enemy and not enemy.has_method("apply_damage"):
 						enemy = enemy.get_parent()
@@ -129,6 +128,9 @@ func hitscan():
 						if collider.name == "Head":
 							damage_multiplier = randf_range(1.25, 2.5)
 						enemy.apply_damage(damage * damage_multiplier)
+					if Graphics.blood:
+						hit_particle = enemy_particle.instantiate()
+						hit_damage = blood_decal.instantiate()
 				
 				if collider is RigidBody3D:
 					collider.apply_damage(collision_point, collision_normal, 11000) 
@@ -147,6 +149,19 @@ func pump():
 	pump_animating = true
 	await get_tree().create_timer(PUMP_TIME).timeout
 	can_shoot = true
+
+func aim():
+	if not is_aiming: 
+		is_aiming = true
+		target_pos = ads_pos
+		target_rot = ads_rot
+		aim_spread_modifier = 1
+	else:
+		is_aiming = false
+		target_pos = original_pos
+		target_rot = original_rot
+		aim_spread_modifier = 3
+	%UI.update_crosshair()
 
 func _process(delta):
 	if not visible: pass

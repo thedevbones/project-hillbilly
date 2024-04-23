@@ -11,6 +11,7 @@ extends Control
 @onready var MUSIC_BUS = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS = AudioServer.get_bus_index("SFX")
 
+var gui
 var is_paused = false
 var background_scene = preload("res://scenes/Background.tscn")
 
@@ -46,6 +47,7 @@ func _ready():
 		var background = background_scene.instantiate()
 		add_child(background)
 		$AudioStreamPlayer.play()
+	gui = get_node_or_null("/root/World/UI")
 
 func adjust_buttons():
 	$"Main Menu/MarginContainer/VBoxContainer/StartBtn".visible = !Graphics.in_game
@@ -228,12 +230,14 @@ func unpause_game():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	hide()
+	if gui: gui.show()
 	is_paused = false
 	
 func pause_game():
 	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	show()
+	if gui: gui.hide()
 	is_paused = true
 	main.visible = true
 	settings.visible = false
@@ -251,3 +255,15 @@ func _on_return_main_menu_btn_pressed():
 	Graphics.in_game = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file("res://scenes/MenuMain.tscn")
+
+
+func _on_sensitivity_value_changed(value):
+	Graphics.set_sensitivity(value)
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()
+
+
+func _on_blood_check_box_toggled(toggled_on):
+	Graphics.update_blood(toggled_on)
