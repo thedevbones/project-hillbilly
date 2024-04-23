@@ -35,7 +35,8 @@
 ![Sprint1_BurnupChart](images/Sprint1_BurnupChart.png)  
 ### Sprint 2  
 ![Sprint2_BurnupChart](images/s2_burnup.png)  
-
+### Sprint 3
+![Sprint3_BurnupChart](images/s3_burnup.png)
 
 ## Features
 
