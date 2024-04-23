@@ -65,8 +65,8 @@
 [ext_resource type="PackedScene" path="res://scenes/house_3.tscn" id="62_r23w0"]
 [ext_resource type="PackedScene" path="res://scenes/house_4.tscn" id="63_5tur1"]
 [ext_resource type="PackedScene" uid="uid://b2grs5ii36o23" path="res://assets/sidewalkSlab.glb" id="64_mmk23"]
-[ext_resource type="Texture2D" path="res://images/ferengi.jpg" id="66_3hoh8"]
-[ext_resource type="AudioStream" path="res://audio/SFX/Other/reveal.mp3" id="67_n1sh8"]
+[ext_resource type="Texture2D" uid="uid://ddvr3mvmfprxm" path="res://images/ferengi.jpg" id="66_3hoh8"]
+[ext_resource type="AudioStream" uid="uid://csuxjh0vc8w7x" path="res://audio/SFX/Other/reveal.mp3" id="67_n1sh8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tx6gs"]
 bg_color = Color(0.772549, 0, 0, 0.129412)
@@ -241,7 +241,7 @@ font_size = 11
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kyisp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d7tii"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -276,7 +276,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_kyisp"),
+"material": SubResource("ShaderMaterial_d7tii"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
