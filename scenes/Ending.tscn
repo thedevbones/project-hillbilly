@@ -12,6 +12,7 @@ script = ExtResource("1_pvmjw")
 offset_right = 968.0
 offset_bottom = 520.0
 stream = SubResource("VideoStreamTheora_4wxk7")
+volume_db = 8.0
 autoplay = true
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
