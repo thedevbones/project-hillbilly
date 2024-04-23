@@ -12,6 +12,7 @@ var pump_original_pos: float
 var can_shoot: bool = true
 var pump_animating: bool = false
 var pumping_back: bool = true
+var aim_spread_modifier: int = 3
 
 func _ready():
 	weapon_type = player.Weapons.SHOTGUN
@@ -89,7 +90,7 @@ func hitscan():
 		return
 	
 	var num_pellets = 6
-	var spread_angle = 10
+	var spread_angle = 5 * aim_spread_modifier
 	
 	for i in range(num_pellets):
 		# Calculate direction with random spread
@@ -147,6 +148,19 @@ func pump():
 	pump_animating = true
 	await get_tree().create_timer(PUMP_TIME).timeout
 	can_shoot = true
+
+func aim():
+	if not is_aiming: 
+		is_aiming = true
+		target_pos = ads_pos
+		target_rot = ads_rot
+		aim_spread_modifier = 1
+	else:
+		is_aiming = false
+		target_pos = original_pos
+		target_rot = original_rot
+		aim_spread_modifier = 3
+	%UI.update_crosshair()
 
 func _process(delta):
 	if not visible: pass

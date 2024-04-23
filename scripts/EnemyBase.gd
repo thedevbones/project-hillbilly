@@ -32,6 +32,8 @@ var is_waiting = false
 var hit_audio: AudioStreamPlayer3D
 var death_audio: AudioStreamPlayer3D
 var attack_audio: AudioStreamPlayer3D
+var animation_player
+var anim_name
 
 
 func _process(delta):
@@ -59,33 +61,35 @@ func spawn():
 
 func combat_behavior(delta):
 	if player == null: return 
-
 	var player_position = player.global_transform.origin
 	var location = global_transform.origin
+	var direction
 	
-	if location.distance_to(player_position) > 20:
-		speed = default_speed * 2
-	else:
-		speed = default_speed
+	if hit_timer.get_time_left() == 0: speed = default_speed + 2
 	navigation_agent.set_target_position(player_position)
-	
+		
 	var next_point = navigation_agent.get_next_path_position()
-	var direction = (next_point - location).normalized()
+	direction = (next_point - location).normalized()
 	var target_angle = atan2(direction.x, direction.z)
 	var animation = "walk"
 	rotation.y = target_angle
-	
-	if location.distance_to(player_position) <= attack_distance:
+		
+	if global_transform.origin.distance_to(player_position) <= attack_distance:
 		if hit_timer.get_time_left() == 0 and not player.dying and health > 0:
-			attack_player()
+			speed = default_speed
 			hit_timer.start()
 			attack_audio.play()
-			speed = 0
-			
-	elif next_point != Vector3.INF and hit_timer.get_time_left() == 0:
+			anim_name = "attack"
+			animation_player.play(anim_name)
+			await get_tree().create_timer(0.6).timeout # Pad for when weapon is near player
+			if global_transform.origin.distance_to(player.global_transform.origin) <= attack_distance:  # If player still close
+				attack_player()
+			else:
+				movement()
+	if next_point != Vector3.INF:
 		velocity = direction * speed
 		move_and_slide()
-		movement()
+		if hit_timer.get_time_left() == 0: movement()
 		#if not player_heard() and not player_in_fov(direction):
 			#state = States.SEARCH
 			#return

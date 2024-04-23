@@ -4,7 +4,7 @@ enum GameState { GAME_START, IN_WAVE, PREPARATION, TIMEOUT, GAME_OVER }
 
 var total_waves = 10
 var current_state = GameState.GAME_START
-var current_wave = 13
+var current_wave = 14
 var enemies_alive = 0
 var enemies_in_queue = 0
 var boss_wave = 5
@@ -38,6 +38,7 @@ func start_wave():
 	%UI.update_wave_count(current_wave)
 	if current_wave % boss_wave == 0:
 		$Spawner.spawn_boss(int(current_wave/boss_wave)) # change to current_wave/2 in sprint 3
+		$BoundsTimer.start()
 		return
 	var enemies_to_spawn = [{"type": "weak", "count": current_wave * wave_spawn_mult}]
 	$Spawner.spawn_wave(enemies_to_spawn)

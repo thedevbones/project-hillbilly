@@ -123,7 +123,7 @@ func _input(event):
 	if event.is_action_released("aim") and weapon_aiming():
 		aim()
 	if event.is_action("crouch"):
-		print("player: ", blocking, " weapon: ", get_current_weapon().is_blocking)
+		print("hits: ", block_hits, "player: ", blocking, " weapon: ", get_current_weapon().is_blocking)
 	if event.is_action_pressed("flashlight_toggle"):
 		toggle_flashlight()
 	# Handle number key presses for direct weapon selection

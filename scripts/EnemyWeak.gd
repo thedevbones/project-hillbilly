@@ -1,9 +1,7 @@
 extends "res://scripts/EnemyBase.gd"
 
 ##@onready var ani_tree = $AnimationTree
-@onready var animation_player 
 const LERP = 1.5
-var anim_name = "walk"
 var knockback_force = 20
 
 
@@ -19,6 +17,7 @@ func _ready():
 	anim.loop_mode =(Animation.LOOP_LINEAR)
 	animation_player = $AnimationPlayer
 	animation_player.play("walk")
+	anim_name = "walk"
 	$Armature/Skeleton3D.physical_bones_start_simulation()
 	$Armature/Skeleton3D.physical_bones_stop_simulation()
 
