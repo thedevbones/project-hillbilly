@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf23aespwj1yw"]
+[gd_scene load_steps=6 format=3 uid="uid://cf23aespwj1yw"]
 
-[ext_resource type="Texture2D" uid="uid://cw55cj5wrkkec" path="res://assets/textures/Material.002 Base Color.png" id="1_1fyru"]
+[ext_resource type="Texture2D" uid="uid://chb1xi03poxwc" path="res://assets/textures/Material.002 Base Color.png" id="1_1fyru"]
+[ext_resource type="PackedScene" uid="uid://de7yom0dl04aa" path="res://assets/pistol.glb" id="2_wyvfl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v547x"]
 resource_name = "Material.002"
@@ -46,6 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_n81dn")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.599, 0, 0, 0, 0.599, 0, 0, 0)
+visible = false
 layers = 2
 sorting_offset = 100.0
 mesh = SubResource("ArrayMesh_1ywjc")
@@ -53,15 +55,22 @@ skeleton = NodePath("")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(0.685921, -0.324013, 0.651558, -1.49012e-08, 0.895396, 0.445271, -0.727676, -0.305421, 0.61417, 7.35889, 4.95831, 6.92579)
+visible = false
 fov = 22.8952
 near = 0.1
 far = 100.0
 
 [node name="Empty" type="Node3D" parent="."]
 transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, -19.0365, 0.985706, 11.1899)
+visible = false
 
 [node name="Empty_001" type="Node3D" parent="."]
 transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, 0, 3.05514, -25.4172)
+visible = false
 
 [node name="Empty_002" type="Node3D" parent="."]
 transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, -3.77154, 3.19145, 0.294078)
+visible = false
+
+[node name="pistol" parent="." instance=ExtResource("2_wyvfl")]
+transform = Transform3D(0.289036, 0, 0, 0, 0.289036, 0, 0, 0, 0.289036, 0.00522578, -1.01365, -0.19258)
