@@ -1,25 +1,26 @@
-[gd_scene load_steps=43 format=3 uid="uid://b2o6m17okgti4"]
+[gd_scene load_steps=44 format=3 uid="uid://b2o6m17okgti4"]
 
-[ext_resource type="Texture2D" uid="uid://dtxwcmjfk1sst" path="res://assets/textures/Plane Base Color.001.png" id="1_ldsad"]
-[ext_resource type="Texture2D" uid="uid://fo5v2xg1k74b" path="res://assets/textures/Cylinder.003 Base Color.png" id="2_xn2nr"]
-[ext_resource type="Texture2D" uid="uid://pfrravj245e7" path="res://assets/textures/backlight base Color.png" id="3_5xn2v"]
-[ext_resource type="Texture2D" uid="uid://bbyg5lbj63r8m" path="res://assets/textures/Front light Base Color.png" id="4_2ussr"]
-[ext_resource type="Texture2D" uid="uid://dfi4npf3hbta1" path="res://assets/textures/Material Base Color.png" id="5_g771l"]
-[ext_resource type="Texture2D" uid="uid://y2i6gbyopkut" path="res://assets/textures/Material.023 Base Color.png" id="6_c2ebm"]
-[ext_resource type="Texture2D" uid="uid://ocwus78p2bdd" path="res://assets/textures/Material.023 Base Color.001.png" id="7_gojti"]
-[ext_resource type="Texture2D" uid="uid://dtxo83aujsy50" path="res://assets/textures/Material.050 Base Color.001.png" id="8_8krh7"]
-[ext_resource type="Texture2D" uid="uid://ea7gw1s4dlo5" path="res://assets/textures/Material.049 Base Color.001.png" id="9_fvrfk"]
-[ext_resource type="Texture2D" uid="uid://c2d1bv7vlcveu" path="res://assets/textures/Material.050 Base Color.002.png" id="10_2ufbr"]
-[ext_resource type="Texture2D" uid="uid://0tvmlbyvf46h" path="res://assets/textures/Material.049 Base Color.002.png" id="11_ig7mm"]
-[ext_resource type="Texture2D" uid="uid://cjd4xoy3oamrb" path="res://assets/textures/Material.050 Base Color.005.png" id="12_6pfdu"]
-[ext_resource type="Texture2D" uid="uid://bbgayovyu47ra" path="res://assets/textures/Material.050 Base Color.png" id="13_ybg5a"]
-[ext_resource type="Texture2D" uid="uid://dpriqdjqi1xe3" path="res://assets/textures/Material.050 Base Color.003.png" id="14_s20gp"]
-[ext_resource type="Texture2D" uid="uid://cy4n6qhl7cssd" path="res://assets/textures/backlight.png" id="15_2v7rb"]
-[ext_resource type="Texture2D" uid="uid://3n45nytn6n4i" path="res://assets/textures/backlight.001.png" id="16_4bbi0"]
-[ext_resource type="Texture2D" uid="uid://cn3178ucd5ddd" path="res://assets/textures/backlight base Color.001.png" id="17_qug03"]
-[ext_resource type="Texture2D" uid="uid://bvqjwrh4bbpkq" path="res://assets/textures/backlight base.001.png" id="18_ghjao"]
-[ext_resource type="Texture2D" uid="uid://c024aqdmasoim" path="res://assets/textures/mirror.png" id="19_7v3dp"]
-[ext_resource type="Texture2D" uid="uid://bi1d1n4yrynft" path="res://assets/textures/Material.050 Base Color.004.png" id="20_67xeo"]
+[ext_resource type="Texture2D" uid="uid://dyqnko8w60lkr" path="res://assets/textures/Plane Base Color.001.png" id="1_ldsad"]
+[ext_resource type="Script" path="res://scripts/Car.gd" id="1_lrhuu"]
+[ext_resource type="Texture2D" uid="uid://d2lhjhiwo2vya" path="res://assets/textures/Cylinder.003 Base Color.png" id="2_xn2nr"]
+[ext_resource type="Texture2D" uid="uid://b7v88yd6du6t6" path="res://assets/textures/backlight base Color.png" id="3_5xn2v"]
+[ext_resource type="Texture2D" uid="uid://bt1fcwtt5e27v" path="res://assets/textures/Front light Base Color.png" id="4_2ussr"]
+[ext_resource type="Texture2D" uid="uid://bbneg7pe38eaj" path="res://assets/textures/Material Base Color.png" id="5_g771l"]
+[ext_resource type="Texture2D" uid="uid://de5ttjvbrd7uf" path="res://assets/textures/Material.023 Base Color.png" id="6_c2ebm"]
+[ext_resource type="Texture2D" uid="uid://cdtnkt2ic4m31" path="res://assets/textures/Material.023 Base Color.001.png" id="7_gojti"]
+[ext_resource type="Texture2D" uid="uid://dirytwt15mpat" path="res://assets/textures/Material.050 Base Color.001.png" id="8_8krh7"]
+[ext_resource type="Texture2D" uid="uid://3qdeqxdurchp" path="res://assets/textures/Material.049 Base Color.001.png" id="9_fvrfk"]
+[ext_resource type="Texture2D" uid="uid://c0ypofxmuyeh5" path="res://assets/textures/Material.050 Base Color.002.png" id="10_2ufbr"]
+[ext_resource type="Texture2D" uid="uid://b2gu0pta4daw3" path="res://assets/textures/Material.049 Base Color.002.png" id="11_ig7mm"]
+[ext_resource type="Texture2D" uid="uid://dfw33wgk8mog3" path="res://assets/textures/Material.050 Base Color.005.png" id="12_6pfdu"]
+[ext_resource type="Texture2D" uid="uid://b21wfejjpnwfd" path="res://assets/textures/Material.050 Base Color.png" id="13_ybg5a"]
+[ext_resource type="Texture2D" uid="uid://dk4e8eofomdau" path="res://assets/textures/Material.050 Base Color.003.png" id="14_s20gp"]
+[ext_resource type="Texture2D" uid="uid://bh53i6l4xt441" path="res://assets/textures/backlight.png" id="15_2v7rb"]
+[ext_resource type="Texture2D" uid="uid://cdp5n1jjicauc" path="res://assets/textures/backlight.001.png" id="16_4bbi0"]
+[ext_resource type="Texture2D" uid="uid://drji4w0l53x70" path="res://assets/textures/backlight base Color.001.png" id="17_qug03"]
+[ext_resource type="Texture2D" uid="uid://dcmid3pjtq02m" path="res://assets/textures/backlight base.001.png" id="18_ghjao"]
+[ext_resource type="Texture2D" uid="uid://btl6qq3g6hgw6" path="res://assets/textures/mirror.png" id="19_7v3dp"]
+[ext_resource type="Texture2D" uid="uid://co4l55srrp3wo" path="res://assets/textures/Material.050 Base Color.004.png" id="20_67xeo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7jjv"]
 resource_name = "Material.047"
@@ -595,6 +596,7 @@ points = PackedVector3Array(5.98848, 1.89222, 0.614131, 6.10176, 1.65728, 1.2559
 collision_layer = 5
 collision_mask = 5
 mass = 1000.0
+script = ExtResource("1_lrhuu")
 
 [node name="Plane_004" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.180244, 0.0866728, 0, -0.0866728, 0.180244, 0, 0, 0, 0.698333, 0.929216, 0.37507, -0.123296)

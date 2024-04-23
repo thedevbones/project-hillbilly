@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://p3k21cy70ism"]
+[gd_scene load_steps=16 format=3 uid="uid://p3k21cy70ism"]
 
 [ext_resource type="Script" path="res://scripts/death_cut.gd" id="1_1x83r"]
 [ext_resource type="FontFile" uid="uid://bk6wtt18617ra" path="res://fonts/Another Danger - Demo.otf" id="2_jcebm"]
 [ext_resource type="AudioStream" uid="uid://brswvh58k8fpv" path="res://audio/Music/DeathCutScene.mp3" id="3_6m2d1"]
-[ext_resource type="FontFile" uid="uid://douqnhjmajht6" path="res://fonts/Scary House.ttf" id="3_bd2cf"]
 
 [sub_resource type="Animation" id="Animation_15qd1"]
 resource_name = "Death"
@@ -28,7 +27,7 @@ tracks/1/path = NodePath("AudioStreamPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(-0.6, 26.5, 30.9),
+"times": PackedFloat32Array(-0.4, 26.5, 30.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, true]
@@ -119,7 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_jcebm")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 95
 text = "GAME OVER
 "
 horizontal_alignment = 1
@@ -141,9 +140,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_bd2cf")
+theme_override_colors/font_hover_color = Color(0.0235294, 0.0196078, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tlayk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nn8yn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_k1uq1")
@@ -159,17 +158,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = 29.0
-offset_right = 46.0
-offset_bottom = 60.0
+offset_left = -93.0
+offset_top = 42.0
+offset_right = 96.0
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_bd2cf")
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tlayk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nn8yn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_k1uq1")
@@ -185,17 +184,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = 50.0
-offset_right = 35.0
-offset_bottom = 81.0
+offset_left = -35.0
+offset_top = 88.0
+offset_right = 39.0
+offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.996078, 0.996078, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_bd2cf")
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tlayk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nn8yn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_k1uq1")
@@ -206,7 +205,6 @@ text = "Quit
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6m2d1")
-volume_db = 5.714
 bus = &"Music"
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

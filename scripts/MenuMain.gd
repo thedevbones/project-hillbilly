@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 @onready var main = $"Main Menu"
 @onready var settings = $SettingsControl
@@ -11,31 +11,47 @@ extends CanvasLayer
 @onready var MUSIC_BUS = AudioServer.get_bus_index("Music")
 @onready var SFX_BUS = AudioServer.get_bus_index("SFX")
 
+var is_paused = false
+var background_scene = preload("res://scenes/Background.tscn")
+
 func _on_start_btn_pressed():
-	var tween1 = get_tree().create_tween()
-	tween1.tween_property($BlackScreen, "modulate", Color("ffffff", 1), 0.5)
+	Graphics.in_game = true
+	# var tween1 = get_tree().create_tween()
+	# tween1.tween_property($BlackScreen, "modulate", Color("ffffff", 1), 0.5)
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property($AudioStreamPlayer, "volume_db", -20, 0.5)
 	play_ui_audio(0.1)
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/World.tscn")
+	get_tree().change_scene_to_file("res://scenes/IntroScene.tscn")
 
 func _on_quit_btn_pressed():
+	Graphics.in_game = false
 	play_ui_audio(0.2)
 	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()
 
 func _ready():
-	main.visible = true
+	main.visible = !Graphics.in_game
 	settings.visible = false
 	audio.visible = false
 	video.visible = false
 	tutorialMove.visible = false
 	turotialAtk.visible = false
-	$BlackScreen.show()
-	var tween = get_tree().create_tween()
-	tween.tween_property($BlackScreen, "modulate", Color("ffffff", 0), 1.0)
 	init_resolutions()
+	adjust_buttons()
+	if not Graphics.in_game:
+		$BlackScreen.show()
+		var tween = get_tree().create_tween()
+		tween.tween_property($BlackScreen, "modulate", Color("ffffff", 0), 1.0)
+		var background = background_scene.instantiate()
+		add_child(background)
+		$AudioStreamPlayer.play()
+
+func adjust_buttons():
+	$"Main Menu/MarginContainer/VBoxContainer/StartBtn".visible = !Graphics.in_game
+	#$"Main Menu/MarginContainer/VBoxContainer/DemoBtn".visible = !Graphics.in_game
+	$"Main Menu/MarginContainer/VBoxContainer/Resume".visible = Graphics.in_game
+	$"Main Menu/MarginContainer/VBoxContainer/ReturnMainMenuBtn".visible = Graphics.in_game
 
 func _on_settings_btn_pressed():
 	play_ui_audio(0.2)
@@ -136,17 +152,15 @@ func _on_ssil_check_box_2_toggled(toggled_on):
 func _on_grass_check_box_toggled(toggled_on):
 	Graphics.update_grass(toggled_on)
 
-func _on_demo_btn_pressed():
-	Graphics.demo_mode = true
-	var tween2 = get_tree().create_tween()
-	tween2.tween_property($AudioStreamPlayer, "volume_db", -20, 0.5)
-	play_ui_audio(0.1)
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/IntroScene.tscn")
+#func _on_demo_btn_pressed():
+	#Graphics.demo_mode = true
+	#_on_start_btn_pressed()
 
 func _input(event):
 	if event.is_action_pressed("reload"):
 		$"Main Menu/MarginContainer/VBoxContainer/StartBtn".disabled = false
+	if event.is_action_pressed("ui_cancel") and Graphics.in_game:
+		toggle_pause()
 
 func init_resolutions():
 	var resolutions = [
@@ -173,25 +187,24 @@ func init_resolutions():
 	resolutionOptions.selected = 4
 
 func _on_resolution_option_button_item_selected(index): 
-	var window_id = DisplayServer.get_window_at_screen_position(Vector2.ZERO)
 	var resolution_sizes = [
-		Vector2i(640, 480),   # 4:3 SD
-		Vector2i(800, 600),   # 4:3 SVGA
-		Vector2i(1024, 768),  # 4:3 XGA
-		Vector2i(1600, 1200), # 4:3 UXGA
-		Vector2i(1280, 720),  # 16:9 HD
-		Vector2i(1600, 900),  # 16:9 HD+
-		Vector2i(1920, 1080), # 16:9 Full HD
-		Vector2i(2560, 1440), # 16:9 QHD
-		Vector2i(3840, 2160), # 16:9 UHD
-		Vector2i(2560, 1080), # 21:9 UW-UXGA
-		Vector2i(3440, 1440), # 21:9 UW-QHD
-		Vector2i(5120, 2160)  # 21:9 UW5K
+		Vector2(640, 480),   # 4:3 SD
+		Vector2(800, 600),   # 4:3 SVGA
+		Vector2(1024, 768),  # 4:3 XGA
+		Vector2(1600, 1200), # 4:3 UXGA
+		Vector2(1280, 720),  # 16:9 HD
+		Vector2(1600, 900),  # 16:9 HD+
+		Vector2(1920, 1080), # 16:9 Full HD
+		Vector2(2560, 1440), # 16:9 QHD
+		Vector2(3840, 2160), # 16:9 UHD
+		Vector2(2560, 1080), # 21:9 UW-UXGA
+		Vector2(3440, 1440), # 21:9 UW-QHD
+		Vector2(5120, 2160)  # 21:9 UW5K
 	]
-	DisplayServer.window_set_size(resolution_sizes[index], window_id)
+	DisplayServer.window_set_size(resolution_sizes[index])
 
 func _on_bright_slider_value_changed(value):
-	Graphics.set_brightness(value)
+	Graphics.set_brightness(value * 2)
 
 func _on_max_enemies_slider_value_changed(value):
 	Graphics.set_max_enemies(value)
@@ -204,3 +217,37 @@ func _on_sway_check_box_toggled(toggled_on):
 
 func _on_bob_check_box_toggled(toggled_on):
 	Graphics.update_bobbing(toggled_on)
+
+func toggle_pause():
+	if is_paused:
+		unpause_game()
+	else:
+		pause_game()
+
+func unpause_game():
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	hide()
+	is_paused = false
+	
+func pause_game():
+	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	show()
+	is_paused = true
+	main.visible = true
+	settings.visible = false
+	audio.visible = false
+	video.visible = false
+	tutorialMove.visible = false
+	turotialAtk.visible = false
+
+
+func _on_resume_pressed():
+	unpause_game()
+
+func _on_return_main_menu_btn_pressed():
+	unpause_game()
+	Graphics.in_game = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file("res://scenes/MenuMain.tscn")

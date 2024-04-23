@@ -43,6 +43,25 @@ func spawn_boss(boss_level):
 	boss_instance.set_level(boss_level)
 	boss_instance.global_transform.origin = spawn_point.global_transform.origin
 
+func spawn_particle(scene_name, spawn_position):
+	var scene_path = "res://scenes/" + scene_name
+	var scene = load(scene_path)
+	if scene:
+		var instance = scene.instantiate()
+		instance.global_transform.origin = spawn_position
+		add_child(instance)
+		
+		var timer = Timer.new()
+		timer.wait_time = 0.3
+		timer.one_shot = true
+		add_child(timer)
+		timer.timeout.connect(remove_instance.bind(instance))
+		timer.start()
+
+func remove_instance(instance):
+	remove_child(instance)
+	instance.queue_free()
+
 func spawn_drop(scene_name, spawn_position):
 	var scene_path = "res://scenes/" + scene_name
 	var scene = load(scene_path)
@@ -82,7 +101,7 @@ func spawn_melee_upgrades():
 
 func choose_spawn_point():
 	var spawn_point = spawn_points[randi() % spawn_points.size()]
-	var max_offset = 5
+	var max_offset = 4
 	spawn_point.global_transform.origin.x += randi_range(-max_offset, max_offset)
 	spawn_point.global_transform.origin.z += randi_range(-max_offset, max_offset)
 	return spawn_point

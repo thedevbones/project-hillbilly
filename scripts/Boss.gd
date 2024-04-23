@@ -19,7 +19,7 @@ func _ready():
 	hit_timer = $HitTimer
 	laugh()
 	damage_type = "rake"
-	health = 30
+	health = 60
 	damage = 2
 	default_speed = 5
 	$BossUI.modulate = Color("ffffff", 0)
@@ -53,6 +53,7 @@ func apply_damage(damage):
 	if hit_audio.is_playing(): hit_audio.play()
 	if health <= 0: 
 		die()
+		$/root/World/PickupKey.global_transform.origin = global_transform.origin
 		fade_ui(Color("ffffff", 0))
 
 func fade_ui(final_value):
@@ -62,6 +63,8 @@ func fade_ui(final_value):
 
 func _on_death_finished():
 	queue_free()
+	
+	
 
 
 func _on_laugh_timer_timeout():

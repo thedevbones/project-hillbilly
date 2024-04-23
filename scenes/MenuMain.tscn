@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://ck51wc6vaspo0" path="res://Default2.tres" id="3_nhp40"]
-[ext_resource type="FontFile" uid="uid://bk6wtt18617ra" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
-[ext_resource type="FontFile" uid="uid://douqnhjmajht6" path="res://fonts/Scary House.ttf" id="4_8gyms"]
-[ext_resource type="AudioStream" uid="uid://cnhrlmpkl2p82" path="res://audio/Music/menu.mp3" id="4_24813"]
-[ext_resource type="PackedScene" uid="uid://6drj3uyglv1o" path="res://scenes/Background.tscn" id="4_wtf1n"]
-[ext_resource type="AudioStream" uid="uid://bjj7onwu10pfq" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
+[ext_resource type="FontFile" uid="uid://eusi2472nhr" path="res://fonts/Another Danger - Demo.otf" id="3_wugvk"]
+[ext_resource type="FontFile" uid="uid://dheiwgh8ote18" path="res://fonts/Scary House.ttf" id="4_8gyms"]
+[ext_resource type="AudioStream" uid="uid://l8rnpurap27o" path="res://audio/Music/menu.mp3" id="4_24813"]
+[ext_resource type="AudioStream" uid="uid://chbnla8wyehi0" path="res://audio/SFX/ui.wav" id="5_rqbi7"]
+[ext_resource type="Script" path="res://addons/SliderLabel/SliderLabel.gd" id="5_ywy6p"]
 
 [sub_resource type="Theme" id="Theme_754t5"]
 
@@ -80,9 +80,10 @@ func _on_video_setting_btn_pressed():
 	$SSAOCheckBox.button_pressed = Graphics.get_ssao()
 	$SSILCheckBox.button_pressed = Graphics.get_ssil()
 	$GrassCheckBox.button_pressed = Graphics.get_grass()
-	$\"../../../MarginContainer2/HBoxContainer/Sliders/SwayCheckBox\".button_pressed = Graphics.swaying
 	$BobCheckBox.button_pressed = Graphics.bobbing
-	$\"../../../MarginContainer2/HBoxContainer/Sliders/BrightSlider\".value = Graphics.get_brightness()
+	$Fullscreen.button_pressed = DisplayServer.window_get_mode() == 3
+	$\"../../../MarginContainer2/HBoxContainer/Sliders/SwayCheckBox\".button_pressed = Graphics.swaying
+	$\"../../../MarginContainer2/HBoxContainer/Sliders/BrightSlider\".value = Graphics.get_brightness() / 2
 	$\"../../../MarginContainer2/HBoxContainer/Sliders/MaxEnemiesSlider\".value = Graphics.get_max_enemies()
 	$\"../../../MarginContainer2/HBoxContainer/Sliders/MaxDecalsSlider\".value = Graphics.get_max_decals()
 "
@@ -158,13 +159,20 @@ height = 30
 fill_from = Vector2(0.0180412, 0)
 fill_to = Vector2(0.0180412, 0)
 
-[node name="Main Menu2" type="CanvasLayer"]
+[node name="Menu" type="Control"]
 process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_qtm8j")
 
 [node name="BlackScreen" type="ColorRect" parent="."]
 visible = false
 z_index = 1
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -174,28 +182,22 @@ color = Color(0, 0, 0, 1)
 
 [node name="Main Menu" type="Control" parent="."]
 visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -5.0
-offset_right = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_754t5")
-
-[node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
-z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -14.905
-offset_right = 422.0
-offset_bottom = 579.095
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.315, 0.315)
+theme = SubResource("Theme_754t5")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 671.0
+grow_vertical = 2
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
@@ -211,11 +213,11 @@ theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
 theme_override_fonts/font = ExtResource("3_wugvk")
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 80
 text = "Project HillBilly"
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 150)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
 [node name="StartBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
@@ -226,31 +228,29 @@ theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.003846
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.447059, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
-disabled = true
 text = "Start Game
 "
 
-[node name="DemoBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
-text = "Start Demo
-"
+text = "Resume"
 
 [node name="TutorialBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -259,7 +259,7 @@ theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -276,7 +276,7 @@ theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -285,6 +285,22 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
 text = "Settings
 "
 
+[node name="ReturnMainMenuBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
+theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
+theme_override_fonts/font = ExtResource("4_8gyms")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ap838")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n0aih")
+text = "Main Menu"
+
 [node name="QuitBtn" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -292,7 +308,7 @@ theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dvevm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_17rg0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25dqu")
@@ -303,7 +319,7 @@ text = "Quit
 
 [node name="SettingsControl" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -317,15 +333,12 @@ theme = SubResource("Theme_w04i1")
 [node name="MarginContainer" type="MarginContainer" parent="SettingsControl"]
 z_as_relative = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
 anchor_bottom = 1.0
-offset_top = -6.0
-offset_right = 422.0
-offset_bottom = 515.0
-grow_horizontal = 2
+offset_left = -2.0
+offset_top = -57.0
+offset_right = 670.0
 grow_vertical = 2
-scale = Vector2(0.315, 0.315)
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
@@ -341,29 +354,32 @@ theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
 theme_override_fonts/font = ExtResource("3_wugvk")
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 80
 text = "Project HillBilly"
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsControl/MarginContainer/SettingsDisplay"]
-custom_minimum_size = Vector2(2.08165e-12, 150)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="SettingsBanner" type="Label" parent="SettingsControl/MarginContainer/SettingsDisplay/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 60
 text = "Settings "
+horizontal_alignment = 1
 
 [node name="AudioSettingBtn" type="Button" parent="SettingsControl/MarginContainer/SettingsDisplay"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m42nc")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_jkswo")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_v7tvk")
@@ -375,11 +391,12 @@ text = "Audio
 [node name="VideoSettingBtn" type="Button" parent="SettingsControl/MarginContainer/SettingsDisplay"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m42nc")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_jkswo")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_v7tvk")
@@ -391,11 +408,12 @@ text = "Video
 [node name="MainMenuBtn" type="Button" parent="SettingsControl/MarginContainer/SettingsDisplay"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.618984, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.96344, 0.973835, 0.998336, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_l0gnl")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_xynpk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w6ai4")
@@ -407,7 +425,7 @@ text = "Main Menu
 [node name="Tutorial_Movement" type="Control" parent="."]
 visible = false
 texture_filter = 1
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -416,41 +434,41 @@ grow_vertical = 2
 
 [node name="GameTitle" type="Label" parent="Tutorial_Movement"]
 layout_mode = 2
-offset_left = 41.0
-offset_top = 5.0
-offset_right = 227.0
-offset_bottom = 52.0
+offset_left = 248.0
+offset_top = 43.0
+offset_right = 727.0
+offset_bottom = 164.0
 pivot_offset = Vector2(413.1, 52.8)
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
 theme_override_fonts/font = ExtResource("3_wugvk")
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 70
 text = "Project HillBilly"
 
 [node name="Label" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 58.0
-offset_right = 139.0
-offset_bottom = 81.0
+offset_left = 200.0
+offset_top = 168.0
+offset_right = 453.0
+offset_bottom = 220.0
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 38
 text = "Main Controls"
 
 [node name="AttackControls" type="Button" parent="Tutorial_Movement"]
 layout_mode = 2
-offset_left = 164.0
-offset_top = 59.0
-offset_right = 298.0
-offset_bottom = 85.0
+offset_left = 471.0
+offset_top = 168.0
+offset_right = 760.0
+offset_bottom = 220.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxEmpty_t5yyn")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5j66n")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4b33t")
@@ -461,163 +479,163 @@ text = "Attack Controls
 
 [node name="Walk" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 95.0
-offset_top = 107.0
-offset_right = 232.0
-offset_bottom = 147.0
+offset_left = 337.0
+offset_top = 255.0
+offset_right = 474.0
+offset_bottom = 323.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Walk"
 
 [node name="W" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 91.0
-offset_right = 80.0
-offset_bottom = 131.0
+offset_left = 241.0
+offset_top = 242.0
+offset_right = 288.0
+offset_bottom = 311.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "W"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="A" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 110.0
-offset_right = 66.0
-offset_bottom = 150.0
+offset_left = 230.0
+offset_top = 272.0
+offset_right = 263.0
+offset_bottom = 341.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="S" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 110.0
-offset_right = 72.0
-offset_bottom = 150.0
+offset_left = 247.0
+offset_top = 272.0
+offset_right = 274.0
+offset_bottom = 341.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "S"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="D" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 110.0
-offset_right = 85.0
-offset_bottom = 150.0
+offset_left = 261.0
+offset_top = 272.0
+offset_right = 298.0
+offset_bottom = 341.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "D"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Run" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 95.0
-offset_top = 133.0
-offset_right = 383.0
-offset_bottom = 173.0
+offset_left = 337.0
+offset_top = 314.0
+offset_right = 822.0
+offset_bottom = 382.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Run (press and hold)"
 
 [node name="run (shift)" type="Label" parent="Tutorial_Movement"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 38.0
-offset_top = 134.0
-offset_right = 126.0
-offset_bottom = 174.0
+offset_left = 214.0
+offset_top = 314.0
+offset_right = 375.0
+offset_bottom = 383.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Shift"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Jump" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 95.0
-offset_top = 157.0
-offset_right = 224.0
-offset_bottom = 197.0
+offset_left = 337.0
+offset_top = 358.0
+offset_right = 466.0
+offset_bottom = 426.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Jump"
 
 [node name="jump (space)" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 159.0
-offset_right = 135.0
-offset_bottom = 199.0
+offset_left = 214.0
+offset_top = 358.0
+offset_right = 383.0
+offset_bottom = 427.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Space"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Croutch" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 94.0
-offset_top = 185.0
-offset_right = 204.0
-offset_bottom = 225.0
+offset_left = 337.0
+offset_top = 404.0
+offset_right = 494.0
+offset_bottom = 472.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Crouch"
 
 [node name="croutch (ctrl)" type="Label" parent="Tutorial_Movement"]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 184.0
-offset_right = 114.0
-offset_bottom = 228.0
+offset_left = 226.0
+offset_top = 404.0
+offset_right = 338.0
+offset_bottom = 473.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Ctrl"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Main Menu" type="Button" parent="Tutorial_Movement"]
 layout_mode = 2
-offset_left = 20.0
-offset_top = 216.0
-offset_right = 102.0
-offset_bottom = 238.0
+offset_left = 150.0
+offset_top = 480.0
+offset_right = 286.0
+offset_bottom = 517.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxEmpty_t5yyn")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5j66n")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4b33t")
@@ -627,8 +645,7 @@ text = "Main Menu
 "
 
 [node name="Tutorial_Attack" type="Control" parent="."]
-visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -637,31 +654,31 @@ grow_vertical = 2
 
 [node name="GameTitle" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 5.0
-offset_right = 227.0
-offset_bottom = 52.0
+offset_left = 248.0
+offset_top = 43.0
+offset_right = 727.0
+offset_bottom = 164.0
 pivot_offset = Vector2(413.1, 52.8)
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.00784314, 0.00392157, 1)
 theme_override_fonts/font = ExtResource("3_wugvk")
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 70
 text = "Project HillBilly"
 
 [node name="MainControls" type="Button" parent="Tutorial_Attack"]
 layout_mode = 2
-offset_left = 30.0
-offset_top = 58.0
-offset_right = 152.0
-offset_bottom = 84.0
+offset_left = 200.0
+offset_top = 168.0
+offset_right = 453.0
+offset_bottom = 220.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qngds")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ic7vk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_n0ggr")
@@ -672,180 +689,180 @@ text = "Main Controls
 
 [node name="Attack_Cont" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 165.0
-offset_top = 59.0
-offset_right = 299.0
-offset_bottom = 85.0
+offset_left = 471.0
+offset_top = 168.0
+offset_right = 760.0
+offset_bottom = 220.0
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 38
 text = "Attack Controls"
 
 [node name="Select Weapon" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 85.0
-offset_right = 509.0
-offset_bottom = 125.0
+offset_left = 200.0
+offset_top = 243.0
+offset_right = 988.0
+offset_bottom = 311.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Select Weapon with number keys:"
 
 [node name="Hide Weapon" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 108.0
-offset_right = 235.0
-offset_bottom = 148.0
+offset_left = 228.0
+offset_top = 294.0
+offset_right = 511.0
+offset_bottom = 362.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Hide Weapon"
 
 [node name="1" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 108.0
-offset_right = 47.0
-offset_bottom = 125.0
+offset_left = 200.0
+offset_top = 294.0
+offset_right = 229.0
+offset_bottom = 363.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Pipe" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 130.0
-offset_right = 228.0
-offset_bottom = 170.0
+offset_left = 228.0
+offset_top = 336.0
+offset_right = 409.0
+offset_bottom = 404.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Pipe"
 
 [node name="2" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 131.0
-offset_right = 52.0
-offset_bottom = 171.0
+offset_left = 200.0
+offset_top = 336.0
+offset_right = 229.0
+offset_bottom = 405.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Knife" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 152.0
-offset_right = 176.0
-offset_bottom = 192.0
+offset_left = 228.0
+offset_top = 378.0
+offset_right = 357.0
+offset_bottom = 446.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Knife"
 
 [node name="3" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 153.0
-offset_right = 52.0
-offset_bottom = 193.0
+offset_left = 200.0
+offset_top = 378.0
+offset_right = 229.0
+offset_bottom = 447.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Pistol" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 108.0
-offset_right = 269.0
-offset_bottom = 148.0
+offset_left = 443.0
+offset_top = 294.0
+offset_right = 580.0
+offset_bottom = 362.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Pistol"
 
 [node name="4" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 108.0
-offset_right = 173.0
-offset_bottom = 148.0
+offset_left = 415.0
+offset_top = 294.0
+offset_right = 444.0
+offset_bottom = 363.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Shotgun" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 130.0
-offset_right = 286.0
-offset_bottom = 170.0
+offset_left = 443.0
+offset_top = 336.0
+offset_right = 629.0
+offset_bottom = 404.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Shotgun"
 
 [node name="5" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 131.0
-offset_right = 173.0
-offset_bottom = 171.0
+offset_left = 415.0
+offset_top = 336.0
+offset_right = 444.0
+offset_bottom = 405.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_nhp40")
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Attack_Shoot" type="Label" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 174.0
-offset_right = 369.0
-offset_bottom = 214.0
+offset_left = 200.0
+offset_top = 424.0
+offset_right = 805.0
+offset_bottom = 492.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Attack/Shoot - Left Click"
 
 [node name="Main Menu" type="Button" parent="Tutorial_Attack"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 216.0
-offset_right = 102.0
-offset_bottom = 238.0
+offset_left = 150.0
+offset_top = 480.0
+offset_right = 300.0
+offset_bottom = 521.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.365217, 3.08343e-07, 0.00384617, 1)
 theme_override_colors/font_hover_color = Color(0.964706, 0.972549, 1, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cb476")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cecaf")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_gmybr")
@@ -856,14 +873,10 @@ text = "Main Menu
 
 [node name="Audio" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 56.0
-offset_right = 4.0
-offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -873,12 +886,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -6.0
-offset_right = 563.0
-offset_bottom = 373.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.315, 0.315)
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 60
@@ -899,7 +908,7 @@ layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Master"
 
 [node name="Music" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
@@ -907,7 +916,7 @@ layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Music"
 
 [node name="Sound FX" type="Label" parent="Audio/MarginContainer/AudioDisplay/Labels"]
@@ -915,7 +924,7 @@ layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Sound FX"
 
 [node name="Sliders" type="VBoxContainer" parent="Audio/MarginContainer/AudioDisplay"]
@@ -951,33 +960,25 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="Video" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 6.0
-offset_right = 424.0
-offset_bottom = 527.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.315, 0.315)
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Video"]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = -0.029
-anchor_right = 0.652
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_top = 0.0690002
-offset_right = 0.223877
-offset_bottom = -22.0
-grow_horizontal = 2
+offset_left = 16.0
+offset_right = 360.0
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Video/MarginContainer"]
@@ -993,35 +994,35 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Fullscreen"
 
 [node name="SSAO" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "SSAO"
 
 [node name="SSIL" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "SSIL"
 
 [node name="Grass" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Grass"
 
 [node name="Bob" type="Label" parent="Video/MarginContainer/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Camera Bob"
 
 [node name="Checks" type="VBoxContainer" parent="Video/MarginContainer/HBoxContainer"]
@@ -1080,20 +1081,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Video"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.029
-anchor_right = 0.652
+anchor_left = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 518.69
-offset_top = 0.0690002
-offset_right = 518.912
-offset_bottom = -22.0
-grow_horizontal = 2
+offset_left = -611.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Video/MarginContainer2"]
@@ -1109,14 +1107,14 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Resolution"
 
 [node name="Bright" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Brightness
 "
 
@@ -1124,28 +1122,27 @@ text = "Brightness
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Max Enemies  "
 
 [node name="MaxDecals" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Decal Time"
 
 [node name="Sway" type="Label" parent="Video/MarginContainer2/HBoxContainer/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_8gyms")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Camera Sway"
 
 [node name="Sliders" type="VBoxContainer" parent="Video/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
-theme_override_constants/separation = 60
+theme_override_constants/separation = 26
 script = SubResource("GDScript_gd73m")
 metadata/_edit_use_anchors_ = true
 
@@ -1159,10 +1156,23 @@ icon_alignment = 1
 [node name="BrightSlider" type="HSlider" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
 size_flags_vertical = 1
-min_value = 0.1
-max_value = 2.0
-step = 0.1
+max_value = 1.0
+step = 0.05
 value = 1.0
+tick_count = 21
+ticks_on_borders = true
+
+[node name="SliderLabel" type="Label" parent="Video/MarginContainer2/HBoxContainer/Sliders/BrightSlider"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ywy6p")
+visibility_rule = 0
+metadata/_edit_initialized_ = true
 
 [node name="MaxEnemiesSlider" type="HSlider" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
@@ -1171,12 +1181,42 @@ min_value = 10.0
 max_value = 50.0
 step = 5.0
 value = 20.0
+tick_count = 9
+ticks_on_borders = true
+
+[node name="SliderLabel" type="Label" parent="Video/MarginContainer2/HBoxContainer/Sliders/MaxEnemiesSlider"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ywy6p")
+visibility_rule = 0
+metadata/_edit_initialized_ = true
 
 [node name="MaxDecalsSlider" type="HSlider" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
 size_flags_vertical = 1
 max_value = 60.0
+step = 5.0
 value = 30.0
+tick_count = 13
+ticks_on_borders = true
+
+[node name="SliderLabel" type="Label" parent="Video/MarginContainer2/HBoxContainer/Sliders/MaxDecalsSlider"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ywy6p")
+visibility_rule = 0
+custom_format = "%ss"
+metadata/_edit_initialized_ = true
 
 [node name="SwayCheckBox" type="CheckBox" parent="Video/MarginContainer2/HBoxContainer/Sliders"]
 layout_mode = 2
@@ -1189,7 +1229,6 @@ button_pressed = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_24813")
-autoplay = true
 bus = &"Music"
 
 [node name="UISound" type="AudioStreamPlayer" parent="."]
@@ -1197,15 +1236,13 @@ stream = ExtResource("5_rqbi7")
 pitch_scale = 0.2
 bus = &"SFX"
 
-[node name="main" parent="." instance=ExtResource("4_wtf1n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500945, -2.9777, 0.423937)
-
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
-[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/DemoBtn" to="." method="_on_demo_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/TutorialBtn" to="Main Menu" method="_on_tutorial_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/SettingsBtn" to="Main Menu" method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/ReturnMainMenuBtn" to="." method="_on_return_main_menu_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/QuitBtn" to="Main Menu" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/AudioSettingBtn" to="." method="_on_audio_setting_btn_pressed"]
@@ -1213,8 +1250,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500945, -2.9777, 0.423937)
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="Video/MarginContainer/HBoxContainer/Checks" method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/AttackControls" to="." method="_on_attack_controls_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Tutorial_Attack/MainControls" to="." method="_on_main_controls_pressed"]

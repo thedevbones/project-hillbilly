@@ -2,26 +2,26 @@
 
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="1_e6knx"]
 [ext_resource type="Script" path="res://scripts/IntroScene.gd" id="1_wmn4v"]
-[ext_resource type="Texture2D" uid="uid://lswv2id7l0qv" path="res://textures/grass01.jpg" id="2_lghjx"]
+[ext_resource type="Texture2D" uid="uid://b6hxhyxxw13yb" path="res://textures/grass01.jpg" id="2_lghjx"]
 [ext_resource type="PackedScene" uid="uid://bve8tek7u2y8t" path="res://scenes/CarAsset.tscn" id="3_hujll"]
-[ext_resource type="PackedScene" uid="uid://dvdyvbv1yjf73" path="res://assets/tree01.glb" id="5_3bave"]
-[ext_resource type="PackedScene" uid="uid://22n4v4ydrg1r" path="res://assets/tree02.glb" id="6_hm1sl"]
-[ext_resource type="PackedScene" uid="uid://bu2jcn4yjygct" path="res://assets/tree03.glb" id="7_uo1f7"]
-[ext_resource type="PackedScene" uid="uid://caj4fewngrsa5" path="res://assets/road.glb" id="8_oclv4"]
+[ext_resource type="PackedScene" uid="uid://f1vm3rbw4j77" path="res://assets/tree01.glb" id="5_3bave"]
+[ext_resource type="PackedScene" uid="uid://dqgyv1wl4p11f" path="res://assets/tree02.glb" id="6_hm1sl"]
+[ext_resource type="PackedScene" uid="uid://pg5y5x6lmgsd" path="res://assets/tree03.glb" id="7_uo1f7"]
+[ext_resource type="PackedScene" uid="uid://deuk53jvu8l84" path="res://assets/road.glb" id="8_oclv4"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="9_b52rc"]
-[ext_resource type="Texture2D" uid="uid://brvhl4eptgr57" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="10_aujr6"]
+[ext_resource type="Texture2D" uid="uid://b8ecxrxhpi2hf" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="10_aujr6"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="11_e4mmx"]
-[ext_resource type="AudioStream" uid="uid://d1l3whu75ny5f" path="res://audio/SFX/Ambient/running car.mp3" id="11_f2jot"]
-[ext_resource type="AudioStream" uid="uid://ddtc05q0gd7e6" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
-[ext_resource type="AudioStream" uid="uid://dhmpu2ggtmgmg" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
-[ext_resource type="AudioStream" uid="uid://dgatmbnfmgl17" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
-[ext_resource type="AudioStream" uid="uid://brswvh58k8fpv" path="res://audio/Music/DeathCutScene.mp3" id="16_ay844"]
-[ext_resource type="FontFile" uid="uid://bk6wtt18617ra" path="res://fonts/Another Danger - Demo.otf" id="16_bl4lb"]
-[ext_resource type="AudioStream" uid="uid://ycrcgngpfcg" path="res://audio/SFX/Other/door_open.mp3" id="17_0gw8e"]
-[ext_resource type="AudioStream" uid="uid://uf2y14mfo10" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
-[ext_resource type="AudioStream" uid="uid://dlhx46df8t2ft" path="res://audio/SFX/Other/inceptionbutton.mp3" id="19_ttubg"]
-[ext_resource type="AudioStream" uid="uid://r5vfdpexylpq" path="res://audio/SFX/Other/Car failure.mp3" id="20_tagv8"]
-[ext_resource type="FontFile" uid="uid://douqnhjmajht6" path="res://fonts/Scary House.ttf" id="21_165hv"]
+[ext_resource type="AudioStream" uid="uid://bj003hbht5sad" path="res://audio/SFX/Ambient/running car.mp3" id="11_f2jot"]
+[ext_resource type="AudioStream" uid="uid://doitdtlgoteuu" path="res://audio/SFX/Ambient/ambience.mp3" id="12_3a1pc"]
+[ext_resource type="AudioStream" uid="uid://2ryskhy54pml" path="res://audio/SFX/Ambient/storm.mp3" id="13_evan4"]
+[ext_resource type="AudioStream" uid="uid://cnakjjooareu2" path="res://audio/SFX/Ambient/stalling car.mp3" id="14_y8by3"]
+[ext_resource type="AudioStream" uid="uid://dholik7c6ecnd" path="res://audio/Music/DeathCutScene.mp3" id="16_ay844"]
+[ext_resource type="FontFile" uid="uid://cwlkvoiysjgic" path="res://fonts/Another Danger - Demo.otf" id="16_bl4lb"]
+[ext_resource type="AudioStream" uid="uid://bjx0uk2j24k3g" path="res://audio/SFX/Other/door_open.mp3" id="17_0gw8e"]
+[ext_resource type="AudioStream" uid="uid://dhcacyxyihgdq" path="res://audio/SFX/Other/door_close.mp3" id="18_srcnl"]
+[ext_resource type="AudioStream" uid="uid://ca4l0il8wbehv" path="res://audio/SFX/Other/inceptionbutton.mp3" id="19_ttubg"]
+[ext_resource type="AudioStream" uid="uid://djghxg3etoq20" path="res://audio/SFX/Other/Car failure.mp3" id="20_tagv8"]
+[ext_resource type="FontFile" uid="uid://dvtl6pl8tja3t" path="res://fonts/Scary House.ttf" id="21_165hv"]
 
 [sub_resource type="GDScript" id="GDScript_qacld"]
 resource_name = "WorldEnviroment"
@@ -41,7 +41,7 @@ uv1_scale = Vector3(0.69, 0.69, 0.69)
 uv1_triplanar = true
 texture_filter = 4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4o7n"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ai1fu"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_b52rc")
@@ -76,7 +76,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_f4o7n"),
+"material": SubResource("ShaderMaterial_ai1fu"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -99,7 +99,7 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.5, 25.5, 29.6),
+"times": PackedFloat32Array(0, 5.5, 25.5, 31),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.264032, 2.16646, -30.7131), Vector3(5.264, 14.166, -4.713), Vector3(5.264, 14.166, -4.713), Vector3(3.264, 2.166, -2.713)]
@@ -111,7 +111,7 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5.5, 25.5, 29.6),
+"times": PackedFloat32Array(0, 5.5, 25.5, 31),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(4.77763e-16, 0.492828, -1.22669e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-1.05243, 1.14145, 3.48787e-16), Vector3(-0.139626, 0.158825, 3.48787e-16)]
@@ -195,7 +195,7 @@ tracks/8/path = NodePath("Name1:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1, 2.5),
+"times": PackedFloat32Array(0, 0.5, 2.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -207,7 +207,7 @@ tracks/9/path = NodePath("Name2:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 3.5, 5),
+"times": PackedFloat32Array(0, 3, 5.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -219,7 +219,7 @@ tracks/10/path = NodePath("Name3:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 6, 7.5),
+"times": PackedFloat32Array(0, 5.5, 7.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -231,7 +231,7 @@ tracks/11/path = NodePath("Name4:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 8.5, 10),
+"times": PackedFloat32Array(0, 8, 10.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -243,7 +243,7 @@ tracks/12/path = NodePath("Name5:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 11, 12.5),
+"times": PackedFloat32Array(0, 10.5, 12.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -255,7 +255,7 @@ tracks/13/path = NodePath("Team intro:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 13.5, 17),
+"times": PackedFloat32Array(0, 13, 17.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -267,7 +267,7 @@ tracks/14/path = NodePath("Team intro2:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 13.5, 17),
+"times": PackedFloat32Array(0, 13, 17.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -279,7 +279,7 @@ tracks/15/path = NodePath("Game Tittle:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 19, 24),
+"times": PackedFloat32Array(0, 19, 24.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -343,6 +343,102 @@ tracks/20/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Name1:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0.5, 1, 2.4, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Name2:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(3, 3.5, 4.9, 5.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Name3:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(5.5, 6, 7.4, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Name4:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(8, 8.5, 9.9, 10.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Name5:modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(10.5, 11, 12.4, 12.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Team intro:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(13, 13.5, 16.9, 17.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Team intro2:modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(13, 13.5, 16.9, 17.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Game Tittle:modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(19, 23.6, 24.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gxv5i"]
@@ -599,6 +695,102 @@ tracks/20/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Name1:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Name2:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Name3:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Name4:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Name5:modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Team intro:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Team intro2:modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Game Tittle:modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_44grx"]
 _data = {
@@ -828,12 +1020,12 @@ bus = &"Music"
 
 [node name="Door open" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("17_0gw8e")
-volume_db = 20.181
+volume_db = 11.038
 bus = &"SFX"
 
 [node name="Door close" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("18_srcnl")
-volume_db = 20.181
+volume_db = 11.038
 bus = &"SFX"
 
 [node name="inception horn" type="AudioStreamPlayer3D" parent="."]
@@ -858,92 +1050,82 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Name1" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -305.0
+offset_top = -86.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_165hv")
+theme_override_font_sizes/font_size = 30
 text = "Jordan Flores"
 
 [node name="Name2" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -305.0
+offset_top = -86.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_165hv")
+theme_override_font_sizes/font_size = 30
 text = "Jacob Doney"
 
 [node name="Name3" type="Label" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -305.0
+offset_top = -86.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_165hv")
-text = "Gage Buckley
-"
+theme_override_font_sizes/font_size = 30
+text = "Gage Buckley"
 
 [node name="Name4" type="Label" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -305.0
+offset_top = -86.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_165hv")
-text = "Diego Lechuga
-
-"
+theme_override_font_sizes/font_size = 30
+text = "Diego Lechuga"
 
 [node name="Name5" type="Label" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 208.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -305.0
+offset_top = -86.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_165hv")
-text = "Luis Herrera
-
-"
+theme_override_font_sizes/font_size = 30
+text = "Luis Herrera"
 
 [node name="Team intro" type="Label" parent="."]
 visible = false
@@ -952,58 +1134,55 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = 25.0
-offset_right = 180.0
-offset_bottom = 126.0
+offset_left = -177.0
+offset_top = -11.5
+offset_right = 177.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_165hv")
-text = "Team Ferengi in Association with Lehr Studios
-
-
-"
+theme_override_font_sizes/font_size = 30
+text = "Team Ferengi in Association with Lehr Studios"
 horizontal_alignment = 1
 
 [node name="Team intro2" type="Label" parent="."]
 visible = false
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = -69.0
-offset_right = 33.0
-offset_bottom = -20.0
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 69.0
+offset_right = 32.0
+offset_bottom = 11.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_165hv")
-text = "Present:
-
-"
+theme_override_font_sizes/font_size = 30
+text = "Present:"
 
 [node name="Game Tittle" type="Label" parent="."]
 visible = false
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -112.0
-offset_top = -179.0
-offset_right = 117.0
-offset_bottom = -64.0
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = -28.0
+offset_right = 114.5
+offset_bottom = 28.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
 theme_override_fonts/font = ExtResource("16_bl4lb")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 80
 text = "PROJECT HILLBILLY"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

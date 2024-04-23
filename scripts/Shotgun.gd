@@ -130,6 +130,9 @@ func hitscan():
 							damage_multiplier = randf_range(1.25, 2.5)
 						enemy.apply_damage(damage * damage_multiplier)
 				
+				if collider is RigidBody3D:
+					collider.apply_damage(collision_point, collision_normal, 11000) 
+				
 				hit_particle.global_position = collision_point
 				get_tree().current_scene.add_child(hit_particle)
 				hit_particle.look_at(collision_point + collision_normal, Vector3.UP)
