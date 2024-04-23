@@ -54,7 +54,7 @@ func spawn_particle(scene_name, spawn_position):
 		add_child(instance)
 		
 		var timer = Timer.new()
-		timer.wait_time = 0.3
+		timer.wait_time = 2
 		timer.one_shot = true
 		add_child(timer)
 		timer.timeout.connect(remove_instance.bind(instance))

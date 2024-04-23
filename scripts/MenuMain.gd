@@ -263,3 +263,7 @@ func _on_sensitivity_value_changed(value):
 
 func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.play()
+
+
+func _on_blood_check_box_toggled(toggled_on):
+	Graphics.update_blood(toggled_on)

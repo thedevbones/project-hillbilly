@@ -121,11 +121,11 @@ func die():
 		hide()
 		if $CollisionShape3D:
 			$CollisionShape3D.queue_free()
-		
+		if not Graphics.blood: spawner.spawn_particle("sparks.tscn", global_transform.origin)
+		else: spawner.spawn_particle("ParticlesEnemyDeath.tscn", global_transform.origin)
 
 
 func drop_loot():
-	spawner.spawn_particle("sparks.tscn", global_transform.origin)
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var drop_chance = rng.randf() 

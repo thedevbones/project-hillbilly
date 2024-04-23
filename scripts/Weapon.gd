@@ -142,8 +142,6 @@ func hitscan():
 			elif collider.name == "Light":
 				collider.destroy()
 			if collider is PhysicalBone3D: 
-				hit_particle = enemy_particle.instantiate()
-				hit_damage = blood_decal.instantiate()
 				var enemy = collider
 				while enemy and not enemy.has_method("apply_damage"):
 					enemy = enemy.get_parent()
@@ -152,6 +150,9 @@ func hitscan():
 					if collider.name == "Head":
 						damage_multiplier = randf_range(1.25, 2.5)
 					enemy.apply_damage(damage * damage_multiplier)
+				if Graphics.blood:
+					hit_particle = enemy_particle.instantiate()
+					hit_damage = blood_decal.instantiate()
 			hit_particle.global_position = collision_point
 			get_tree().current_scene.add_child(hit_particle)
 			hit_particle.look_at(collision_point + collision_normal, Vector3.UP)

@@ -120,8 +120,6 @@ func hitscan():
 				var hit_damage = bullet_decal.instantiate()
 				
 				if collider is PhysicalBone3D: 
-					hit_particle = enemy_particle.instantiate()
-					hit_damage = blood_decal.instantiate()
 					var enemy = collider
 					while enemy and not enemy.has_method("apply_damage"):
 						enemy = enemy.get_parent()
@@ -130,6 +128,9 @@ func hitscan():
 						if collider.name == "Head":
 							damage_multiplier = randf_range(1.25, 2.5)
 						enemy.apply_damage(damage * damage_multiplier)
+					if Graphics.blood:
+						hit_particle = enemy_particle.instantiate()
+						hit_damage = blood_decal.instantiate()
 				
 				if collider is RigidBody3D:
 					collider.apply_damage(collision_point, collision_normal, 11000) 

@@ -11,6 +11,7 @@ var max_enemies = 20
 var max_decals = 30
 var in_game = false
 var tutorials = false
+var blood = true
 var sensitivity = 0.2
 
 func update_ssao(toggle):
@@ -28,6 +29,9 @@ func update_swaying(toggle):
 
 func update_bobbing(toggle):
 	bobbing = toggle
+
+func update_blood(toggle):
+	blood = toggle
 
 func set_brightness(value):
 	graphics.adjustment_brightness = value
@@ -62,3 +66,6 @@ func get_max_decals():
 
 func get_sensitivity():
 	return sensitivity
+
+func get_blood():
+	return blood

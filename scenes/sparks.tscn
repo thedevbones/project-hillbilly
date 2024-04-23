@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://dxyp5eelnxm5k"]
 
-[ext_resource type="Texture2D" uid="uid://htjpihhfr4ol" path="res://assets/particles/star_07.png" id="1_idn5t"]
-[ext_resource type="Texture2D" uid="uid://8k5hyhxvlxtt" path="res://assets/particles/symbol_01.png" id="2_wh6yq"]
-[ext_resource type="Texture2D" uid="uid://bjmfnfyvv21cc" path="res://assets/particles/star_08.png" id="3_cyexv"]
+[ext_resource type="Texture2D" uid="uid://dtawwqowhxdt2" path="res://assets/particles/star_07.png" id="1_idn5t"]
+[ext_resource type="Texture2D" uid="uid://drg41sprn5bcu" path="res://assets/particles/symbol_01.png" id="2_wh6yq"]
+[ext_resource type="Texture2D" uid="uid://drlit12l2ictv" path="res://assets/particles/star_08.png" id="3_cyexv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgv2g"]
 transparency = 1
