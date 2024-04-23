@@ -23,7 +23,7 @@ const ADS_FOV = 60.0
 const NORMAL_SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MAX_STAMINA = 10
-const MAX_BLOCK_HITS = 2
+const MAX_BLOCK_HITS = 3
 const SPRINT_MULTIPLIER = 1.5
 const CROUCH_MULTIPLIER = 0.75
 const BOB_FREQUENCY = 2.0
@@ -120,8 +120,10 @@ func _input(event):
 		reload()
 	if event.is_action_pressed("aim"):
 		aim()
-	if event.is_action_released("aim"):
+	if event.is_action_released("aim") and weapon_aiming():
 		aim()
+	if event.is_action("crouch"):
+		print("player: ", blocking, " weapon: ", get_current_weapon().is_blocking)
 	if event.is_action_pressed("flashlight_toggle"):
 		toggle_flashlight()
 	# Handle number key presses for direct weapon selection
@@ -330,7 +332,6 @@ func apply_damage(damage, damage_type):
 		if block_hits > 0:
 			block_hits = max(block_hits - 1, 0)
 			$Block.play()
-			print(block_hits + 1, " - 1 = " , block_hits)
 			return
 		else:
 			$BreakBlock.play()
@@ -376,7 +377,11 @@ func process_raycast():
 			collider.action_used()
 			print(collider)
 
-
+func weapon_aiming():
+	var weapon = get_current_weapon()
+	if not weapon: return false
+	if weapon.is_aiming or weapon.is_blocking: return true
+	return false
 
 func _on_block_timer_timeout():
 	block_hits = MAX_BLOCK_HITS

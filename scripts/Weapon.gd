@@ -108,6 +108,10 @@ func aim():
 
 func block():
 	if player.block_hits <= 0:
+		is_blocking = false
+		player.blocking = false
+		target_pos = original_pos
+		target_rot = original_rot
 		return
 	if not is_blocking:
 		is_blocking = true
