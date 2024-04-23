@@ -122,8 +122,6 @@ func _input(event):
 		aim()
 	if event.is_action_released("aim") and weapon_aiming():
 		aim()
-	if event.is_action("crouch"):
-		print("hits: ", block_hits, "player: ", blocking, " weapon: ", get_current_weapon().is_blocking)
 	if event.is_action_pressed("flashlight_toggle"):
 		toggle_flashlight()
 	# Handle number key presses for direct weapon selection
@@ -349,6 +347,7 @@ func apply_damage(damage, damage_type):
 	if not $Impact.is_playing():
 		match damage_type:
 			"axe": $Impact.set_stream(impact_sounds[0])
+			"rake": $Impact.set_stream(impact_sounds[1])
 		$Impact.set_pitch_scale(randf_range(0.8, 1.2))
 		$Impact.play()
 	if not $Hurt.is_playing(): 

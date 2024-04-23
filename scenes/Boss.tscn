@@ -1079,12 +1079,12 @@ mesh = SubResource("ArrayMesh_u1mg1")
 skin = SubResource("Skin_qd55m")
 
 [node name="Torso" type="PhysicalBone3D" parent="boss/Armature/Armature_001/Skeleton3D"]
-transform = Transform3D(1, -2.13723e-16, -2.21888e-16, -2.70417e-16, -0.263853, -0.964563, 1.47603e-16, 0.964563, -0.263853, 1.56239e-17, 0.279287, 0.0194694)
+transform = Transform3D(1, -2.13723e-16, -2.21888e-16, -2.70417e-16, -0.263853, -0.964563, 1.47603e-16, 0.964563, -0.263853, 1.47394e-17, 0.279287, 0.0194694)
 collision_layer = 4
 collision_mask = 4
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4898e-19, -5.13007e-08, 0.0737891)
-body_offset = Transform3D(1, 1.32349e-23, -5.29396e-23, -4.30134e-23, 8.9407e-08, -1, -1.05879e-22, 1, 8.9407e-08, -7.48976e-19, 0.0737891, 4.47035e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63357e-18, -5.13007e-08, 0.0737891)
+body_offset = Transform3D(1, 1.32349e-23, -5.29396e-23, -4.30134e-23, 8.9407e-08, -1, -1.05879e-22, 1, 8.9407e-08, -1.63357e-18, 0.0737891, 4.47035e-08)
 bone_name = "spine1"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0

@@ -6,6 +6,11 @@ enum States { PATROL, COMBAT, SEARCH }
 @onready var world = get_node("/root/World")
 @onready var spawner = get_node("/root/World/Spawner")
 
+var death_sounds = [
+	preload("res://audio/SFX/Enemy/zombie_snarl.mp3"),
+	preload("res://audio/SFX/Enemy/enemy_death.wav"),
+]
+
 var default_speed = 2.5
 var max_speed = 4.5
 var speed = default_speed
@@ -108,6 +113,8 @@ func apply_damage(damage):
 func die():
 	if not death_audio.is_playing(): 
 		death_audio.set_pitch_scale(randf_range(0.8,1.2))
+		var sound_to_play = death_sounds.pick_random()
+		death_audio.set_stream(sound_to_play)
 		death_audio.play()
 		world.add_alive_enemies(-1)
 		drop_loot()

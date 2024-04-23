@@ -13,11 +13,11 @@ func _ready():
 	hit_timer = $HitTimer
 	damage_type = "axe"
 	patrol_timer = $PatrolTimer
-	var anim : Animation= $AnimationPlayer.get_animation(anim_name)
-	anim.loop_mode =(Animation.LOOP_LINEAR)
 	animation_player = $AnimationPlayer
 	animation_player.play("walk")
 	anim_name = "walk"
+	var anim : Animation = animation_player.get_animation(anim_name)
+	anim.loop_mode =(Animation.LOOP_LINEAR)
 	$Armature/Skeleton3D.physical_bones_start_simulation()
 	$Armature/Skeleton3D.physical_bones_stop_simulation()
 
