@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbr2ifplhvxmn"]
+
+[ext_resource type="Script" path="res://scenes/Ending.gd" id="1_pvmjw"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_4wxk7"]
+file = "video.ogg"
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_pvmjw")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 968.0
+offset_bottom = 520.0
+stream = SubResource("VideoStreamTheora_4wxk7")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
