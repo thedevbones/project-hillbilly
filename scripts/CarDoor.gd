@@ -25,4 +25,4 @@ func action_used():
 func open_contain():
 	canInteract = false
 	isOpen = true
-	
+	get_tree().change_scene_to_file("res://scenes/Ending.tscn")
