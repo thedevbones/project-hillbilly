@@ -15,12 +15,13 @@ func _ready():
 	ranged = false 
 	original_pos = position
 	original_rot = rotation
+	block_rot = Vector3 (0, 0, 50)
 	bob_max = position.y + BOB_OFFSET
 	bob_min = position.y - BOB_OFFSET
 	swing_duration = 0.4
 
 func _process(delta):
-	if not visible: pass
+	if not visible: return
 	
 	if is_swinging:
 		if swing_timer > swing_duration / 2:
@@ -36,6 +37,11 @@ func _process(delta):
 			player.can_switch = true
 			position = original_position
 			rotation_degrees = original_rotation_degrees
+	
+	if is_blocking:
+		rotation_degrees = rotation_degrees.lerp(block_rot, 4 * delta)
+	else:
+		rotation_degrees = rotation_degrees.lerp(original_rotation_degrees, 4 * delta)
 	
 	var bob_speed
 	if not %Player.is_moving or %Player.is_crouching:

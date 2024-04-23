@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var camera : Camera3D = $Neck/Head/MainCamera
 @onready var head : Node3D = $Neck/Head
 @onready var neck : Node3D = $Neck
+@onready var block_timer : Timer = $BlockTimer
 
 signal moving
 signal looking
@@ -22,6 +23,7 @@ const ADS_FOV = 60.0
 const NORMAL_SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MAX_STAMINA = 10
+const MAX_BLOCK_HITS = 2
 const SPRINT_MULTIPLIER = 1.5
 const CROUCH_MULTIPLIER = 0.75
 const BOB_FREQUENCY = 2.0
@@ -33,11 +35,13 @@ var bob_time = 0.0
 var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
 var max_health = 10
+var block_hits = MAX_BLOCK_HITS
 var health = max_health
 var is_sprinting = false
 var is_crouching = false
 var is_moving = false
 var can_sprint = true
+var blocking = false
 var falling = false
 var dying = false
 var disabled = Graphics.tutorials
@@ -115,6 +119,8 @@ func _input(event):
 	if event.is_action_pressed("reload"):
 		reload()
 	if event.is_action_pressed("aim"):
+		aim()
+	if event.is_action_released("aim"):
 		aim()
 	if event.is_action_pressed("flashlight_toggle"):
 		toggle_flashlight()
@@ -247,6 +253,7 @@ func aim():
 	emit_signal("aiming")
 	var weapon = get_current_weapon()
 	if weapon and weapon.ranged: weapon.aim()
+	elif weapon: weapon.block()
 
 func switch_weapon_by_index(index):
 	emit_signal("selecting")
@@ -319,6 +326,17 @@ func toggle_flashlight():
 	if flashlight: $Neck/Head/MainCamera/Flashlight.toggle()
 
 func apply_damage(damage, damage_type):
+	if blocking:
+		if block_hits > 0:
+			block_hits = max(block_hits - 1, 0)
+			$Block.play()
+			print(block_hits + 1, " - 1 = " , block_hits)
+			return
+		else:
+			$BreakBlock.play()
+			$BlockTimer.start()
+			get_current_weapon().is_blocking = false
+			blocking = false
 	health -= damage
 	
 	# Kickback effect
@@ -358,3 +376,7 @@ func process_raycast():
 			collider.action_used()
 			print(collider)
 
+
+
+func _on_block_timer_timeout():
+	block_hits = MAX_BLOCK_HITS

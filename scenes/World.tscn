@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=108 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -57,6 +57,7 @@
 [ext_resource type="Environment" uid="uid://bso46fe42xg43" path="res://assets/WorldEnvironment.tres" id="31_n5e12"]
 [ext_resource type="AudioStream" uid="uid://63tp8koghjus" path="res://audio/SFX/Damage/Player_death.mp3" id="32_vaxi1"]
 [ext_resource type="AudioStream" uid="uid://edeeqfskasig" path="res://audio/SFX/Damage/Player_pain_grunt.mp3" id="33_ct85e"]
+[ext_resource type="AudioStream" uid="uid://dhneh18fjrlwt" path="res://audio/SFX/Damage/skull_crack_melee_impact.mp3" id="35_auqrd"]
 [ext_resource type="PackedScene" uid="uid://eb7ko1m7wx7x" path="res://scenes/fence.tscn" id="46_kuxwn"]
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 [ext_resource type="PackedScene" uid="uid://p6d4niymomrc" path="res://scenes/Grave.tscn" id="52_c0cv6"]
@@ -241,7 +242,7 @@ font_size = 11
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d7tii"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5vnt"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -276,7 +277,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_d7tii"),
+"material": SubResource("ShaderMaterial_c5vnt"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -651,7 +652,6 @@ bus = &"SFX"
 
 [node name="Pipe" parent="Player/Neck/Head/MainCamera" instance=ExtResource("5_wk88o")]
 transform = Transform3D(0.5, 0, 0, 0, 0.498097, 0.0435779, 0, -0.0435779, 0.498097, 0.489, 0.289, -0.848)
-visible = false
 script = ExtResource("6_av8cb")
 
 [node name="Swing" type="AudioStreamPlayer3D" parent="Player/Neck/Head/MainCamera/Pipe"]
@@ -771,6 +771,10 @@ mesh = SubResource("CapsuleMesh_ge5q0")
 
 [node name="StepTimer" type="Timer" parent="Player"]
 
+[node name="BlockTimer" type="Timer" parent="Player"]
+wait_time = 2.0
+one_shot = true
+
 [node name="StepAudio" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("2_f4xii")
 volume_db = -80.0
@@ -790,6 +794,14 @@ bus = &"SFX"
 stream = ExtResource("33_ct85e")
 
 [node name="Impact" type="AudioStreamPlayer3D" parent="Player"]
+
+[node name="Block" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("35_auqrd")
+pitch_scale = 4.87
+
+[node name="BreakBlock" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("35_auqrd")
+pitch_scale = 10.65
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_n5e12")
@@ -1484,6 +1496,7 @@ transform = Transform3D(0.86858, 0, 0.49555, 0, 1, 0, -0.49555, 0, 0.86858, -26.
 [connection signal="visibility_changed" from="Player/Neck/Head/MainCamera/Pistol" to="Player/Neck/Head/MainCamera/Pistol" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Player/Neck/Head/MainCamera/Shotgun" to="Player/Neck/Head/MainCamera/Shotgun" method="_on_visibility_changed"]
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
+[connection signal="timeout" from="Player/BlockTimer" to="Player" method="_on_block_timer_timeout"]
 [connection signal="finished" from="ambience" to="." method="_on_ambience_finished"]
 [connection signal="finished" from="storm" to="." method="_on_storm_finished"]
 [connection signal="body_entered" from="EasterEgg" to="EasterEgg" method="_on_body_entered"]

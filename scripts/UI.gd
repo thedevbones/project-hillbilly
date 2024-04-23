@@ -10,8 +10,7 @@ extends Control
 @onready var boss_bar = $BossHealthBar
 @onready var tooltip = $Tooltip
 @onready var player = get_node_or_null("/root/World/Player")
-
-var pickups_enabled = false
+@onready var pickups_enabled = !Graphics.tutorials
 
 func _ready():
 	black_screen.show()
@@ -23,6 +22,9 @@ func _ready():
 	health_bar.max_value = player.max_health
 	wave_bar.max_value = $"../PrepTimer".get_wait_time()
 	fade_element(black_screen, "modulate", Color("ffffff", 0), 1.5)
+	if not Graphics.tutorials:
+		show_tooltip("game")
+
 
 func _process(delta):
 	if wave_bar.value < wave_bar.max_value: 
@@ -71,7 +73,7 @@ func fade_element(object, property, final_val, duration):
 	tween.tween_property(object, property, final_val, duration)
 
 func show_tooltip(action):
-	if not Graphics.tutorials: return
+	if not Graphics.tutorials and action != "game": return
 	match action:
 		"look": 
 			tooltip.text = "Use the mouse to\nlook around"

@@ -12,6 +12,7 @@ var reload_time = 1
 var range = Vector3.ZERO
 var is_reloading = false
 var is_aiming = false
+var is_blocking = false
 var ranged = true
 var is_swinging = false
 var swing_duration = 0.4
@@ -31,6 +32,8 @@ var target_pos: Vector3
 var target_rot: Vector3
 var ads_pos: Vector3
 var ads_rot: Vector3
+var block_pos: Vector3
+var block_rot: Vector3
 var original_pos: Vector3
 var original_rot: Vector3
 var weapon_type
@@ -44,7 +47,7 @@ func _ready():
 	pass
 
 func swing():
-	if is_swinging: return 
+	if is_swinging or is_blocking: return 
 	
 	is_swinging = true
 	player.can_switch = false
@@ -102,6 +105,20 @@ func aim():
 		target_pos = original_pos
 		target_rot = original_rot
 	%UI.update_crosshair()
+
+func block():
+	if player.block_hits <= 0:
+		return
+	if not is_blocking:
+		is_blocking = true
+		player.blocking = true
+		target_pos = block_pos
+		target_rot = block_rot
+	else:
+		is_blocking = false
+		player.blocking = false
+		target_pos = original_pos
+		target_rot = original_rot
 
 func hitscan():
 	if not raycast.is_enabled():
