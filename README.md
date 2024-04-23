@@ -435,6 +435,39 @@
 	- [FER-156](https://cs3398s24ferengi.atlassian.net/browse/FER-156),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-156-Debug)
 
+**Gage**: "Implement a puzzle and create and improve assets"
+
+- `Jira Task: Gage - Implement the puzzle` 
+	- [FER-139](https://cs3398s24ferengi.atlassian.net/browse/FER-139),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-139-implement-the-puzzle)
+- `Jira Task: Gage - Create chainsaw asset for boss` 
+	- [FER-135](https://cs3398s24ferengi.atlassian.net/browse/FER-135),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-135-create-chainsaw-asset-for-boss)
+- `Jira Task: Gage - Create animations for new enemy asset` 
+	- [FER-134](https://cs3398s24ferengi.atlassian.net/browse/FER-134),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-134-create-animations-for-new-enemy-)
+- `Jira Task: Gage - Create another enemy asset` 
+	- [FER-132](https://cs3398s24ferengi.atlassian.net/browse/FER-132),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-132-create-another-enemy-asset)
+- `Jira Task: Gage - Create mailbox asset` 
+	- [FER-143](https://cs3398s24ferengi.atlassian.net/browse/FER-143),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-143-create-mailbox-asset)
+- `Jira Task: Gage - Replace assets that use blend files` 
+	- [FER-130](https://cs3398s24ferengi.atlassian.net/browse/FER-130),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-130-replace-assets-that-use-blend-fi)
+- `Jira Task: Gage - Update sprint 1 assets` 
+	- [FER-133](https://cs3398s24ferengi.atlassian.net/browse/FER-133),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-133-update-sprint-1-assets)
+- `Jira Task: Gage - Create sidewalk asset` 
+	- [FER-142](https://cs3398s24ferengi.atlassian.net/browse/FER-142),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-142-create-sidewalk-asset)
+- `Jira Task: Gage - Create gas container asset` 
+	- [FER-138](https://cs3398s24ferengi.atlassian.net/browse/FER-138),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-138-create-gas-container-asset)
+- `Jira Task: Gage - Create 4 assets of buildings` 
+	- [FER-137](https://cs3398s24ferengi.atlassian.net/browse/FER-137),
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-137-create-4-assets-of-buildings)	
+
 
 <!-- Optional -->
 <!-- ## License -->
