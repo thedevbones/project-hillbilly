@@ -51,8 +51,7 @@ func apply_damage(damage):
 	if hit_audio.is_playing(): hit_audio.play()
 	if health <= 0: 
 		die()
-		if is_instance_valid($/root/World/PickupKey):
-			$/root/World/PickupKey.global_transform.origin = global_transform.origin
+		$/root/World/PickupKey.global_transform.origin = global_transform.origin
 		fade_ui(Color("ffffff", 0))
 
 func fade_ui(final_value):
