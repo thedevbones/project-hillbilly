@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b5q002s5r4mtn"]
+[gd_scene load_steps=46 format=3 uid="uid://b5q002s5r4mtn"]
 
 [ext_resource type="Script" path="res://scripts/MenuMain.gd" id="1_qtm8j"]
 [ext_resource type="Theme" uid="uid://b0tl6tht11hby" path="res://fonts/gui.tres" id="3_nhp40"]
@@ -94,76 +94,33 @@ func _on_audio_setting_btn_pressed():
 	$\"../../../../Audio/MarginContainer/AudioDisplay/Sliders/Sensitivity\".value = Graphics.get_sensitivity()
 "
 
-[sub_resource type="Gradient" id="Gradient_cnsm0"]
+[sub_resource type="Gradient" id="Gradient_irspx"]
+offsets = PackedFloat32Array(0, 0.885154, 1)
+colors = PackedColorArray(0.619608, 0, 0, 1, 0.360784, 0, 0, 1, 0.619608, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ou5fm"]
-gradient = SubResource("Gradient_cnsm0")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qp2jo"]
+gradient = SubResource("Gradient_irspx")
 width = 30
 height = 30
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0.992268, 0.00257732)
-
-[sub_resource type="Gradient" id="Gradient_oyp21"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_n7n6d"]
-gradient = SubResource("Gradient_oyp21")
-width = 30
-height = 30
-fill_from = Vector2(0.9, 0)
-fill_to = Vector2(0.9, 0)
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
 metadata/_snap_enabled = true
+metadata/_snap_count = 2
 
-[sub_resource type="Gradient" id="Gradient_tpq5b"]
+[sub_resource type="Gradient" id="Gradient_u5fct"]
+offsets = PackedFloat32Array(0, 0.885154, 1)
+colors = PackedColorArray(0.470588, 0.435294, 0.462745, 1, 0.266667, 0.243137, 0.262745, 1, 0.470588, 0.435294, 0.462745, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7d08s"]
-gradient = SubResource("Gradient_tpq5b")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_djdra"]
+gradient = SubResource("Gradient_u5fct")
 width = 30
 height = 30
-fill_to = Vector2(0.00257732, 0.00515464)
-
-[sub_resource type="Gradient" id="Gradient_yct76"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rmmh6"]
-gradient = SubResource("Gradient_yct76")
-width = 30
-height = 30
-fill_from = Vector2(1, 0)
-
-[sub_resource type="Gradient" id="Gradient_nsq4q"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cofag"]
-gradient = SubResource("Gradient_nsq4q")
-width = 30
-height = 30
-fill_from = Vector2(0.00515464, 0.00773196)
-fill_to = Vector2(0.0128866, 0.0154639)
-
-[sub_resource type="Gradient" id="Gradient_hu22d"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_u2lab"]
-gradient = SubResource("Gradient_hu22d")
-width = 30
-height = 30
-fill_from = Vector2(0.0128866, 0.0128866)
-fill_to = Vector2(0.0128866, 0.0128866)
-
-[sub_resource type="Gradient" id="Gradient_bp1ty"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ft4no"]
-gradient = SubResource("Gradient_bp1ty")
-width = 30
-height = 30
-fill_from = Vector2(0, 0.00257732)
-fill_to = Vector2(0.00773196, 0.0180412)
-
-[sub_resource type="Gradient" id="Gradient_f240f"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_isqim"]
-gradient = SubResource("Gradient_f240f")
-width = 30
-height = 30
-fill_from = Vector2(0.0180412, 0)
-fill_to = Vector2(0.0180412, 0)
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
 
 [node name="Menu" type="Control"]
 process_mode = 3
@@ -1202,16 +1159,16 @@ layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-theme_override_icons/checked = SubResource("GradientTexture2D_ou5fm")
-theme_override_icons/unchecked = SubResource("GradientTexture2D_n7n6d")
+theme_override_icons/checked = SubResource("GradientTexture2D_qp2jo")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_djdra")
 
 [node name="SSAOCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
-theme_override_icons/checked = SubResource("GradientTexture2D_7d08s")
-theme_override_icons/unchecked = SubResource("GradientTexture2D_rmmh6")
+theme_override_icons/checked = SubResource("GradientTexture2D_qp2jo")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_djdra")
 button_pressed = true
 
 [node name="SSILCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
@@ -1219,8 +1176,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
-theme_override_icons/checked = SubResource("GradientTexture2D_cofag")
-theme_override_icons/unchecked = SubResource("GradientTexture2D_u2lab")
+theme_override_icons/checked = SubResource("GradientTexture2D_qp2jo")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_djdra")
 button_pressed = true
 
 [node name="GrassCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
@@ -1228,8 +1185,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
-theme_override_icons/checked = SubResource("GradientTexture2D_ft4no")
-theme_override_icons/unchecked = SubResource("GradientTexture2D_isqim")
+theme_override_icons/checked = SubResource("GradientTexture2D_qp2jo")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_djdra")
 button_pressed = true
 
 [node name="BobCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
@@ -1237,8 +1194,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
-theme_override_icons/checked = SubResource("GradientTexture2D_ft4no")
-theme_override_icons/unchecked = SubResource("GradientTexture2D_isqim")
+theme_override_icons/checked = SubResource("GradientTexture2D_qp2jo")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_djdra")
 button_pressed = true
 
 [node name="SwayCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
@@ -1246,8 +1203,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
-theme_override_icons/checked = SubResource("GradientTexture2D_ft4no")
-theme_override_icons/unchecked = SubResource("GradientTexture2D_isqim")
+theme_override_icons/checked = SubResource("GradientTexture2D_qp2jo")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_djdra")
 button_pressed = true
 
 [node name="BloodCheckBox" type="CheckBox" parent="Video/MarginContainer/HBoxContainer/Checks"]
@@ -1255,8 +1212,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 30
-theme_override_icons/checked = SubResource("GradientTexture2D_ft4no")
-theme_override_icons/unchecked = SubResource("GradientTexture2D_isqim")
+theme_override_icons/checked = SubResource("GradientTexture2D_qp2jo")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_djdra")
 button_pressed = true
 
 [node name="BackBtn2" type="Button" parent="Video/MarginContainer"]
@@ -1423,8 +1380,8 @@ bus = &"SFX"
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="." method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/VideoSettingBtn" to="Video/MarginContainer/HBoxContainer/Checks" method="_on_video_setting_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="SettingsControl/MarginContainer/SettingsDisplay/MainMenuBtn" to="SettingsControl" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/AttackControls" to="." method="_on_attack_controls_pressed"]
 [connection signal="pressed" from="Tutorial_Movement/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Tutorial_Attack/MainControls" to="." method="_on_main_controls_pressed"]
