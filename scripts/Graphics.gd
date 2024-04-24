@@ -11,7 +11,7 @@ var max_enemies = 20
 var max_decals = 30
 var in_game = false
 var tutorials = true
-var blood = true
+var blood = false
 var sensitivity = 0.2
 
 func update_ssao(toggle):
