@@ -1,6 +1,6 @@
 extends Camera3D
 
-@onready var main_camera = $"../../../Player/MainCamera"
+@onready var main_camera = $"../../../Player/Neck/Head/MainCamera"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	projection = main_camera.projection

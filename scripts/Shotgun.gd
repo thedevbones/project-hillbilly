@@ -12,7 +12,7 @@ var pump_original_pos: float
 var can_shoot: bool = true
 var pump_animating: bool = false
 var pumping_back: bool = true
-var camera: Camera3D
+var aim_spread_modifier: int = 3
 
 func _ready():
 	weapon_type = player.Weapons.SHOTGUN
@@ -32,7 +32,7 @@ func _ready():
 	reload_sound = $ShotgunLoad
 	pump_original_pos = $Cube_004.position.x
 	pump_target_pos = $Cube_004.position.x - 0.4
-	camera = $".."
+	weapon_recoil = 5.0
 
 func shoot():
 	if is_reloading and ammo > 0:
@@ -44,6 +44,7 @@ func shoot():
 		player.can_switch = false
 		can_shoot = false
 		position.z += 0.2
+		camera.recoil(weapon_recoil)
 		ammo -= 1
 		
 		muzzle_flash()
@@ -56,7 +57,7 @@ func shoot():
 		player.can_switch = true
 
 func reload():
-	if is_reloading or ammo >= MAX_AMMO: return
+	if is_reloading or ammo >= max_ammo: return
 
 	var total_ammo = player.get_ammo(weapon_type)
 	if total_ammo == 0: return
@@ -68,9 +69,9 @@ func reload():
 		was_aiming = true
 		aim()
 
-	while ammo < MAX_AMMO and total_ammo > 0 and is_reloading:
+	while ammo < max_ammo and total_ammo > 0 and is_reloading:
 		$ShotgunLoad.play()
-		await get_tree().create_timer(RELOAD_TIME_PER_SHELL).timeout
+		await get_tree().create_timer(reload_time).timeout
 		ammo += 1
 		player.add_ammo(weapon_type, -1)
 		%UI.update_ammo_count()
@@ -89,7 +90,7 @@ func hitscan():
 		return
 	
 	var num_pellets = 6
-	var spread_angle = 10
+	var spread_angle = 5 * aim_spread_modifier
 	
 	for i in range(num_pellets):
 		# Calculate direction with random spread
@@ -105,22 +106,62 @@ func hitscan():
 		var ray_query = PhysicsRayQueryParameters3D.new()
 		ray_query.from = camera.global_transform.origin
 		ray_query.to = ray_query.from + pellet_direction * range.z
-		ray_query.collision_mask = 0xFFFFFFFF
+		ray_query.collision_mask = 0x0004 # Layer 3
 		ray_query.collide_with_areas = true
 		ray_query.collide_with_bodies = true
 		# Perform raycast
 		var result = get_world_3d().direct_space_state.intersect_ray(ray_query)
 		if result.size() != 0:  # If collision
 			var collider = result.collider
-			if collider and collider.has_method("apply_damage"):
-				collider.apply_damage(damage)
-				# Implement other FX here
+			if collider:
+				var collision_point = result.position
+				var collision_normal = result.normal
+				var hit_particle = object_particle.instantiate()
+				var hit_damage = bullet_decal.instantiate()
+				
+				if collider is PhysicalBone3D: 
+					var enemy = collider
+					while enemy and not enemy.has_method("apply_damage"):
+						enemy = enemy.get_parent()
+					if enemy and enemy.has_method("apply_damage"):
+						var damage_multiplier = 1.0
+						if collider.name == "Head":
+							damage_multiplier = randf_range(1.25, 2.5)
+						enemy.apply_damage(damage * damage_multiplier)
+					if Graphics.blood:
+						hit_particle = enemy_particle.instantiate()
+						hit_damage = blood_decal.instantiate()
+				
+				if collider is RigidBody3D:
+					collider.apply_damage(collision_point, collision_normal, 11000) 
+				
+				hit_particle.global_position = collision_point
+				get_tree().current_scene.add_child(hit_particle)
+				hit_particle.look_at(collision_point + collision_normal, Vector3.UP)
+				hit_particle.look_at(collision_point + collision_normal, Vector3.RIGHT)
+				
+				collider.add_child(hit_damage)
+				hit_damage.global_position = collision_point
+				hit_damage.look_at(collision_point + collision_normal, Vector3.UP)
 
 func pump():
 	$ShotgunPump.play()
 	pump_animating = true
 	await get_tree().create_timer(PUMP_TIME).timeout
 	can_shoot = true
+
+func aim():
+	if not is_aiming: 
+		is_aiming = true
+		target_pos = ads_pos
+		target_rot = ads_rot
+		aim_spread_modifier = 1
+	else:
+		is_aiming = false
+		target_pos = original_pos
+		target_rot = original_rot
+		aim_spread_modifier = 3
+	%UI.update_crosshair()
 
 func _process(delta):
 	if not visible: pass
@@ -158,9 +199,9 @@ func _process(delta):
 		bob_up = true
 
 	var bob_speed
-	if not $"../..".is_moving or $"../..".is_crouching:
+	if not %Player.is_moving or %Player.is_crouching:
 		bob_speed = BOB_SPEED * 0.25
-	elif $"../..".is_sprinting:
+	elif %Player.is_sprinting:
 		bob_speed = BOB_SPEED * 1.5
 	else:
 		bob_speed = BOB_SPEED 

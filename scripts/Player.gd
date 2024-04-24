@@ -1,6 +1,18 @@
 extends CharacterBody3D
 
-@onready var raycast : RayCast3D = $/root/World/Player/MainCamera/HitScan
+@onready var raycast : RayCast3D = $/root/World/Player/Neck/Head/MainCamera/HitScan
+@onready var camera : Camera3D = $Neck/Head/MainCamera
+@onready var head : Node3D = $Neck/Head
+@onready var neck : Node3D = $Neck
+@onready var block_timer : Timer = $BlockTimer
+
+signal moving
+signal looking
+signal sprinting
+signal pickup
+signal selecting
+signal attacking
+signal aiming
 
 enum Weapons { UNARMED = 0, PIPE = 1, KNIFE = 2, PISTOL = 3, SHOTGUN = 4}
 enum Items { FLASHLIGHT = 10, KEY = 11}
@@ -11,21 +23,28 @@ const ADS_FOV = 60.0
 const NORMAL_SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MAX_STAMINA = 10
+const MAX_BLOCK_HITS = 3
 const SPRINT_MULTIPLIER = 1.5
 const CROUCH_MULTIPLIER = 0.75
+const BOB_FREQUENCY = 2.0
+const BOB_AMPLITUDE = 0.08
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var mouse_sensitivity = 0.2
+var mouse_sensitivity = Graphics.sensitivity
+var bob_time = 0.0
 var speed = NORMAL_SPEED
 var stamina = MAX_STAMINA
 var max_health = 10
+var block_hits = MAX_BLOCK_HITS
 var health = max_health
 var is_sprinting = false
 var is_crouching = false
 var is_moving = false
 var can_sprint = true
+var blocking = false
 var falling = false
 var dying = false
+var disabled = Graphics.tutorials
 
 # Collision variables
 var push_force = 8.0
@@ -61,33 +80,47 @@ var impact_sounds = {
 
 func _ready():
 	# Capture the mouse
+	Graphics.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	camera.fov = NORMAL_FOV
 	$StepTimer.wait_time = 0.6 
 	$StepTimer.start()
 	# Initialize weapons 
 	weapons[Weapons.UNARMED] = null
-	weapons[Weapons.PIPE] = $MainCamera/Pipe
-	weapons[Weapons.KNIFE] = $MainCamera/Knife
-	weapons[Weapons.PISTOL] = $MainCamera/Pistol
-	weapons[Weapons.SHOTGUN] = $MainCamera/Shotgun
-	items[Items.FLASHLIGHT] = $MainCamera/Flashlight
+	weapons[Weapons.PIPE] = $Neck/Head/MainCamera/Pipe
+	weapons[Weapons.KNIFE] = $Neck/Head/MainCamera/Knife
+	weapons[Weapons.PISTOL] = $Neck/Head/MainCamera/Pistol
+	weapons[Weapons.SHOTGUN] = $Neck/Head/MainCamera/Shotgun
+	items[Items.FLASHLIGHT] = $Neck/Head/MainCamera/Flashlight
 	%UI.update_ammo_count()
 	if Graphics.demo_mode:
 		add_ammo(Weapons.SHOTGUN, 24)
 		add_ammo(Weapons.PISTOL, 32)
-		health = 20
-		max_health = 20
+		health = 50
+		max_health = 50
 		%UI.health_bar.max_value = max_health
+		unlock_item(Items.FLASHLIGHT)
+	await get_tree().create_timer(0.5).timeout
+	%UI.show_tooltip("look")
+	dying = false
 
-func _input(event):	
+func _input(event):
 	# Handle weapon inputs
-	if dying:
-		return
+	if dying: return
+	if event is InputEventMouseMotion:
+		emit_signal("looking")
+		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
+		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+		# Clamp the camera's vertical rotation
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-88), deg_to_rad(88))
+	if disabled: return
 	if event.is_action_pressed("fire"):
 		attack()
 	if event.is_action_pressed("reload"):
 		reload()
 	if event.is_action_pressed("aim"):
+		aim()
+	if event.is_action_released("aim") and weapon_aiming():
 		aim()
 	if event.is_action_pressed("flashlight_toggle"):
 		toggle_flashlight()
@@ -106,13 +139,6 @@ func _input(event):
 	if event.is_action_pressed("interact"):
 		process_raycast()
 	# Handle mouse input
-	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		$MainCamera.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
-		# Clamp the camera's vertical rotation
-		$MainCamera.rotation.x = clamp($MainCamera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-
-
 
 func _physics_process(delta):
 	# Gravity logic
@@ -123,8 +149,7 @@ func _physics_process(delta):
 		$StepAudio.play()
 		falling = false
 	# Handle jump
-	if dying:
-		return
+	if dying or disabled: return
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_crouching and stamina > 0:
 		velocity.y = JUMP_VELOCITY
 		stamina -= 1
@@ -133,6 +158,7 @@ func _physics_process(delta):
 		can_sprint = true
 	if Input.is_action_pressed("sprint") and can_sprint and get_velocity().length() > 0:
 		is_sprinting = true
+		emit_signal("sprinting")
 	else:
 		is_sprinting = false
 	if Input.is_action_pressed("crouch"):
@@ -142,27 +168,27 @@ func _physics_process(delta):
 	# Sprinting/Crouching logic
 	if is_sprinting:
 		$StepTimer.wait_time = 0.3
-		$StepAudio.set_max_db(-4)
+		$StepAudio.set_max_db(-9)
 		speed = NORMAL_SPEED * SPRINT_MULTIPLIER
 		stamina -= delta
-		$MainCamera.fov = lerp($MainCamera.fov, SPRINT_FOV, 0.1)
+		camera.fov = lerp(camera.fov, SPRINT_FOV, 0.1)
 		if stamina <= 0.0:
 			stamina = 0.0  # Clamp stamina to zero
 			is_sprinting = false
 			can_sprint = false
 	elif is_crouching:
 		$StepTimer.wait_time = 1.2 
-		$StepAudio.set_max_db(-10)
-		$MainCamera.global_transform.origin.y = lerp($MainCamera.global_transform.origin.y, global_transform.origin.y - 0.5, delta * 10)
+		$StepAudio.set_max_db(-15)
+		neck.global_transform.origin.y = lerp(neck.global_transform.origin.y, global_transform.origin.y+ 0.25, delta * 10)
 		speed = NORMAL_SPEED * CROUCH_MULTIPLIER
 		can_sprint = false
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA) 
 	else:
 		$StepTimer.wait_time = 0.6 
-		$StepAudio.set_max_db(-7)
-		$MainCamera.global_transform.origin.y = lerp($MainCamera.global_transform.origin.y, global_transform.origin.y, delta * 10)
-		$MainCamera.fov = lerp($MainCamera.fov, NORMAL_FOV, 0.1)
+		$StepAudio.set_max_db(-11)
+		neck.global_transform.origin.y = lerp(neck.global_transform.origin.y, global_transform.origin.y + 0.5, delta * 10)
+		camera.fov = lerp(camera.fov, NORMAL_FOV, 0.1)
 		speed = NORMAL_SPEED
 		stamina += delta / 2
 		stamina = min(stamina, MAX_STAMINA)  # Clamp stamina to its maximum value
@@ -170,14 +196,17 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("walk_left", "walk_right", "walk_foward", "walk_back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * speed
+		velocity.x = direction.x * speed # (speed / 2 if input_dir.y > 0 else speed)
 		velocity.z = direction.z * speed
 		is_moving = true
+		emit_signal("moving")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 		is_moving = false
 	move_and_slide()
+	bob_head(delta)
+	sway_head(delta, input_dir)
 	# Getting slide collision
 	for i in get_slide_collision_count():
 		var c_object = get_slide_collision(i)
@@ -187,12 +216,27 @@ func _physics_process(delta):
 			can_sprint = false
 			break
 
+func bob_head(delta):
+	if not Graphics.bobbing: return
+	bob_time += velocity.length() * float(is_on_floor()) * delta
+	var pos = Vector3.ZERO
+	pos.y = sin(bob_time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.5
+	pos.x = cos(bob_time * BOB_FREQUENCY / 2) * (BOB_AMPLITUDE / 2)
+	camera.transform.origin = pos
+
+func sway_head(delta, direction):
+	if not Graphics.swaying: return
+	var sway_angle = 2.5
+	head.rotation.z = lerp_angle(head.rotation.z, deg_to_rad(sway_angle * float(-direction.x)), 0.05)
+	neck.rotation.x = lerp_angle(neck.rotation.x, deg_to_rad(sway_angle / 2 * float(direction.y)), 0.05)
+
 func _on_step_timer_timeout():
 	if is_moving and is_on_floor():
 		$StepAudio.pitch_scale = randf_range(0.8, 1.2)
 		$StepAudio.play()
 
 func attack():
+	emit_signal("attacking")
 	var weapon = get_current_weapon()
 	if not weapon: return
 	if weapon.ranged:
@@ -206,10 +250,13 @@ func reload():
 	if weapon and weapon.ranged: weapon.reload()
 
 func aim():
+	emit_signal("aiming")
 	var weapon = get_current_weapon()
 	if weapon and weapon.ranged: weapon.aim()
+	elif weapon: weapon.block()
 
 func switch_weapon_by_index(index):
+	emit_signal("selecting")
 	if not can_switch: return
 	
 	if index in weapons and inventory[weapons.keys()[index]]["is_unlocked"]:
@@ -226,7 +273,7 @@ func update_weapon_visibility():
 
 func update_hitscan():
 	var weapon = get_current_weapon()
-	if weapon: $MainCamera/HitScan.set_scale(weapons[current_weapon_index].range)
+	if weapon: raycast.set_scale(weapons[current_weapon_index].range)
 
 func get_current_weapon():
 	return weapons[current_weapon_index]
@@ -253,7 +300,9 @@ func unlock_item(item_type):
 	if item_type in weapons and weapons[item_type]: is_weapon = true
 	if not inventory[item_type]["is_unlocked"]:
 		inventory[item_type]["is_unlocked"] = true 
-		if is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
+		if is_weapon: 
+			add_ammo(item_type, weapons[item_type].max_ammo)
+			emit_signal("pickup")
 	elif is_weapon: add_ammo(item_type, weapons[item_type].max_ammo)
 	%UI.update_ammo_count()
 
@@ -274,13 +323,31 @@ func get_ammo(weapon_type):
 func toggle_flashlight():
 	if not has_item(Items.FLASHLIGHT): return
 	var flashlight = items[Items.FLASHLIGHT]
-	if flashlight: $MainCamera/Flashlight.toggle()
+	if flashlight: $Neck/Head/MainCamera/Flashlight.toggle()
 
 func apply_damage(damage, damage_type):
+	if blocking:
+		if block_hits > 0:
+			block_hits = max(block_hits - 1, 0)
+			$Block.play()
+			return
+		else:
+			$BreakBlock.play()
+			$BlockTimer.start()
+			get_current_weapon().is_blocking = false
+			blocking = false
 	health -= damage
+	
+	# Kickback effect
+	# Kickback direction opposite to the camera's forward direction
+	var kickback_direction = -head.transform.basis.z.normalized()  
+	var kickback_force = 10.0
+	velocity += kickback_direction * kickback_force
+	
 	if not $Impact.is_playing():
 		match damage_type:
 			"axe": $Impact.set_stream(impact_sounds[0])
+			"rake": $Impact.set_stream(impact_sounds[1])
 		$Impact.set_pitch_scale(randf_range(0.8, 1.2))
 		$Impact.play()
 	if not $Hurt.is_playing(): 
@@ -299,7 +366,8 @@ func die():
 		speed = 0
 		var tween = get_tree().create_tween()
 		await get_tree().create_timer(3.0).timeout
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/death_cut.tscn")
+		
 
 func process_raycast():
 	if raycast.is_colliding():
@@ -307,3 +375,12 @@ func process_raycast():
 		if collider.has_method("action_used"):
 			collider.action_used()
 			print(collider)
+
+func weapon_aiming():
+	var weapon = get_current_weapon()
+	if not weapon: return false
+	if weapon.is_aiming or weapon.is_blocking: return true
+	return false
+
+func _on_block_timer_timeout():
+	block_hits = MAX_BLOCK_HITS

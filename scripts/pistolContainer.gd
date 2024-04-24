@@ -26,7 +26,7 @@ func open_contain():
 	canInteract = false
 	var animPlayer = $/root/World/padlock1/AnimationPlayer
 	animPlayer.play("open")
-	animPlayer = $/root/World/PistolContainer2/ContainAnimationPlayer
+	animPlayer = $/root/World/pistolContainer/ContainAnimationPlayer
 	animPlayer.play("open")
 	isOpen = true
 	

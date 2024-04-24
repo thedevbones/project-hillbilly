@@ -10,7 +10,7 @@ func _ready():
 	max_ammo = 8
 	ammo = max_ammo
 	reload_time = 1.5
-	range = Vector3(1.0, 1.0, 100)
+	range = Vector3(1.0, 1.0, 300)
 	ranged = true
 	original_pos = position
 	original_rot = rotation
@@ -42,9 +42,9 @@ func _process(delta):
 		bob_up = true
 	
 	var bob_speed
-	if not $"../..".is_moving or $"../..".is_crouching:
+	if not %Player.is_moving or %Player.is_crouching:
 		bob_speed = BOB_SPEED * 0.25
-	elif $"../..".is_sprinting:
+	elif %Player.is_sprinting:
 		bob_speed = BOB_SPEED * 2
 	else:
 		bob_speed = BOB_SPEED 

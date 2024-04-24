@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bppo68oh5xfql"]
+
+[ext_resource type="Script" path="res://scenes/Gas.gd" id="1_ea454"]
+[ext_resource type="PackedScene" uid="uid://cbsvd4u08c0km" path="res://assets/gas.glb" id="1_kktr0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nj0uv"]
+size = Vector3(0.388306, 1.18286, 0.915039)
+
+[node name="Gas" type="StaticBody3D"]
+script = ExtResource("1_ea454")
+
+[node name="gas" parent="." instance=ExtResource("1_kktr0")]
+transform = Transform3D(0.357279, 0, 0, 0, 0.357279, 0, 0, 0, 0.357279, 0.131521, 0.301441, -0.00639153)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125183, 0.604216, -0.0864258)
+shape = SubResource("BoxShape3D_nj0uv")
