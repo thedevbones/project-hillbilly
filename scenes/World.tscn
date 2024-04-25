@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=119 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -62,6 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 [ext_resource type="PackedScene" uid="uid://p6d4niymomrc" path="res://scenes/Grave.tscn" id="52_c0cv6"]
 [ext_resource type="PackedScene" uid="uid://51utbd5yt5wk" path="res://scenes/CarDoor.tscn" id="52_nfw6r"]
+[ext_resource type="AudioStream" uid="uid://bjx0uk2j24k3g" path="res://audio/SFX/Other/door_open.mp3" id="57_blhml"]
 [ext_resource type="PackedScene" uid="uid://cb0nc6t6dr5ph" path="res://scenes/health_bar.tscn" id="57_uqs6u"]
 [ext_resource type="PackedScene" uid="uid://dpcxawtw7u1jb" path="res://scenes/house_1.tscn" id="61_klq15"]
 [ext_resource type="PackedScene" uid="uid://18c2i8penbfy" path="res://scenes/house_3.tscn" id="62_r23w0"]
@@ -110,16 +111,19 @@ corner_radius_bottom_left = 1024
 [sub_resource type="Environment" id="Environment_t0ccy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fhrpv"]
-size = Vector3(90.0591, 16.5275, 77.4003)
+size = Vector3(90.0591, 16.5275, 86.3406)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jd6ag"]
-size = Vector3(48.4336, 22.7759, 56.3179)
+size = Vector3(48.4336, 22.7759, 102.732)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqqee"]
-size = Vector3(10.7167, 15.7569, 60.9149)
+size = Vector3(69.0928, 15.7569, 143.645)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p82h0"]
 size = Vector3(10.5508, 18.3637, 82.0918)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yy7ve"]
+size = Vector3(2.3, 5.315, 2.89)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnuiv"]
 
@@ -252,10 +256,33 @@ font_size = 11
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nblg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfjl5"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_frames = Vector2(1, 1)
+shader_parameter/light_mode = 1
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/normal_scale = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness = 1.0
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/scale_h = 0.9
+shader_parameter/scale_w = 1.0
+shader_parameter/scale_var = -0.75
+shader_parameter/grass_strength = 0.55
+shader_parameter/optimization_by_distance = false
+shader_parameter/optimization_level = 10.0
+shader_parameter/optimization_dist_min = 40.0
+shader_parameter/optimization_dist_max = 50.0
+shader_parameter/grass_size_y = 1.0
+shader_parameter/interactive_mode = true
+shader_parameter/interactive_level_xz = 3.0
+shader_parameter/interactive_level_y = 0.3
+shader_parameter/texture_albedo = ExtResource("20_2tew6")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qteek"]
 _surfaces = [{
@@ -264,7 +291,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_7nblg"),
+"material": SubResource("ShaderMaterial_lfjl5"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -388,6 +415,27 @@ theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 text = "Wave 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractPrompt" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -24.0
+offset_right = 62.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_civgt")
+theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Press 'e' to interact"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -515,25 +563,25 @@ script = ExtResource("1_mc2is")
 script = ExtResource("2_g6axl")
 
 [node name="SpawnPoint1" type="Marker3D" parent="Spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9149, 0.875, -32.5555)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9149, 0.875, -30.4307)
 
 [node name="SpawnPoint2" type="Marker3D" parent="Spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4653, 0.875, -31.1732)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4653, 0.875, -29.0484)
 
 [node name="SpawnPoint3" type="Marker3D" parent="Spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7327, 0.875, -32.0661)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7327, 0.875, -29.9413)
 
 [node name="SpawnPoint4" type="Marker3D" parent="Spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1202, 0.875, -31.251)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5097, 0.875, -29.5628)
 
 [node name="SpawnPoint5" type="Marker3D" parent="Spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3076, 0.875, 32.8264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5805, 0.875, 32.314)
 
 [node name="SpawnPoint6" type="Marker3D" parent="Spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1711, 0.875, 30.6613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.444, 0.875, 30.1489)
 
 [node name="SpawnPoint7" type="Marker3D" parent="Spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.221, 0.875, 34.5575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4939, 0.875, 34.0451)
 
 [node name="SpawnPoint8" type="Marker3D" parent="Spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.338, 0.875, 49.2803)
@@ -584,27 +632,47 @@ collision_mask = 16
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameBounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6516, 3.26373, 11.6032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6516, 3.26373, 7.13307)
 shape = SubResource("BoxShape3D_fhrpv")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="GameBounds"]
-transform = Transform3D(0.818902, 0, 0.573934, 0, 1, 0, -0.573934, 0, 0.818902, -106.504, 4.0563, 53.5814)
+[node name="NegativeBounds" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7485, 4.975, 0)
+collision_layer = 16
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NegativeBounds"]
+transform = Transform3D(0.818902, 0, 0.573934, 0, 1, 0, -0.573934, 0, 0.818902, -93.1846, 4.0563, 72.5858)
 shape = SubResource("BoxShape3D_jd6ag")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="GameBounds"]
-transform = Transform3D(0.00811564, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00811564, -16.2484, 0.151947, 53.3025)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="NegativeBounds"]
+transform = Transform3D(0.00811564, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00811564, -16.0115, 0.151947, 82.4896)
 shape = SubResource("BoxShape3D_kqqee")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="GameBounds"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="NegativeBounds"]
+transform = Transform3D(0.00811564, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00811564, -44.0902, 0.151951, -71.083)
+shape = SubResource("BoxShape3D_kqqee")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="NegativeBounds"]
 transform = Transform3D(0.963673, 0, -0.267087, 0, 1, 0, 0.267087, 0, 0.963673, -99.9505, 4.13541, -7.80598)
 shape = SubResource("BoxShape3D_p82h0")
+
+[node name="Shack" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.187, -9.53674e-07, -12.4843)
+collision_layer = 16
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shack"]
+transform = Transform3D(0.79916, 0, -0.601118, 0, 1, 0, 0.601118, 0, 0.79916, 0, 0, 0)
+shape = SubResource("BoxShape3D_yy7ve")
 
 [node name="PrepTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
 [node name="CombatTimer" type="Timer" parent="."]
-wait_time = 90.0
+wait_time = 30.0
 one_shot = true
 
 [node name="BoundsTimer" type="Timer" parent="."]
@@ -724,6 +792,7 @@ light_specular = 2.0
 light_cull_mask = 4294966275
 shadow_enabled = true
 shadow_blur = 0.596
+omni_range = 10.0
 omni_attenuation = 0.435275
 
 [node name="ExtraLight" type="OmniLight3D" parent="Player/Neck/Head/MainCamera/Shotgun/MuzzleLight"]
@@ -1362,6 +1431,9 @@ isLocked = true
 needsKey = true
 neededkey = NodePath("../../Gas")
 
+[node name="Door" type="AudioStreamPlayer" parent="car/CarDoor"]
+stream = ExtResource("57_blhml")
+
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2maxx")
 volume_db = -25.171
@@ -1530,6 +1602,7 @@ collision_mask = 5
 [connection signal="visibility_changed" from="Player/Neck/Head/MainCamera/Shotgun" to="Player/Neck/Head/MainCamera/Shotgun" method="_on_visibility_changed"]
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
 [connection signal="timeout" from="Player/BlockTimer" to="Player" method="_on_block_timer_timeout"]
+[connection signal="finished" from="car/CarDoor/Door" to="car/CarDoor" method="_on_door_finished"]
 [connection signal="finished" from="ambience" to="." method="_on_ambience_finished"]
 [connection signal="finished" from="storm" to="." method="_on_storm_finished"]
 [connection signal="body_entered" from="EasterEgg" to="EasterEgg" method="_on_body_entered"]

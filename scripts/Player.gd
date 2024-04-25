@@ -93,13 +93,13 @@ func _ready():
 	weapons[Weapons.SHOTGUN] = $Neck/Head/MainCamera/Shotgun
 	items[Items.FLASHLIGHT] = $Neck/Head/MainCamera/Flashlight
 	%UI.update_ammo_count()
+	unlock_item(Items.FLASHLIGHT)
 	if Graphics.demo_mode:
 		add_ammo(Weapons.SHOTGUN, 24)
 		add_ammo(Weapons.PISTOL, 32)
 		health = 50
 		max_health = 50
 		%UI.health_bar.max_value = max_health
-		unlock_item(Items.FLASHLIGHT)
 	await get_tree().create_timer(0.5).timeout
 	%UI.show_tooltip("look")
 	dying = false
@@ -112,7 +112,7 @@ func _input(event):
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		# Clamp the camera's vertical rotation
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-88), deg_to_rad(88))
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 	if disabled: return
 	if event.is_action_pressed("fire"):
 		attack()

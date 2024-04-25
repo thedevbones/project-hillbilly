@@ -25,4 +25,11 @@ func action_used():
 func open_contain():
 	canInteract = false
 	isOpen = true
+	$Door.play()
+	%Player.dying = true
+
+
+func _on_door_finished():
+	%UI.fade_element(%UI.black_screen, "modulate", Color("ffffff", 1), 1.5)
+	await get_tree().create_timer(1.5).timeout
 	get_tree().change_scene_to_file("res://scenes/Ending.tscn")

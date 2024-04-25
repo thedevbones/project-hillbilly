@@ -1,6 +1,7 @@
 extends "res://scripts/EnemyBase.gd"
 
 @onready var health_bar = $BossUI/BossHealthBar
+var boss_level = 0
 
 var laugh_sounds = [
 	preload("res://audio/SFX/Enemy/Boss_evil_laugh.mp3"),
@@ -30,6 +31,7 @@ func _ready():
 	$boss/Armature/Armature_001/Skeleton3D.physical_bones_stop_simulation()
 
 func set_level(level):
+	boss_level = level
 	health = 60 * level
 	damage = 5 * level
 	adjust_ui()
@@ -51,8 +53,7 @@ func apply_damage(damage):
 	if hit_audio.is_playing(): hit_audio.play()
 	if health <= 0: 
 		die()
-		if is_instance_valid($/root/World/PickupKey):
-			$/root/World/PickupKey.global_transform.origin = global_transform.origin
+		if boss_level == 2: $/root/World/PickupKey.global_transform.origin = global_transform.origin
 		fade_ui(Color("ffffff", 0))
 
 func fade_ui(final_value):
