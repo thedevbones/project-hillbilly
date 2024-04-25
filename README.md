@@ -513,10 +513,10 @@
 
 **Diego**: "Update UI and debug issues with the Menu from Sprint 2"  
 - `Jira Task: Diego - fix buttons on the menus that are now acting up`  
-	- [FER-144](https://cs3398s24ferengi.atlassian.net/browse/FER-144),  
+	- [FER-144](https://cs3398s24ferengi.atlassian.net/browse/FER-144),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-144-fix-buttons-on-the-menus-that-ar)  
 - `Jira Task: Diego - Add a special font to the whole game`  
-	- [FER-145](https://cs3398s24ferengi.atlassian.net/browse/FER-145),  
+	- [FER-145](https://cs3398s24ferengi.atlassian.net/browse/FER-145),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-145-add-a-special-font-to-the-whole-game)  
 	
 ### Next Steps going forward  
@@ -532,6 +532,12 @@
 - 	Created a "good" ending cinematic.  
 -	Make impromenents to all current cinamatics.  
 -	Graduate from TXST.  
+
+**Diego:**	
+-	Locate file that is causing dependency issues which is causing the game to crash.  
+-	Update UI to whatever changes to the game are made.  
+-	Search for bugs that need to be fixed.  
+-	Allow the moon and sun to move as the day/levels progress.  
 
 <!-- Optional -->
 <!-- ## License -->
