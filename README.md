@@ -525,6 +525,12 @@
 -	Make impromenents to all current cinamatics.  
 -	Graduate from TXST.  
 
+**Gage:**	
+-	Remove unnecessary files from my blender models.  
+- 	Animate the boss with a chainsaw.  
+-	Work on creating level 2.  
+-	Create a puzzle for level 2.  
+
 <!-- Optional -->
 <!-- ## License -->
 <!-- This project is open source and available under the [... License](). -->
