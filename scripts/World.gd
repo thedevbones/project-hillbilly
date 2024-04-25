@@ -103,7 +103,7 @@ func prompt_upgrade():
 	# switch_state(GameState.PREPARATION)
 
 func adjust_demo_settings():
-	boss_wave = 3
+	boss_wave = 5
 	wave_spawn_mult = 10
 	# total_waves = 4
 
