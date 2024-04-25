@@ -53,7 +53,7 @@ func apply_damage(damage):
 	if hit_audio.is_playing(): hit_audio.play()
 	if health <= 0: 
 		die()
-		if boss_level > 1: $/root/World/PickupKey.global_transform.origin = global_transform.origin
+		if boss_level == 2: $/root/World/PickupKey.global_transform.origin = global_transform.origin
 		fade_ui(Color("ffffff", 0))
 
 func fade_ui(final_value):
