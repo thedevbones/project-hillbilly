@@ -509,16 +509,17 @@
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-157-combine-menus)
 - `Jira Task: Jordan - Final touches`
 	- [FER-158](https://cs3398s24ferengi.atlassian.net/browse/FER-158), 
-	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-158-final-touches)
+	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-158-final-touches)  
 
 **Diego**: "Update UI and debug issues with the Menu from Sprint 2"  
+
 - `Jira Task: Diego - fix buttons on the menus that are now acting up`  
-	- [FER-144](https://cs3398s24ferengi.atlassian.net/browse/FER-144),
+	- [FER-144](https://cs3398s24ferengi.atlassian.net/browse/FER-144), 
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-144-fix-buttons-on-the-menus-that-ar)  
 - `Jira Task: Diego - Add a special font to the whole game`  
-	- [FER-145](https://cs3398s24ferengi.atlassian.net/browse/FER-145),
+	- [FER-145](https://cs3398s24ferengi.atlassian.net/browse/FER-145), 
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-145-add-a-special-font-to-the-whole-game)  
-	
+
 ### Next Steps going forward  
 
 **Jacob:**	
