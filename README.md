@@ -519,6 +519,11 @@
 - 	Create more advanced enemy logic.  
 - 	Optimize code for better performance.  
 
+**Luis:**	
+-	Located and remove all unnessesary files to help reduce game size.  
+- 	Created a "good" ending cinematic.  
+-	Make impromenents to all current cinamatics.  
+-	Graduate from TXST.  
 
 <!-- Optional -->
 <!-- ## License -->
