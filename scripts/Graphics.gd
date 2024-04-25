@@ -4,7 +4,7 @@ var graphics: Environment
 var grass
 var player : CharacterBody3D 
 var grass_visible = true
-var demo_mode = true
+var demo_mode = false
 var bobbing = true
 var swaying = true
 var max_enemies = 20

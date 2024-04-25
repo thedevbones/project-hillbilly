@@ -2,7 +2,7 @@ extends Node3D
 
 enum GameState { GAME_START, IN_WAVE, PREPARATION, TIMEOUT, GAME_OVER }
 
-var total_waves = 10
+var total_waves = 50
 var current_state = GameState.GAME_START
 var current_wave = 0
 var enemies_alive = 0
@@ -56,7 +56,9 @@ func wave_completed():
 		switch_state(GameState.PREPARATION)
 
 func victory():
-	pass
+	%UI.fade_element(%UI.black_screen, "modulate", Color("ffffff", 1), 1.5)
+	await get_tree().create_timer(1.5).timeout
+	get_tree().change_scene_to_file("res://scenes/Ending.tscn")
 
 func _on_prep_timer_timeout():
 	switch_state(GameState.IN_WAVE)

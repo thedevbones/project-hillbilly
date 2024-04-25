@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://dpu8u0h73r1dy"]
+[gd_scene load_steps=118 format=3 uid="uid://dpu8u0h73r1dy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1ouke"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_3lw2b"]
@@ -62,6 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://bk38rh6a8nyoo" path="res://scenes/Flashlight.tscn" id="48_qmcav"]
 [ext_resource type="PackedScene" uid="uid://p6d4niymomrc" path="res://scenes/Grave.tscn" id="52_c0cv6"]
 [ext_resource type="PackedScene" uid="uid://51utbd5yt5wk" path="res://scenes/CarDoor.tscn" id="52_nfw6r"]
+[ext_resource type="AudioStream" uid="uid://bjx0uk2j24k3g" path="res://audio/SFX/Other/door_open.mp3" id="57_blhml"]
 [ext_resource type="PackedScene" uid="uid://cb0nc6t6dr5ph" path="res://scenes/health_bar.tscn" id="57_uqs6u"]
 [ext_resource type="PackedScene" uid="uid://dpcxawtw7u1jb" path="res://scenes/house_1.tscn" id="61_klq15"]
 [ext_resource type="PackedScene" uid="uid://18c2i8penbfy" path="res://scenes/house_3.tscn" id="62_r23w0"]
@@ -252,7 +253,7 @@ font_size = 11
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xlcod"]
 rough = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ur01y"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfjl5"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("19_sl67m")
@@ -287,7 +288,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_ur01y"),
+"material": SubResource("ShaderMaterial_lfjl5"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -411,6 +412,27 @@ theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 text = "Wave 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractPrompt" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -24.0
+offset_right = 62.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_civgt")
+theme_override_colors/font_color = Color(0.772549, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Press 'e' to interact"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -747,6 +769,7 @@ light_specular = 2.0
 light_cull_mask = 4294966275
 shadow_enabled = true
 shadow_blur = 0.596
+omni_range = 10.0
 omni_attenuation = 0.435275
 
 [node name="ExtraLight" type="OmniLight3D" parent="Player/Neck/Head/MainCamera/Shotgun/MuzzleLight"]
@@ -1385,6 +1408,9 @@ isLocked = true
 needsKey = true
 neededkey = NodePath("../../Gas")
 
+[node name="Door" type="AudioStreamPlayer" parent="car/CarDoor"]
+stream = ExtResource("57_blhml")
+
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2maxx")
 volume_db = -25.171
@@ -1553,6 +1579,7 @@ collision_mask = 5
 [connection signal="visibility_changed" from="Player/Neck/Head/MainCamera/Shotgun" to="Player/Neck/Head/MainCamera/Shotgun" method="_on_visibility_changed"]
 [connection signal="timeout" from="Player/StepTimer" to="Player" method="_on_step_timer_timeout"]
 [connection signal="timeout" from="Player/BlockTimer" to="Player" method="_on_block_timer_timeout"]
+[connection signal="finished" from="car/CarDoor/Door" to="car/CarDoor" method="_on_door_finished"]
 [connection signal="finished" from="ambience" to="." method="_on_ambience_finished"]
 [connection signal="finished" from="storm" to="." method="_on_storm_finished"]
 [connection signal="body_entered" from="EasterEgg" to="EasterEgg" method="_on_body_entered"]

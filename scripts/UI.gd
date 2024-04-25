@@ -9,11 +9,13 @@ extends Control
 @onready var health_bar = $HealthBar
 @onready var boss_bar = $BossHealthBar
 @onready var tooltip = $Tooltip
+@onready var interact = $InteractPrompt
 @onready var player = get_node_or_null("/root/World/Player")
 @onready var pickups_enabled = !Graphics.tutorials
 
 func _ready():
 	black_screen.show()
+	interact.hide()
 	crosshair.modulate = Color("ffffff", 0)
 	wave_count.modulate = Color("ffffff", 0)
 	upgrade_prompt.modulate = Color("ffffff", 0)
