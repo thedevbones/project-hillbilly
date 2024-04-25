@@ -546,6 +546,12 @@
 -	Release the game on itchmio  
 -	Add more weapons to the game  
 
+**Gage:**	
+-	Create and animate another enemy  
+-	Design and create more complex assets    
+-	Implement the puzzle new puzzle   
+-	Improve some assets  
+
 <!-- Optional -->
 <!-- ## License -->
 <!-- This project is open source and available under the [... License](). -->
