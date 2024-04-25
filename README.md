@@ -540,6 +540,12 @@
 -	Search for bugs that need to be fixed.  
 -	Allow the moon and sun to move as the day/levels progress.  
 
+**Jordan**	
+-	Optimize and refactor the game's code
+-	Refine all game mechanics
+-	Release the game on itchmio
+-	Add more weapons to the game
+
 <!-- Optional -->
 <!-- ## License -->
 <!-- This project is open source and available under the [... License](). -->
