@@ -92,6 +92,9 @@ func is_out_of_bounds(child):
 	if $Shack.get_overlapping_bodies().has(child): 
 		print("Enemy in shack! At " + str(int(pos.x)) + "," + str(int(pos.y)) + "," + str(int(pos.z)))
 		return true
+	if $NegativeBounds.get_overlapping_bodies().has(child): 
+		print("Enemy is out of bounds! At " + str(int(pos.x)) + "," + str(int(pos.y)) + "," + str(int(pos.z)))
+		return true
 	if not $GameBounds.get_overlapping_bodies().has(child): 
 		print("Enemy is out of bounds! At " + str(int(pos.x)) + "," + str(int(pos.y)) + "," + str(int(pos.z)))
 		return true

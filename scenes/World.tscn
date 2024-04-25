@@ -111,13 +111,13 @@ corner_radius_bottom_left = 1024
 [sub_resource type="Environment" id="Environment_t0ccy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fhrpv"]
-size = Vector3(90.0591, 16.5275, 77.4003)
+size = Vector3(90.0591, 16.5275, 86.3406)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jd6ag"]
-size = Vector3(48.4336, 22.7759, 56.3179)
+size = Vector3(48.4336, 22.7759, 102.732)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqqee"]
-size = Vector3(10.7167, 15.7569, 60.9149)
+size = Vector3(69.0928, 15.7569, 143.645)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p82h0"]
 size = Vector3(10.5508, 18.3637, 82.0918)
@@ -632,18 +632,28 @@ collision_mask = 16
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameBounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6516, 3.26373, 11.6032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6516, 3.26373, 7.13307)
 shape = SubResource("BoxShape3D_fhrpv")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="GameBounds"]
-transform = Transform3D(0.818902, 0, 0.573934, 0, 1, 0, -0.573934, 0, 0.818902, -106.504, 4.0563, 53.5814)
+[node name="NegativeBounds" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7485, 4.975, 0)
+collision_layer = 16
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NegativeBounds"]
+transform = Transform3D(0.818902, 0, 0.573934, 0, 1, 0, -0.573934, 0, 0.818902, -93.1846, 4.0563, 72.5858)
 shape = SubResource("BoxShape3D_jd6ag")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="GameBounds"]
-transform = Transform3D(0.00811564, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00811564, -16.2484, 0.151947, 53.3025)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="NegativeBounds"]
+transform = Transform3D(0.00811564, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00811564, -16.0115, 0.151947, 82.4896)
 shape = SubResource("BoxShape3D_kqqee")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="GameBounds"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="NegativeBounds"]
+transform = Transform3D(0.00811564, 0, -0.999967, 0, 1, 0, 0.999967, 0, 0.00811564, -44.0902, 0.151951, -71.083)
+shape = SubResource("BoxShape3D_kqqee")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="NegativeBounds"]
 transform = Transform3D(0.963673, 0, -0.267087, 0, 1, 0, 0.267087, 0, 0.963673, -99.9505, 4.13541, -7.80598)
 shape = SubResource("BoxShape3D_p82h0")
 
