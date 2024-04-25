@@ -541,10 +541,10 @@
 -	Allow the moon and sun to move as the day/levels progress.  
 
 **Jordan**	
--	Optimize and refactor the game's code
--	Refine all game mechanics
--	Release the game on itchmio
--	Add more weapons to the game
+-	Optimize and refactor the game's code  
+-	Refine all game mechanics  
+-	Release the game on itchmio  
+-	Add more weapons to the game  
 
 <!-- Optional -->
 <!-- ## License -->
