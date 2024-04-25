@@ -2,7 +2,7 @@ extends Node3D
 
 enum GameState { GAME_START, IN_WAVE, PREPARATION, TIMEOUT, GAME_OVER }
 
-var total_waves = 50
+var total_waves = 100
 var current_state = GameState.GAME_START
 var current_wave = 0
 var enemies_alive = 0
@@ -47,7 +47,8 @@ func start_wave():
 	print("Spawned " + str(enemies_alive) + " enemies")
 
 func wave_completed():
-	if %Player.health < 10: %Player.health = min(%Player.health + 3, 10)
+	%Player.max_healh += 2
+	if %Player.health < %Player.max_healh: %Player.health = min(%Player.health + 3, %Player.max_healh)
 	if current_wave == total_waves:
 		victory()
 	elif current_wave % boss_wave == 0 or current_wave == 2:
