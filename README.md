@@ -380,7 +380,7 @@
 
 #### Contributions 
 
-**Luis**: "Create an engaging and visualty pleasing animations and cinematics"
+**Luis**: "Create an engaging and visualy pleasing animations and cinematics"
 
 - `Jira Task: Luis - Implement a moving car in main menu` 
 	- [FER-76](https://cs3398s24ferengi.atlassian.net/browse/FER-76),
