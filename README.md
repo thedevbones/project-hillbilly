@@ -414,10 +414,10 @@
 
 **Jacob**: "Create feedback to in game player actions"
 
-- `Jira Task: Jacob - Created animation for hit enemies
+- `Jira Task: Jacob - Created animation for hit enemies`
 	- [FER-125](https://cs3398s24ferengi.atlassian.net/browse/FER-125),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-125-Create-animation-for-hit-Enemies)
-- `Jira Task: Jacob - Created alt textures for enemies
+- `Jira Task: Jacob - Created alt textures for enemies`
 	- [FER-126](https://cs3398s24ferengi.atlassian.net/browse/FER-126),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-126-Create-alt-textures-for-Enemies)
 - `Jira Task: Jacob - Make enemy behavior dynamic based on players location` 
@@ -426,13 +426,13 @@
 - `Jira Task: Jacob - Add particle animations to defeated enemy` 
 	- [FER-128](https://cs3398s24ferengi.atlassian.net/browse/FER-128),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-128-Add-particle-animations-to-defeated-enemy)
-- `Jira Task: Jacob - Create interactive boxes
+- `Jira Task: Jacob - Create interactive boxes`
 	- [FER-154](https://cs3398s24ferengi.atlassian.net/browse/FER-154),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-154-Create-interactive-boxes)
-- `Jira Task: Jacob - Update world map
+- `Jira Task: Jacob - Update world map`
 	- [FER-155](https://cs3398s24ferengi.atlassian.net/browse/FER-155),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-155-Update-world-map)
-- `Jira Task: Jacob - Debug and fix bugs 
+- `Jira Task: Jacob - Debug and fix bugs` 
 	- [FER-156](https://cs3398s24ferengi.atlassian.net/browse/FER-156),
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-156-Debug)
 
