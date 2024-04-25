@@ -510,6 +510,16 @@
 - `Jira Task: Jordan - Final touches`
 	- [FER-158](https://cs3398s24ferengi.atlassian.net/browse/FER-158), 
 	[Bitbucket commit](https://bitbucket.org/cs3398s24ferengi/horror-game/commits/branch/FER-158-final-touches)
+	
+### Next Steps going forward  
+
+**Jacob:**	
+-	Search for bugs and fix them.  
+- 	Start creation of level 2.  
+- 	Create more advanced enemy logic.  
+- 	Optimize code for better performance.  
+
+
 <!-- Optional -->
 <!-- ## License -->
 <!-- This project is open source and available under the [... License](). -->
